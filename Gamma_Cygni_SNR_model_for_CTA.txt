@@ -3,14 +3,15 @@ This SNR was detected in gamma rays by Fermi-LAT and VERITAS.
 Above 100 MeV the region is completely dominated by the emission from the PSR J2021+4026,
 that shows a bright cut-off at E ~ 2.4 GeV.
 According to Ackermann et. al, 2017 (ApJ 843,39), Fermi-LAT detected emission above 10 GeV from the whole extent of the
-radio emitting sincrotron shell (~1 deg diamater). Thus, by observing the TS map of the region, most of the
-emission come from the North-Western rim of the shell, where the TeV source, VER J2019+407, is located.
+radio emitting sincrotron shell (~1 deg diamater). Nevertheless, by observing the TS map of the region, most of the
+emission comes from the North-Western rim of the shell, where the TeV source, VER J2019+407, is located.
 
-My hypothesis is that CTA will detect emission from the whole disk of the SNR.
+My hypothesis is that CTA will detect (above 100 GeV) emission from the whole shell of the SNR,
+with a morphology very similar to the one detected by Fermi-LAT above 10 GeV.
 I assumed, as spectral model, a broken power-law that is based on the VERITAS spectrum and the Fermi-LAT spectrum
 from the whole SNR disk. The spectra have been published in a recent VERITAS paper, Abeysekara et al., 2018 (ApJ 861, 134).
 
-The hypothesis on spectral and morphological models have been discussed with L. Tibaldo and A. Giuliani.
+The hypothesis on spectral and morphological models has been discussed with L. Tibaldo and A. Giuliani.
 
 ==== CTA SIMULATION (ctools) ====
 
