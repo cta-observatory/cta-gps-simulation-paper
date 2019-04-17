@@ -1,0 +1,31 @@
+I tried to find a spectral and morphological model for the SNR Gamma Cygni with CTA.
+This SNR was detected in gamma rays by Fermi-LAT and VERITAS.
+Above 100 MeV the region is completely dominated by the emission from the PSR J2021+4026,
+that shows a bright cut-off at E ~ 2.4 GeV.
+According to Ackermann et. al, 2017 (ApJ 843,39), Fermi-LAT detected emission above 10 GeV from the whole extent of the
+radio emitting sincrotron shell (~1 deg diamater). Thus, by observing the TS map of the region, most of the
+emission come from the North-Western rim of the shell, where the TeV source, VER J2019+407, is located.
+
+My hypothesis is that CTA will detect emission from the whole disk of the SNR.
+I assumed, as spectral model, a broken power-law that is based on the VERITAS spectrum and the Fermi-LAT spectrum
+from the whole SNR disk. The spectra have been published in a recent VERITAS paper, Abeysekara et al., 2018 (ApJ 861, 134).
+
+The hypothesis on spectral and morphological models have been discussed with L. Tibaldo and A. Giuliani.
+
+==== CTA SIMULATION (ctools) ====
+
+The spectral model is shown in figure gammacygni.png (cyan curve). The input xml file is ...
+
+The morphological model was estracted from the TS Fermi-LAT map above 10 GeV of the region, for TS values greater than 36.
+
+Figure ... shows (from left to right) the radio syncrothron shell, the Fermi-LAT TS map (TS > 36) and the CTA map 
+pbtained with ctamapcube (0.1 - 100 TeV). All the images were obtained with a 3-pixel Gaussian smoothing.
+
+I simulated 50h with CTA North. The file gamma_cygni_commands_fermi_template.txt reports the complete set of commands 
+that I gave to ctools to carry out the analysis.
+
+IRF: North_z20_average_50h
+calibration database: prod3b-v1
+binned analysis: 12 energy bins with energy dispersion
+single source analysis (long computing time required)
+TS = 6414.311
