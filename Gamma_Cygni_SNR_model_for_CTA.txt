@@ -18,7 +18,8 @@ The spectral model is shown in figure gammacygni.png (cyan curve). The input xml
 
 The morphological model was estracted from the TS Fermi-LAT map above 10 GeV of the region, for TS values greater than 36.
 
-Figure GammaCygni_radio_fermi_CTA.png shows (from left to right) the radio syncrothron shell, the Fermi-LAT TS map (TS > 36) and the CTA map obtained with ctamapcube (0.1 - 100 TeV). All the images were obtained with a 3-pixel Gaussian smoothing.
+Figure GammaCygni_radio_fermi_CTA.png shows (from left to right) the radio syncrothron shell, the Fermi-LAT TS map (TS > 36) 
+and the CTA map obtained with ctamapcube (0.1 - 100 TeV). All the images were obtained with a 3-pixel Gaussian smoothing.
 
 I simulated 50h with CTA North. The file gamma_cygni_commands_fermi_template.txt reports the complete set of commands 
 that I gave to ctools to carry out the analysis.
