@@ -1,0 +1,131 @@
+ctmapcube 
+Input model definition XML file [gammacygni_gaussian.xml] gammacygni.xml
+Algorithm for defining energy bins (FILE|LIN|LOG) [LOG] 
+Lower energy limit (TeV) [0.1] 
+Upper energy limit (TeV) [100.0] 
+Number of energy bins (1-200) [1] 
+First coordinate of image center in degrees (RA or galactic l) (0-360) [78.1781438] 
+Second coordinate of image center in degrees (DEC or galactic b) (-90-90) [2.1087563] 
+Projection method (AIT|AZP|CAR|GLS|MER|MOL|SFL|SIN|STG|TAN) [CAR] 
+Coordinate system (CEL - celestial, GAL - galactic) (CEL|GAL) [GAL] 
+Image scale (in degrees/pixel) [0.02] 
+Size of the X axis in pixels [200] 
+Size of the Y axis in pixels [200] 
+Output map cube file [GammaCygni_50h_edisp_MAPCUBE_GAL.fits]
+
+ctobssim edisp=yes
+RA of pointing (degrees) (0-360) [305.3184500] 
+Dec of pointing (degrees) (-90-90) [40.4185036] 
+Radius of FOV (degrees) (0-180) [5.0] 
+Start time (UTC string, JD, MJD or MET in seconds) [0] 
+Stop time (UTC string, JD, MJD or MET in seconds) [180000] 
+Lower energy limit (TeV) [0.1] 
+Upper energy limit (TeV) [100.0] 
+Calibration database [prod3b-v1] 
+Instrument response function [North_z20_average_50h] 
+Input model definition XML file [gammacygni.xml] 
+Output event data file or observation definition XML file [GammaCygni_50h_edisp_EVT.fits]
+
+ctselect
+Input event list or observation definition XML file [GammaCygni_50h_edisp_EVT.fits] 
+RA for ROI centre (degrees) (0-360) [305.3184500] 
+Dec for ROI centre (degrees) (-90-90) [40.4185036] 
+Radius of ROI (degrees) (0-180) [5.0] 
+Start time (UTC string, JD, MJD or MET in seconds) [0] 
+Stop time (UTC string, JD, MJD or MET in seconds) [180000] 
+Lower energy limit (TeV) [0.1] 
+Upper energy limit (TeV) [100.0] 
+Output event list or observation definition XML file [GammaCygni_50h_edisp_EVT_SELECTED.fits]
+
+ctskymap 
+Input event list or observation definition XML file [GammaCygni_50h_edisp_EVT_SELECTED.fits] 
+First coordinate of image center in degrees (RA or galactic l) (0-360) [78.1781438] 
+Second coordinate of image center in degrees (DEC or galactic b) (-90-90) [2.1087563] 
+Projection method (AIT|AZP|CAR|GLS|MER|MOL|SFL|SIN|STG|TAN) [CAR] 
+Coordinate system (CEL - celestial, GAL - galactic) (CEL|GAL) [GAL] 
+Image scale (in degrees/pixel) [0.02] 
+Size of the X axis in pixels [500] 
+Size of the Y axis in pixels [500] 
+Lower energy limit (TeV) [0.1] 
+Upper energy limit (TeV) [100.0] 
+Background subtraction method (NONE|IRF|RING) [NONE] 
+Output skymap file [GammaCygni_50h_edisp_SELECT_SKYMAP_GAL.fits]
+
+
+%%%%%%%%%%%% UNBINNED ANALYSIS %%%%%%%%%%%%
+
+
+
+
+
+ctbin 
+Input event list or observation definition XML file [Crab_50h_93600s_edisp_EVT_selected.fits] GammaCygni_50h_edisp_EVT_SELECTED.fits
+First coordinate of image center in degrees (RA or galactic l) (0-360) [83.633080] 78.1781438
+Second coordinate of image center in degrees (DEC or galactic b) (-90-90) [22.014500] 2.1087563
+Projection method (AIT|AZP|CAR|GLS|MER|MOL|SFL|SIN|STG|TAN) [CAR] 
+Coordinate system (CEL - celestial, GAL - galactic) (CEL|GAL) [CEL] GAL
+Image scale (in degrees/pixel) [0.02] 
+Size of the X axis in pixels [200] 500
+Size of the Y axis in pixels [200] 500
+Algorithm for defining energy bins (FILE|LIN|LOG) [LOG] 
+Lower energy limit (TeV) [0.631] 0.1
+Upper energy limit (TeV) [199] 100.
+Number of energy bins (1-200) [14] 12
+Output counts cube file [Crab_50h_93600s_14bin_edisp_CNTCUBE.fits] GammaCygni_50h_edisp_CNTCUBE.fits
+
+ctexpcube 
+Input event list or observation definition XML file [Cyg_X1_model_5h_EVT_selected.fits] GammaCygni_50h_edisp_EVT_SELECTED.fits
+Calibration database [prod3b-v1] 
+Instrument response function [North_z20_average_5h] North_z20_average_50h
+Input counts cube file to extract exposure cube definition [Cyg_X1_model_5h_10bin_CNTCUBE.fits] GammaCygni_50h_edisp_CNTCUBE.fits
+Output exposure cube file [Cyg_X1_model_5h_10bin_EXPCUBE.fits] GammaCygni_50h_edisp_EXPCUBE.fits
+
+ctpsfcube 
+Input event list or observation definition XML file [GammaCygni_50h_edisp_EVT_SELECTED.fits] 
+Calibration database [prod3b-v1] 
+Instrument response function [North_z20_average_50h] 
+Input counts cube file to extract PSF cube definition [GammaCygni_50h_edisp_CNTCUBE.fits] 
+Output PSF cube file [GammaCygni_50h_edisp_PSFCUBE.fits]
+
+ctbkgcube 
+Input event list or observation definition XML file [Cyg_X1_model_5h_EVT_selected.fits] GammaCygni_50h_edisp_EVT_SELECTED.fits
+Calibration database [prod3b-v1] 
+Instrument response function [North_z20_average_5h] North_z20_average_50h
+Input counts cube file to extract background cube definition [Cyg_X1_model_5h_10bin_CNTCUBE.fits] GammaCygni_50h_edisp_CNTCUBE.fits
+Input model definition XML file [Cyg_X1_model.xml] gammacygni.xml
+Output background cube file [Cyg_X1_model_5h_10bin_BKGCUBE.fits] GammaCygni_50h_edisp_BKGCUBE.fits
+Output model definition XML file [Cyg_X1_model_5h_10bin_bkg.xml] GammaCygni_50h_edisp_bkg.xml
+
+ctedispcube 
+Input event list or observation definition XML file [Cyg_X1_model_5h_EVT_selected.fits] GammaCygni_50h_edisp_EVT_SELECTED.fits
+Calibration database [prod3b-v1] 
+Instrument response function [North_z20_average_5h] North_z20_average_50h
+Input counts cube file to extract energy dispersion cube definition [Cyg_X1_model_5h_10bin_CNTCUBE.fits] GammaCygni_50h_edisp_CNTCUBE.fits
+Output energy dispersion cube file [Cyg_X1_model_5h_10bin_EDISPCUBE.fits] GammaCygni_50h_edisp_EDISPCUBE.fits
+
+csspec edisp=yes
+Input event list, counts cube, or observation definition XML file [GammaCygni_50h_edisp_CNTCUBE.fits] 
+Input exposure cube file [GammaCygni_50h_edisp_EXPCUBE.fits] 
+Input PSF cube file [GammaCygni_50h_edisp_PSFCUBE.fits] 
+Input energy dispersion cube file [GammaCygni_50h_edisp_EDISPCUBE.fits] 
+Input background cube file [GammaCygni_50h_edisp_BKGCUBE.fits] 
+Input model definition XML file [GammaCygni_50h_edisp_bkg.xml] 
+Source name [GammaCygni] 
+Spectrum generation method (SLICE|NODES|AUTO) [AUTO] 
+Algorithm for defining energy bins (FILE|LIN|LOG) [LOG] 
+Start value for first energy bin in TeV [0.1] 
+Stop value for last energy bin in TeV [100.] 
+Number of energy bins (1-200) [14] 6
+Output spectrum file [GammaCygni_50h_edisp_14to7bin_spectrum.fits] GammaCygni_50h_edisp_12to6bin_spectrum.fits
+
+$CTOOLS/share/examples/python/show_spectrum.py GammaCygni_50h_edisp_12to6bin_spectrum.fits
+
+ctlike edisp=yes
+Input event list, counts cube or observation definition XML file [GammaCygni_50h_edisp_EVT_SELECTED.fits] GammaCygni_50h_edisp_CNTCUBE.fits
+Input exposure cube file [Cyg_X1_model_50h_10bin_EXPCUBE.fits] GammaCygni_50h_edisp_EXPCUBE.fits
+Input PSF cube file [Cyg_X1_model_50h_10bin_PSFCUBE.fits] GammaCygni_50h_edisp_PSFCUBE.fits
+Input energy dispersion cube file [Cyg_X1_model_50h_10bin_EDISPCUBE.fits] GammaCygni_50h_edisp_EDISPCUBE.fits
+Input background cube file [Cyg_X1_model_50h_10bin_BKGCUBE.fits] GammaCygni_50h_edisp_BKGCUBE.fits
+Input model definition XML file [gammacygni.xml] GammaCygni_50h_edisp_bkg.xml
+Output model definition XML file [GammaCygni_50h_edisp_results.xml] GammaCygni_50h_edisp_12bin_results.xml
+
