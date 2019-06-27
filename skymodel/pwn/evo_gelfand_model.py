@@ -461,7 +461,7 @@ def Evo_pwn(t, l0, e0, mej2, nn, eta, t0, dens, Tfir, Ufir, Tnir, Unir, R_rs, v_
     t00 = 1e-5 #year
     r00 = 1.44 * ((((l0**2)*(e0**3))/(mej2**5))**0.1) * ((t00 * gp.yr_to_sec)**(6/5)) #cm
     v00 = 1.2 * r00/(t00 * gp.yr_to_sec) #cm/s
-    lt00 = spin_down_lum(l0, t0, t00, nn)
+    lt00 = (1-eta) * spin_down_lum(l0, t0, t00, nn)
     b00 = np.sqrt((gp.yr_to_sec*eta*6./(np.array(r00)**4)) * np.trapz(y=spin_down_lum(l0, t0, np.array([0,t00]), nn)*r00,x=np.array([0,t00])))
     emax00 = p_emax(eps, eta, l0, t0, t00, nn, b00)
     #Initial condition - First step - see APPENDIX B Gelfand et al. 2009
@@ -501,7 +501,7 @@ def Evo_pwn(t, l0, e0, mej2, nn, eta, t0, dens, Tfir, Ufir, Tnir, Unir, R_rs, v_
         r = r0 + (v0 * ((t[i]-t[i-1])*gp.yr_to_sec)) #Calculate new radius considering velocity at t-1
         R.append(np.copy(r))
         dens_ejecta.append(dens_ej(rr(r/gp.pc_to_cm), R_snr[i], R_rs[i], t[i], e0, mej2, dens)[-1]) #density of SNR ejecta at R_pwn
-        LT.append(spin_down_lum(l0, t0, t[i], nn)) #spin down lum at time t[i]
+        LT.append((1-eta) * spin_down_lum(l0, t0, t[i], nn)) #spin down lum at time t[i]
         b = np.sqrt((gp.yr_to_sec*eta*6./(np.array(R)**4)) * np.concatenate(([0],  cumtrapz((LT*np.array(R)), x=t[:i+1])))) #mag field at t[i]
         B.append(np.float64(np.copy(b[-1])))
         EMAX.append(p_emax(eps, eta, l0, t0, t[i], nn, B[-1])) #maximum electron energy at t[i]
@@ -558,6 +558,6 @@ def Evo_pwn(t, l0, e0, mej2, nn, eta, t0, dens, Tfir, Ufir, Tnir, Unir, R_rs, v_
         v0 = np.copy(v)
         M_sw0 = np.copy(M_sw)
         f0 = np.copy(f)
-        print('electron energy(TeV), Lum(erg/s)',(EMAX[-1]/gp.TeV_to_erg), LT[-1])
+        print('electron energy(TeV), Lum(erg/s)',(EMAX[-1]/gp.TeV_to_erg), LT[-1]/(1-eta))
         del r, b, v, M_sw, f
     return np.array(R)/gp.pc_to_cm, np.array(V), np.array(VEJ), np.array(LT), np.array(B), np.array(M), np.array(EMAX), SED, np.array(P), np.array(F), np.array(E), np.array(dens_ejecta)
