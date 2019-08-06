@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<source_library title="source library">
+  <source name="NE" type="DiffuseSource">
+    <spectrum type="PowerLaw">
+      <parameter name="Prefactor" value="8.96488840012836e-23" error="0" scale="1" min="0" free="1" />
+      <parameter name="Index" value="1" error="0" scale="2.35" min="-4.25531914893617" max="4.25531914893617" free="1" />
+      <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
+    </spectrum>
+    <spatialModel type="DiffuseMap" file="maps/SN1006_NE_smooth.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
+    </spatialModel>
+  </source>
+  <source name="SW" type="DiffuseSource">
+    <spectrum type="PowerLaw">
+      <parameter name="Prefactor" value="6.89042534337873e-23" error="0" scale="1" min="0" free="1" />
+      <parameter name="Index" value="1" error="0" scale="2.29" min="-4.36681222707424" max="4.36681222707424" free="1" />
+      <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
+    </spectrum>
+    <spatialModel type="DiffuseMap" file="maps/SN1006_SW_smooth.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
+    </spatialModel>
+  </source>
+</source_library>
