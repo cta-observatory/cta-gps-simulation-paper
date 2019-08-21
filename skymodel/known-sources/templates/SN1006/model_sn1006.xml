@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--XML model for SN 1006
+based on data from HESS
+Acero, F. et al., 2010 2010A&A...516A..62A
+
+DiffuseMaps from XMM-Newton smoothed map
+-->
 <source_library title="source library">
   <source name="NE" type="DiffuseSource">
     <spectrum type="PowerLaw">
