@@ -14,8 +14,8 @@ in_hdu = 1
 
 # input spectrum
 # smoothly broken power law
-index1 = 2.212
-index2 = 2.941
+index1 = -2.212
+index2 = -2.941
 ebreak = gammalib.GEnergy(5.82e1, 'GeV')
 eref = gammalib.GEnergy(10, 'GeV')
 beta = 0.1  # smoothness parameter
