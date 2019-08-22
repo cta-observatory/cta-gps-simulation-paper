@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<!-- maps and spectrum from 1DC -->
+<source_library name="source library">
+	<source name="PuppisA" type="DiffuseSource">
+        <spectrum type="ExponentialCutoffPowerLaw">
+            <parameter name="Prefactor" scale="1e-11" value="9.18" min="1e-07" max="1000.0" free="1"/>
+            <parameter name="Index" scale="-1" value="2.09" min="0.0" max="+5.0" free="1"/>
+            <parameter name="PivotEnergy" scale="1e2" value="2.0" min="0.01" max="1000.0" free="0"/>
+            <parameter name="CutoffEnergy" scale="1e3" value="200.0" min="0.01" max="1000.0" free="1"/>
+        </spectrum>
+        <spatialModel type="DiffuseMap" file="puppisa_map.fits">
+            <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0"/>
+        </spatialModel>
+    </source>
+</source_library>
