@@ -1,7 +1,8 @@
 Sources modelled by dedicated templates
 
-The file templates.dat contains the list of sources modelled using templates. Each source must be identified trhough gammacat id
-The source names in the file templates dat are identical to the templated file names.
+The file templates.dat contains the list of sources modelled using templates. Each source must be identified trhough gammacat id.
+
+The source names in the file templates.dat are identical to the corresponding template file names.
 
 The formalism for the template of a given source is:
 
