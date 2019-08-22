@@ -4,3 +4,4 @@ The file templates.dat contains the list of sources modelled using templates. Ea
 
 hello
 
+hello 2
