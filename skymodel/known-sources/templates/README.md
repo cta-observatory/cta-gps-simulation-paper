@@ -1,1 +1,3 @@
 Sources modelled by dedicated templates
+
+The file templates.dat contains the list of sources modelled using templates. Each source must be identified trhough gammacat id ...
