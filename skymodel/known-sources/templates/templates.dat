@@ -1,10 +1,10 @@
 # name, gamma-cat id
-IC 443, 29
-Gamma Cygni, 144
-Vela X, 37
-W 28, 112
-Puppis A, NONE
-Vela Jr, 39
-HESS J1800-240A, 111
-HESS J1800-240B, 156
-HESS J1800-240C, NONE
+ic443, 29
+gammacygni, 144
+velax, 37
+w28, 112
+puppisa, NONE
+velajr, 39
+hess_j1800-240a, 111
+hess_j1800-240b, 156
+hess_j1800-240c, NONE

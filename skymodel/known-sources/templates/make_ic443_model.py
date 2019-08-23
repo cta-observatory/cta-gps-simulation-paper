@@ -23,8 +23,8 @@ flux = 11.05e-12  # ph cm-2 s-1
 flux_ethresh = gammalib.GEnergy(200., 'GeV')
 
 # output files
-out_fits = 'map_ic443.fits'
-out_xml = 'model_ic443.xml'
+out_fits = 'ic443_map.fits'
+out_xml = 'ic443.xml'
 
 ###############################################################
 
