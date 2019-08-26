@@ -8,7 +8,7 @@
             <parameter name="PivotEnergy" scale="1e6" value="1.0" min="0.01" max="1000.0" free="0"/>
             <parameter name="CutoffEnergy" scale="1e6" value="6.6" min="0.01" max="1000.0" free="1"/>
         </spectrum>
-        <spatialModel type="DiffuseMap" file="VelaJr_map.fits">
+        <spatialModel type="DiffuseMap" file="velajr_map.fits">
             <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0"/>
         </spatialModel>
     </source>

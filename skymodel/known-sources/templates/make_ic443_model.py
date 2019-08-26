@@ -14,8 +14,8 @@ in_hdu = 1
 
 # input spectrum
 # smoothly broken power law
-index1 = 2.212
-index2 = 2.941
+index1 = -2.212
+index2 = -2.941
 ebreak = gammalib.GEnergy(5.82e1, 'GeV')
 eref = gammalib.GEnergy(10, 'GeV')
 beta = 0.1  # smoothness parameter
@@ -23,8 +23,8 @@ flux = 11.05e-12  # ph cm-2 s-1
 flux_ethresh = gammalib.GEnergy(200., 'GeV')
 
 # output files
-out_fits = 'map_ic443.fits'
-out_xml = 'model_ic443.xml'
+out_fits = 'ic443_map.fits'
+out_xml = 'ic443.xml'
 
 ###############################################################
 
