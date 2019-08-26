@@ -12,7 +12,7 @@ DiffuseMaps from XMM-Newton smoothed map
       <parameter name="Index" value="2.35" scale="-1." min="-10." max="10." free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
-    <spatialModel type="DiffuseMap" file="maps/SN1006_NE_smooth.fits">
+    <spatialModel type="DiffuseMap" file="sn1006_src1_map.fits">
       <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
@@ -22,7 +22,7 @@ DiffuseMaps from XMM-Newton smoothed map
       <parameter name="Index" value="2.29" scale="-1" min="-10" max="10" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
-    <spatialModel type="DiffuseMap" file="maps/SN1006_SW_smooth.fits">
+    <spatialModel type="DiffuseMap" file="sn1006_src2_map.fits">
       <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
