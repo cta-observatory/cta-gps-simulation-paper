@@ -1,4 +1,5 @@
 import gammalib
+import pdb
 
 def format_ax(ax):
     for tick in ax.xaxis.get_major_ticks():
@@ -19,7 +20,14 @@ def dist_from_gammalib(models):
     emin = gammalib.GEnergy(1.,'TeV')
     emax = gammalib.GEnergy(1000,'TeV')
     for model in models:
-        src_dir = model.spatial().dir()
+        type = model.spatial().type()
+        if type == 'DiffuseMap':
+            # retrieve source direction from map, use mid pixel as approximation
+            dmap = model.spatial().map()
+            src_dir = dmap.inx2dir(int(dmap.npix()/2))
+        else:
+            # retrieve direction from analytical model
+            src_dir = model.spatial().dir()
         lons.append(src_dir.l_deg())
         lats.append(src_dir.b_deg())
         flux = model.spectral().flux(emin,emax)

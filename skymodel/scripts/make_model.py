@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from gammapy.catalog import SourceCatalogGammaCat
 from utils import *
+import os
 
 # inputs from external sources
 gammacat_file = '/Users/ltibaldo/Software/GitHub/gamma-cat/output/gammacat.fits.gz'
@@ -45,7 +46,7 @@ gammacat = SourceCatalogGammaCat(gammacat_file).table
 for source in gammacat:
     # retain only sources with known spectral model
     # and centered within 10 degrees from the galactic pla
-    if not source['spec_type'] == 'none' and (np.abs(source['glat']) < 10.):
+    if not source['spec_type'] == 'none' and (np.abs(source['glat']) <= 10.):
         skip = False
         # retrieve source spatial model
         # source direction
@@ -83,6 +84,8 @@ for source in gammacat:
                     spatial = gammalib.GModelSpatialEllipticalGauss(src_dir, sigma, sigma2, pa)
                 elif source['morph_pa_frame'] == 'galactic':
                     # need to implement!!!
+                    sigma2 = np.double(source['morph_sigma2'])
+                    pa = np.double(source['morph_pa'])
                     spatial = gammalib.GModelSpatialEllipticalGauss(src_dir, sigma, sigma2, pa)
                 else:
                     print(
@@ -189,6 +192,46 @@ ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
          label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
 
 # add templates
+
+# read template list
+template_list = open('../known-sources/templates/templates.dat').readlines()
+
+replaced = 0
+added = 0
+for template in template_list[1:]: # skip first row = header
+    name, id = template.split(',')
+    if 'NONE' in id:
+        # source not included in gammacat, pass
+        added += 1
+    else:
+        id = int(id)
+        # if source included in gammacat with spectral information, remove gammacat model
+        source = gammacat[gammacat['source_id']==id][0]
+        if source['spec_type'] == 'none' or np.abs(source['glat']) > 10:
+            added +=1
+        else:
+            models.remove(source['common_name'])
+            replaced += 1
+    # add templates
+    models_template = gammalib.GModels('../known-sources/templates/{}.xml'.format(name))
+    for model in models_template:
+        models.append(model)
+    # copy FITS id maps to output repository
+    #os.system('cp ../known-sources/templates/{}*_map.fits ../output/'.format(name))
+
+print('Replaced {} gamma-cat sources with templates. Added {} sources as templates'.format(replaced,added))
+
+# re-make distributions from gammalib model container
+lons, lats, fluxes = dist_from_gammalib(models)
+# change lon range from 0...360 to -180...180
+lons = np.array(lons)
+lons[lons > 180] = lons[lons > 180] - 360.
+ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
+ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
+         label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
+ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
+         label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
 
 # add binaries
 
