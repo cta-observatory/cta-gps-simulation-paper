@@ -49,11 +49,20 @@ for source in gammacat:
                     # need to implement!!!
                     pass
                 else:
-                    print('WARNING: source {} from gamma-cat has spatial model frame of type {} which is not implemented'.format(
+                    print('WARNING: elliptical source {} from gamma-cat has spatial model frame of type {} which is not implemented'.format(
                             source['common_name'], source['morph_pa_frame']))
                     skip = True
         elif source['morph_type'] == 'shell':
-            pass
+            if np.isnan(source['morph_sigma2']):
+                # only average radius known, assume with of shell is 30% of radius
+                rad = np.double(source['morph_sigma'])
+                r_inner = rad * 0.85
+                width = 0.3 * rad
+            else:
+                r_inner = np.double(source['morph_sigma'])
+                r_outer = np.double(source['morph_sigma2'])
+                width = r_outer - r_inner
+            spatial = gammalib.GModelSpatialRadialShell(src_dir,r_inner,width)
         else:
             print(
                 'WARNING: source {} from gamma-cat has spatial model of type {} which is not implemented'.format(
