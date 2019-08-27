@@ -118,12 +118,14 @@ for source in gammacat:
                 flux = source['spec_pl2_flux']
                 emin = source['spec_pl2_e_min']
                 emax = source['spec_pl2_e_max']
+                if np.isnan(emax):
+                    emax = 1.e6
                 # for sources modeled by PL2 take pivot energy at 1 TeV
                 eref = gammalib.GEnergy(1., 'TeV')
                 norm = flux * (-index + 1) / (
                         np.power(emax, -index + 1) - np.power(emin, -index + 1))
             # convert norm from ph cm-2 s-1 TeV-1 (gamma-cat) to ph cm-2 s-1 MeV-1 (gammalib)
-            norm *= 1.e6
+            norm *= 1.e-6
             if False:
                 # implement fake PeVatron correction
                 pass
@@ -137,7 +139,7 @@ for source in gammacat:
             eref = gammalib.GEnergy(np.double(source['spec_ecpl_e_ref']), 'TeV')
             ecut = gammalib.GEnergy(np.double(source['spec_ecpl_e_cut']), 'TeV')
             # convert norm from ph cm-2 s-1 TeV-1 (gamma-cat) to ph cm-2 s-1 MeV-1 (gammalib)
-            norm *= 1.e6
+            norm *= 1.e-6
             index = np.double(index)
             norm = np.double(norm)
             spectral = gammalib.GModelSpectralExpPlaw(norm, -index, eref, ecut)
@@ -156,6 +158,8 @@ for source in gammacat:
             gammacat_lats.append(lat)
             gammacat_flux.append(source['spec_flux_1TeV_crab'])
 
+print('Added {} gamma-cat sources'.format(len(gammacat_ids)))
+
 # renormalize gamma-cat flux so that they are in Crab units
 gammacat_flux = np.array(gammacat_flux)
 gammacat_flux *= 1.e-2
@@ -172,6 +176,34 @@ ax2.hist(gammacat_lons, bins=bins_lon, density=False, histtype='step',
 ax3.hist(gammacat_lats, bins=bins_lat, density=False, histtype='step',
          label='gamma-cat', alpha=0.5, linewidth=2)
 
+# make distributions from gammalib model container
+lons, lats, fluxes = dist_from_gammalib(models)
+# change lon range from 0...360 to -180...180
+lons = np.array(lons)
+lons[lons > 180] = lons[lons > 180] - 360.
+ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
+ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
+         label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
+ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
+         label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
+
+# add templates
+
+# add binaries
+
+# add pulsars
+
+# add SFR
+
+# add HAWC and 3FHL
+
+# add CHECKS for duplicated sources !!!!!!!!!!!!!!!!!!
+
+# add synthetic PWNe and SNRs
+
+# add IEM
+
 # add CTA background
 # power law spectral correction with pivot energy at 1 TeV
 spectral = gammalib.GModelSpectralPlaw(1, 0, gammalib.GEnergy(1, 'TeV'))
@@ -181,6 +213,7 @@ bkgmodel.name('Background')
 bkgmodel.instruments('CTA')
 # append to models
 models.append(bkgmodel)
+print('Added background model')
 
 # save models
 models.save('../output/models_gps.xml')
@@ -189,7 +222,7 @@ models.save('../output/models_gps.xml')
 ax1.legend()
 fig1.savefig('../output/logNlogS.png', dpi=300)
 ax2.legend()
-ax2.set_xlim(180,-180)
+ax2.set_xlim(180, -180)
 fig2.savefig('../output/glon.png', dpi=300)
 ax3.legend()
 fig3.savefig('../output/glat.png', dpi=300)
