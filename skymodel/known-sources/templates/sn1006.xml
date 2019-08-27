@@ -6,7 +6,7 @@ Acero, F. et al., 2010 2010A&A...516A..62A
 DiffuseMaps from XMM-Newton smoothed map
 -->
 <source_library title="source library">
-  <source name="NE" type="DiffuseSource">
+  <source name="SN 1006 NE" type="DiffuseSource">
     <spectrum type="PowerLaw">
       <parameter name="Prefactor" value="3.29257387247809e-19" scale="1" min="0" free="1" />
       <parameter name="Index" value="2.35" scale="-1." min="-10." max="10." free="1" />
@@ -16,7 +16,7 @@ DiffuseMaps from XMM-Newton smoothed map
       <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
-  <source name="SW" type="DiffuseSource">
+  <source name="SN 1006 SW" type="DiffuseSource">
     <spectrum type="PowerLaw">
       <parameter name="Prefactor" value="2.10759016066871e-19" scale="1" min="0" free="1" />
       <parameter name="Index" value="2.29" scale="-1" min="-10" max="10" free="1" />
