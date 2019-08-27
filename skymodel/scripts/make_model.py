@@ -18,8 +18,14 @@ for source in gammacat:
         skip = False
         # retrieve source spatial model
         # source direction
-        ra = np.double(source['ra'])
-        dec = np.double(source['dec'])
+        if source['morph_type'] == 'none':
+            # if morphology not measured in gamma rays use value from SIMBAD
+            ra = np.double(source['ra'])
+            dec = np.double(source['dec'])
+        else:
+            # otherwise use gamma-ray measurement
+            ra = np.double(source['pos_ra'])
+            dec = np.double(source['pos_dec'])
         src_dir = gammalib.GSkyDir()
         src_dir.radec_deg(ra, dec)
         if source['morph_type'] == 'point' or source['morph_type'] == 'none':
