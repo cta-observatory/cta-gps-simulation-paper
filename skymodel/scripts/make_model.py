@@ -34,20 +34,20 @@ for source in gammacat:
             else:
                 # elliptical Gaussian
                 # WARNING: not sure position angle definition in gamma-cat matches gammalib, emailed Christoph on 27/08/2019 to ask (LT)
-                if source['morph_frame'] == 'radec':
+                if source['morph_pa_frame'] == 'radec':
                     # morphology defined in celestial coordinates
                     sigma2 = np.double(source['morph_sigma2'])
                     pa = np.double(source['morph_pa'])
                     spatial = gammalib.GModelSpatialEllipticalGauss(src_dir, sigma, sigma2, pa)
-                if source['morph_frame'] == 'galactic':
+                elif source['morph_pa_frame'] == 'galactic':
                     # need to implement!!!
                     pass
                 else:
                     print('WARNING: source {} from gamma-cat has spatial model frame of type {} which is not implemented'.format(
-                            source['common_name'], source['morph_frame']))
+                            source['common_name'], source['morph_pa_frame']))
                     skip = True
         elif source['morph_type'] == 'shell':
-
+            pass
         else:
             print(
                 'WARNING: source {} from gamma-cat has spatial model of type {} which is not implemented'.format(
@@ -70,4 +70,4 @@ bkgmodel.instruments('CTA')
 models.append(bkgmodel)
 
 # save models
-models.save('models_gps.xml')
+models.save('../output/models_gps.xml')
