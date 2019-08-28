@@ -214,15 +214,14 @@ for template in template_list:
             # source not included in gammacat, pass
             added += 1
         else:
-            # remove gamma-cat model
+            # remove gamma-cat model if present
             id = int(id)
-            # if source included in gammacat with spectral information, remove gammacat model
-            source = gammacat[gammacat['source_id']==id][0]
-            if source['spec_type'] == 'none' or np.abs(source['glat']) > 10:
-                added +=1
-            else:
+            if id in gammacat_ids:
+                source = gammacat[gammacat['source_id'] == id][0]
                 models.remove(source['common_name'])
                 replaced += 1
+            else:
+                added +=1
         # add templates
         models_template = gammalib.GModels('../known-sources/templates/{}.xml'.format(name))
         for model in models_template:
@@ -234,8 +233,6 @@ for template in template_list:
             # replace file with the one in output directory
             model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
             models.append(model)
-        # # copy FITS maps to output repository
-        # os.system('cp ../known-sources/templates/{}*_map.fits ../output/'.format(name))
 
 print('Replaced {} gamma-cat sources with templates. Added {} sources as templates'.format(replaced,added))
 
@@ -253,7 +250,66 @@ ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
 
 # add binaries
 
+# read binary list
+binary_list = open('../bin/binaries.dat').readlines()
+
+# read models
+binary_models = gammalib.GModels('../bin/models_binaries.xml')
+
+replaced = 0
+added = 0
+for binary in binary_list:
+    if binary[0] == '#':
+        # skip header and commented lines
+        pass
+    else:
+        id, bmodels, filenames = binary.split(',')
+        if 'None' in id:
+            # source not included in gammacat, pass
+            added += 1
+        else:
+            # remove gamma-cat model if present
+            id = int(id)
+            if id in gammacat_ids:
+                source = gammacat[gammacat['source_id'] == id][0]
+                models.remove(source['common_name'])
+                replaced += 1
+            else:
+                added += 1
+        # add binary model
+        # find names
+        try:
+            # check if multiple models are present
+            model_names = bmodels.split(':')
+        except:
+            # otherwise set single name as list
+            model_names = [models]
+        for model_name in model_names:
+            model = binary_models[model_name.strip()]
+            # find phasecurve name and path
+            filename = model.temporal().filename().file()
+            filepath = model.temporal().filename().path()
+            # copy file to output directory
+            shutil.copy(filepath+filename,'./')
+            # replace file with the one in output directory
+            model.temporal().filename(filename)
+            models.append(model)
+
+print('Replaced {} gamma-cat sources with binaries. Added {} sources as binaries'.format(replaced,added))
+
 # add pulsars
+
+# re-make distributions from gammalib model container
+lons, lats, fluxes = dist_from_gammalib(models)
+# change lon range from 0...360 to -180...180
+lons = np.array(lons)
+lons[lons > 180] = lons[lons > 180] - 360.
+ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
+ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
+         label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
+ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
+         label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
 
 # add SFR
 
