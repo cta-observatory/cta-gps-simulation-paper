@@ -1,10 +1,10 @@
 import gammalib
 import matplotlib.pyplot as plt
 import numpy as np
+import os
+import shutil
 from gammapy.catalog import SourceCatalogGammaCat
 from utils import *
-import shutil
-import os
 
 # inputs from external sources
 gammacat_file = '/Users/ltibaldo/Software/GitHub/gamma-cat/output/gammacat.fits.gz'
@@ -12,6 +12,9 @@ gammacat_file = '/Users/ltibaldo/Software/GitHub/gamma-cat/output/gammacat.fits.
 # go to output directory as working directory
 # this simplifies file path handling
 os.chdir('../output')
+
+# create report file
+outfile = open('report.txt', 'w')
 
 # initialize diagnostic plots
 fig1 = plt.figure('LogNLogS')
@@ -41,6 +44,8 @@ bins_lat = np.linspace(-10, 10, 100)
 
 # create model container
 models = gammalib.GModels()
+
+print('\n')
 
 # add sources from gamma-cat, keep tracks of their IDs, longitudes, latitudes, and fluxes
 gammacat_ids = []
@@ -93,9 +98,10 @@ for source in gammacat:
                     pa = np.double(source['morph_pa'])
                     spatial = gammalib.GModelSpatialEllipticalGauss(src_dir, sigma, sigma2, pa)
                 else:
-                    print(
-                        'WARNING: elliptical source {} from gamma-cat has spatial model frame of type {} which is not implemented'.format(
-                            source['common_name'], source['morph_pa_frame']))
+                    msg = 'WARNING: elliptical source {} from gamma-cat has spatial model frame of type {} which is not implemented\n'.format(
+                        source['common_name'], source['morph_pa_frame'])
+                    print(msg)
+                    outfile.write(msg)
                     skip = True
         elif source['morph_type'] == 'shell':
             if np.isnan(source['morph_sigma2']):
@@ -109,9 +115,10 @@ for source in gammacat:
                 width = r_outer - r_inner
             spatial = gammalib.GModelSpatialRadialShell(src_dir, r_inner, width)
         else:
-            print(
-                'WARNING: source {} from gamma-cat has spatial model of type {} which is not implemented'.format(
-                    source['common_name'], source['morph_type']))
+            msg = 'WARNING: source {} from gamma-cat has spatial model of type {} which is not implemented\n'.format(
+                source['common_name'], source['morph_type'])
+            print(msg)
+            outfile.write(msg)
             skip = True
         # retrieve source spectral model
         if source['spec_type'] == 'pl' or source['spec_type'] == 'pl2':
@@ -152,9 +159,10 @@ for source in gammacat:
             norm = np.double(norm)
             spectral = gammalib.GModelSpectralExpPlaw(norm, -index, eref, ecut)
         else:
-            print(
-                'WARNING: source {} from gamma-cat has spectral model of type {} which is not implemented'.format(
-                    source['common_name'], source['spec_type']))
+            msg = 'WARNING: source {} from gamma-cat has spectral model of type {} which is not implemented\n'.format(
+                source['common_name'], source['spec_type'])
+            print(msg)
+            outfile.write(msg)
             skip = True
         # put together and append to model container
         if not skip:
@@ -166,7 +174,9 @@ for source in gammacat:
             gammacat_lats.append(lat)
             gammacat_flux.append(source['spec_flux_1TeV_crab'])
 
-print('Added {} gamma-cat sources'.format(len(gammacat_ids)))
+msg = 'Added {} gamma-cat sources\n'.format(len(gammacat_ids))
+print(msg)
+outfile.write(msg)
 
 # renormalize gamma-cat flux so that they are in Crab units
 gammacat_flux = np.array(gammacat_flux)
@@ -221,7 +231,7 @@ for template in template_list:
                 models.remove(source['common_name'])
                 replaced += 1
             else:
-                added +=1
+                added += 1
         # add templates
         models_template = gammalib.GModels('../known-sources/templates/{}.xml'.format(name))
         for model in models_template:
@@ -229,12 +239,15 @@ for template in template_list:
             filename = model.spatial().filename().file()
             filepath = model.spatial().filename().path()
             # copy file to output directory
-            shutil.copy(filepath+filename,'./')
+            shutil.copy(filepath + filename, './')
             # replace file with the one in output directory
             model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
             models.append(model)
 
-print('Replaced {} gamma-cat sources with templates. Added {} sources as templates'.format(replaced,added))
+msg = 'Replaced {} gamma-cat sources with templates. Added {} sources as templates\n'.format(
+    replaced, added)
+print(msg)
+outfile.write(msg)
 
 # re-make distributions from gammalib model container
 lons, lats, fluxes = dist_from_gammalib(models)
@@ -290,12 +303,15 @@ for binary in binary_list:
             filename = model.temporal().filename().file()
             filepath = model.temporal().filename().path()
             # copy file to output directory
-            shutil.copy(filepath+filename,'./')
+            shutil.copy(filepath + filename, './')
             # replace file with the one in output directory
             model.temporal().filename(filename)
             models.append(model)
 
-print('Replaced {} gamma-cat sources with binaries. Added {} sources as binaries'.format(replaced,added))
+msg = 'Replaced {} gamma-cat sources with binaries. Added {} sources as binaries\n'.format(
+    replaced, added)
+print(msg)
+outfile.write(msg)
 
 # add pulsars
 
@@ -333,9 +349,13 @@ bkgmodel.instruments('CTA')
 # append to models
 models.append(bkgmodel)
 print('Added background model')
+outfile.write('Added background model\n')
 
 # save models
 models.save('models_gps.xml')
+
+# close report file
+outfile.close()
 
 # save diagnostic plots
 ax1.legend(fontsize=5)
