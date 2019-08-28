@@ -198,26 +198,32 @@ template_list = open('../known-sources/templates/templates.dat').readlines()
 
 replaced = 0
 added = 0
-for template in template_list[1:]: # skip first row = header
-    name, id = template.split(',')
-    if 'NONE' in id:
-        # source not included in gammacat, pass
-        added += 1
+for template in template_list:
+    if temmplate[0] == '#':
+        # skip header and commented lines
+        pass
     else:
-        id = int(id)
-        # if source included in gammacat with spectral information, remove gammacat model
-        source = gammacat[gammacat['source_id']==id][0]
-        if source['spec_type'] == 'none' or np.abs(source['glat']) > 10:
-            added +=1
+        name, id = template.split(',')
+        # remove gamma-cat model if present
+        if 'NONE' in id:
+            # source not included in gammacat, pass
+            added += 1
         else:
-            models.remove(source['common_name'])
-            replaced += 1
-    # add templates
-    models_template = gammalib.GModels('../known-sources/templates/{}.xml'.format(name))
-    for model in models_template:
-        models.append(model)
-    # copy FITS id maps to output repository
-    #os.system('cp ../known-sources/templates/{}*_map.fits ../output/'.format(name))
+            # remove gamma-cat model
+            id = int(id)
+            # if source included in gammacat with spectral information, remove gammacat model
+            source = gammacat[gammacat['source_id']==id][0]
+            if source['spec_type'] == 'none' or np.abs(source['glat']) > 10:
+                added +=1
+            else:
+                models.remove(source['common_name'])
+                replaced += 1
+        # add templates
+        models_template = gammalib.GModels('../known-sources/templates/{}.xml'.format(name))
+        for model in models_template:
+            models.append(model)
+        # copy FITS maps to output repository
+        #os.system('cp ../known-sources/templates/{}*_map.fits ../output/'.format(name))
 
 print('Replaced {} gamma-cat sources with templates. Added {} sources as templates'.format(replaced,added))
 
