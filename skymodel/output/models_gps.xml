@@ -962,7 +962,7 @@
       <parameter name="BreakEnergy" value="1" error="0" scale="58200" free="1" />
       <parameter name="BreakSmoothness" value="1" error="0" scale="0.1" min="0.1" max="100" free="1" />
     </spectrum>
-    <spatialModel type="DiffuseMap" file="../known-sources/templates/ic443_map.fits">
+    <spatialModel type="DiffuseMap" file="ic443_map.fits">
       <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
@@ -973,8 +973,8 @@
       <parameter name="Index2" value="2.79" error="0" scale="-1" min="0.01" max="1000" free="1" />
       <parameter name="BreakEnergy" value="1" scale="100000" min="0.01" max="1000" free="0" />
     </spectrum>
-    <spatialModel type="DiffuseMap" file="../known-sources/templates/gammacygni_map.fits">
-      <parameter name="Prefactor" value="1" error="0" scale="1" min="0.001" max="1000" free="1" />
+    <spatialModel type="DiffuseMap" file="gammacygni_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
   <source name="W 28" type="DiffuseSource">
@@ -983,8 +983,8 @@
       <parameter name="Index" value="2.66" error="0" scale="-1" min="0" max="5" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" min="0.01" max="1000" free="0" />
     </spectrum>
-    <spatialModel type="DiffuseMap" file="../known-sources/templates/w28_map.fits">
-      <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+    <spatialModel type="DiffuseMap" file="w28_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
   <source name="PuppisA" type="DiffuseSource">
@@ -994,8 +994,8 @@
       <parameter name="CutoffEnergy" value="200" error="0" scale="1000" min="0.01" max="1000" free="1" />
       <parameter name="PivotEnergy" value="2" scale="100" min="0.01" max="1000" free="0" />
     </spectrum>
-    <spatialModel type="DiffuseMap" file="../known-sources/templates/puppisa_map.fits">
-      <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+    <spatialModel type="DiffuseMap" file="puppisa_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
   <source name="Vela Junior" type="DiffuseSource">
@@ -1005,8 +1005,8 @@
       <parameter name="CutoffEnergy" value="6.6" error="0" scale="1000000" min="0.01" max="1000" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" min="0.01" max="1000" free="0" />
     </spectrum>
-    <spatialModel type="DiffuseMap" file="../known-sources/templates/velajr_map.fits">
-      <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+    <spatialModel type="DiffuseMap" file="velajr_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
   <source name="HESS J1800-240A" type="DiffuseSource">
@@ -1015,8 +1015,8 @@
       <parameter name="Index" value="2.55" error="0" scale="-1" min="0" max="5" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" min="0.01" max="1000" free="0" />
     </spectrum>
-    <spatialModel type="DiffuseMap" file="../known-sources/templates/hess_j1800-240a_map.fits">
-      <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+    <spatialModel type="DiffuseMap" file="hess_j1800-240a_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
   <source name="HESS J1800-240B" type="DiffuseSource">
@@ -1025,8 +1025,8 @@
       <parameter name="Index" value="2.5" error="0" scale="-1" min="0" max="5" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" min="0.01" max="1000" free="0" />
     </spectrum>
-    <spatialModel type="DiffuseMap" file="../known-sources/templates/hess_j1800-240b_map.fits">
-      <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+    <spatialModel type="DiffuseMap" file="hess_j1800-240b_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
   <source name="HESS J1800-240C" type="DiffuseSource">
@@ -1035,8 +1035,8 @@
       <parameter name="Index" value="2.31" error="0" scale="-1" min="0" max="5" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" min="0.01" max="1000" free="0" />
     </spectrum>
-    <spatialModel type="DiffuseMap" file="../known-sources/templates/hess_j1800-240c_map.fits">
-      <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+    <spatialModel type="DiffuseMap" file="hess_j1800-240c_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
   <source name="Background" type="CTAIrfBackground" instrument="CTA">

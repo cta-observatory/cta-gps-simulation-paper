@@ -3,10 +3,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 from gammapy.catalog import SourceCatalogGammaCat
 from utils import *
+import shutil
 import os
 
 # inputs from external sources
 gammacat_file = '/Users/ltibaldo/Software/GitHub/gamma-cat/output/gammacat.fits.gz'
+
+# go to output directory as working directory
+# this simplifies file path handling
+os.chdir('../output')
 
 # initialize diagnostic plots
 fig1 = plt.figure('LogNLogS')
@@ -221,9 +226,16 @@ for template in template_list:
         # add templates
         models_template = gammalib.GModels('../known-sources/templates/{}.xml'.format(name))
         for model in models_template:
+            # find model map name and path
+            filename = model.spatial().filename().file()
+            filepath = model.spatial().filename().path()
+            # copy file to output directory
+            shutil.copy(filepath+filename,'./')
+            # replace file with the one in output directory
+            model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
             models.append(model)
-        # copy FITS maps to output repository
-        os.system('cp ../known-sources/templates/{}*_map.fits ../output/'.format(name))
+        # # copy FITS maps to output repository
+        # os.system('cp ../known-sources/templates/{}*_map.fits ../output/'.format(name))
 
 print('Replaced {} gamma-cat sources with templates. Added {} sources as templates'.format(replaced,added))
 
@@ -267,13 +279,13 @@ models.append(bkgmodel)
 print('Added background model')
 
 # save models
-models.save('../output/models_gps.xml')
+models.save('models_gps.xml')
 
 # save diagnostic plots
 ax1.legend()
-fig1.savefig('../output/logNlogS.png', dpi=300)
+fig1.savefig('logNlogS.png', dpi=300)
 ax2.legend()
 ax2.set_xlim(180, -180)
-fig2.savefig('../output/glon.png', dpi=300)
+fig2.savefig('glon.png', dpi=300)
 ax3.legend()
-fig3.savefig('../output/glat.png', dpi=300)
+fig3.savefig('glat.png', dpi=300)
