@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
     <source_library title="source library">
         <source name="LS I 61+303" type="PointSource">
-            <!--https://pos.sissa.it/301/712/pdf --->
+            <!--https://pos.sissa.it/301/712/pdf -->
             <spectrum type="PowerLaw">
                 <parameter name="Prefactor" value="6" error="0" scale="1e-18" min="1e-07" max="1000" free="1" />
                 <parameter name="Index" value="2.7" error="0" scale="-1" min="0" max="5" free="1" />
