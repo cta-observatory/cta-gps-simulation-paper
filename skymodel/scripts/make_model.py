@@ -9,9 +9,15 @@ from utils import *
 # inputs from external sources
 gammacat_file = '/Users/ltibaldo/Software/GitHub/gamma-cat/output/gammacat.fits.gz'
 
+# output directory
+outdir = '../output'
+#clean output directory
+os.system('rm {}/*.xml'.format(outdir))
+os.system('rm {}/*.fits'.format(outdir))
+os.system('rm {}/*.txt'.format(outdir))
 # go to output directory as working directory
 # this simplifies file path handling
-os.chdir('../output')
+os.chdir(outdir)
 
 # create report file
 outfile = open('report.txt', 'w')
