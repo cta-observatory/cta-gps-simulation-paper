@@ -338,10 +338,10 @@ print('Added background model')
 models.save('models_gps.xml')
 
 # save diagnostic plots
-ax1.legend()
+ax1.legend(fontsize=5)
 fig1.savefig('logNlogS.png', dpi=300)
-ax2.legend()
+ax2.legend(fontsize=5)
 ax2.set_xlim(180, -180)
 fig2.savefig('glon.png', dpi=300)
-ax3.legend()
+ax3.legend(fontsize=5)
 fig3.savefig('glat.png', dpi=300)
