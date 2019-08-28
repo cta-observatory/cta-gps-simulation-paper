@@ -1,12 +1,12 @@
-# gamma-cat id, model names, phasecurve names
+# gamma-cat id, model names
 # if a binary is modelled with multiple components the model and phase curve names are given as a list separated by :
-14, LS I 61+303, LSI
-60, PSR B1259-63, PSRB1259
-45, HESS J1018-589 A, HESSJ1018
-# None, LMCP3 off:LMCP3 on, LMCP3_off:LMCP3_on
-None, Binary N1, N1
-119, LS5039 INFC:LS5039 SUPC, LS5039_INFC:LS5039_SUPC
-None, PSR J2032+4127, PSRJ2032
-121, HESS J1832-093, HESSJ1832
-30, HESS J0632+057, HESSJ0632
-None, Binary N2, N2
+14, LS I 61+303
+60, PSR B1259-63
+45, HESS J1018-589 A
+# None, LMCP3 off:LMCP3 on
+None, Binary N1
+119, LS5039 INFC:LS5039 SUPC
+None, PSR J2032+4127
+121, HESS J1832-093
+30, HESS J0632+057
+None, Binary N2

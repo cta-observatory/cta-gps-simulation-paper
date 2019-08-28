@@ -276,7 +276,7 @@ for binary in binary_list:
         # skip header and commented lines
         pass
     else:
-        id, bmodels, filenames = binary.split(',')
+        id, bmodels = binary.split(',')
         if 'None' in id:
             # source not included in gammacat, pass
             added += 1
@@ -343,7 +343,8 @@ for model1 in models:
             dir2 = get_model_dir(model2)
             dist_deg = dir1.dist_deg(dir2)
             if dist_deg < 0.2:
-                msg = 'WARNING: sources {} and {} are at a distance of {} deg lower than 0.2 deg\n'.format(model1.name(),model2.name(),dist_deg)
+                msg = 'WARNING: sources {} and {} are at a distance of {} deg lower than 0.2 deg\n'.format(
+                    model1.name(), model2.name(), dist_deg)
                 print(msg)
                 outfile.write(msg)
 
