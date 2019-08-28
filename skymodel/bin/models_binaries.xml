@@ -100,7 +100,7 @@
                 <parameter name="F2" value="0" scale="1" min="0" max="1000" free="0" />
             </temporal>
         </source>
-        <source name="N1" type="PointSource">
+        <source name="Binary N1" type="PointSource">
             <spectrum type="PowerLaw">
                 <parameter name="Prefactor" value="0.2" error="0" scale="1e-18" min="1e-07" max="1000" free="1" />
                 <parameter name="Index" value="2.1" error="0" scale="-1" min="0" max="5" free="1" />
@@ -215,7 +215,7 @@
 	      <parameter name="F1" value="0" scale="1" min="0" max="1000" free="0" />
 	      <parameter name="F2" value="0" scale="1" min="0" max="1000" free="0" />
 	    </temporal>
-        <source name="N2" type="PointSource">
+        <source name="Binary N2" type="PointSource">
             <spectrum type="PowerLaw">
                 <parameter name="Prefactor" value="0.5" error="0" scale="1e-19" min="1e-07" max="1000" free="1" />
                 <parameter name="Index" value="2.1" error="0" scale="-1" min="0" max="5" free="1" />
