@@ -20,19 +20,22 @@ def dist_from_gammalib(models):
     emin = gammalib.GEnergy(1.,'TeV')
     emax = gammalib.GEnergy(1000,'TeV')
     for model in models:
-        type = model.spatial().type()
-        if type == 'DiffuseMap':
-            # retrieve source direction from map, use mid pixel as approximation
-            dmap = model.spatial().map()
-            src_dir = dmap.inx2dir(int(dmap.npix()/2))
-        else:
-            # retrieve direction from analytical model
+        # if model.spatial().type() == 'DiffuseMap':
+        #     pass
+        #     # # retrieve source direction from map, use mid pixel as approximation
+        #     # dmap = model.spatial().map()
+        #     # src_dir = dmap.inx2dir(int(dmap.npix()/2))
+        # else:
+        #     # retrieve direction from analytical model
+        try:
             src_dir = model.spatial().dir()
-        lons.append(src_dir.l_deg())
-        lats.append(src_dir.b_deg())
-        flux = model.spectral().flux(emin,emax)
-        # convert to Crab units (Meyer model)
-        flux /= 2.0744340476909142e-11
-        fluxes.append(flux)
+            lons.append(src_dir.l_deg())
+            lats.append(src_dir.b_deg())
+            flux = model.spectral().flux(emin,emax)
+            # convert to Crab units (Meyer model)
+            flux /= 2.0744340476909142e-11
+            fluxes.append(flux)
+        except:
+            pass
 
     return lons, lats, fluxes

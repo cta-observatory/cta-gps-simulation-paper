@@ -199,7 +199,7 @@ template_list = open('../known-sources/templates/templates.dat').readlines()
 replaced = 0
 added = 0
 for template in template_list:
-    if temmplate[0] == '#':
+    if template[0] == '#':
         # skip header and commented lines
         pass
     else:
@@ -219,25 +219,26 @@ for template in template_list:
                 models.remove(source['common_name'])
                 replaced += 1
         # add templates
+        print(source['common_name'])
         models_template = gammalib.GModels('../known-sources/templates/{}.xml'.format(name))
-        for model in models_template:
-            models.append(model)
+        # for model in models_template:
+        #     models.append(model)
         # copy FITS maps to output repository
         #os.system('cp ../known-sources/templates/{}*_map.fits ../output/'.format(name))
 
 print('Replaced {} gamma-cat sources with templates. Added {} sources as templates'.format(replaced,added))
 
-# re-make distributions from gammalib model container
-lons, lats, fluxes = dist_from_gammalib(models)
-# change lon range from 0...360 to -180...180
-lons = np.array(lons)
-lons[lons > 180] = lons[lons > 180] - 360.
-ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
-         label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
-ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
-         label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
-ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
-         label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
+# # re-make distributions from gammalib model container
+# lons, lats, fluxes = dist_from_gammalib(models)
+# # change lon range from 0...360 to -180...180
+# lons = np.array(lons)
+# lons[lons > 180] = lons[lons > 180] - 360.
+# ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+#          label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
+# ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
+#          label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
+# ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
+#          label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
 
 # add binaries
 
@@ -245,7 +246,9 @@ ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
 
 # add SFR
 
-# add HAWC and 3FHL
+# add HAWC
+
+# add 3FHL
 
 # add CHECKS for duplicated sources !!!!!!!!!!!!!!!!!!
 
