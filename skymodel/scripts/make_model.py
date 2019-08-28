@@ -333,7 +333,19 @@ ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
 
 # add 3FHL
 
-# add CHECKS for duplicated sources !!!!!!!!!!!!!!!!!!
+# CHECKS for duplicated sources
+for model1 in models:
+    dir1 = get_model_dir(model1)
+    for model2 in models:
+        if model2.name() == model1.name():
+            pass
+        else:
+            dir2 = get_model_dir(model2)
+            dist_deg = dir1.dist_deg(dir2)
+            if dist_deg < 0.2:
+                msg = 'WARNING: sources {} and {} are at a distance of {} deg lower than 0.2 deg\n'.format(model1.name(),model2.name(),dist_deg)
+                print(msg)
+                outfile.write(msg)
 
 # add synthetic PWNe and SNRs
 
