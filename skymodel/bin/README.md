@@ -46,7 +46,7 @@ LS 5039 was one of the first gamma-ray binaries to be discovered [1]. The source
 
 ___PSR J2032+4127___
 
-This is the last gamma-ray binari discovered so far. The system lies on top of TeV 2032+4130, an extended VHE source. PSR J2032 displays a period of approximately 50 years, with the most recent periastron having occurred on November 2017. Therefore, CTA may not be in a timely situation to observe it during periastron. The source is included in the binary sky model nevertheless for completeness. 
+This is the last gamma-ray binary discovered so far. The system lies on top of TeV 2032+4130, an extended VHE source. PSR J2032 displays a period of approximately 50 years, with the most recent periastron having occurred on November 2017. Therefore, CTA may not be in a timely situation to observe it during periastron. The source is included in the binary sky model nevertheless for completeness. 
 
 VERITAS and MAGIC reported on the detection of the source [1], retrieving also two distinct spectral behaviours when approaching the periastron phase and right at periastron. Since the system has a very large orbital period, however, we considered only the emission in a single orbital phase range (with a 0.1 width) with an averaged flux and assuming an ECPL model, as suggested in [1].
 
