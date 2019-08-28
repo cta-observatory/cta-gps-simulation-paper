@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-    <source_library title="source library">
+    <source_library title="binaries">
         <source name="LS I 61+303" type="PointSource">
             <!--https://pos.sissa.it/301/712/pdf -->
             <spectrum type="PowerLaw">
@@ -234,6 +234,5 @@
                 <parameter name="F2" value="0" scale="1" min="0" max="1000" free="0" />
             </temporal>
         </source>	
-	
-    </source_library>
+    <source_library>
 
