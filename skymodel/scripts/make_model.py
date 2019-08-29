@@ -4,6 +4,7 @@ import numpy as np
 import os
 import shutil
 from gammapy.catalog import SourceCatalogGammaCat
+
 from utils import *
 
 # inputs from external sources
@@ -87,15 +88,19 @@ for source in gammacat:
                 # elliptical Gaussian
                 # WARNING: not sure position angle definition in gamma-cat matches gammalib
                 # this looks consistent with values for Vela X, emailed Christoph on 27/08/2019 to ask (LT)
+                sigma2 = np.double(source['morph_sigma2'])
+                pa = np.double(source['morph_pa'])
                 if source['morph_pa_frame'] == 'radec':
                     # morphology defined in celestial coordinates
-                    sigma2 = np.double(source['morph_sigma2'])
-                    pa = np.double(source['morph_pa'])
                     spatial = gammalib.GModelSpatialEllipticalGauss(src_dir, sigma, sigma2, pa)
                 elif source['morph_pa_frame'] == 'galactic':
-                    # need to implement!!!
-                    sigma2 = np.double(source['morph_sigma2'])
-                    pa = np.double(source['morph_pa'])
+                    # rotate position angle because gammalib only accepts elliptical models in celestial coordinates
+                    gpole = gammalib.GSkyDir()
+                    # North Galactic pole
+                    gpole.radec_deg(192.858333, 27.128333)
+                    pa = pa + src_dir.posang_deg(gpole)
+                    if pa < 0:
+                        pa = 360. + pa
                     spatial = gammalib.GModelSpatialEllipticalGauss(src_dir, sigma, sigma2, pa)
                 else:
                     msg = 'WARNING: elliptical source {} from gamma-cat has spatial model frame of type {} which is not implemented\n'.format(

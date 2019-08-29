@@ -311,7 +311,7 @@
     <spatialModel type="EllipticalGaussian">
       <parameter name="RA" value="248.035873413086" scale="1" free="0" />
       <parameter name="DEC" value="-47.8232498168945" scale="1" free="0" />
-      <parameter name="PA" value="21" scale="1" free="0" />
+      <parameter name="PA" value="334.061830379202" scale="1" free="0" />
       <parameter name="MinorRadius" value="0.0599999986588955" error="0" scale="1" min="0.0002778" free="1" />
       <parameter name="MajorRadius" value="0.209999993443489" error="0" scale="1" min="0.0002778" free="1" />
     </spatialModel>
@@ -684,7 +684,7 @@
     <spatialModel type="EllipticalGaussian">
       <parameter name="RA" value="279.404724121094" scale="1" free="0" />
       <parameter name="DEC" value="-6.93895483016968" scale="1" free="0" />
-      <parameter name="PA" value="149" scale="1" free="0" />
+      <parameter name="PA" value="86.3305355153315" scale="1" free="0" />
       <parameter name="MinorRadius" value="0.0500000007450581" error="0" scale="1" min="0.0002778" free="1" />
       <parameter name="MajorRadius" value="0.119999997317791" error="0" scale="1" min="0.0002778" free="1" />
     </spatialModel>
