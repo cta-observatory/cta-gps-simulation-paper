@@ -8,7 +8,7 @@ from gammapy.catalog import SourceCatalogGammaCat
 from utils import *
 
 # inputs from external sources
-gammacat_file = '/Users/ltibaldo/Software/GitHub/gamma-cat/output/gammacat.fits.gz'
+gammacat_file = '../known-sources/external-input/gammacat.fits.gz'
 
 # go to output directory as working directory
 # this simplifies file path handling
