@@ -10,6 +10,9 @@ from utils import *
 # inputs from external sources
 gammacat_file = '../known-sources/external-input/gammacat.fits.gz'
 
+# maximum latitude to include in the model
+bmax = 10.
+
 # go to output directory as working directory
 # this simplifies file path handling
 os.chdir('../output')
@@ -41,7 +44,7 @@ format_ax(ax3)
 # define binning to make distributions
 bins_lognlogs = np.logspace(-4, 1., 40)
 bins_lon = np.linspace(-180, 180, 90)
-bins_lat = np.linspace(-10, 10, 100)
+bins_lat = np.linspace(-bmax, bmax, 10 * bmax)
 
 # create model container
 models = gammalib.GModels()
@@ -57,7 +60,7 @@ gammacat = SourceCatalogGammaCat(gammacat_file).table
 for source in gammacat:
     # retain only sources with known spectral model
     # and centered within 10 degrees from the galactic pla
-    if not source['spec_type'] == 'none' and (np.abs(source['glat']) <= 10.):
+    if not source['spec_type'] == 'none' and (np.abs(source['glat']) <= bmax):
         skip = False
         # retrieve source spatial model
         # source direction
