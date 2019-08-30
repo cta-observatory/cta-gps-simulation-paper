@@ -5,9 +5,10 @@ from utils import *
 
 # retrieve Fermi high-energy catalog data
 fhl = fits.getdata('../known-sources/external-input/gll_psch_v13.fit', 1)
+ext_fhl = fits.getdata('../known-sources/external-input/gll_psch_v13.fit', 2)
 
 # filter sources wth known TeV association, they are included elsewhere
-# this avoids issues due to model building choices
+# this avoids issues due to model building choices (i.e., numerical precision, source for position etc.)
 fhl = fhl[fhl['ASSOC_TEV'] == ' ']
 
 
@@ -39,13 +40,13 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     for fsource in fsources:
         # assume source is new
         new = 1
+        # fermi source position as gammalib.GSkyDir
+        fdir = gammalib.GSkyDir()
+        ra = np.double(fsource['RAJ2000'])
+        dec = np.double(fsource['DEJ2000'])
+        fdir.radec_deg(ra, dec)
         if fsource['Extended_Source_Name'] == '':
             # case of sources pointlike for Fermi
-            # fermi source position as gammalib.GSkyDir
-            fdir = gammalib.GSkyDir()
-            ra = np.double(fsource['RAJ2000'])
-            dec = np.double(fsource['DEJ2000'])
-            fdir.radec_deg(ra, dec)
             # loop over gammalib container and determine closest neighbor
             dist_min = 1000.
             for source in models:
@@ -56,7 +57,7 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
                 # closeby source foud in container, source will not be added
                 new = 0
             else:
-                # sources will be added to container, set spatial model
+                # source will be added to container, set spatial model
                 src_dir = gammalib.GSkyDir()
                 ra = np.double(fsource['RAJ2000'])
                 dec = np.double(fsource['DEJ2000'])
@@ -64,8 +65,63 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
                 spatial = gammalib.GModelSpatialPointSource(src_dir)
                 newpt += 1
         else:
-            # for the moment ignore extended sources
-            new = 0
+            # retrieve Fermi extended source radius
+            ext_fsource = ext_fhl[ext_fhl['Source_Name'] == fsource['Extended_Source_Name']][0]
+            fradius = np.double(ext_fsource['Model_SemiMajor'])
+            dist_corr = 10.
+            for source in models:
+                dir = get_model_dir(source)
+                dist = fdir.dist_deg(dir)
+                if source.spatial().type() == 'PointSource':
+                    radius = 0.
+                elif source.spatial().type() == 'RadialGaussian':
+                    radius = 2 * source['Sigma'].value()
+                elif source.spatial().type() == 'EllipticalGaussian':
+                    radius = 2 * source['MajorRadius'].value()
+                elif source.spatial().type() == 'RadialShell':
+                    radius = source['Radius'].value() + source['Width'].value()
+                elif source.spatial().type() == 'RadialDisk':
+                    radius = source['Radius'].value()
+                elif source.spatial().type() == 'DiffuseMap':
+                    radius = source.spatial().region().radius()
+                else:
+                    print('source {} has spatial model type {} which is not implemented'.format(source.name(),source.spatial().type()))
+                # use as radius the max between Fermi and model
+                radius = np.maximum(fradius,radius)
+                # subtract from distance the max radius
+                dist -= radius
+                dist_corr = np.minimum(dist,dist_corr)
+            if dist_corr < 0.:
+                # overlapping source foud in container, source will not be added
+                new = 0
+            else:
+                # source will be added to container, set spatial model
+                fradius2 = np.double(ext_fsource['Model_SemiMinor'])
+                fpangle = np.double(ext_fsource['Model_PosAng'])
+                if ext_fsource['Model_Form'] == 'Disk':
+                    if fpangle == 0.:
+                        spatial = gammalib.GModelSpatialRadialDisk(fdir,fradius)
+                    else:
+                        spatial = gammalib.GModelSpatialEllipticalDisk(fdir, fradius, fradius2, fpangle)
+                elif ext_fsource['Model_Form'] == '2D Gaussian':
+                    if fpangle == 0.:
+                        spatial = gammalib.GModelSpatialRadialGauss(fdir,fradius)
+                    else:
+                        spatial = gammalib.GModelSpatialEllipticalGauss(fdir, fradius, fradius2, fpangle)
+                elif ext_fsource['Model_Form'] == '2D Gaussian':
+                    if fpangle == 0.:
+                        spatial = gammalib.GModelSpatialRadialShell(fdir,fradius, fradius2)
+                    else:
+                        print('{} modeled by elliptical ring, which is not implemented, skip'.format(fsource['Source_Name']))
+                        new = 0.
+                elif ext_fsource['Model_Form'] == 'Map':
+                    print('{} modeled by spatial template, which is not implemented, skip'.format(fsource['Source_Name']))
+                    new = 0
+                else:
+                    print('{} modeled by model type {}, which is not implemented, skip'.format(fsource['Source_Name'],ext_fsource['Model_Form']))
+                    new = 0
+                if new == 1:
+                    newext +=1
         if new == 1:
             # spectral model
             eref = gammalib.GEnergy(np.double(fsource['Pivot_Energy']), 'GeV')

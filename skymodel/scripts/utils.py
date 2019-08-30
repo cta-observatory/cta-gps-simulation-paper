@@ -37,9 +37,8 @@ def get_model_dir(model):
     :return: src_dir: ~gammalib.GSkyDir
     """
     if model.spatial().type() == 'DiffuseMap':
-        # # retrieve source direction from map, use mid pixel as approximation
-        dmap = model.spatial().map()
-        src_dir = dmap.inx2dir(int(dmap.npix() / 2))
+        # retrieve direction from map
+        src_dir = model.spatial().region().centre()
     else:
         # retrieve direction from analytical model
         src_dir = model.spatial().dir()

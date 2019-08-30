@@ -85,6 +85,11 @@ for source in gammacat:
             # Gaussian morphology
             sigma = np.double(source['morph_sigma'])
             if np.isnan(source['morph_sigma2']):
+                ##############################################
+                # temporary fix for missing sigma of Westerlund 1
+                # to be removed once Westerlund 1 dedicated model is added!!!
+                if source['common_name'] == 'Westerlund 1':
+                    sigma = 1.1
                 # symmetric Gaussian
                 spatial = gammalib.GModelSpatialRadialGauss(src_dir, sigma)
             else:
