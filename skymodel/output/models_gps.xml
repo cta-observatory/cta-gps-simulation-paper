@@ -1220,9 +1220,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J0110.1+6806" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="4.16263724878352e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.1368682384491" min="-4.67974572323553" max="4.67974572323553" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.9701601266861" min="-5.07572956357638" max="5.07572956357638" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.13837131857872" min="-72.2693120417939" max="72.2693120417939" free="1" />
       <parameter name="PivotEnergy" value="1" scale="24509.8628997803" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1231,9 +1232,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J0131.1+6120" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="3.97774001237305e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.0815737247467" min="-4.80405756525239" max="4.80405756525239" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.90697836875916" min="-5.24389797169376" max="5.24389797169376" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.152900785207748" min="-65.4018878085738" max="65.4018878085738" free="1" />
       <parameter name="PivotEnergy" value="1" scale="25350.6011962891" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1275,9 +1277,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J0214.5+5145" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="2.10460270630257e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.5545243024826" min="-6.43283606697548" max="6.43283606697548" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.34917604923248" min="-7.41193116027281" max="7.41193116027281" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.213479682803154" min="-46.8428651789821" max="46.8428651789821" free="1" />
       <parameter name="PivotEnergy" value="1" scale="49738.9488220215" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1286,9 +1289,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J0241.3+6543" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.99690416112508e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.26202082633972" min="-4.42082578708236" max="4.42082578708236" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.87760531902313" min="-5.32593293099677" max="5.32593293099677" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.456558048725128" min="-21.9030198414496" max="21.9030198414496" free="1" />
       <parameter name="PivotEnergy" value="1" scale="22515.625" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1342,9 +1346,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J0601.0+3837" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.03157152958611e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.03622388839722" min="-4.91105131266845" max="4.91105131266845" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.56511032581329" min="-6.38932593764826" max="6.38932593764826" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.648308515548706" min="-15.4247549741597" max="15.4247549741597" free="1" />
       <parameter name="PivotEnergy" value="1" scale="26892.2863006592" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1364,9 +1369,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J0622.9+3326" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="4.12939821226033e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.48629522323608" min="-4.02204851078961" max="4.02204851078961" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-2.14089179039001" min="-4.67095069675533" max="4.67095069675533" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.356926828622818" min="-28.0169468868015" max="28.0169468868015" free="1" />
       <parameter name="PivotEnergy" value="1" scale="20306.734085083" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1408,9 +1414,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J0706.1+0247" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="8.27215696657703e-17" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.36583244800568" min="-7.32154226867397" max="7.32154226867397" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.18320453166962" min="-8.45162415486106" max="8.45162415486106" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.363773882389069" min="-27.4896040758216" max="27.4896040758216" free="1" />
       <parameter name="PivotEnergy" value="1" scale="71053.5202026367" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1419,9 +1426,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J0709.1-1525" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="6.74948757908161e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.90176904201508" min="-5.25826205973161" max="5.25826205973161" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.52900171279907" min="-6.54021504115484" max="6.54021504115484" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.382705956697464" min="-26.1297213304291" max="26.1297213304291" free="1" />
       <parameter name="PivotEnergy" value="1" scale="32226.3336181641" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1430,9 +1438,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J0723.0-0732" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="7.13459185393978e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.02396488189697" min="-4.9407971894391" max="4.9407971894391" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.57601416110992" min="-6.34512065104631" max="6.34512065104631" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.501661241054535" min="-19.9337704044649" max="19.9337704044649" free="1" />
       <parameter name="PivotEnergy" value="1" scale="27942.5773620605" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1474,9 +1483,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J0825.9-2229" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.20568425035494e-14" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.62020254135132" min="-3.81649885540631" max="3.81649885540631" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-2.40928483009338" min="-4.15060929081283" max="4.15060929081283" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.233487516641617" min="-42.8288421746724" max="42.8288421746724" free="1" />
       <parameter name="PivotEnergy" value="1" scale="18619.7452545166" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1529,9 +1539,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1048.4-5030" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.5155427910904e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.79209697246552" min="-5.5800551831982" max="5.5800551831982" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.13621389865875" min="-8.80115972160219" max="8.80115972160219" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.904002368450165" min="-11.061917920795" max="11.061917920795" free="1" />
       <parameter name="PivotEnergy" value="1" scale="38283.6875915527" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1540,9 +1551,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1115.0-6117" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="8.37414230840661e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.88991463184357" min="-5.29124428770904" max="5.29124428770904" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.44525480270386" min="-6.91919513520487" max="6.91919513520487" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.994966208934784" min="-10.0505925831452" max="10.0505925831452" free="1" />
       <parameter name="PivotEnergy" value="1" scale="31950.7083892822" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1551,9 +1563,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1124.4-5916" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="6.56645256832261e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.01622200012207" min="-4.95977129472576" max="4.95977129472576" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-2.40867352485657" min="-4.15166268770089" max="4.15166268770089" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.225665479898453" min="-44.3133792749334" max="44.3133792749334" free="1" />
       <parameter name="PivotEnergy" value="1" scale="29396.2345123291" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1607,9 +1620,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1558.8-6432" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="3.4278810259053e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.24141764640808" min="-4.46146215366208" max="4.46146215366208" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-2.02981400489807" min="-4.92655976156897" max="4.92655976156897" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.195192262530327" min="-51.2315389471256" max="51.2315389471256" free="1" />
       <parameter name="PivotEnergy" value="1" scale="22349.0161895752" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1641,9 +1655,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1637.8-3448" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="3.84180924919986e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.33938336372375" min="-4.27463072323568" max="4.27463072323568" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-2.12733244895935" min="-4.70072273136801" max="4.70072273136801" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.196305945515633" min="-50.9408921555239" max="50.9408921555239" free="1" />
       <parameter name="PivotEnergy" value="1" scale="21553.2493591309" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1652,9 +1667,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1729.9-4148" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="2.73202115227619e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.95915961265564" min="-5.1042293519133" max="5.1042293519133" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-2.43206667900085" min="-4.11172937253029" max="4.11172937253029" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.314197242259979" min="-31.8271412189086" max="31.8271412189086" free="1" />
       <parameter name="PivotEnergy" value="1" scale="35700.0961303711" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1685,9 +1701,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1744.9-1726" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="2.11429159770182e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.02938604354858" min="-4.92759868522305" max="4.92759868522305" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.69377315044403" min="-5.90397834407663" max="5.90397834407663" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.337649911642075" min="-29.6164745057019" max="29.6164745057019" free="1" />
       <parameter name="PivotEnergy" value="1" scale="28273.8494873047" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1696,9 +1713,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1748.5-0854" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="3.59991685983455e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.74234652519226" min="-5.73938642825172" max="5.73938642825172" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.39132344722748" min="-7.18740133354845" max="7.18740133354845" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.377092242240906" min="-26.5187104899694" max="26.5187104899694" free="1" />
       <parameter name="PivotEnergy" value="1" scale="39678.8101196289" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1707,9 +1725,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1823.6-3454" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="2.5176963378698e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.95653522014618" min="-5.11107589428054" max="5.11107589428054" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.58260381221771" min="-6.31870081621182" max="6.31870081621182" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.403634369373322" min="-24.7748971811441" max="24.7748971811441" free="1" />
       <parameter name="PivotEnergy" value="1" scale="29106.4968109131" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1718,9 +1737,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1828.9-2416" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="4.86666804945524e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.88254511356354" min="-5.3119576938428" max="5.3119576938428" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.57929885387421" min="-6.33192379989944" max="6.33192379989944" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.330486506223679" min="-30.2584214837257" max="30.2584214837257" free="1" />
       <parameter name="PivotEnergy" value="1" scale="33435.3218078613" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1751,9 +1771,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1849.2-1647" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="8.44543727486491e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.98939597606659" min="-5.02665136569336" max="5.02665136569336" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.68155419826508" min="-5.94687938712733" max="5.94687938712733" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.270279407501221" min="-36.9987491553711" max="36.9987491553711" free="1" />
       <parameter name="PivotEnergy" value="1" scale="29038.8965606689" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1773,9 +1794,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1917.9+0331" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="4.45085700066794e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.91207480430603" min="-5.22992090972581" max="5.22992090972581" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.57869398593903" min="-6.33434984174712" max="6.33434984174712" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.30268868803978" min="-33.0372438585673" max="33.0372438585673" free="1" />
       <parameter name="PivotEnergy" value="1" scale="33476.016998291" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1795,9 +1817,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1931.1+0937" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="9.83734361331701e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.31107044219971" min="-4.32699921966977" max="4.32699921966977" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-2.07401061058044" min="-4.82157610428104" max="4.82157610428104" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.247517853975296" min="-40.401125976949" max="40.401125976949" free="1" />
       <parameter name="PivotEnergy" value="1" scale="21779.0966033936" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1817,9 +1840,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1942.7+1033" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="6.83965384329355e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.10553479194641" min="-4.74938720473754" max="4.74938720473754" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.94985008239746" min="-5.12859941914323" max="5.12859941914323" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.135415390133858" min="-73.8468499785366" max="73.8468499785366" free="1" />
       <parameter name="PivotEnergy" value="1" scale="25418.1423187256" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1839,9 +1863,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1958.1+2437" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="5.78004115923958e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.92593622207642" min="-5.19227993397345" max="5.19227993397345" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.4303994178772" min="-6.99105429925344" max="6.99105429925344" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.630583047866821" min="-15.8583394111667" max="15.8583394111667" free="1" />
       <parameter name="PivotEnergy" value="1" scale="31474.2393493652" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1883,9 +1908,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J2109.6+3954" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.18004933082061e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.1196460723877" min="-4.71776874935324" max="4.71776874935324" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.73732650279999" min="-5.75597044302459" max="5.75597044302459" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.376960694789886" min="-26.5279646876019" max="26.5279646876019" free="1" />
       <parameter name="PivotEnergy" value="1" scale="25267.2786712646" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1905,9 +1931,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J2347.9+5435" type="PointSource">
-    <spectrum type="PowerLaw">
+    <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.4071329821827e-15" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.25187993049622" min="-4.44073410157194" max="4.44073410157194" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.93288624286652" min="-5.17361020955365" max="5.17361020955365" free="1" />
+      <parameter name="Curvature" value="1" error="0" scale="0.329270839691162" min="-30.3701354464897" max="30.3701354464897" free="1" />
       <parameter name="PivotEnergy" value="1" scale="22659.4562530518" free="0" />
     </spectrum>
     <spatialModel type="PointSource">

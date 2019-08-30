@@ -71,17 +71,15 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
             eref = gammalib.GEnergy(np.double(fsource['Pivot_Energy']), 'GeV')
             norm = np.double(fsource['Flux_Density'])
             norm *= 1.e-3  # ph GeV-1 -> ph MeV-1
-            if fsource['SpectrumType'] == 'PowerLaw':
+            # use power law model only if signifcance of curvature < 1
+            # this avoids extrapolating hard power laws not justified by the data
+            if fsource['Signif_Curve'] < 1:
                 index = np.double(fsource['PowerLaw_Index'])
                 spectral = gammalib.GModelSpectralPlaw(norm, -index, eref)
-            elif fsource['SpectrumType'] == 'LogParabola':
+            else:
                 index = np.double(fsource['Spectral_Index'])
                 curvature = np.double(fsource['beta'])
                 spectral = gammalib.GModelSpectralLogParabola(norm, -index, eref, curvature)
-            else:
-                print(
-                    'WARNING: source {} has spectral model of type {} which is not implemented'.format(
-                        fsource['Source_Name'], fsource['SpectrumType']))
             # assemble model and append to container
             model = gammalib.GModelSky(spatial, spectral)
             model.name(fsource['Source_Name'])
