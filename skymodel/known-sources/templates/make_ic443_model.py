@@ -46,6 +46,8 @@ source = gammalib.GModelSky(spatial,spectral)
 # create model container and append source
 models = gammalib.GModels()
 models.append(source)
+# assign name
+models.name('IC 443')
 
 # write to disk
 models.save(out_xml)
