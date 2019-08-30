@@ -1,6 +1,7 @@
 Added 82 gamma-cat sources
 Replaced 5 gamma-cat sources with templates. Added 3 sources as templates
 Replaced 6 gamma-cat sources with binaries. Added 3 sources as binaries
+Added 68 FHL sources, of which 68 as pointlike and 0 as extended.
 WARNING: sources TeV J2032+4130 and PSR J2032+4127 are at a distance of 0.14945409368478166 deg lower than 0.2 deg
 WARNING: sources LS5039 INFC and LS5039 SUPC are at a distance of 8.537736462515939e-07 deg lower than 0.2 deg
 WARNING: sources LS5039 SUPC and LS5039 INFC are at a distance of 8.537736462515939e-07 deg lower than 0.2 deg

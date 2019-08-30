@@ -1,6 +1,6 @@
 # Scripts
 
-Scripts not specific to any source type, in particular those used to assemble the final model.
+Scripts, in particular those used to assemble the final model.
 
 To generate the final model type
 
