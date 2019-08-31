@@ -45,9 +45,11 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
         ra = np.double(fsource['RAJ2000'])
         dec = np.double(fsource['DEJ2000'])
         fdir.radec_deg(ra, dec)
+        ######################################### treat pointlike sources for Fermi ###########
         if fsource['Extended_Source_Name'] == '':
             # case of sources pointlike for Fermi
             # loop over gammalib container and determine closest neighbor
+            # initialize at 1000
             dist_min = 1000.
             for source in models:
                 dir = get_model_dir(source)
@@ -58,20 +60,20 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
                 new = 0
             else:
                 # source will be added to container, set spatial model
-                src_dir = gammalib.GSkyDir()
-                ra = np.double(fsource['RAJ2000'])
-                dec = np.double(fsource['DEJ2000'])
-                src_dir.radec_deg(ra, dec)
-                spatial = gammalib.GModelSpatialPointSource(src_dir)
+                spatial = gammalib.GModelSpatialPointSource(fdir)
                 newpt += 1
+        ######################################### treat extended sources for Fermi ############
         else:
             # retrieve Fermi extended source radius
             ext_fsource = ext_fhl[ext_fhl['Source_Name'] == fsource['Extended_Source_Name']][0]
             fradius = np.double(ext_fsource['Model_SemiMajor'])
-            dist_corr = 10.
+            # "corrected" distance, i.e, centre distance - radius of source
+            # initialize at 1000
+            dist_corr = 1000.
             for source in models:
                 dir = get_model_dir(source)
                 dist = fdir.dist_deg(dir)
+                # get source radius according to model used
                 if source.spatial().type() == 'PointSource':
                     radius = 0.
                 elif source.spatial().type() == 'RadialGaussian':
@@ -98,18 +100,19 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
                 # source will be added to container, set spatial model
                 fradius2 = np.double(ext_fsource['Model_SemiMinor'])
                 fpangle = np.double(ext_fsource['Model_PosAng'])
+                # retrieve Fermi spatial model to set it in container
                 if ext_fsource['Model_Form'] == 'Disk':
-                    if fpangle == 0.:
+                    if fradius2 == fradius:
                         spatial = gammalib.GModelSpatialRadialDisk(fdir,fradius)
                     else:
                         spatial = gammalib.GModelSpatialEllipticalDisk(fdir, fradius, fradius2, fpangle)
                 elif ext_fsource['Model_Form'] == '2D Gaussian':
-                    if fpangle == 0.:
+                    if fradius2 == fradius:
                         spatial = gammalib.GModelSpatialRadialGauss(fdir,fradius)
                     else:
                         spatial = gammalib.GModelSpatialEllipticalGauss(fdir, fradius, fradius2, fpangle)
                 elif ext_fsource['Model_Form'] == '2D Gaussian':
-                    if fpangle == 0.:
+                    if fradius2 == fradius:
                         spatial = gammalib.GModelSpatialRadialShell(fdir,fradius, fradius2)
                     else:
                         print('{} modeled by elliptical ring, which is not implemented, skip'.format(fsource['Source_Name']))
@@ -122,6 +125,7 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
                     new = 0
                 if new == 1:
                     newext +=1
+        ######################################### spectra #####################################
         if new == 1:
             # spectral model
             eref = gammalib.GEnergy(np.double(fsource['Pivot_Energy']), 'GeV')
