@@ -111,7 +111,7 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
                         spatial = gammalib.GModelSpatialRadialGauss(fdir,fradius)
                     else:
                         spatial = gammalib.GModelSpatialEllipticalGauss(fdir, fradius, fradius2, fpangle)
-                elif ext_fsource['Model_Form'] == '2D Gaussian':
+                elif ext_fsource['Model_Form'] == 'Ring':
                     if fradius2 == fradius:
                         spatial = gammalib.GModelSpatialRadialShell(fdir,fradius, fradius2)
                     else:
