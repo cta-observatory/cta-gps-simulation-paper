@@ -21,7 +21,8 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     :param sig50_thresh: float, threshold sigma on significance above 50 GeV to apply
     :param eph_thresh: float, minimum energy of detected photons required
     :return: models: ~gammalib.GModels, gammalib model container with new sources added
-    :return: nsrc: int, number of new sources
+    :return: newpt: int, number of new pointlike sources
+    :return: neext: int, number of new extended sources
     """
     # filter FHL table based on latitude and hardness
     # hard sources are seleted based on significance above 50 GeV and highest photon energy
