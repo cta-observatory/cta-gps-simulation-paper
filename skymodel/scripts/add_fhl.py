@@ -113,11 +113,7 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
                     else:
                         spatial = gammalib.GModelSpatialEllipticalGauss(fdir, fradius, fradius2, fpangle)
                 elif ext_fsource['Model_Form'] == 'Ring':
-                    if fradius2 == fradius:
-                        spatial = gammalib.GModelSpatialRadialShell(fdir,fradius, fradius2)
-                    else:
-                        print('{} modeled by elliptical ring, which is not implemented, skip'.format(fsource['Source_Name']))
-                        new = 0.
+                    spatial = gammalib.GModelSpatialRadialShell(fdir,fradius, fradius2)
                 elif ext_fsource['Model_Form'] == 'Map':
                     print('{} modeled by spatial template, which is not implemented, skip'.format(fsource['Source_Name']))
                     new = 0
