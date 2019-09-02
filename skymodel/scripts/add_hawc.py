@@ -34,7 +34,7 @@ eref = gammalib.GEnergy(7., 'TeV')
 
 def append_hawc(models, bmax, dist_sigma=3.):
     """
-    Append missing models from Fermi high-energy catalog to gammalib model container
+    Append missing models from HAWC catalog to gammalib model container
     :param models: input gammalib model container
     :param models: ~gammalib.GModels, gammalib model container
     :param bmax: float, maximum latitude of models to include
@@ -87,7 +87,7 @@ def append_hawc(models, bmax, dist_sigma=3.):
                 dist = dir.dist_deg(dir)
                 # get source radius according to model used
                 radius = get_model_radius(source)
-                # use as radius the max between Fermi and model
+                # use as radius the max between HAWC and model
                 radius = np.maximum(hradius,radius)
                 # subtract from distance the max radius
                 dist -= radius + hsource['pos_err']
