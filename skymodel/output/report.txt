@@ -1,5 +1,5 @@
 Added 82 gamma-cat sources
-Replaced 5 gamma-cat sources with templates. Added 3 sources as templates
+Replaced 6 gamma-cat sources with templates. Added 3 sources as templates
 Replaced 6 gamma-cat sources with binaries. Added 3 sources as binaries
 Added 76 FHL sources, of which 68 as pointlike and 8 as extended.
 Added 18 HAWC sources, of which 18 as pointlike and 0 as extended.
