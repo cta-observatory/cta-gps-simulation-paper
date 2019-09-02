@@ -25,8 +25,8 @@ def normalize_template(in_fits, in_hdu, out_fits,
         print("ERROR: template normalization only implemented for 2D maps")
 
     # test if projection distortion can be ignored, here I use 3 deg as max size
-    if 'TAN' in in_hdu.header['CTYPE1']\
-            and np.abs(in_hdu.header['NAXIS1'] * in_hdu.header['CDELT1']) < 3.\
+    if 'TAN' in in_hdu.header['CTYPE1'] \
+            and np.abs(in_hdu.header['NAXIS1'] * in_hdu.header['CDELT1']) < 3. \
             and np.abs(in_hdu.header['NAXIS2'] * in_hdu.header['CDELT2']) < 3.:
         pass
     else:
@@ -39,6 +39,6 @@ def normalize_template(in_fits, in_hdu, out_fits,
     in_hdu.data /= np.sum(in_hdu.data)
 
     # write normalized map to disk
-    in_hdu.writeto(out_fits)
+    in_hdu.writeto(out_fits, overwrite=True)
 
     return

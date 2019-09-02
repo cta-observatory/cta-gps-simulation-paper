@@ -42,6 +42,8 @@ spectral['Prefactor'].value(flux/norm)
 
 # create source model
 source = gammalib.GModelSky(spatial,spectral)
+# assign name
+source.name('IC 443')
 
 # create model container and append source
 models = gammalib.GModels()
