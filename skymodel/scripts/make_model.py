@@ -5,6 +5,7 @@ import os
 import shutil
 from gammapy.catalog import SourceCatalogGammaCat
 from add_fhl import *
+from add_hawc import *
 from utils import *
 
 # inputs from external sources
@@ -353,17 +354,24 @@ outfile.write(msg)
 
 # add HAWC
 
+models, newpt, newext = append_hawc(models,bmax,dist_sigma=3.)
+
+msg = 'Added {} HAWC sources, of which {} as pointlike and {} as extended.\n'.format(
+    newpt+newext, newpt,newext)
+print(msg)
+outfile.write(msg)
+
 # re-make distributions from gammalib model container
 lons, lats, fluxes = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
-         label='gamma-cat + templates + bin + FHL', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
 
 # CHECKS for duplicated sources
 for model1 in models:

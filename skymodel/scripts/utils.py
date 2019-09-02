@@ -43,3 +43,26 @@ def get_model_dir(model):
         # retrieve direction from analytical model
         src_dir = model.spatial().dir()
     return src_dir
+
+def get_model_radius(model):
+    """
+    extracts radius for extended source
+    :param model: ~gammalib.GModelSky
+    :return: radius: float
+    """
+    if model.spatial().type() == 'PointSource':
+        radius = 0.
+    elif model.spatial().type() == 'RadialGaussian':
+        radius = 2 * model['Sigma'].value()
+    elif model.spatial().type() == 'EllipticalGaussian':
+        radius = 2 * model['MajorRadius'].value()
+    elif model.spatial().type() == 'RadialShell':
+        radius = model['Radius'].value() + model['Width'].value()
+    elif model.spatial().type() == 'RadialDisk':
+        radius = model['Radius'].value()
+    elif model.spatial().type() == 'DiffuseMap':
+        radius = model.spatial().region().radius()
+    else:
+        print('model {} has spatial model type {} which is not implemented'.format(
+            model.name(), model.spatial().type()))
+    return radius

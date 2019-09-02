@@ -75,20 +75,7 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
                 dir = get_model_dir(source)
                 dist = fdir.dist_deg(dir)
                 # get source radius according to model used
-                if source.spatial().type() == 'PointSource':
-                    radius = 0.
-                elif source.spatial().type() == 'RadialGaussian':
-                    radius = 2 * source['Sigma'].value()
-                elif source.spatial().type() == 'EllipticalGaussian':
-                    radius = 2 * source['MajorRadius'].value()
-                elif source.spatial().type() == 'RadialShell':
-                    radius = source['Radius'].value() + source['Width'].value()
-                elif source.spatial().type() == 'RadialDisk':
-                    radius = source['Radius'].value()
-                elif source.spatial().type() == 'DiffuseMap':
-                    radius = source.spatial().region().radius()
-                else:
-                    print('source {} has spatial model type {} which is not implemented'.format(source.name(),source.spatial().type()))
+                radius = get_model_radius(source)
                 # use as radius the max between Fermi and model
                 radius = np.maximum(fradius,radius)
                 # subtract from distance the max radius
