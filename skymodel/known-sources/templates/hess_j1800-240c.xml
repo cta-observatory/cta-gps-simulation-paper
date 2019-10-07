@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<!-- maps and spectrum from 1DC -->
+<source_library name="source library">
+	<source name="HESS J1800-240C" type="DiffuseSource">
+        <spectrum type="PowerLaw">
+            <parameter name="Prefactor" scale="1e-19" value="4.59" min="1e-07" max="1000.0" free="1"/>
+            <parameter name="Index" scale="-1" value="2.31" min="0.0" max="+5.0" free="1"/>
+            <parameter name="PivotEnergy" scale="1e6" value="1.0" min="0.01" max="1000.0" free="0"/>
+        </spectrum>
+        <spatialModel type="DiffuseMap" file="hess_j1800-240c_map.fits">
+            <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0"/>
+        </spatialModel>
+    </source>
+</source_library>
