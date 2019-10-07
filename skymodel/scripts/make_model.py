@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 import shutil
-from gammapy.catalog import SourceCatalogGammaCat
+#from gammapy.catalog import SourceCatalogGammaCat
+from astropy.table import Table
 from add_fhl import *
 from add_hawc import *
 from utils import *
@@ -57,7 +58,8 @@ gammacat_ids = []
 gammacat_lons = []
 gammacat_lats = []
 gammacat_flux = []
-gammacat = SourceCatalogGammaCat(gammacat_file).table
+#gammacat = SourceCatalogGammaCat(gammacat_file).table
+gammacat = Table.read(gammacat_file)
 for source in gammacat:
     # retain only sources with known spectral model
     # and centered within 10 degrees from the galactic pla
