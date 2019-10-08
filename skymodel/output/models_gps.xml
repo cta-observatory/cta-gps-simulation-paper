@@ -67,21 +67,6 @@
       <parameter name="DEC" value="15.2700004577637" scale="1" free="0" />
     </spatialModel>
   </source>
-  <source name="Vela X" type="ExtendedSource">
-    <spectrum type="ExponentialCutoffPowerLaw">
-      <parameter name="Prefactor" value="1" error="0" scale="1.46000000283975e-17" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.32000005245209" min="-7.57575727472403" max="7.57575727472403" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="14000000" min="7.14285714285714e-09" free="1" />
-      <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
-    </spectrum>
-    <spatialModel type="EllipticalGaussian">
-      <parameter name="RA" value="128.75" scale="1" free="0" />
-      <parameter name="DEC" value="-45.5999984741211" scale="1" free="0" />
-      <parameter name="PA" value="41" scale="1" free="0" />
-      <parameter name="MinorRadius" value="0.360000014305115" error="0" scale="1" min="0.0002778" free="1" />
-      <parameter name="MajorRadius" value="0.479999989271164" error="0" scale="1" min="0.0002778" free="1" />
-    </spatialModel>
-  </source>
   <source name="HESS J1018-589 B" type="ExtendedSource">
     <spectrum type="PowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="4.19999999405965e-19" min="0" free="1" />
@@ -989,6 +974,50 @@
       <parameter name="BreakEnergy" value="1" scale="100000" min="0.01" max="1000" free="0" />
     </spectrum>
     <spatialModel type="DiffuseMap" file="gammacygni_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
+    </spatialModel>
+  </source>
+  <source name="Vela X" type="DiffuseSource" tscalc="1">
+    <spectrum type="ExpCutoff">
+      <parameter name="Prefactor" value="0.0754" error="0" scale="1e-16" min="0.001" max="1000" free="1" />
+      <parameter name="Index" value="1.36" error="0" scale="-1" min="0" max="5" free="1" />
+      <parameter name="Cutoff" value="13.9" error="0" scale="1000000" min="0.01" max="1000" free="1" />
+      <parameter name="Scale" value="1" scale="1000000" min="0.01" max="1000" free="0" />
+    </spectrum>
+    <spatialModel type="DiffuseMap" file="velax_src1_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
+    </spatialModel>
+  </source>
+  <source name="Vela Radio Ring" type="DiffuseSource" tscalc="1">
+    <spectrum type="ExpCutoff">
+      <parameter name="Prefactor" value="0.02145" error="0" scale="1e-16" min="1e-07" max="1000" free="1" />
+      <parameter name="Index" value="1.14" error="0" scale="-1" min="0" max="5" free="1" />
+      <parameter name="Cutoff" value="9.5" error="0" scale="1000000" min="0.01" max="1000" free="1" />
+      <parameter name="Scale" value="1" scale="1000000" min="0.01" max="1000" free="0" />
+    </spectrum>
+    <spatialModel type="DiffuseMap" file="velax_src2_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
+    </spatialModel>
+  </source>
+  <source name="Vela Xray Inner" type="DiffuseSource" tscalc="1">
+    <spectrum type="ExpCutoff">
+      <parameter name="Prefactor" value="0.0406" error="0" scale="1e-16" min="0.001" max="1000" free="1" />
+      <parameter name="Index" value="1.36" error="0" scale="-1" min="0" max="5" free="1" />
+      <parameter name="Cutoff" value="13.9" error="0" scale="1000000" min="0.01" max="1000" free="1" />
+      <parameter name="Scale" value="1" scale="1000000" min="0.01" max="1000" free="0" />
+    </spectrum>
+    <spatialModel type="DiffuseMap" file="velax_src3_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
+    </spatialModel>
+  </source>
+  <source name="Vela Xray Ring" type="DiffuseSource" tscalc="1">
+    <spectrum type="ExpCutoff">
+      <parameter name="Prefactor" value="0.01155" error="0" scale="1e-16" min="1e-07" max="1000" free="1" />
+      <parameter name="Index" value="1.14" error="0" scale="-1" min="0" max="5" free="1" />
+      <parameter name="Cutoff" value="9.5" error="0" scale="1000000" min="0.01" max="1000" free="1" />
+      <parameter name="Scale" value="1" scale="1000000" min="0.01" max="1000" free="0" />
+    </spectrum>
+    <spatialModel type="DiffuseMap" file="velax_src4_map.fits">
       <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
     </spatialModel>
   </source>
