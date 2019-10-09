@@ -7,7 +7,7 @@ from astropy.table import Table
 from add_fhl import *
 from add_hawc import *
 from utils import *
-from cutoffs import get_cutoff
+from cutoffs import get_cutoff, get_atnf_version
 
 # inputs from external sources
 gammacat_file = '../known-sources/external-input/gammacat.fits.gz'
@@ -21,6 +21,11 @@ os.chdir('../output')
 
 # create report file
 outfile = open('report.txt', 'w')
+
+# record version of ATNF catalog used
+msg = 'Using ATNF catalog version {}\n'.format(get_atnf_version())
+print(msg)
+outfile.write(msg)
 
 # initialize diagnostic plots
 fig1 = plt.figure('LogNLogS')
@@ -178,6 +183,19 @@ for source in gammacat:
                     # set cutoff
                     ecut = get_cutoff(ra,dec,'PSR',rad_search=rad)
                     ecut_pwn.append(ecut)
+                # elif 'snr' in source['classes']:
+                #     # try to get Green name
+                #     onames = source['other_names'].split(',')
+                #     gname = [name for name in test if name[:5] == 'SNR G' or name[0] == 'G']
+                #     if len(gname)>0:
+                #         gname = gname[0]
+                #     else:
+                #         gname = None
+                #     # verify if interaction with molecular clouds is listed
+                #     if 'mc' in source['classes']:
+                #         interacting = True
+                #     else:
+                #         interacting = False
                 else:
                     ecut = get_cutoff(ra, dec, 'X')
                     ecut_unid.append(ecut)
