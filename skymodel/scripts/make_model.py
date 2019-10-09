@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 import shutil
-#from gammapy.catalog import SourceCatalogGammaCat
 from astropy.table import Table
 from add_fhl import *
 from add_hawc import *
 from utils import *
+from cutoffs import get_cutoff
 
 # inputs from external sources
 gammacat_file = '../known-sources/external-input/gammacat.fits.gz'
@@ -58,7 +58,10 @@ gammacat_ids = []
 gammacat_lons = []
 gammacat_lats = []
 gammacat_flux = []
-#gammacat = SourceCatalogGammaCat(gammacat_file).table
+# keep track also of artificial cutoffs
+ecut_pwn = []
+ecut_snr = []
+ecut_unid = []
 gammacat = Table.read(gammacat_file)
 for source in gammacat:
     # retain only sources with known spectral model
@@ -157,12 +160,30 @@ for source in gammacat:
                         np.power(emax, -index + 1) - np.power(emin, -index + 1))
             # convert norm from ph cm-2 s-1 TeV-1 (gamma-cat) to ph cm-2 s-1 MeV-1 (gammalib)
             norm *= 1.e-6
-            if False:
-                # implement fake PeVatron correction
-                pass
+            index = np.double(index)
+            norm = np.double(norm)
+            # Set artifical cutoffs for sources measured with hard PL spectra without measured cutoff
+            # Binaries and pulsars are skipped because they are addressed later
+            # We also leave Westerlund 1 and HESS J1641-463 as PeVatron candidates
+            if index < 2.4 and not source['classes'] == 'bin'\
+                    and not source['classes'] == 'psr'\
+                    and not source['common_name'] == 'Westerlund 1'\
+                    and not source['common_name'] == 'HESS J1641-463':
+                #print('set artificial cutoff for source {} of type {}'.format(source['common_name'], source['classes']))
+                if 'pwn' in source['classes']:
+                    # dummy model to obtain search radius
+                    mod = gammalib.GModelSky(spatial,gammalib.GModelSpectralPlaw())
+                    # search radius
+                    rad = get_model_radius(mod) + 0.2
+                    # set cutoff
+                    ecut = get_cutoff(ra,dec,'PSR',rad_search=rad)
+                    ecut_pwn.append(ecut)
+                else:
+                    ecut = get_cutoff(ra, dec, 'X')
+                    ecut_unid.append(ecut)
+                ecut = gammalib.GEnergy(np.double(ecut), 'TeV')
+                spectral = gammalib.GModelSpectralExpPlaw(norm, -index, eref, ecut)
             else:
-                index = np.double(index)
-                norm = np.double(norm)
                 spectral = gammalib.GModelSpectralPlaw(norm, -index, eref)
         elif source['spec_type'] == 'ecpl':
             index = source['spec_ecpl_index']
@@ -193,6 +214,7 @@ for source in gammacat:
 msg = 'Added {} gamma-cat sources\n'.format(len(gammacat_ids))
 print(msg)
 outfile.write(msg)
+
 
 # renormalize gamma-cat flux so that they are in Crab units
 gammacat_flux = np.array(gammacat_flux)
@@ -362,6 +384,11 @@ msg = 'Added {} HAWC sources, of which {} as pointlike and {} as extended.\n'.fo
     newpt+newext, newpt,newext)
 print(msg)
 outfile.write(msg)
+
+# save cutoff values
+np.save('ecut_pwn.npy',ecut_pwn)
+np.save('ecut_snr.npy',ecut_snr)
+np.save('ecut_unid.npy',ecut_unid)
 
 # re-make distributions from gammalib model container
 lons, lats, fluxes = dist_from_gammalib(models)

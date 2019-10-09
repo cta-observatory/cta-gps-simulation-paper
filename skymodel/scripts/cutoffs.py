@@ -1,5 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from psrqpy import QueryATNF
+from astropy.coordinates import SkyCoord
+import astropy.units as u
 
 # see document in known-sources/docs/FakePeVatron.pdf for references to equations
 
@@ -38,6 +41,8 @@ pc2cm = 3.086e18
 yr2sec = 86400 * 365
 eV2erg = 1.602e-12
 
+
+#### methods to estimate cutoff
 
 def lambda_exp(type):
     """
@@ -202,13 +207,79 @@ def Emax_PSR(Edot):
     """
     Calculate maximum energy of electrons accelerated by pulsar
     based on potential drop
+    Take 10% of max allowed (based on Crab)
     :param Edot: erg/s
     :return: emax, maximum energy in eV
     """
 
-    emax = 1.7e15 * np.power(Edot/1.e36,0.5)
+    emax = 0.1 * 1.7e15 * np.power(Edot/1.e36,0.5)
 
     return emax
+
+#### methods to set PWN cutoffs querying ATNF catalog
+
+def get_atnf_version():
+
+    return QueryATNF().get_version
+
+#### cutoff methods
+
+def get_random_cutoff(emin = 30, emax=70):
+    # return random cutoff in range between emin and emax
+    rnd = np.random.random()
+    ecut = emin + rnd * (emax - emin)
+    return ecut
+
+def get_pwn_cutoff(ra,dec,rad_search=2., deathline = 1.e34):
+    """
+    Set cutoff for PWN based on association with pulsars in ATNF catalog
+    Only pulsars with Edot > 1.e34 erg/s are considered, because ctuoffs at ~1 TeV
+    should have already been detected
+    :param ra: R.A. of PWN center, deg
+    :param dec: Dec. of PWN center, deg
+    :param rad_search: search radius, deg
+    :param deathline: minimum Edot, erg/s
+    :return:
+    """
+    # convert coordinates to astropy SkyCoord
+    c = SkyCoord(ra, dec, frame='icrs', unit='deg')
+    # extract ra, dec in the format required by psrqpy
+    ra_hms, dec_dms = c.to_string('hmsdms').split(' ')
+    # define circular search region
+    search_region = [ra_hms, dec_dms, rad_search]
+    # query ATNF catalog
+    psrs = QueryATNF(params=['JNAME', 'RAJ', 'DECJ', 'EDOT'], circular_boundary=search_region,
+                     condition = 'EDOT > {}'.format(deathline))
+    if len(psrs) == 0:
+        # no PSR found, setting random cutoff
+        ecut = get_random_cutoff()
+    else:
+        if len(psrs) == 1:
+            # 1 pulsar found
+            s = 0
+        else:
+            # multiple pulsars found
+            # pulsars position in SkyCoord form
+            cpsrs = SkyCoord(ra=psrs['RAJ'], dec=psrs['DECJ'], frame='icrs',
+                             unit=(u.hourangle, u.deg))
+            # calculate angular separation between pulsars and PWN
+            sep = cpsrs.separation(c)
+            # select closest pulsar
+            s = np.where(sep == np.min(sep))[0][0]
+        ecut = 0.1 * 1.e-12 * Emax_PSR(psrs['EDOT'][s])
+
+    return ecut
+
+def get_cutoff(ra,dec,classes,name=None, rad_search=4.):
+    if classes == 'PSR':
+        ecut = get_pwn_cutoff(ra,dec,rad_search=rad_search)
+    else:
+        ecut = get_random_cutoff()
+
+    #print('Ecut = {} TeV'.format(ecut))
+    return ecut
+
+
 
 
 # ======================== #

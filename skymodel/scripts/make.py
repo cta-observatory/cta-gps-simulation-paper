@@ -15,3 +15,7 @@ os.system('python make_ic443_model.py')
 # assemble final model
 os.chdir('../../scripts')
 os.system('python make_model.py')
+
+# make more diagnostic plots
+os.chdir('../scripts')
+os.system('python show_cutoffs.py')
