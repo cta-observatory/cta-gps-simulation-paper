@@ -48,6 +48,7 @@ def append_hawc(models, bmax, dist_sigma=3.):
     newpt = 0
     newext = 0
     newmodels = gammalib.GModels()
+    warning = ''
 
     # loop over sources and compare with input models
     for hsource in sources:
@@ -107,6 +108,8 @@ def append_hawc(models, bmax, dist_sigma=3.):
             # flux scaling factor
             # 1e-15 ph TeV-1 -> ph MeV-1
             spectral = gammalib.GModelSpectralPlaw(1.e-21 * spectrum['F7'], spectrum['index'], eref)
+            if spectrum['index'] > -2.4:
+                warning += '2HWC source {} has hard index {}'.format(hawc_spectra['name'],spectrum['index'])
             # assemble model and append to container
             model = gammalib.GModelSky(spatial, spectral)
             model.name(hsource['name'])
@@ -119,5 +122,5 @@ def append_hawc(models, bmax, dist_sigma=3.):
     for model in newmodels:
         models.append(model)
 
-    return models, newpt, newext
+    return models, newpt, newext, warning
 

@@ -3,6 +3,7 @@ import numpy as np
 
 results = [{'filename': '../output/ecut_pwn.npy', 'name': 'PWN'},
            {'filename': '../output/ecut_snr.npy', 'name': 'SNR'},
+           {'filename': '../output/ecut_agn.npy', 'name': 'AGN'},
            {'filename': '../output/ecut_unid.npy', 'name': 'UNID'}]
 
 arrays = []

@@ -2,6 +2,7 @@ import gammalib
 import numpy as np
 from astropy.io import fits
 from utils import *
+from cutoffs import get_cutoff
 
 # retrieve Fermi high-energy catalog data
 fhl = fits.getdata('../known-sources/external-input/gll_psch_v13.fit', 1)
@@ -20,9 +21,7 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     :param dist_sigma: float, minimum distance in sigma's from pre-existing source to add as new
     :param sig50_thresh: float, threshold sigma on significance above 50 GeV to apply
     :param eph_thresh: float, minimum energy of detected photons required
-    :return: models: ~gammalib.GModels, gammalib model container with new sources added
-    :return: newpt: int, number of new pointlike sources
-    :return: neext: int, number of new extended sources
+    :return: result: dictionary
     """
     # filter FHL table based on latitude and hardness
     # hard sources are seleted based on significance above 50 GeV and highest photon energy
@@ -36,6 +35,17 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     newpt = 0
     newext = 0
     newmodels = gammalib.GModels()
+    # keep track also of artificial cutoffs
+    ecut_pwn = []
+    ecut_snr = []
+    ecut_unid = []
+    ecut_agn = []
+    n_ecut_pwn = 0
+    n_ecut_snr = 0
+    n_ecut_agn = 0
+    n_ecut_unid = 0
+
+    msg = ''
 
     # loop over fermi sources
     for fsource in fsources:
@@ -119,7 +129,48 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
             # this avoids extrapolating hard power laws not justified by the data
             if fsource['Signif_Curve'] < 1:
                 index = np.double(fsource['PowerLaw_Index'])
-                spectral = gammalib.GModelSpectralPlaw(norm, -index, eref)
+                if index < 2.4:
+                    # correction for fake pevatrons
+                    if fsource['CLASS'] == 'PWN' or fsource['CLASS'] == 'pwn':
+                        # dummy model to obtain search radius
+                        mod = gammalib.GModelSky(spatial, gammalib.GModelSpectralPlaw())
+                        # search radius
+                        rad = get_model_radius(mod) + 0.2
+                        # set cutoff
+                        ecut = get_cutoff(ra, dec, 'PSR', rad_search=rad)
+                        ecut_pwn.append(ecut)
+                        n_ecut_pwn += 1
+                    elif fsource['CLASS'] == 'SNR' or fsource['CLASS'] == 'snr':
+                        gname = fsource['ASSOC1']
+                        if 'SNR' in gname:
+                            pass
+                        else:
+                            gname = None
+                        # compute cutoff
+                        ecut = get_cutoff(ra, dec, 'SNR', name=gname,
+                                          index=index)
+                        ecut_snr.append(ecut)
+                        n_ecut_snr += 1
+                    elif fsource['CLASS'] == 'bll' or fsource['CLASS'] == 'bcu' or fsource['CLASS'] == 'fsrq':
+                        ecut = get_cutoff(ra, dec, 'AGN')
+                        ecut_agn.append(ecut)
+                        n_ecut_agn += 1
+                    else:
+                        if fsource['CLASS'] == '' or fsource['CLASS'] == 'unknown':
+                            pass
+                        else:
+                            # set warning if we have hard source of unexpected type
+                            msg += 'FHL source {} of type {} has an unxepctedly hard spectrum ' \
+                                  'with index {}. We are setting a random artificial cutoff\n'.format(
+                                fsource['Source_Name'], fsource['CLASS'], index)
+                            print(msg)
+                        ecut = get_cutoff(ra, dec, 'UNID')
+                        ecut_unid.append(ecut)
+                        n_ecut_unid += 1
+                    ecut = gammalib.GEnergy(np.double(ecut), 'TeV')
+                    spectral = gammalib.GModelSpectralExpPlaw(norm, -index, eref, ecut)
+                else:
+                    spectral = gammalib.GModelSpectralPlaw(norm, -index, eref)
             else:
                 index = np.double(fsource['Spectral_Index'])
                 curvature = np.double(fsource['beta'])
@@ -136,4 +187,10 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     for model in newmodels:
         models.append(model)
 
-    return models, newpt, newext
+    # assemble output in dictionary
+    result = { 'models' : models, 'newpt' : newpt, 'newext' : newext,
+               'ecut_pwn' : ecut_pwn, 'ecut_snr' : ecut_snr, 'ecut_agn' : ecut_agn,
+               'ecut_unid' : ecut_unid, 'n_ecut_pwn' : n_ecut_pwn, 'n_ecut_snr' : n_ecut_snr,
+               'n_ecut_agn' : n_ecut_agn, 'n_ecut_unid' : n_ecut_unid, 'msg' : msg }
+
+    return result

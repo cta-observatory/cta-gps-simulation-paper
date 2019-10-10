@@ -67,6 +67,10 @@ gammacat_flux = []
 ecut_pwn = []
 ecut_snr = []
 ecut_unid = []
+ecut_agn = []
+n_ecut_pwn = 0
+n_ecut_snr = 0
+n_ecut_unid = 0
 gammacat = Table.read(gammacat_file)
 for source in gammacat:
     # retain only sources with known spectral model
@@ -174,7 +178,7 @@ for source in gammacat:
                     and not source['classes'] == 'psr'\
                     and not source['common_name'] == 'Westerlund 1'\
                     and not source['common_name'] == 'HESS J1641-463':
-                #print('set artificial cutoff for source {} of type {}'.format(source['common_name'], source['classes']))
+                # if source may be PWN treat as such
                 if 'pwn' in source['classes']:
                     # dummy model to obtain search radius
                     mod = gammalib.GModelSky(spatial,gammalib.GModelSpectralPlaw())
@@ -183,22 +187,38 @@ for source in gammacat:
                     # set cutoff
                     ecut = get_cutoff(ra,dec,'PSR',rad_search=rad)
                     ecut_pwn.append(ecut)
-                # elif 'snr' in source['classes']:
-                #     # try to get Green name
-                #     onames = source['other_names'].split(',')
-                #     gname = [name for name in test if name[:5] == 'SNR G' or name[0] == 'G']
-                #     if len(gname)>0:
-                #         gname = gname[0]
-                #     else:
-                #         gname = None
-                #     # verify if interaction with molecular clouds is listed
-                #     if 'mc' in source['classes']:
-                #         interacting = True
-                #     else:
-                #         interacting = False
+                    n_ecut_pwn+=1
+                # otherwise consider SNR
+                elif 'snr' in source['classes']:
+                    # try to get Green name
+                    onames = source['other_names'].split(',')
+                    gname = [name for name in onames if name[:5] == 'SNR G' or name[0] == 'G']
+                    if len(gname)>0:
+                        gname = gname[0]
+                    else:
+                        gname = None
+                    # verify if interaction with molecular clouds is listed
+                    if 'mc' in source['classes']:
+                        interacting = True
+                    else:
+                        interacting = False
+                    # compute cutoff
+                    ecut = get_cutoff(ra, dec, 'SNR', name = gname, interacting=interacting, index = index)
+                    ecut_snr.append(ecut)
+                    n_ecut_snr+=1
+                # otherwise if unidentified
                 else:
-                    ecut = get_cutoff(ra, dec, 'X')
+                    if 'unid' in source['classes']:
+                        pass
+                    else:
+                        # set warning if we have hard source of unexpected type
+                        msg = 'Gamma-cat source {} of type {} has an unxepctedly hard spectrum ' \
+                              'with index {}. We are setting a random artificial cutoff\n'.format(source['common_name'],source['classes'],index)
+                        print(msg)
+                        outfile.write(msg)
+                    ecut = get_cutoff(ra, dec, 'UNID')
                     ecut_unid.append(ecut)
+                    n_ecut_unid +=1
                 ecut = gammalib.GEnergy(np.double(ecut), 'TeV')
                 spectral = gammalib.GModelSpectralExpPlaw(norm, -index, eref, ecut)
             else:
@@ -230,6 +250,9 @@ for source in gammacat:
             gammacat_flux.append(source['spec_flux_1TeV_crab'])
 
 msg = 'Added {} gamma-cat sources\n'.format(len(gammacat_ids))
+print(msg)
+outfile.write(msg)
+msg = 'Set estimated cutoffs for {} PWN, {} SNR, {} UNID\n'.format(n_ecut_pwn,n_ecut_snr,n_ecut_unid)
 print(msg)
 outfile.write(msg)
 
@@ -387,25 +410,43 @@ ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
 
 # add 3FHL
 
-models, newpt, newext = append_fhl(models,bmax,dist_sigma=3.)
+result_fhl = append_fhl(models,bmax,dist_sigma=3.)
+models = result_fhl['models']
 
 msg = 'Added {} FHL sources, of which {} as pointlike and {} as extended.\n'.format(
-    newpt+newext, newpt,newext)
+    result_fhl['newpt']+result_fhl['newext'], result_fhl['newpt'],result_fhl['newext'])
 print(msg)
 outfile.write(msg)
 
+ecut_pwn.extend(result_fhl['ecut_pwn'])
+ecut_snr.extend(result_fhl['ecut_snr'])
+ecut_agn.extend(result_fhl['ecut_agn'])
+ecut_unid.extend(result_fhl['ecut_unid'])
+msg = 'Set estimated cutoffs for {} PWN, {} SNR, {} AGN, {} UNID\n'.format(result_fhl['n_ecut_pwn'],result_fhl['n_ecut_snr'],result_fhl['n_ecut_agn'],result_fhl['n_ecut_unid'])
+print(msg)
+outfile.write(msg)
+
+if len(result_fhl['msg']) > 0:
+    print(result_fhl['msg'])
+    outfile.write(result_fhl['msg'])
+
 # add HAWC
 
-models, newpt, newext = append_hawc(models,bmax,dist_sigma=3.)
+models, newpt, newext, warning = append_hawc(models,bmax,dist_sigma=3.)
 
 msg = 'Added {} HAWC sources, of which {} as pointlike and {} as extended.\n'.format(
     newpt+newext, newpt,newext)
 print(msg)
 outfile.write(msg)
 
+if len(warning) > 0:
+    print(warning)
+    outfile.write(warning)
+
 # save cutoff values
 np.save('ecut_pwn.npy',ecut_pwn)
 np.save('ecut_snr.npy',ecut_snr)
+np.save('ecut_agn.npy',ecut_agn)
 np.save('ecut_unid.npy',ecut_unid)
 
 # re-make distributions from gammalib model container

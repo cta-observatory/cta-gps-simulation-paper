@@ -1,10 +1,16 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from psrqpy import QueryATNF
+from astropy.table import Table
 from astropy.coordinates import SkyCoord
+from scipy.optimize import fsolve
 import astropy.units as u
 
 # see document in known-sources/docs/FakePeVatron.pdf for references to equations
+
+# load SNRCat
+snrtable = Table.read('../known-sources/external-input/SNRcat20191008-SNR.csv',delimiter=';',comment='#')
+snrobs = Table.read('../known-sources/external-input/SNRcat20191008-OBS.csv',delimiter=';',comment='#')
 
 # Sedov-Taylor time in yr for SN type I and II, Eq. 12-14
 t_ST = [235, 84.5]
@@ -224,7 +230,7 @@ def get_atnf_version():
 
 #### cutoff methods
 
-def get_random_cutoff(emin = 30, emax=70):
+def get_random_cutoff(emin = 10, emax=100):
     # return random cutoff in range between emin and emax
     rnd = np.random.random()
     ecut = emin + rnd * (emax - emin)
@@ -233,7 +239,7 @@ def get_random_cutoff(emin = 30, emax=70):
 def get_pwn_cutoff(ra,dec,rad_search=2., deathline = 1.e34):
     """
     Set cutoff for PWN based on association with pulsars in ATNF catalog
-    Only pulsars with Edot > 1.e34 erg/s are considered, because ctuoffs at ~1 TeV
+    Only pulsars with Edot > 1.e34 erg/s are considered, because cutoffs at ~1 TeV
     should have already been detected
     :param ra: R.A. of PWN center, deg
     :param dec: Dec. of PWN center, deg
@@ -266,20 +272,140 @@ def get_pwn_cutoff(ra,dec,rad_search=2., deathline = 1.e34):
             sep = cpsrs.separation(c)
             # select closest pulsar
             s = np.where(sep == np.min(sep))[0][0]
+        # assume E_gamma = 0.1 E_e, convert to TeV
         ecut = 0.1 * 1.e-12 * Emax_PSR(psrs['EDOT'][s])
 
     return ecut
 
-def get_cutoff(ra,dec,classes,name=None, rad_search=4.):
-    if classes == 'PSR':
-        ecut = get_pwn_cutoff(ra,dec,rad_search=rad_search)
-    else:
-        ecut = get_random_cutoff()
+def get_snr_cutoff(ra,dec,name=None, interacting=False, index = 2.):
 
-    #print('Ecut = {} TeV'.format(ecut))
+    # identify source in snrcat using coordinates if name not available
+    if name == None:
+        print('select SNR by coordinates')
+        c = SkyCoord(ra, dec, frame='icrs', unit='deg')
+        csnrs = SkyCoord(ra=snrtable['J2000_ra (hh:mm:ss)'], dec = snrtable['J2000_dec (dd:mm:ss)'], frame='icrs',
+                         unit=(u.hourangle, u.deg))
+        sep = csnrs.separation(c)
+        snr = snrtable[sep == np.min(sep)]
+        name = snr['G']
+    # otherwise, if name is available reformat it to query SNRCat directly
+    else:
+        print('select SNR by name')
+        # reformat name according to SNRcat conventions
+        # drop initial string
+        if name[:5] == 'SNR G':
+            name = name[5:]
+        elif name[0] == 'G':
+            name = name[1:]
+        # get lat sign, glon and glat
+        if '+' in name:
+            glatsign = '+'
+        else:
+            glatsign = '-'
+        glon, glat = name.split(glatsign)
+        glon = float(glon)
+        glat = float(glat)
+        name = 'G{:05.1f}{}{:04.1f}'.format(glon, glatsign, glat)
+        snr = snrtable[snrtable['G'] == name]
+    print(snr)
+
+    # determine if SN is type I or II
+    # if interacting just set type 2
+    hadronic = False
+    if interacting:
+        print("gamma-cat says it's interacting, thus type = II, emission hadronic")
+        type = 2
+        hadronic = True
+    # otherwise check SNRcat table to see if interaction with MC or thermal composite emission is reported
+    else:
+        # check if the SNR type is thermal composite
+        if 'thermal' in snr['type']:
+            print("it's a thermal composite SNR, thus type = II, emission hadronic")
+            type = 2
+            hadronic = True
+        else:
+            # otherwise check if the observations indicate interactions with MC
+            obs = snrobs[snrobs['SNR_id'] == name]
+            if 'cloud' in obs['source']:
+                print("interactions with MC, thus type = II, emission hadronic")
+                type = 2
+                hadronic = True
+            else:
+                print("no evidence of ISM interaction, thus set randomly type I or II, emission leptonic")
+                dice = np.random.random()
+                if dice < 0.2:
+                    type = 1
+                else:
+                    type = 2
+                print("it's type {}".format(type))
+
+    # get age
+    # if age not measured derive from size
+    if np.isnan(float(snr['age_min (yr)'][0])) or np.isnan(float(snr['age_max (yr)'][0])):
+        # get angular size in deg (diameter)
+        angsize = snr['size_coarse (arcmin)'][0] / 60.
+        # try to get measured distance
+        dmin = float(snr['distance_min (kpc)'][0])
+        dmax = float(snr['distance_max (kpc)'][0])
+        if np.isnan(dmin) and np.isnan(dmax):
+            print('no distance information, set to 1 kpc')
+            dist = 1
+        elif not np.isnan(dmin) and np.isnan(dmax):
+            print('only dmin known, set to dmin + 2 kpc')
+            dist = dmin + 2
+        elif np.isnan(dmin) and not np.isnan(dmax):
+            print('only dmax known, set to dmax/2')
+            dist = dmax / 2
+        else:
+            print('measured distance, take average of dmin and dmax')
+            dist = (dmin + dmax) / 2
+        print('angular size {} deg, distance {} kpc'.format(angsize,dist))
+        # physical radius in pc
+        size = 1.e3 * dist * np.tan(np.radians(angsize)) / 2
+        print('physical size {} pc'.format(size))
+        # compare with radius from evolutionary model and derive age
+        # define helper function that is 0 for size(age) matching observations
+        f = lambda t: radius(t, type) - size
+        # find zeros of f, initial guess 1000 years
+        age = fsolve(f,1000.)[0]
+        print('inferred age {} yr'.format(age))
+    else:
+        #otherwise take measured age, select min age for max energy
+        age = float(snr['age_min (yr)'][0])
+        print('measured age {} yr'.format(age))
+
+    # set cutoff, get maximum particle energy
+    if hadronic == True:
+        print('use max p energy')
+        emax = Emax_p(age,type,index)
+    else:
+        print('use max e energy')
+        emax = Emax_e(age,type,index)
+    print('Emax: {} PeV'.format(emax*1.e-15))
+
+    # assume E_gamma = 0.1 E_e (or E_p), convert to TeV
+    ecut = 0.1 * 1.e-12 * emax
+    print('Ecut: {} TeV'.format(ecut))
+
     return ecut
 
 
+def get_cutoff(ra,dec,classes,name=None, rad_search=4., interacting=False, index = None):
+    if classes == 'PSR':
+        ecut = get_pwn_cutoff(ra,dec,rad_search=rad_search)
+    elif classes == 'SNR':
+        #ecut = get_snr_cutoff(ra,dec,name=name, interacting = interacting, index = index)
+        ####### Formulas implemented so far are not valid for the type of old SNRs considered
+        ####### set very high cutoff at 10 PeV
+        ####### fix when new formulas available
+        ecut = 10000.
+    elif classes == 'AGN':
+        # based on Fig 17 of 3FHL catalog paper
+        ecut = get_random_cutoff(emin=0.2,emax=2.)
+    else:
+        ecut = get_random_cutoff(emin=10.,emax=100.)
+
+    return ecut
 
 
 # ======================== #
@@ -287,7 +413,7 @@ def get_cutoff(ra,dec,classes,name=None, rad_search=4.):
 # ======================== #
 if __name__ == '__main__':
 
-    # Make some diagnostic plots to make sure implementation is correct
+    # Make some diagnostic plots to make sure implementation of formulas is correct
     age = np.logspace(0, 3, 100)  # age in yr
 
     fig = plt.figure()

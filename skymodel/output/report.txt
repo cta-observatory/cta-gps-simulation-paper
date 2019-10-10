@@ -1,8 +1,10 @@
 Using ATNF catalog version 1.61
 Added 92 gamma-cat sources
+Set estimated cutoffs for 18 PWN, 2 SNR, 18 UNID
 Replaced 7 gamma-cat sources with templates. Added 3 sources as templates
 Replaced 6 gamma-cat sources with binaries. Added 3 sources as binaries
 Added 75 FHL sources, of which 68 as pointlike and 7 as extended.
+Set estimated cutoffs for 0 PWN, 4 SNR, 21 AGN, 7 UNID
 Added 18 HAWC sources, of which 18 as pointlike and 0 as extended.
 WARNING: sources TeV J2032+4130 and PSR J2032+4127 are at a distance of 0.14945409368478166 deg lower than 0.2 deg
 WARNING: sources SNR G106.3+02.7 and Boomerang PWN are at a distance of 0.0 deg lower than 0.2 deg
