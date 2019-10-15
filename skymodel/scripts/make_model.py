@@ -320,13 +320,16 @@ for template in template_list:
         # add templates
         models_template = gammalib.GModels('../known-sources/templates/{}.xml'.format(name))
         for model in models_template:
-            # find model map name and path
-            filename = model.spatial().filename().file()
-            filepath = model.spatial().filename().path()
-            # copy file to output directory
-            shutil.copy(filepath + filename, './')
-            # replace file with the one in output directory
-            model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
+            # if model contains spatial map take care of it
+            if model.spatial().type() == 'DiffuseMap':
+                # find model map name and path
+                filename = model.spatial().filename().file()
+                filepath = model.spatial().filename().path()
+                # copy file to output directory
+                shutil.copy(filepath + filename, './')
+                # replace file with the one in output directory
+                model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
+            # append model to container
             models.append(model)
 
 msg = 'Replaced {} gamma-cat sources with templates. Added {} sources as templates\n'.format(

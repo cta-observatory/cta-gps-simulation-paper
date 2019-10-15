@@ -449,6 +449,8 @@ def get_cutoff_agn(z):
     # if redshift not measured draw random number following distribution in 3FHL
     if np.isnan(z):
         z = np.random.exponential(scale=0.7)
+        # low-z cut to avoid AGN next door
+        z = np.maximum(0.1,z)
 
     # maximum energy allowed by EBL absorption
     # based on Figure 17 of 3FHL paper, analytical approx of max energy
