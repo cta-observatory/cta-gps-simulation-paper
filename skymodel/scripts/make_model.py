@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 import shutil
+import datetime
 from astropy.table import Table
 from add_fhl import *
 from add_hawc import *
@@ -21,6 +22,14 @@ os.chdir('../output')
 
 # create report file
 outfile = open('report.txt', 'w')
+
+# record time and machine on which the run is done
+timenow = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+user = os.environ['HOME'].split('/')[-1]
+machine = os.uname()[1]
+msg = 'Model built by {} at {} on {}\n'.format(user,machine,timenow)
+print(msg)
+outfile.write(msg)
 
 # record version of ATNF catalog used
 msg = 'Using ATNF catalog version {}\n'.format(get_atnf_version())
@@ -197,13 +206,10 @@ for source in gammacat:
                         gname = gname[0]
                     else:
                         gname = None
-                    # verify if interaction with molecular clouds is listed
-                    if 'mc' in source['classes']:
-                        interacting = True
-                    else:
-                        interacting = False
+                    hess = True
                     # compute cutoff
-                    ecut = get_cutoff(ra, dec, 'SNR', name = gname, interacting=interacting, index = index)
+                    # we use default value for particle spectral index because measurements are highly uncertain
+                    ecut = get_cutoff(ra, dec, 'SNR', name = gname, hess=hess)
                     ecut_snr.append(ecut)
                     n_ecut_snr+=1
                 # otherwise if unidentified

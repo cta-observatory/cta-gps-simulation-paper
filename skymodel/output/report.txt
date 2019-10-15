@@ -1,3 +1,4 @@
+Model built by ltibaldo at macp0077.irap.omp.eu on 2019-10-15 17:00:08
 Using ATNF catalog version 1.61
 Added 92 gamma-cat sources
 Set estimated cutoffs for 18 PWN, 2 SNR, 18 UNID

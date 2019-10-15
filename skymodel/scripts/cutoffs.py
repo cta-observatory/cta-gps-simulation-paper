@@ -6,17 +6,17 @@ from astropy.coordinates import SkyCoord
 from scipy.optimize import fsolve
 import astropy.units as u
 
-# see document in known-sources/docs/FakePeVatron.pdf for references to equations
+# see document in known-sources/docs/Emax_SNR_PWN.pdf for references to equations
 
 # load SNRCat
 snrtable = Table.read('../known-sources/external-input/SNRcat20191008-SNR.csv',delimiter=';',comment='#')
 snrobs = Table.read('../known-sources/external-input/SNRcat20191008-OBS.csv',delimiter=';',comment='#')
 
-# Sedov-Taylor time in yr for SN type I and II, Eq. 12-14
+# Sedov-Taylor time in yr for SN type I and II, Eq. 13-14
 t_ST = [235, 84.5]
-# Sedov-Taylor radius in pc for SN type I and II, Eq. 7-8
+# Sedov-Taylor radius in pc for SN type I and II, Eq. 8-9
 R_ST = [2, 1]
-# ejecta density profile power-law index for SN type I and II, Eq. 6
+# ejecta density profile power-law index for SN type I and II, Eq. 7
 k = [7, 9]
 # environmental parameter for SN type I and II, paragraph after Eq. 1
 m = [0, 2]
@@ -68,7 +68,7 @@ def lambda_exp(type):
 
 def radius(t, type):
     """
-    Calculate radius of SNR as a function of time, Eq. 3
+    Calculate radius of SNR as a function of time, Eq. 4
     :param t: time, yr
     :param type: type of SN, 1 or 2
     :return: R, radius of SNR in pc
@@ -90,7 +90,7 @@ def radius(t, type):
 
 def vs(t, type):
     """
-    Calculate SNR shock velocity as a function of time, Eq. 4
+    Calculate SNR shock velocity as a function of time, Eq. 5
     :param t: time, yr
     :param type: type of SN, 1 or 2
     :return: v, shock velocity, in cm/s
@@ -126,7 +126,7 @@ def rho(t, type):
         dens = rho_ISM  # ISM density (1 p/cm-3)
     elif type == 2:
         R = radius(t, type)
-        # Eq 11
+        # Eq 12
         dens = Mdot / (4 * np.pi * R ** 2 * vW)
         # convert to g/cm2
         # Mdot Msun/yr -> g/s
@@ -172,7 +172,7 @@ def Emax_p(t, type, index):
 
 def B(t, type):
     """
-    Calculate downstream magnetic field, Eq. 15
+    Calculate SNR downstream magnetic field, Eq. 16
     :param t: time, yr
     :param type:  type of SN, 1 or 2
     :return: B, magnetic field intensity in G
@@ -186,12 +186,12 @@ def B(t, type):
 
 def Emax_rad(t, type):
     """
-    Calculate maximum energy from radiative losses, Eq. 18
+    Calculate maximum energy from radiative losses, Eq. 21
     :param t: time, yr
     :param type:  type of SN, 1 or 2
     :return: emax, maximum energy in eV
     """
-    emax = 18 * np.pi * e / (sigmaT * B(t, type))
+    emax = 27 * np.pi /16 * e / (sigmaT * B(t, type))
     emax = np.sqrt(emax)
     emax *= E0e * vs(t, type) / c
 
@@ -213,14 +213,53 @@ def Emax_PSR(Edot):
     """
     Calculate maximum energy of electrons accelerated by pulsar
     based on potential drop
-    Take 10% of max allowed (based on Crab)
     :param Edot: erg/s
-    :return: emax, maximum energy in eV
+    :return: maximum energy in eV
     """
 
-    emax = 0.1 * 1.7e15 * np.power(Edot/1.e36,0.5)
+    emax = 1.7e15 * np.power(Edot/1.e36,0.5)
 
     return emax
+
+def BTS(t,Edot,tau=1.e3,q=2.5,eta=0.5):
+    """
+    Calculate PWN magnetic field at termination shock, Eq. 30
+    :param t: yr, age of the system
+    :param Edot: erg/s
+    :param tau: yr, characteristic spin-down time
+    :param q: function of braking index
+    :param eta: fraction of total energy carried by PSr wind
+    :return: magnetic field, G
+    """
+
+    Edot0 = Edot * np.power(1 + t/tau, q)
+    bts = 3.4e-5 * np.power(eta/0.5,0.5) * np.power(t/1000,-13./10) * np.power(1 + 2 * t / (3 * tau), -7./10)
+    return bts
+
+def Emax_TS(t,Edot):
+    """
+    Radiation limited maximum energy at PWN termination shock, Eq. 32
+    :param t: yr, age of the system
+    :param Edot: current spindown power, erg/s
+    :return: maximum energy, eV
+    """
+
+    emax = E0e * np.sqrt(9 * np.pi * e / (sigmaT * BTS(t,Edot)))
+    return emax
+
+def Emax_pwn(t,Edot):
+    """
+    Maximum particle energy in PWN
+    Minimum between pulsar potential drop
+    and radiation-limited maximum energy at TS
+    :param t: yr, age of the system
+    :param Edot: current spindown power, erg/s
+    :return: maximum energy, eV
+    """
+
+    emax = np.minimum(Emax_PSR(Edot),Emax_TS(t,Edot))
+    return emax
+
 
 #### methods to set PWN cutoffs querying ATNF catalog
 
@@ -232,8 +271,11 @@ def get_atnf_version():
 
 def get_random_cutoff(emin = 10, emax=100):
     # return random cutoff in range between emin and emax
+    # flat log distribution
     rnd = np.random.random()
-    ecut = emin + rnd * (emax - emin)
+    logemin = np.log10(emin)
+    logemax = np.log10(emax)
+    ecut = np.power(10,logemin + rnd * (logemax - logemin))
     return ecut
 
 def get_pwn_cutoff(ra,dec,rad_search=2., deathline = 1.e34):
@@ -254,7 +296,7 @@ def get_pwn_cutoff(ra,dec,rad_search=2., deathline = 1.e34):
     # define circular search region
     search_region = [ra_hms, dec_dms, rad_search]
     # query ATNF catalog
-    psrs = QueryATNF(params=['JNAME', 'RAJ', 'DECJ', 'EDOT'], circular_boundary=search_region,
+    psrs = QueryATNF(params=['JNAME', 'RAJ', 'DECJ', 'EDOT', 'AGE'], circular_boundary=search_region,
                      condition = 'EDOT > {}'.format(deathline))
     if len(psrs) == 0:
         # no PSR found, setting random cutoff
@@ -272,12 +314,12 @@ def get_pwn_cutoff(ra,dec,rad_search=2., deathline = 1.e34):
             sep = cpsrs.separation(c)
             # select closest pulsar
             s = np.where(sep == np.min(sep))[0][0]
-        # assume E_gamma = 0.1 E_e, convert to TeV
-        ecut = 0.1 * 1.e-12 * Emax_PSR(psrs['EDOT'][s])
+        # assume E_gamma = 0.03 E_e in deep KN regime, convert to TeV
+        ecut = 0.01 * 1.e-12 * Emax_pwn(psrs['AGE'][s], psrs['EDOT'][s])
 
     return ecut
 
-def get_snr_cutoff(ra,dec,name=None, interacting=False, index = 2.):
+def get_snr_cutoff(ra,dec,name=None, hess=False, index = 2.):
 
     # identify source in snrcat using coordinates if name not available
     if name == None:
@@ -310,10 +352,10 @@ def get_snr_cutoff(ra,dec,name=None, interacting=False, index = 2.):
     print(snr)
 
     # determine if SN is type I or II
-    # if interacting just set type 2
+    # HESS objects are all indicated as interacting in the literature, set type 2 and radiation mechanism hadronic
     hadronic = False
-    if interacting:
-        print("gamma-cat says it's interacting, thus type = II, emission hadronic")
+    if hess:
+        print("literature says HESS object is interacting, thus type = II, emission hadronic")
         type = 2
         hadronic = True
     # otherwise check SNRcat table to see if interaction with MC or thermal composite emission is reported
@@ -351,8 +393,8 @@ def get_snr_cutoff(ra,dec,name=None, interacting=False, index = 2.):
             print('no distance information, set to 1 kpc')
             dist = 1
         elif not np.isnan(dmin) and np.isnan(dmax):
-            print('only dmin known, set to dmin + 2 kpc')
-            dist = dmin + 2
+            print('only dmin known, set to dmin + 1 kpc')
+            dist = dmin + 1
         elif np.isnan(dmin) and not np.isnan(dmax):
             print('only dmax known, set to dmax/2')
             dist = dmax / 2
@@ -371,37 +413,62 @@ def get_snr_cutoff(ra,dec,name=None, interacting=False, index = 2.):
         print('inferred age {} yr'.format(age))
     else:
         #otherwise take measured age, select min age for max energy
-        age = float(snr['age_min (yr)'][0])
+        age = (float(snr['age_min (yr)'][0]) + float(snr['age_min (yr)'][0])) / 2
         print('measured age {} yr'.format(age))
+
+    # if estimated age is unrealistically large take a random number between 0.5 and 1 kyr
+    if age >= 10000:
+        age = 500. + 500. * np.random.random()
+    print('age used for calculation {} yr'.format(age))
 
     # set cutoff, get maximum particle energy
     if hadronic == True:
         print('use max p energy')
+        print('particle spectral index {}'.format(index))
         emax = Emax_p(age,type,index)
     else:
         print('use max e energy')
-        emax = Emax_e(age,type,index)
+        # extracting index of electrons from index of gamma requires hypothesis such as Thomson regime etc.
+        # use spectral index of 2
+        emax = Emax_e(age,type,2.)
     print('Emax: {} PeV'.format(emax*1.e-15))
 
-    # assume E_gamma = 0.1 E_e (or E_p), convert to TeV
+    # assume E_gamma = 0.1 E_p (or E_e in KN regime), convert to TeV
     ecut = 0.1 * 1.e-12 * emax
     print('Ecut: {} TeV'.format(ecut))
 
     return ecut
 
+def get_cutoff_agn(z):
+    """
+    Calculate max energy for AGN based on EBL absorption
+    :param z: redshift
+    :return: cutoff energy, TeV
+    """
 
-def get_cutoff(ra,dec,classes,name=None, rad_search=4., interacting=False, index = None):
+    # if redshift not measured draw random number following distribution in 3FHL
+    if np.isnan(z):
+        z = np.random.exponential(scale=0.7)
+
+    # maximum energy allowed by EBL absorption
+    # based on Figure 17 of 3FHL paper, analytical approx of max energy
+    ecut = 0.04 * np.exp(z**-0.5)
+
+    return ecut
+
+
+def get_cutoff(ra,dec,classes,name=None, rad_search=4., hess=False, index = 2., z = None):
     if classes == 'PSR':
         ecut = get_pwn_cutoff(ra,dec,rad_search=rad_search)
     elif classes == 'SNR':
-        #ecut = get_snr_cutoff(ra,dec,name=name, interacting = interacting, index = index)
+        ecut = get_snr_cutoff(ra,dec,name=name, hess = hess, index = index)
         ####### Formulas implemented so far are not valid for the type of old SNRs considered
         ####### set very high cutoff at 10 PeV
         ####### fix when new formulas available
-        ecut = 10000.
+        # ecut = 10000.
     elif classes == 'AGN':
         # based on Fig 17 of 3FHL catalog paper
-        ecut = get_random_cutoff(emin=0.2,emax=2.)
+        ecut = get_cutoff_agn(z=z)
     else:
         ecut = get_random_cutoff(emin=10.,emax=100.)
 
@@ -483,6 +550,24 @@ if __name__ == '__main__':
         for index in [2., 2.3]:
             label = "type {}, spectral index {}".format(type, index)
             ax.plot(age, Emax_e(age, type, index), label=label)
+
+    ax.legend()
+
+    age = np.logspace(0, 6, 200)  # age in yr
+    edot = 1.e38/np.power(1+age/1.e3,2.5)
+
+    fig = plt.figure()
+
+    ax = plt.subplot()
+    ax.set_xlabel('Age (yr)')
+    ax.set_ylabel('Energy/me')
+    ax.set_xscale('log')
+    ax.set_yscale('log')
+    ax.set_title('PWN maximum energy')
+
+    ax.plot(age, Emax_PSR(edot)/E0e * np.ones(len(age)), label='PSR potential drop')
+    ax.plot(age, Emax_TS(age,1.e38)/E0e, label='radiation')
+    ax.plot(age, Emax_pwn(age, edot)/E0e, label='limit')
 
     ax.legend()
 

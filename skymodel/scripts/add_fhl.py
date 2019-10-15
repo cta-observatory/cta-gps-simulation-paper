@@ -147,12 +147,12 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
                         else:
                             gname = None
                         # compute cutoff
-                        ecut = get_cutoff(ra, dec, 'SNR', name=gname,
-                                          index=index)
+                        # we use default value for particle spectral index because measurements are highly uncertain
+                        ecut = get_cutoff(ra, dec, 'SNR', name=gname)
                         ecut_snr.append(ecut)
                         n_ecut_snr += 1
                     elif fsource['CLASS'] == 'bll' or fsource['CLASS'] == 'bcu' or fsource['CLASS'] == 'fsrq':
-                        ecut = get_cutoff(ra, dec, 'AGN')
+                        ecut = get_cutoff(ra, dec, 'AGN', z = fsource['Redshift'])
                         ecut_agn.append(ecut)
                         n_ecut_agn += 1
                     else:
