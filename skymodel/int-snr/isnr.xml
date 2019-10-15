@@ -1,0 +1,771 @@
+<?xml version="1.0" standalone="no"?>
+
+<source_library title="iSNRs">
+
+
+
+   <source name="isnr0" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr0_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap0.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr1" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr1_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap1.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr2" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr2_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap2.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr3" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr3_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap3.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr4" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr4_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap4.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr5" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr5_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap5.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr6" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr6_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap6.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr7" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr7_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap7.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr8" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr8_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap8.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr9" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr9_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap9.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr10" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr10_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap10.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr11" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr11_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap11.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr12" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr12_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap12.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr13" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr13_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap13.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr14" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr14_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap14.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr15" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr15_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap15.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr16" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr16_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap16.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr17" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr17_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap17.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr18" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr18_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap18.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr19" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr19_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap19.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr20" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr20_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap20.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr21" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr21_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap21.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr22" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr22_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap22.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr23" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr23_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap23.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr24" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr24_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap24.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr25" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr25_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap25.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr26" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr26_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap26.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr27" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr27_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap27.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr28" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr28_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap28.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr29" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr29_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap29.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr30" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr30_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap30.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr31" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr31_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap31.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr32" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr32_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap32.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr33" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr33_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap33.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr34" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr34_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap34.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr35" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr35_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap35.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr36" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr36_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap36.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr37" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr37_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap37.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr38" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr38_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap38.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr39" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr39_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap39.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr40" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr40_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap40.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr41" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr41_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap41.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr42" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr42_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap42.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr43" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr43_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap43.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr44" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr44_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap44.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr45" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr45_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap45.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr46" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr46_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap46.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr47" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr47_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap47.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr48" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr48_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap48.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr49" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr49_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap49.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr50" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr50_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap50.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr51" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr51_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap51.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr52" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr52_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap52.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr53" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr53_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap53.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr54" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr54_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap54.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr55" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr55_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap55.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr56" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr56_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap56.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr57" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr57_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap57.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr58" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr58_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap58.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr59" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr59_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap59.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr60" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr60_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap60.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr61" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr61_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap61.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr62" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr62_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap62.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr63" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr63_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap63.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr64" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr64_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap64.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr65" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr65_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap65.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr66" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr66_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap66.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr67" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr67_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap67.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr68" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr68_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap68.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr69" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr69_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap69.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr70" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr70_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap70.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr71" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr71_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap71.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr72" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr72_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap72.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr73" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr73_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap73.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr74" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr74_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap74.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr75" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr75_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap75.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr76" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr76_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap76.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr77" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr77_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap77.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr78" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr78_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap78.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr79" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr79_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap79.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr80" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr80_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap80.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr81" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr81_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap81.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr82" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr82_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap82.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr83" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr83_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap83.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr84" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr84_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap84.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr85" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr85_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap85.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr86" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr86_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap86.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr87" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr87_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap87.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr88" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr88_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap88.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr89" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr89_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap89.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr90" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr90_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap90.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr91" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr91_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap91.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr92" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr92_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap92.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr93" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr93_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap93.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+   <source name="isnr94" type="DiffuseSource"  tscalc="1">
+       <spectrum file="35771/isnr94_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+       <spatialModel type="DiffuseMap" file="35771/skymap94.fits">
+           <parameter name="Prefactor" value="1" scale="1" min="0.001" max="1000" free="0" />
+       </spatialModel>
+   </source>
+
+
+</source_library>
+
+
