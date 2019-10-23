@@ -15,3 +15,9 @@ As output:
 - Photon SED (ph_sed_tot_***.txt, ph_sed_***.png)
 - Photon SED from IC (ph_sed_IC_{CMB,NIR,FIR,SSC}_***.txt) and synchrotron (ph_sed_sync_***.txt)
 - Array with the time evolution of the parameter of the PWN (evo_***.txt)
+
+
+To run the script for multiple systems:
+- Execute launch_multiple_evo.py: python launch_multiple_evo.py <SNR_file>
+- Need as input the output of the code of the SNRs (in txt format)
+- As output: Two files with all the information pre and post script execution and one file for each PWN computed with the relative photon spectrum (the numbers of the sources correspond to the numbers of the SNRs)
