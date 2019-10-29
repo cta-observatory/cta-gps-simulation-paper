@@ -52,6 +52,37 @@ def createXml(srcname='source0',specfile='specfile.txt', mapfile='mapfile.fits')
   return code
 
 
+
+def createXml_disk(srcname='source0',specfile='specfile.txt',lon=0.0,lat=0.0,radius=1.0):
+  code=[
+  '   <source name="source0" type="ExtendedSource""  tscalc="1">\n',
+  '       <spectrum file="model0.txt" type="FileFunction">\n',
+  '           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />\n',
+  '       </spectrum>\n',
+  '      <spatialModel type="RadialDisk">\n',
+  ' 		 <parameter name="GLON"    scale="1.0" value="888" min="-360" max="360" free="0"/>\n',
+  ' 		 <parameter name="GLAT"   scale="1.0" value="777" min="-90"  max="90"  free="0"/>\n',
+  '  	 	 <parameter name="Radius" scale="1.0" value="111"    min="0.01" max="10"  free="1"/>\n',
+  '	</spatialModel>\n',  
+   '   </source>\n' ]
+
+
+  code[0] = code[0].replace('source0',srcname)  
+  code[1] = code[1].replace('model0.txt',specfile)
+  code[5] = code[5].replace('888',str(lon))
+  code[6] = code[6].replace('777',str(lat))
+  code[7] = code[7].replace('111',str(radius))
+
+  return code
+
+
+
+
+
+
+
+
+
 ####### Input
 
 database_snr='FILES_CYRIL_1/ctadc_skymodel_gps_sources_pevatron_2.ecsv'
@@ -114,7 +145,7 @@ energy = sqrt(energy_b[1:]*energy_b[:-1])
 code=[]
 
 for i in arange(len(icloud)):
-#for i in arange(3):
+#for i in arange(10):
 
   print(i)
   print('Luminosity',icloud['Luminosity'][i],'Flux_int_100MeV',icloud['Flux_int_100MeV'][i])
@@ -125,8 +156,8 @@ for i in arange(len(icloud)):
   #dist = icloud['Distance'][i]*u.cm               # cm
   dens = icloud['Density'][i] * u.cm**-3.          # H / cm3
   mass = icloud['Mass'][i]*u.solMass               # Sol masses
-  vol  = mass.to_value('u') / dens                # cm3    
-  radi =3.*vol**(1./3.)/(4.*pi)                   # cm
+  vol  = mass.to_value('u') / dens                 # cm3    
+  radi = ( vol*3/(4.*pi) )**(1./3.)                # cm
   
   isnr = w_cc[0][int(random.random(1)*ncc)]
 
@@ -137,6 +168,8 @@ for i in arange(len(icloud)):
   #radi = snr['sigma'][isnr]/2. *u.arcmin 
 
   radius = radi / dist.to('cm') * u.rad
+
+  #print (radius.to('deg'), dens )
 
   epsilon=30. *u.cm**(-3)*u.eV
   #epsilon= icloud['Epsilon'][i]
@@ -177,10 +210,15 @@ for i in arange(len(icloud)):
   spectrum['Flux']=flux.to('1 / (cm2 MeV s)')         
   spectrum.write(specfile,format='ascii.no_header',overwrite=True)
 
-  mapfile=path+'/skymap'+str(i)+'.fits'
-  pippo=snrmap(gpos.icrs.ra.value, gpos.icrs.dec.value, radius.to_value('deg'), outfile=mapfile)
-  
-  code=code+createXml(srcname='isnr'+str(i),specfile=specfile, mapfile=mapfile)
+  # Map
+  #mapfile=path+'/skymap'+str(i)+'.fits'
+  #pippo=snrmap(gpos.icrs.ra.value, gpos.icrs.dec.value, radius.to_value('deg'), outfile=mapfile)
+  #code=code+createXml(srcname='isnr'+str(i),specfile=specfile, mapfile=mapfile)
+
+  # Disk 
+  code=code+createXml_disk(srcname='isnr'+str(i),specfile=specfile, lon=lon.to_value('deg'), lat=lat.to_value('deg'), radius=radius.to_value('deg'))
+
+
 
 outfile = path+'/isnr.xml'
 print ('Writing file : '+outfile)
