@@ -833,7 +833,7 @@ class SNR:
     diff_spectrum_total=diff_spectrum_total
     calculate_alpha_gamma=calculate_alpha_gamma
     calculate_diff_spectrum_TIME=calculate_diff_spectrum_TIME
-    calculate_integrated_spectrum_SGSO=calculate_integrated_spectrum_SGSO
+#  calculate_integrated_spectrum_SGSO=calculate_integrated_spectrum_SGSO
 
 
 
@@ -928,7 +928,25 @@ def save_one_LIST_to_file (LIST,file):
                                      LIST[i].Emax_electron_vannoni_time_mem ,LIST[i].age, ENERGY[j], \
                                      LIST[i].LGAMMA_DIFF_T[len(LIST[i].TIME)-1][j]))
 
-
+def save_one_LIST_to_file_cyril (LIST,file):
+    with open(file, 'w') as text_file:
+        writer = csv.writer(text_file, delimiter='\t')
+        writer.writerow(["Num_SNR","POS_X", \
+                         "POS_Y","POS_Z","n0", \
+                         "type", "age[kyr]" ,"size", \
+                         "SNR_radius[pc]","E[TeV]", \
+                         "diff_spectrum"])
+            
+            
+        for i in range (0,len(LIST)):
+            ENERGY=np.array(LIST[i].ENERGY)
+            for j in range (0,len(LIST[i].ENERGY)):
+                                 
+                writer.writerow((i,LIST[i].pos_r*np.cos(LIST[i].pos_theta), \
+                                      LIST[i].pos_r*np.sin(LIST[i].pos_theta), LIST[i].pos_z,LIST[i].n0, \
+                                      LIST[i].type, LIST[i].age, LIST[i].size, \
+                                      LIST[i].Rshock, ENERGY[j], \
+                                      LIST[i].LGAMMA_DIFF_T[len(LIST[i].TIME)-1][j]))
 
 def get_first_nbr_from_str(input_str):
     if not input_str and not isinstance(input_str, str):

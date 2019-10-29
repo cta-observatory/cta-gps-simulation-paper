@@ -49,7 +49,7 @@ for i in range (0,NUMBER):
     LIST_SNR=one_realization_only_pevatrons(alpha,Kep, D, eta, KNEE)
     file_output=FOLDER_FOR_RESULTS+'/'+'results_'+str(i)+'.txt'
     print( 'LIST_SNR[0].TIME =', len(LIST_SNR[0].TIME)-1)
-    save_one_LIST_to_file(LIST_SNR,file_output)
+    save_one_LIST_to_file_cyril(LIST_SNR,file_output)
 
 
 exit()
