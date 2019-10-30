@@ -77,16 +77,13 @@ def createXml_disk(srcname='source0',specfile='specfile.txt',lon=0.0,lat=0.0,rad
 
 
 
-
-
-
-
-
-
 ####### Input
 
-database_snr='FILES_CYRIL_1/ctadc_skymodel_gps_sources_pevatron_2.ecsv'
+database_snr='../snr/FILES_ANDREA_1/ctadc_skymodel_gps_sources_pevatron_0.ecsv'
+#database_snr='FILES_CYRIL_1/ctadc_skymodel_gps_sources_pevatron_2.ecsv'
 #database_snr='results_0.txt'
+
+
 database_nubi='Spectra.fits'
 #database_nubi='../Spectra_eps.fits'
 
@@ -97,9 +94,11 @@ alpha=0 ; p0=0.015
 
 #### Output dir
 
-path=str(int(random.random(1)*1e5))
-os.system('mkdir '+path)
+#path=str(int(random.random(1)*1e5))
+#os.system('mkdir '+path)
             
+path='out'
+os.system('rm '+path+'/*')
 
 ######  Mol. Clouds
 
