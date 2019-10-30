@@ -95,10 +95,12 @@ alpha=0 ; p0=0.015
 #### Output dir
 
 #path=str(int(random.random(1)*1e5))
-#os.system('mkdir '+path)
+
             
 path='out'
-os.system('rm '+path+'/*')
+os.system('rm -r '+path)
+os.system('mkdir '+path)
+
 
 ######  Mol. Clouds
 
