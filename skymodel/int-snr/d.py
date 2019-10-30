@@ -84,7 +84,7 @@ database_snr='../snr/FILES_ANDREA_1/ctadc_skymodel_gps_sources_pevatron_0.ecsv'
 #database_snr='results_0.txt'
 
 
-database_nubi='Spectra.fits'
+database_nubi='Clouds.fits'
 #database_nubi='../Spectra_eps.fits'
 
 # Prob params
