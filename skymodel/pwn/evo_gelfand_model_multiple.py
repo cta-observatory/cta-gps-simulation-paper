@@ -13,7 +13,9 @@ from tqdm import tqdm as tqdm
 def launch_evo_m(pwn_n, age, l0, e0, mej2, nn, eta, t0, eps, dens, Tfir, Ufir, Tnir, Unir, binss, tmin, ebreak, alpha1, alpha2, dist): #function for launch all the computation (more info in every step of the computation)
     t = np.logspace(np.log10(1), np.log10(age+1.), 100)
     R_snr, R_rs, v_snr, v_rs = Evo_R_V_SNR(e0, mej2, dens, t)
-    if age > 2000 and t0 < 1000 and l0 < 1e40: #This is needed since for some set of parameters the bohm diffusion breaks the GAMERA computation (need to be checked!). In such cases we neglect it for the moment. 
+    if age > 500 and t0 < 100:
+        no_escape = True
+    elif age > 2500 and t0 > 100 and t0 < 1000 and l0 < 1e40: #This is needed since for some set of parameters the bohm diffusion breaks the GAMERA computation (need to be checked!). In such cases we neglect it for the moment. 
         no_escape = True
     else:
         no_escape = False
