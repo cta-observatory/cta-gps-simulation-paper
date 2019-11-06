@@ -11,6 +11,7 @@ os.system('rm {}/*.txt'.format(outdir))
 # templates
 os.chdir('../known-sources/templates')
 os.system('python make_ic443_model.py')
+os.system('python make_halo_model.py')
 
 # assemble final model
 os.chdir('../../scripts')

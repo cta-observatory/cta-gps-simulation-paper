@@ -2,6 +2,7 @@ import numpy as np
 from astropy import wcs
 from astropy.coordinates import SkyCoord
 from astropy.io import fits
+import gammalib
 
 """
 make templates for Geminga and PSR B0656+14 halos
@@ -46,7 +47,7 @@ def radprof2map(pos, profile, nametag):
     out_wcs.wcs.crpix = [(npix - 1.) / 2 + 1., (npix - 1) / 2 + 1.]
     out_wcs.wcs.cdelt = [-out_res, out_res]
     out_wcs.wcs.crval = [pos.ra.deg[0], pos.dec.deg[0]]  # centered on ~GC
-    out_wcs.wcs.ctype = ["RA-TAN", "DEC-TAN"]
+    out_wcs.wcs.ctype = ["RA---TAN", "DEC--TAN"]
 
     # create output map and fill
     out_map = np.zeros([npix,npix])
@@ -65,8 +66,8 @@ def radprof2map(pos, profile, nametag):
     # create fits map file
     hdu.writeto(nametag + '_map.fits', overwrite=True)
 
-# radprof2map(pos_gem,profile_gem,'gemingahalo')
-# radprof2map(pos_b06,profile_b06,'psrb0656+14halo')
+radprof2map(pos_gem,profile_gem,'gemingahalo')
+radprof2map(pos_b06,profile_b06,'psrb0656+14halo')
 
 # reformat spectrum
 def reformat_spectrum(spectrum,nametag):
@@ -87,5 +88,20 @@ def reformat_spectrum(spectrum,nametag):
 
 reformat_spectrum(spectrum_gem,'gemingahalo')
 reformat_spectrum(spectrum_b06,'psrb0656+14halo')
+
+# create xml models
+def make_xml(nametag):
+    spatial = gammalib.GModelSpatialDiffuseMap(nametag + '_map.fits')
+    spectral = gammalib.GModelSpectralFunc(gammalib.GFilename(nametag + '_spectrum.txt'),1.)
+    model = gammalib.GModelSky(spatial,spectral)
+    model.name(nametag)
+    models = gammalib.GModels()
+    models.append(model)
+    models.save(nametag + '.xml')
+
+make_xml('gemingahalo')
+make_xml('psrb0656+14halo')
+
+
 
 

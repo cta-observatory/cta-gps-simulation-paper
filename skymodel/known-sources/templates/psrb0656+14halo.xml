@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<source_library title="source library">
+  <source name="psrb0656+14halo" type="DiffuseSource">
+    <spectrum type="FileFunction" file="psrb0656+14halo_spectrum.txt">
+      <parameter name="Normalization" value="1" error="0" scale="1" min="0" max="1000" free="1" />
+    </spectrum>
+    <spatialModel type="DiffuseMap" file="psrb0656+14halo_map.fits">
+      <parameter name="Normalization" value="1" scale="1" min="0.001" max="1000" free="0" />
+    </spatialModel>
+  </source>
+</source_library>

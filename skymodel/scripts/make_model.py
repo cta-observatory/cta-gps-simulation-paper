@@ -329,6 +329,16 @@ for template in template_list:
                 shutil.copy(filepath + filename, './')
                 # replace file with the one in output directory
                 model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
+            # if model contains spatial map take care of it
+            if model.spectral().type() == 'FileFunction':
+                # find spectrum file name and path
+                filename = model.spectral().filename().file()
+                filepath = model.spectral().filename().path()
+                # copy file to output directory
+                shutil.copy(filepath + filename, './')
+                # replace file with the one in output directory
+                model.spectral(gammalib.GModelSpectralFunc(gammalib.GFilename(filename),
+                               model.spectral()['Normalization'].value()))
             # append model to container
             models.append(model)
 
