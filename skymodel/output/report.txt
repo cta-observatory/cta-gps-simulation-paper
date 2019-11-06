@@ -1,4 +1,4 @@
-Model built by ltibaldo at macp0077.irap.omp.eu on 2019-11-06 13:47:32
+Model built by ltibaldo at macp0077.irap.omp.eu on 2019-11-06 16:29:29
 Using ATNF catalog version 1.61
 Added 92 gamma-cat sources
 Set estimated cutoffs for 17 PWN, 2 SNR, 18 UNID
@@ -23,4 +23,5 @@ WARNING: sources Vela Xray Ring and Vela Xray Inner are at a distance of 0.0 deg
 WARNING: sources LS5039 INFC and LS5039 SUPC are at a distance of 8.537736462515939e-07 deg lower than 0.2 deg
 WARNING: sources LS5039 SUPC and LS5039 INFC are at a distance of 8.537736462515939e-07 deg lower than 0.2 deg
 WARNING: sources PSR J2032+4127 and TeV J2032+4130 are at a distance of 0.14945409368478166 deg lower than 0.2 deg
+Added 1 interstellar emission components
 Added background model

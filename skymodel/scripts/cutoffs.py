@@ -323,7 +323,7 @@ def get_snr_cutoff(ra,dec,name=None, hess=False, index = 2.):
 
     # identify source in snrcat using coordinates if name not available
     if name == None:
-        print('select SNR by coordinates')
+        #print('select SNR by coordinates')
         c = SkyCoord(ra, dec, frame='icrs', unit='deg')
         csnrs = SkyCoord(ra=snrtable['J2000_ra (hh:mm:ss)'], dec = snrtable['J2000_dec (dd:mm:ss)'], frame='icrs',
                          unit=(u.hourangle, u.deg))
@@ -332,7 +332,7 @@ def get_snr_cutoff(ra,dec,name=None, hess=False, index = 2.):
         name = snr['G']
     # otherwise, if name is available reformat it to query SNRCat directly
     else:
-        print('select SNR by name')
+        #print('select SNR by name')
         # reformat name according to SNRcat conventions
         # drop initial string
         if name[:5] == 'SNR G':
@@ -349,37 +349,37 @@ def get_snr_cutoff(ra,dec,name=None, hess=False, index = 2.):
         glat = float(glat)
         name = 'G{:05.1f}{}{:04.1f}'.format(glon, glatsign, glat)
         snr = snrtable[snrtable['G'] == name]
-    print(snr)
+    #print(snr)
 
     # determine if SN is type I or II
     # HESS objects are all indicated as interacting in the literature, set type 2 and radiation mechanism hadronic
     hadronic = False
     if hess:
-        print("literature says HESS object is interacting, thus type = II, emission hadronic")
+        #print("literature says HESS object is interacting, thus type = II, emission hadronic")
         type = 2
         hadronic = True
     # otherwise check SNRcat table to see if interaction with MC or thermal composite emission is reported
     else:
         # check if the SNR type is thermal composite
         if 'thermal' in snr['type']:
-            print("it's a thermal composite SNR, thus type = II, emission hadronic")
+            #print("it's a thermal composite SNR, thus type = II, emission hadronic")
             type = 2
             hadronic = True
         else:
             # otherwise check if the observations indicate interactions with MC
             obs = snrobs[snrobs['SNR_id'] == name]
             if 'cloud' in obs['source']:
-                print("interactions with MC, thus type = II, emission hadronic")
+                #print("interactions with MC, thus type = II, emission hadronic")
                 type = 2
                 hadronic = True
             else:
-                print("no evidence of ISM interaction, thus set randomly type I or II, emission leptonic")
+                #print("no evidence of ISM interaction, thus set randomly type I or II, emission leptonic")
                 dice = np.random.random()
                 if dice < 0.2:
                     type = 1
                 else:
                     type = 2
-                print("it's type {}".format(type))
+                #print("it's type {}".format(type))
 
     # get age
     # if age not measured derive from size
@@ -390,52 +390,52 @@ def get_snr_cutoff(ra,dec,name=None, hess=False, index = 2.):
         dmin = float(snr['distance_min (kpc)'][0])
         dmax = float(snr['distance_max (kpc)'][0])
         if np.isnan(dmin) and np.isnan(dmax):
-            print('no distance information, set to 1 kpc')
+            #print('no distance information, set to 1 kpc')
             dist = 1
         elif not np.isnan(dmin) and np.isnan(dmax):
-            print('only dmin known, set to dmin + 1 kpc')
+            #print('only dmin known, set to dmin + 1 kpc')
             dist = dmin + 1
         elif np.isnan(dmin) and not np.isnan(dmax):
-            print('only dmax known, set to dmax/2')
+            #print('only dmax known, set to dmax/2')
             dist = dmax / 2
         else:
-            print('measured distance, take average of dmin and dmax')
+            #print('measured distance, take average of dmin and dmax')
             dist = (dmin + dmax) / 2
-        print('angular size {} deg, distance {} kpc'.format(angsize,dist))
+        #print('angular size {} deg, distance {} kpc'.format(angsize,dist))
         # physical radius in pc
         size = 1.e3 * dist * np.tan(np.radians(angsize)) / 2
-        print('physical size {} pc'.format(size))
+        #print('physical size {} pc'.format(size))
         # compare with radius from evolutionary model and derive age
         # define helper function that is 0 for size(age) matching observations
         f = lambda t: radius(t, type) - size
         # find zeros of f, initial guess 1000 years
         age = fsolve(f,1000.)[0]
-        print('inferred age {} yr'.format(age))
+        #print('inferred age {} yr'.format(age))
     else:
         #otherwise take measured age, select min age for max energy
         age = (float(snr['age_min (yr)'][0]) + float(snr['age_min (yr)'][0])) / 2
-        print('measured age {} yr'.format(age))
+        #print('measured age {} yr'.format(age))
 
     # if estimated age is unrealistically large take a random number between 0.5 and 1 kyr
     if age >= 10000:
         age = 500. + 500. * np.random.random()
-    print('age used for calculation {} yr'.format(age))
+    #print('age used for calculation {} yr'.format(age))
 
     # set cutoff, get maximum particle energy
     if hadronic == True:
-        print('use max p energy')
-        print('particle spectral index {}'.format(index))
+        #print('use max p energy')
+        #print('particle spectral index {}'.format(index))
         emax = Emax_p(age,type,index)
     else:
-        print('use max e energy')
+        #print('use max e energy')
         # extracting index of electrons from index of gamma requires hypothesis such as Thomson regime etc.
         # use spectral index of 2
         emax = Emax_e(age,type,2.)
-    print('Emax: {} PeV'.format(emax*1.e-15))
+    #print('Emax: {} PeV'.format(emax*1.e-15))
 
     # assume E_gamma = 0.1 E_p (or E_e in KN regime), convert to TeV
     ecut = 0.1 * 1.e-12 * emax
-    print('Ecut: {} TeV'.format(ecut))
+    #print('Ecut: {} TeV'.format(ecut))
 
     return ecut
 

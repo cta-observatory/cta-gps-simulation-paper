@@ -499,6 +499,36 @@ for model1 in models:
 
 # add IEM
 
+# read template list
+component_list = open('../iem/components.dat').readlines()
+ncomp = 0
+
+for name in component_list:
+    if name[0] == '#':
+        # skip header and commented lines
+        pass
+    else:
+        # add component
+        name = name.split('\n')[0]
+        models_template = gammalib.GModels('../iem/{}.xml'.format(name))
+        for model in models_template:
+            # if model contains spatial map take care of it
+            if model.spatial().type() == 'DiffuseMap':
+                # find model map name and path
+                filename = model.spatial().filename().file()
+                filepath = model.spatial().filename().path()
+                # copy file to output directory
+                shutil.copy(filepath + filename, './')
+                # replace file with the one in output directory
+                model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
+            # append model to container
+            models.append(model)
+            ncomp +=1
+
+msg = 'Added {} interstellar emission components\n'.format(ncomp)
+print(msg)
+outfile.write(msg)
+
 # add CTA background
 # power law spectral correction with pivot energy at 1 TeV
 spectral = gammalib.GModelSpectralPlaw(1, 0, gammalib.GEnergy(1, 'TeV'))
