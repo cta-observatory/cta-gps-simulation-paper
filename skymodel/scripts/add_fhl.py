@@ -13,7 +13,7 @@ ext_fhl = fits.getdata('../known-sources/external-input/gll_psch_v13.fit', 2)
 fhl = fhl[fhl['ASSOC_TEV'] == ' ']
 
 
-def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
+def append_fhl(models, bmax, bin_models, bin_dict, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     """
     Append missing models from Fermi high-energy catalog to gammalib model container
     :param models: ~gammalib.GModels, gammalib model container
@@ -34,6 +34,7 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     # prepare new gammalib model container
     newpt = 0
     newext = 0
+    n_bin_del = 0
     newmodels = gammalib.GModels()
     # keep track also of artificial cutoffs
     ecut_pwn = []
@@ -179,6 +180,15 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
             model = gammalib.GModelSky(spatial, spectral)
             model.name(fsource['Source_Name'])
             newmodels.append(model)
+            # delete synthetic sources as needed
+            if fsource['CLASS'] == 'HMB' or fsource['CLASS'] == 'hmb' or fsource['CLASS'] == 'BIN' or fsource['CLASS'] == 'bin':
+                rname, bin_dict = find_source_to_delete(bin_dict, fdir.l_deg(),
+                                                        fdir.b_deg(),
+                                                        flux_Crab(model,1.,1000.))
+                bin_models.remove(rname)
+                n_bin_del += 1
+            else:
+                pass
         else:
             # source already present, skip
             pass
@@ -191,6 +201,7 @@ def append_fhl(models, bmax, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     result = { 'models' : models, 'newpt' : newpt, 'newext' : newext,
                'ecut_pwn' : ecut_pwn, 'ecut_snr' : ecut_snr, 'ecut_agn' : ecut_agn,
                'ecut_unid' : ecut_unid, 'n_ecut_pwn' : n_ecut_pwn, 'n_ecut_snr' : n_ecut_snr,
-               'n_ecut_agn' : n_ecut_agn, 'n_ecut_unid' : n_ecut_unid, 'msg' : msg }
+               'n_ecut_agn' : n_ecut_agn, 'n_ecut_unid' : n_ecut_unid, 'msg' : msg,
+               'bin_models' : bin_models, 'bin_dict' : bin_dict, 'n_bin_del' : n_bin_del}
 
     return result

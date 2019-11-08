@@ -9,12 +9,16 @@ from add_fhl import *
 from add_hawc import *
 from utils import *
 from cutoffs import get_cutoff, get_atnf_version
+from binpop import get_binpop_models
 
 # inputs from external sources
 gammacat_file = '../known-sources/external-input/gammacat.fits.gz'
 
 # maximum latitude to include in the model
 bmax = 10.
+
+# minimum flux for synthetic source (mCrab)
+fmin = 0.1
 
 # go to output directory as working directory
 # this simplifies file path handling
@@ -58,11 +62,19 @@ ax3.set_ylabel('Number of sources', fontsize=14)
 format_ax(ax3)
 
 # define binning to make distributions
-bins_lognlogs = np.logspace(-4, 1., 40)
+bins_lognlogs = np.logspace(np.log10(1.e-3 * fmin), 1., 40)
 bins_lon = np.linspace(-180, 180, 90)
 bins_lat = np.linspace(-bmax, bmax, 10 * bmax)
 
-# create model container
+# load synthetic populations, so that high flux members can be dropped as we add real sources
+
+# binaries
+bin_models, bin_dict = get_binpop_models('../binpop',fmin,'./')
+msg = 'Loaded {} synthetic binaries\n'.format(bin_models.size())
+print(msg)
+outfile.write(msg)
+
+# create final model container
 models = gammalib.GModels()
 
 print('\n')
@@ -80,6 +92,8 @@ ecut_agn = []
 n_ecut_pwn = 0
 n_ecut_snr = 0
 n_ecut_unid = 0
+# keep track of synthetic sources that are be deleted
+n_bin_del = 0
 gammacat = Table.read(gammacat_file)
 for source in gammacat:
     # retain only sources with known spectral model
@@ -254,11 +268,21 @@ for source in gammacat:
             gammacat_lons.append(lon)
             gammacat_lats.append(lat)
             gammacat_flux.append(source['spec_flux_1TeV_crab'])
+            # find which synthetic source need to be deleted to account for the source added
+            if source['classes'] == 'bin':
+                rname, bin_dict = find_source_to_delete(bin_dict,src_dir.l_deg(),src_dir.b_deg(),1.e-2*source['spec_flux_1TeV_crab'])
+                bin_models.remove(rname)
+                n_bin_del +=1
+            else:
+                pass
 
-msg = 'Added {} gamma-cat sources\n'.format(len(gammacat_ids))
+msg = 'Added {} gamma-cat sources'.format(len(gammacat_ids))
 print(msg)
 outfile.write(msg)
-msg = 'Set estimated cutoffs for {} PWN, {} SNR, {} UNID\n'.format(n_ecut_pwn,n_ecut_snr,n_ecut_unid)
+msg = 'Set estimated cutoffs for {} PWN, {} SNR, {} UNID'.format(n_ecut_pwn,n_ecut_snr,n_ecut_unid)
+print(msg)
+outfile.write(msg)
+msg = 'Deleted {} synthetic binaries\n'.format(n_bin_del)
 print(msg)
 outfile.write(msg)
 
@@ -280,7 +304,7 @@ ax3.hist(gammacat_lats, bins=bins_lat, density=False, histtype='step',
          label='gamma-cat', alpha=0.5, linewidth=2)
 
 # make distributions from gammalib model container
-lons, lats, fluxes = dist_from_gammalib(models)
+lons, lats, fluxes, names = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
@@ -329,6 +353,16 @@ for template in template_list:
                 shutil.copy(filepath + filename, './')
                 # replace file with the one in output directory
                 model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
+            # if model contains spatial map take care of it
+            if model.spectral().type() == 'FileFunction':
+                # find spectrum file name and path
+                filename = model.spectral().filename().file()
+                filepath = model.spectral().filename().path()
+                # copy file to output directory
+                shutil.copy(filepath + filename, './')
+                # replace file with the one in output directory
+                model.spectral(gammalib.GModelSpectralFunc(gammalib.GFilename(filename),
+                               model.spectral()['Normalization'].value()))
             # append model to container
             models.append(model)
 
@@ -338,7 +372,7 @@ print(msg)
 outfile.write(msg)
 
 # re-make distributions from gammalib model container
-lons, lats, fluxes = dist_from_gammalib(models)
+lons, lats, fluxes, names = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
@@ -359,15 +393,19 @@ binary_models = gammalib.GModels('../bin/models_binaries.xml')
 
 replaced = 0
 added = 0
+# keep track of synthetic sources that are being deleted
+n_bin_del = 0
 for binary in binary_list:
     if binary[0] == '#':
         # skip header and commented lines
         pass
     else:
+        newsrc = False
         id, bmodels = binary.split(',')
         if 'None' in id:
             # source not included in gammacat, pass
             added += 1
+            newsrc = True
         else:
             # remove gamma-cat model if present
             id = int(id)
@@ -377,6 +415,7 @@ for binary in binary_list:
                 replaced += 1
             else:
                 added += 1
+                newsrc = True
         # add binary model
         # find names
         try:
@@ -395,16 +434,30 @@ for binary in binary_list:
             # replace file with the one in output directory
             model.temporal().filename(filename)
             models.append(model)
+        # get rid of a synthetic binary for each newly added one
+        if newsrc:
+            src_dir = get_model_dir(model)
+            flux = 0.
+            for s in range(len(model_names)):
+                flux += flux_Crab(models[-1-s],1.,1000.)
+            rname, bin_dict = find_source_to_delete(bin_dict, src_dir.l_deg(), src_dir.b_deg(),
+                                                    flux)
+            bin_models.remove(rname)
+            n_bin_del += 1
 
-msg = 'Replaced {} gamma-cat sources with binaries. Added {} sources as binaries\n'.format(
+
+msg = 'Replaced {} gamma-cat sources with binaries. Added {} sources as binaries'.format(
     replaced, added)
+print(msg)
+outfile.write(msg)
+msg = 'Deleted {} synthetic binaries\n'.format(n_bin_del)
 print(msg)
 outfile.write(msg)
 
 # add pulsars
 
 # re-make distributions from gammalib model container
-lons, lats, fluxes = dist_from_gammalib(models)
+lons, lats, fluxes, names = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
@@ -419,10 +472,9 @@ ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
 
 # add 3FHL
 
-result_fhl = append_fhl(models,bmax,dist_sigma=3.)
+result_fhl = append_fhl(models,bmax,bin_models, bin_dict, dist_sigma=3.)
 models = result_fhl['models']
-
-msg = 'Added {} FHL sources, of which {} as pointlike and {} as extended.\n'.format(
+msg = 'Added {} FHL sources, of which {} as pointlike and {} as extended.'.format(
     result_fhl['newpt']+result_fhl['newext'], result_fhl['newpt'],result_fhl['newext'])
 print(msg)
 outfile.write(msg)
@@ -431,7 +483,13 @@ ecut_pwn.extend(result_fhl['ecut_pwn'])
 ecut_snr.extend(result_fhl['ecut_snr'])
 ecut_agn.extend(result_fhl['ecut_agn'])
 ecut_unid.extend(result_fhl['ecut_unid'])
-msg = 'Set estimated cutoffs for {} PWN, {} SNR, {} AGN, {} UNID\n'.format(result_fhl['n_ecut_pwn'],result_fhl['n_ecut_snr'],result_fhl['n_ecut_agn'],result_fhl['n_ecut_unid'])
+msg = 'Set estimated cutoffs for {} PWN, {} SNR, {} AGN, {} UNID'.format(result_fhl['n_ecut_pwn'],result_fhl['n_ecut_snr'],result_fhl['n_ecut_agn'],result_fhl['n_ecut_unid'])
+print(msg)
+outfile.write(msg)
+
+bin_models = result_fhl['bin_models']
+bin_dict = result_fhl['bin_dict']
+msg = 'Deleted {} synthetic binaries\n'.format(result_fhl['n_bin_del'])
 print(msg)
 outfile.write(msg)
 
@@ -459,7 +517,7 @@ np.save('ecut_agn.npy',ecut_agn)
 np.save('ecut_unid.npy',ecut_unid)
 
 # re-make distributions from gammalib model container
-lons, lats, fluxes = dist_from_gammalib(models)
+lons, lats, fluxes, names = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
@@ -485,9 +543,57 @@ for model1 in models:
                 print(msg)
                 outfile.write(msg)
 
-# add synthetic PWNe and SNRs
+# add synthetic binaries, PWNe and SNRs
+for model in bin_models:
+    models.append(model)
+
+msg = 'Added {} synthetic binaries\n'.format(bin_models.size())
+print(msg)
+outfile.write(msg)
+
+# re-make distributions from gammalib model container
+lons, lats, fluxes, names = dist_from_gammalib(models)
+# change lon range from 0...360 to -180...180
+lons = np.array(lons)
+lons[lons > 180] = lons[lons > 180] - 360.
+ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
+ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
+ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
 
 # add IEM
+
+# read template list
+component_list = open('../iem/components.dat').readlines()
+ncomp = 0
+
+for name in component_list:
+    if name[0] == '#':
+        # skip header and commented lines
+        pass
+    else:
+        # add component
+        name = name.split('\n')[0]
+        models_template = gammalib.GModels('../iem/{}.xml'.format(name))
+        for model in models_template:
+            # if model contains spatial map take care of it
+            if model.spatial().type() == 'DiffuseMap':
+                # find model map name and path
+                filename = model.spatial().filename().file()
+                filepath = model.spatial().filename().path()
+                # copy file to output directory
+                shutil.copy(filepath + filename, './')
+                # replace file with the one in output directory
+                model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
+            # append model to container
+            models.append(model)
+            ncomp +=1
+
+msg = 'Added {} interstellar emission components\n'.format(ncomp)
+print(msg)
+outfile.write(msg)
 
 # add CTA background
 # power law spectral correction with pivot energy at 1 TeV
