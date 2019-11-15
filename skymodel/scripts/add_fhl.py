@@ -13,7 +13,9 @@ ext_fhl = fits.getdata('../known-sources/external-input/gll_psch_v13.fit', 2)
 fhl = fhl[fhl['ASSOC_TEV'] == ' ']
 
 
-def append_fhl(models, bmax, bin_models, bin_dict, dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
+def append_fhl(models, bmax,
+               bin_models, bin_dict, bin_distx, bin_disty, bin_frlog,
+               dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     """
     Append missing models from Fermi high-energy catalog to gammalib model container
     :param models: ~gammalib.GModels, gammalib model container
@@ -182,11 +184,14 @@ def append_fhl(models, bmax, bin_models, bin_dict, dist_sigma=3., sig50_thresh=3
             newmodels.append(model)
             # delete synthetic sources as needed
             if fsource['CLASS'] == 'HMB' or fsource['CLASS'] == 'hmb' or fsource['CLASS'] == 'BIN' or fsource['CLASS'] == 'bin':
-                rname, bin_dict = find_source_to_delete(bin_dict, fdir.l_deg(),
+                rname, bin_dict, distx, disty, frlog = find_source_to_delete(bin_dict, fdir.l_deg(),
                                                         fdir.b_deg(),
                                                         flux_Crab(model,1.,1000.))
                 bin_models.remove(rname)
                 n_bin_del += 1
+                bin_distx.append(distx)
+                bin_disty.append(disty)
+                bin_frlog.append(frlog)
             else:
                 pass
         else:
@@ -202,6 +207,7 @@ def append_fhl(models, bmax, bin_models, bin_dict, dist_sigma=3., sig50_thresh=3
                'ecut_pwn' : ecut_pwn, 'ecut_snr' : ecut_snr, 'ecut_agn' : ecut_agn,
                'ecut_unid' : ecut_unid, 'n_ecut_pwn' : n_ecut_pwn, 'n_ecut_snr' : n_ecut_snr,
                'n_ecut_agn' : n_ecut_agn, 'n_ecut_unid' : n_ecut_unid, 'msg' : msg,
-               'bin_models' : bin_models, 'bin_dict' : bin_dict, 'n_bin_del' : n_bin_del}
+               'bin_models' : bin_models, 'bin_dict' : bin_dict, 'n_bin_del' : n_bin_del,
+               'bin_distx' : bin_distx, 'bin_disty' : bin_disty, 'bin_frlog' : bin_frlog}
 
     return result

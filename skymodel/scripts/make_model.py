@@ -73,6 +73,10 @@ bin_models, bin_dict = get_binpop_models('../binpop',fmin,'./')
 msg = 'Loaded {} synthetic binaries\n'.format(bin_models.size())
 print(msg)
 outfile.write(msg)
+# keep track of properties of binaries deleted
+bin_distx = []
+bin_disty = []
+bin_frlog = []
 
 # create final model container
 models = gammalib.GModels()
@@ -270,9 +274,12 @@ for source in gammacat:
             gammacat_flux.append(source['spec_flux_1TeV_crab'])
             # find which synthetic source need to be deleted to account for the source added
             if source['classes'] == 'bin':
-                rname, bin_dict = find_source_to_delete(bin_dict,src_dir.l_deg(),src_dir.b_deg(),1.e-2*source['spec_flux_1TeV_crab'])
+                rname, bin_dict, distx, disty, frlog = find_source_to_delete(bin_dict,src_dir.l_deg(),src_dir.b_deg(),1.e-2*source['spec_flux_1TeV_crab'])
                 bin_models.remove(rname)
                 n_bin_del +=1
+                bin_distx.append(distx)
+                bin_disty.append(disty)
+                bin_frlog.append(frlog)
             else:
                 pass
 
@@ -440,10 +447,13 @@ for binary in binary_list:
             flux = 0.
             for s in range(len(model_names)):
                 flux += flux_Crab(models[-1-s],1.,1000.)
-            rname, bin_dict = find_source_to_delete(bin_dict, src_dir.l_deg(), src_dir.b_deg(),
+            rname, bin_dict, distx, disty, frlog = find_source_to_delete(bin_dict, src_dir.l_deg(), src_dir.b_deg(),
                                                     flux)
             bin_models.remove(rname)
             n_bin_del += 1
+            bin_distx.append(distx)
+            bin_disty.append(disty)
+            bin_frlog.append(frlog)
 
 
 msg = 'Replaced {} gamma-cat sources with binaries. Added {} sources as binaries'.format(
@@ -472,7 +482,9 @@ ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
 
 # add 3FHL
 
-result_fhl = append_fhl(models,bmax,bin_models, bin_dict, dist_sigma=3.)
+result_fhl = append_fhl(models,bmax,
+                        bin_models, bin_dict, bin_distx, bin_disty, bin_frlog,
+                        dist_sigma=3.)
 models = result_fhl['models']
 msg = 'Added {} FHL sources, of which {} as pointlike and {} as extended.'.format(
     result_fhl['newpt']+result_fhl['newext'], result_fhl['newpt'],result_fhl['newext'])
@@ -489,6 +501,9 @@ outfile.write(msg)
 
 bin_models = result_fhl['bin_models']
 bin_dict = result_fhl['bin_dict']
+bin_distx = result_fhl['bin_distx']
+bin_disty = result_fhl['bin_disty']
+bin_frlog = result_fhl['bin_frlog']
 msg = 'Deleted {} synthetic binaries\n'.format(result_fhl['n_bin_del'])
 print(msg)
 outfile.write(msg)
@@ -621,3 +636,37 @@ ax2.set_xlim(180, -180)
 fig2.savefig('glon.png', dpi=300)
 ax3.legend(fontsize=5)
 fig3.savefig('glat.png', dpi=300)
+
+# make more diagnostic plots with properties of synthetic sources deleted
+# binaries
+fig4 = plt.figure('Deleted binaries XY')
+ax4 = plt.subplot()
+ax4.set_xlabel("Longitude distance (deg)", fontsize=14)
+ax4.set_ylabel('Latitude distance (deg)', fontsize=14)
+format_ax(ax4)
+ax4.scatter(bin_distx,bin_disty)
+# add FOM contours
+xmin, xmax = ax4.get_xlim()
+ymin, ymax = ax4.get_ylim()
+xv,yv = np.meshgrid(np.linspace(xmin,xmax,50),
+                    np.linspace(ymin,ymax,50))
+fom = delete_source_fom(xv,yv,0.3)
+cs = ax4.contour(xv,yv,fom)
+ax4.clabel(cs, inline=1, fontsize=10)
+fig4.savefig('binXY.png', dpi=300)
+
+fig5 = plt.figure('Deleted binaries Flux-X')
+ax5 = plt.subplot()
+ax5.set_xlabel("Longitude distance (deg)", fontsize=14)
+ax5.set_ylabel('Log10(flux ratio)', fontsize=14)
+format_ax(ax5)
+ax5.scatter(bin_distx,bin_frlog)
+# add FOM contours
+xmin, xmax = ax5.get_xlim()
+ymin, ymax = ax5.get_ylim()
+xv,yv = np.meshgrid(np.linspace(xmin,xmax,50),
+                    np.linspace(ymin,ymax,50))
+fom = delete_source_fom(xv,2,yv)
+cs = ax5.contour(xv,yv,fom)
+ax5.clabel(cs, inline=1, fontsize=10)
+fig5.savefig('binFlux-X.png', dpi=300)

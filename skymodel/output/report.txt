@@ -1,4 +1,4 @@
-Model built by ltibaldo at macp0077.irap.omp.eu on 2019-11-07 17:37:11
+Model built by ltibaldo at macp0077.irap.omp.eu on 2019-11-15 17:22:43
 Using ATNF catalog version 1.61
 Loaded 49 synthetic binaries
 Added 92 gamma-cat sourcesSet estimated cutoffs for 17 PWN, 2 SNR, 18 UNIDDeleted 5 synthetic binaries

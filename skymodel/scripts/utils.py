@@ -75,6 +75,10 @@ def get_model_radius(model):
             model.name(), model.spatial().type()))
     return radius
 
+def delete_source_fom(distx,disty,frlog):
+    fom = np.sqrt((distx / 180) ** 2 + (disty / 10) ** 2 + (frlog / 0.3) ** 2)
+    return fom
+
 def find_source_to_delete(d,lon,lat,flux):
 
     # calculate distance
@@ -83,13 +87,13 @@ def find_source_to_delete(d,lon,lat,flux):
     distx = np.abs(d['GLON'] - lon)
     distx[distx > 180] = 360 - distx[distx > 180]
     disty = d['GLAT'] - lat
-    dist = np.sqrt(distx**2 + disty**2)
+    #dist = np.sqrt(distx**2 + disty**2)
 
     # calculate flux_ratio log
     frlog = np.log10(d['flux']/flux)
 
-    # figure of merit to decide what source to eliminate
-    fom = np.sqrt((dist/180)**2 + frlog**2)
+    # figure of merit to decide which source to eliminate
+    fom = delete_source_fom(distx,disty,frlog)
 
     # eliminate closer source = minimum fom
     s = np.where(fom == np.min(fom))
@@ -104,9 +108,9 @@ def find_source_to_delete(d,lon,lat,flux):
     d['name'] = d['name'][d['name'] != name]
 
     # prints for checking algorithm works correctly
-    print('name {}, fom {}, dist{}, distx {}, disty {}, frlog {}'.format(name, fom[s],dist[s], distx[s], disty[s], frlog[s]))
+    print('name {}, fom {}, distx {}, disty {}, frlog {}'.format(name, fom[s], distx[s], disty[s], frlog[s]))
 
-    return name, d
+    return name, d, distx[s], disty[s], frlog[s]
 
 
 
