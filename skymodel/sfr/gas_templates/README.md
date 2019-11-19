@@ -1,3 +1,3 @@
 Gas templates for star-forming regions
 
-Cygnus_gas.fits : total gas column density (H/cm2) in the Cygnus region, including neutral atomic, neutral molecular, neutral dark and ionised has. Based on the paper Ackermann et al. 2012 A&A 538A 71A.
+Cygnus_gas.fits : total gas column density (10^20 H/cm2) in the Cygnus region, including neutral atomic, neutral molecular, neutral dark gas based on the paper Ackermann et al. 2012 A&A 538A 71A, plus ionised gas based on free-free emission map from Planck data release 2.0 converted to gas column density based on Sodroski et al. 1997 ApJ 480 173S Eq. 5 for  Te = 10000 K and n_eff = 2 cm^-3 (as in Aharonian et al. 2019).
