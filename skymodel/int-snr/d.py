@@ -79,13 +79,9 @@ def createXml_disk(srcname='source0',specfile='specfile.txt',lon=0.0,lat=0.0,rad
 
 ####### Input
 
-database_snr='../snr/FILES_ANDREA_1/ctadc_skymodel_gps_sources_pevatron_0.ecsv'
-#database_snr='FILES_CYRIL_1/ctadc_skymodel_gps_sources_pevatron_2.ecsv'
-#database_snr='results_0.txt'
-
+database_snr='../snr/OUTPUT_FILES_1/ctadc_skymodel_gps_sources_pevatron_0.ecsv'
 
 database_nubi='Clouds.fits'
-#database_nubi='../Spectra_eps.fits'
 
 # Prob params
 
@@ -115,11 +111,6 @@ w=true_index[0]                     # Indeces of iSNR random select from synthet
 
 #### SNRs
 
-
-#t=Table.read(database_snr,format='ascii')
-#snr = t[unique(t['Num_SNR'], return_index=True)[1]]
-
-
 snr=Table.read(database_snr,format='ascii.ecsv')
 
 
@@ -148,8 +139,8 @@ code=[]
 for i in arange(len(icloud)):
 #for i in arange(10):
 
-  print(i)
-  print('Luminosity',icloud['Luminosity'][i],'Flux_int_100MeV',icloud['Flux_int_100MeV'][i])
+  print('Source ',i+1)
+  #print('Luminosity',icloud['Luminosity'][i],'Flux_int_100MeV',icloud['Flux_int_100MeV'][i])
   
   ind1 = icloud['index1'][i]
   ind2 = icloud['index2'][i]
@@ -200,25 +191,29 @@ for i in arange(len(icloud)):
   icloud['Flux_int_1TeV'][i]   = intFlux1TeV.value
   icloud['Flux_int_10TeV'][i]  = intFlux10TeV.value
  
-  print('Lum 1',intLum, ' intFlux',intFlux100GeV )
-  print('ph / cm2 s',sum(flux *de))   
+  print('Luminosity :',intLum, '    Flux (>100GeV) :',intFlux100GeV )
+  #print('ph / cm2 s',sum(flux *de))   
 
-  plt.plot(energy,sed)
+
+  if intFlux100GeV.to_value('erg / (cm2 s)') > 1e-12 : 
+
+    print('  --> added to the skymodel')
+
+    #plt.plot(energy,sed)
   
-  specfile=path+'/isnr'+ str(i)+'_spec.txt'
-  spectrum=Table()
-  spectrum['Energy']=energy.to('MeV')
-  spectrum['Flux']=flux.to('1 / (cm2 MeV s)')         
-  spectrum.write(specfile,format='ascii.no_header',overwrite=True)
+    specfile=path+'/isnr'+ str(i)+'_spec.txt'
+    spectrum=Table()
+    spectrum['Energy']=energy.to('MeV') 
+    spectrum['Flux']=flux.to('1 / (cm2 MeV s)')         
+    spectrum.write(specfile,format='ascii.no_header',overwrite=True)
 
-  # Map
-  #mapfile=path+'/skymap'+str(i)+'.fits'
-  #pippo=snrmap(gpos.icrs.ra.value, gpos.icrs.dec.value, radius.to_value('deg'), outfile=mapfile)
-  #code=code+createXml(srcname='isnr'+str(i),specfile=specfile, mapfile=mapfile)
+    # Map
+    #mapfile=path+'/skymap'+str(i)+'.fits'
+    #pippo=snrmap(gpos.icrs.ra.value, gpos.icrs.dec.value, radius.to_value('deg'), outfile=mapfile)
+    #code=code+createXml(srcname='isnr'+str(i),specfile=specfile, mapfile=mapfile)
 
-  # Disk 
-  code=code+createXml_disk(srcname='isnr'+str(i),specfile=specfile, lon=lon.to_value('deg'), lat=lat.to_value('deg'), radius=radius.to_value('deg'))
-
+    # Disk 
+    code=code+createXml_disk(srcname='isnr'+str(i),specfile=specfile, lon=lon.to_value('deg'), lat=lat.to_value('deg'),radius=radius.to_value('deg'))
 
 
 outfile = path+'/isnr.xml'
@@ -227,11 +222,10 @@ mod = open(outfile, 'w')
 mod.writelines(code)
 mod.close()
        
-plt.loglog()
-plt.show()
+#plt.loglog()
+#plt.show()
     
 icloud.write(path+'/d.fits',format='fits',overwrite=True)
 
     
-    
-    
+
