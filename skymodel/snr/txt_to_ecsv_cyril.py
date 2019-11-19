@@ -233,7 +233,7 @@ def add_extra_info(table):
 
 
 
-FOLDER_FOR_RESULTS='FILES_ANDREA_1'
+FOLDER_FOR_RESULTS='OUTPUT_FILES_1'
 if not os.path.exists(FOLDER_FOR_RESULTS):
     os.makedirs(FOLDER_FOR_RESULTS)
 

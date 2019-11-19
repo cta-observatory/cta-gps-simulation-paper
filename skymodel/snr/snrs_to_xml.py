@@ -158,7 +158,7 @@ def remove_value_from_array(ARR, value):
     return OUT
 
 
-FOLDER_FOR_RESULTS='FILES_ANDREA_1/'
+FOLDER_FOR_RESULTS='OUTPUT_FILES_1/'
 
 NUMBER=np.array([])
 for file in glob.glob(FOLDER_FOR_RESULTS+"*.ecsv"):
