@@ -1,3 +1,5 @@
 Gas templates for star-forming regions
 
 Cygnus_gas.fits : total gas column density (10^20 H/cm2) in the Cygnus region, including neutral atomic, neutral molecular, neutral dark gas based on the paper Ackermann et al. 2012 A&A 538A 71A, plus ionised gas based on free-free emission map from Planck data release 2.0 converted to gas column density based on Sodroski et al. 1997 ApJ 480 173S Eq. 5 for  Te = 10000 K and n_eff = 2 cm^-3 (as in Aharonian et al. 2019).
+
+Wd1_gas.fits : gas column density (10^20 H/cm2) in the Westerlund 1 region, including neutral atomic and molecular gas. Neutral atomic gas column densities were derived in the optically thin approximation from SGPS data integrated in the -58 km/s to -52 km/s LSR velocity range. Molecular gas column densities were derived from the CfA 12CO survey integrated over the same velocity range for XCO = 2e20 cm-2 (K km/s)-1 as in Aharonian et al. 2019.
