@@ -1,0 +1,250 @@
+   <source name="isnr4" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr4_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="2.82964" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-0.02985" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.05156241712969748"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr10" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr10_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-110.90555" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="0.45223" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.027785982520439446"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr11" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr11_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="145.994" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="8.17309" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.06961962726422953"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr16" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr16_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="18.43918" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-3.55782" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.07407862370718528"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr19" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr19_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="153.63481" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="1.96403" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.7177597635401702"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr23" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr23_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="5.75009" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-0.16107" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.14712666122892457"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr26" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr26_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="107.89036" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="0.02793" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.0216046802788948"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr32" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr32_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="93.70658" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-0.05413" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.047019557552814305"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr34" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr34_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="153.63481" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="1.96403" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.48633022399351034"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr37" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr37_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-34.87562" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-0.38811" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.07384497761143714"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr39" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr39_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="70.40682" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="0.51836" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.08239633460111755"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr42" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr42_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-27.71419" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-3.91296" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.08364955093974755"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr43" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr43_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-163.43448" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="12.82542" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.2032047403626363"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr47" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr47_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="13.3029" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="0.50486" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.07271201881859746"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr49" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr49_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-94.06409" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="10.20766" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.14257726043743854"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr55" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr55_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-34.16713" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-0.54825" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.15247769485113488"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr57" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr57_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-34.28132" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-2.33047" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.11024450294995398"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr60" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr60_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-70.71292" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-4.77122" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.15536986986426804"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr69" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr69_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-8.74576" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-9.52434" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.3552522195189639"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr73" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr73_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="153.63481" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="1.96403" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.8610664737712741"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr74" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr74_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-42.387" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-7.53167" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.1947446751996274"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr77" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr77_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-8.74576" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-9.52434" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.2924807622662546"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr79" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr79_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="-145.27488" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="16.17023" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.27460561803186506"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr81" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr81_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="165.10634" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="-15.38225" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.06337068771067145"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
+   <source name="isnr90" type="ExtendedSource""  tscalc="1">
+       <spectrum file="out/isnr90_spec.txt" type="FileFunction">
+           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
+       </spectrum>
+      <spatialModel type="RadialDisk">
+ 		 <parameter name="GLON"    scale="1.0" value="67.39793" min="-360" max="360" free="0"/>
+ 		 <parameter name="GLAT"   scale="1.0" value="0.09562" min="-90"  max="90"  free="0"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.10260013309409767"    min="0.01" max="10"  free="1"/>
+	</spatialModel>
+   </source>
