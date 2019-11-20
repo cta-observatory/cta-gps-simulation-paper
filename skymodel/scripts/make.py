@@ -8,10 +8,14 @@ os.system('rm {}/*.txt'.format(outdir))
 
 # run all preliminary scripts to generate model components
 
+# SFR
+os.chdir('../sfr')
+os.system('python make_sfr_model.py')
+
 # templates
 os.chdir('../known-sources/templates')
-# os.system('python make_ic443_model.py')
-# os.system('python make_halo_model.py')
+os.system('python make_ic443_model.py')
+os.system('python make_halo_model.py')
 
 # assemble final model
 os.chdir('../../scripts')
