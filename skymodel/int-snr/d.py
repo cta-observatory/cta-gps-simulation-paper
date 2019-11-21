@@ -83,6 +83,8 @@ database_snr='../snr/OUTPUT_FILES_1/ctadc_skymodel_gps_sources_pevatron_0.ecsv'
 
 database_nubi='Clouds.fits'
 
+threshold = 0.    # threshold for flux 
+
 # Prob params
 
 alpha=0 ; p0=0.015
@@ -195,7 +197,7 @@ for i in arange(len(icloud)):
   #print('ph / cm2 s',sum(flux *de))   
 
 
-  if intFlux100GeV.to_value('erg / (cm2 s)') > 1e-12 : 
+  if intFlux100GeV.to_value('erg / (cm2 s)') > threshold : 
 
     print('  --> added to the skymodel')
 
