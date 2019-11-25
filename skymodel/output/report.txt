@@ -1,8 +1,8 @@
-Model built by ltibaldo at Luigis-MacBook-Pro.local on 2019-11-25 17:38:08
+Model built by ltibaldo at Luigis-MacBook-Pro.local on 2019-11-25 18:54:46
 Using ATNF catalog version 1.61
 Loaded 49 synthetic binaries
 Loaded 219 synthetic young SNRs
-Loaded 64 synthetic interacting SNRs
+Loaded 62 synthetic interacting SNRs
 Added 92 gamma-cat sources
 Set estimated cutoffs for 17 PWN, 2 SNR, 18 UNID
 Deleted 5 synthetic binaries
@@ -32,7 +32,6 @@ WARNING: sources LS5039 INFC and LS5039 SUPC are at a distance of 8.537736462515
 WARNING: sources LS5039 SUPC and LS5039 INFC are at a distance of 8.537736462515939e-07 deg lower than 0.2 deg
 WARNING: sources PSR J2032+4127 and TeV J2032+4130 are at a distance of 0.14945409368478166 deg lower than 0.2 deg
 Added 42 synthetic binaries
-Added 204 synthetic young SNRs
-Added 58 synthetic interacting SNRs
+Added 56 synthetic interacting SNRs
 Added 1 interstellar emission components
 Added background model

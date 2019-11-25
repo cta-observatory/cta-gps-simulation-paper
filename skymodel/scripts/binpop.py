@@ -109,10 +109,11 @@ def get_binpop_models(datadir,flux_thresh,outdir):
             pass
 
     # dictionary with parameters
-    lons, lats, fluxes, names = dist_from_gammalib(models)
+    lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 
     d = {'name' : np.array(names),
             'GLON' : np.array(lons),
+            'radius' : np.array(radii),
             'GLAT' : np.array(lats),
             'flux' : np.array(fluxes)}
 

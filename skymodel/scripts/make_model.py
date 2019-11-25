@@ -360,7 +360,7 @@ ax3.hist(gammacat_lats, bins=bins_lat, density=False, histtype='step',
          label='gamma-cat', alpha=0.5, linewidth=2)
 
 # make distributions from gammalib model container
-lons, lats, fluxes, names = dist_from_gammalib(models)
+lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
@@ -428,7 +428,7 @@ print(msg)
 outfile.write(msg)
 
 # re-make distributions from gammalib model container
-lons, lats, fluxes, names = dist_from_gammalib(models)
+lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
@@ -516,7 +516,7 @@ outfile.write(msg)
 # add pulsars
 
 # re-make distributions from gammalib model container
-lons, lats, fluxes, names = dist_from_gammalib(models)
+lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
@@ -599,7 +599,7 @@ np.save('ecut_agn.npy',ecut_agn)
 np.save('ecut_unid.npy',ecut_unid)
 
 # re-make distributions from gammalib model container
-lons, lats, fluxes, names = dist_from_gammalib(models)
+lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
@@ -636,7 +636,7 @@ print(msg)
 outfile.write(msg)
 
 # re-make distributions from gammalib model container
-lons, lats, fluxes, names = dist_from_gammalib(models)
+lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
@@ -647,25 +647,25 @@ ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
          label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
 
-# young SNRs
-for model in snr_models:
-    models.append(model)
-
-msg = 'Added {} synthetic young SNRs\n'.format(snr_models.size())
-print(msg)
-outfile.write(msg)
-
-# re-make distributions from gammalib model container
-lons, lats, fluxes, names = dist_from_gammalib(models)
-# change lon range from 0...360 to -180...180
-lons = np.array(lons)
-lons[lons > 180] = lons[lons > 180] - 360.
-ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
-ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
-ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
+# # young SNRs
+# for model in snr_models:
+#     models.append(model)
+#
+# msg = 'Added {} synthetic young SNRs\n'.format(snr_models.size())
+# print(msg)
+# outfile.write(msg)
+#
+# # re-make distributions from gammalib model container
+# lons, lats, radii, fluxes, names = dist_from_gammalib(models)
+# # change lon range from 0...360 to -180...180
+# lons = np.array(lons)
+# lons[lons > 180] = lons[lons > 180] - 360.
+# ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+#          label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
+# ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
+#          label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
+# ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
+#          label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
 
 # interacting SNRs
 for model in isnr_models:
@@ -676,16 +676,16 @@ print(msg)
 outfile.write(msg)
 
 # re-make distributions from gammalib model container
-lons, lats, fluxes, names = dist_from_gammalib(models)
+lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 
 # add IEM
 
@@ -748,6 +748,6 @@ fig3.savefig('glat.png', dpi=300)
 
 # make more diagnostic plots with properties of synthetic sources deleted
 plot_del_sources(bin_distx,bin_disty,bin_frlog,'bin','binaries')
-plot_del_sources(snr_distx,snr_disty,snr_frlog,'snr','young SNRs')
+# plot_del_sources(snr_distx,snr_disty,snr_frlog,'snr','young SNRs')
 plot_del_sources(isnr_distx,isnr_disty,isnr_frlog,'isnr','interacting SNRs')
 

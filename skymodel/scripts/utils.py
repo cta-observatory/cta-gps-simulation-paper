@@ -1,6 +1,7 @@
 import gammalib
 import numpy as np
 import pdb
+import matplotlib.pyplot as plt
 
 def format_ax(ax):
     for tick in ax.xaxis.get_major_ticks():
@@ -34,17 +35,19 @@ def dist_from_gammalib(models,emin=1.,emax=1000):
     lons = []
     lats = []
     names = []
-    # energy boundaries for flux calculation
+    radii = []
 
     for model in models:
         src_dir = get_model_dir(model)
         lons.append(src_dir.l_deg())
         lats.append(src_dir.b_deg())
+        rad = get_model_radius(model)
+        radii.append(rad)
         flux = flux_Crab(model,emin,emax)
         fluxes.append(flux)
         names.append(model.name())
 
-    return lons, lats, fluxes, names
+    return lons, lats, radii, fluxes, names
 
 def get_model_dir(model):
     """
@@ -134,7 +137,7 @@ def get_syn_model(filename,fmin,emin=1.,emax=1000.):
     models = gammalib.GModels(filename)
 
     # parameter distribution for the requested energy range
-    lons, lats, fluxes, names = dist_from_gammalib(models,emin=emin,emax=emax)
+    lons, lats, radii, fluxes, names = dist_from_gammalib(models,emin=emin,emax=emax)
 
     # output models
     outmodels = gammalib.GModels()
@@ -145,13 +148,14 @@ def get_syn_model(filename,fmin,emin=1.,emax=1000.):
             pass
 
     # regenerate distributions for standard energy range
-    lons, lats, fluxes, names = dist_from_gammalib(outmodels,emin=1.,emax=1000.)
+    lons, lats, radii, fluxes, names = dist_from_gammalib(outmodels,emin=1.,emax=1000.)
 
     # create dictionary with source parameters
-    d = {'name' : np.array(names),
-         'GLON' : np.array(lons),
-         'GLAT' : np.array(lats),
-         'flux' : np.array(fluxes)}
+    d = {'name'   : np.array(names),
+         'GLON'   : np.array(lons),
+         'GLAT'   : np.array(lats),
+         'radius' : np.array(radii),
+         'flux'   : np.array(fluxes)}
 
     return outmodels, d
 
@@ -187,6 +191,8 @@ def plot_del_sources(distx,disty,frlog,namestr,namefull):
     cs = ax5.contour(xv, yv, fom)
     ax5.clabel(cs, inline=1, fontsize=10)
     fig5.savefig('{}Flux-X.png'.format(namestr), dpi=300)
+
+    return
 
 
 
