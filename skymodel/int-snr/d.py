@@ -95,7 +95,7 @@ alpha=0 ; p0=0.015
 #path=str(int(random.random(1)*1e5))
 
             
-path='out'
+path='out/'
 os.system('rm -r '+path)
 os.system('mkdir '+path)
 
@@ -211,11 +211,12 @@ for i in arange(len(icloud)):
 
     #plt.plot(energy,sed)
   
-    specfile=path+'/isnr'+ str(i)+'_spec.txt'
+    #specfile=path+'/isnr'+ str(i)+'_spec.txt'
+    specfile='isnr'+ str(i)+'_spec.txt'
     spectrum=Table()
     spectrum['Energy']=energy.to('MeV') 
     spectrum['Flux']=flux.to('1 / (cm2 MeV s)')         
-    spectrum.write(specfile,format='ascii.no_header',overwrite=True)
+    spectrum.write(path+specfile,format='ascii.no_header',overwrite=True)
 
     # Map
     #mapfile=path+'/skymap'+str(i)+'.fits'
