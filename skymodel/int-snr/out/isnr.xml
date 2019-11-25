@@ -1,5 +1,9 @@
-   <source name="isnr0" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr0_spec.txt" type="FileFunction">
+<?xml version="1.0" standalone="no"?>
+
+<source_library title="interacting supernova remnants">
+
+<source name="isnr0" type="ExtendedSource""  tscalc="1">
+       <spectrum file="isnr0_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -9,7 +13,7 @@
 	</spatialModel>
    </source>
    <source name="isnr1" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr1_spec.txt" type="FileFunction">
+       <spectrum file="isnr1_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -19,7 +23,7 @@
 	</spatialModel>
    </source>
    <source name="isnr2" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr2_spec.txt" type="FileFunction">
+       <spectrum file="isnr2_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -29,7 +33,7 @@
 	</spatialModel>
    </source>
    <source name="isnr3" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr3_spec.txt" type="FileFunction">
+       <spectrum file="isnr3_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -39,7 +43,7 @@
 	</spatialModel>
    </source>
    <source name="isnr4" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr4_spec.txt" type="FileFunction">
+       <spectrum file="isnr4_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -49,7 +53,7 @@
 	</spatialModel>
    </source>
    <source name="isnr5" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr5_spec.txt" type="FileFunction">
+       <spectrum file="isnr5_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -59,7 +63,7 @@
 	</spatialModel>
    </source>
    <source name="isnr6" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr6_spec.txt" type="FileFunction">
+       <spectrum file="isnr6_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -69,7 +73,7 @@
 	</spatialModel>
    </source>
    <source name="isnr7" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr7_spec.txt" type="FileFunction">
+       <spectrum file="isnr7_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -79,7 +83,7 @@
 	</spatialModel>
    </source>
    <source name="isnr8" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr8_spec.txt" type="FileFunction">
+       <spectrum file="isnr8_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -89,7 +93,7 @@
 	</spatialModel>
    </source>
    <source name="isnr9" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr9_spec.txt" type="FileFunction">
+       <spectrum file="isnr9_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -99,7 +103,7 @@
 	</spatialModel>
    </source>
    <source name="isnr10" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr10_spec.txt" type="FileFunction">
+       <spectrum file="isnr10_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -109,7 +113,7 @@
 	</spatialModel>
    </source>
    <source name="isnr11" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr11_spec.txt" type="FileFunction">
+       <spectrum file="isnr11_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -119,7 +123,7 @@
 	</spatialModel>
    </source>
    <source name="isnr12" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr12_spec.txt" type="FileFunction">
+       <spectrum file="isnr12_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -129,7 +133,7 @@
 	</spatialModel>
    </source>
    <source name="isnr13" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr13_spec.txt" type="FileFunction">
+       <spectrum file="isnr13_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -139,7 +143,7 @@
 	</spatialModel>
    </source>
    <source name="isnr14" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr14_spec.txt" type="FileFunction">
+       <spectrum file="isnr14_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -149,7 +153,7 @@
 	</spatialModel>
    </source>
    <source name="isnr15" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr15_spec.txt" type="FileFunction">
+       <spectrum file="isnr15_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -159,7 +163,7 @@
 	</spatialModel>
    </source>
    <source name="isnr16" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr16_spec.txt" type="FileFunction">
+       <spectrum file="isnr16_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -169,7 +173,7 @@
 	</spatialModel>
    </source>
    <source name="isnr17" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr17_spec.txt" type="FileFunction">
+       <spectrum file="isnr17_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -179,7 +183,7 @@
 	</spatialModel>
    </source>
    <source name="isnr18" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr18_spec.txt" type="FileFunction">
+       <spectrum file="isnr18_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -189,7 +193,7 @@
 	</spatialModel>
    </source>
    <source name="isnr19" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr19_spec.txt" type="FileFunction">
+       <spectrum file="isnr19_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -199,7 +203,7 @@
 	</spatialModel>
    </source>
    <source name="isnr20" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr20_spec.txt" type="FileFunction">
+       <spectrum file="isnr20_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -209,7 +213,7 @@
 	</spatialModel>
    </source>
    <source name="isnr21" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr21_spec.txt" type="FileFunction">
+       <spectrum file="isnr21_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -219,7 +223,7 @@
 	</spatialModel>
    </source>
    <source name="isnr22" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr22_spec.txt" type="FileFunction">
+       <spectrum file="isnr22_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -229,7 +233,7 @@
 	</spatialModel>
    </source>
    <source name="isnr23" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr23_spec.txt" type="FileFunction">
+       <spectrum file="isnr23_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -239,7 +243,7 @@
 	</spatialModel>
    </source>
    <source name="isnr24" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr24_spec.txt" type="FileFunction">
+       <spectrum file="isnr24_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -249,7 +253,7 @@
 	</spatialModel>
    </source>
    <source name="isnr25" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr25_spec.txt" type="FileFunction">
+       <spectrum file="isnr25_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -259,7 +263,7 @@
 	</spatialModel>
    </source>
    <source name="isnr26" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr26_spec.txt" type="FileFunction">
+       <spectrum file="isnr26_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -269,7 +273,7 @@
 	</spatialModel>
    </source>
    <source name="isnr27" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr27_spec.txt" type="FileFunction">
+       <spectrum file="isnr27_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -279,7 +283,7 @@
 	</spatialModel>
    </source>
    <source name="isnr28" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr28_spec.txt" type="FileFunction">
+       <spectrum file="isnr28_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -289,7 +293,7 @@
 	</spatialModel>
    </source>
    <source name="isnr29" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr29_spec.txt" type="FileFunction">
+       <spectrum file="isnr29_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -299,7 +303,7 @@
 	</spatialModel>
    </source>
    <source name="isnr30" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr30_spec.txt" type="FileFunction">
+       <spectrum file="isnr30_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -309,7 +313,7 @@
 	</spatialModel>
    </source>
    <source name="isnr31" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr31_spec.txt" type="FileFunction">
+       <spectrum file="isnr31_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -319,7 +323,7 @@
 	</spatialModel>
    </source>
    <source name="isnr32" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr32_spec.txt" type="FileFunction">
+       <spectrum file="isnr32_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -329,7 +333,7 @@
 	</spatialModel>
    </source>
    <source name="isnr33" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr33_spec.txt" type="FileFunction">
+       <spectrum file="isnr33_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -339,7 +343,7 @@
 	</spatialModel>
    </source>
    <source name="isnr34" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr34_spec.txt" type="FileFunction">
+       <spectrum file="isnr34_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -349,7 +353,7 @@
 	</spatialModel>
    </source>
    <source name="isnr35" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr35_spec.txt" type="FileFunction">
+       <spectrum file="isnr35_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -359,7 +363,7 @@
 	</spatialModel>
    </source>
    <source name="isnr36" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr36_spec.txt" type="FileFunction">
+       <spectrum file="isnr36_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -369,7 +373,7 @@
 	</spatialModel>
    </source>
    <source name="isnr37" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr37_spec.txt" type="FileFunction">
+       <spectrum file="isnr37_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -379,7 +383,7 @@
 	</spatialModel>
    </source>
    <source name="isnr38" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr38_spec.txt" type="FileFunction">
+       <spectrum file="isnr38_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -389,7 +393,7 @@
 	</spatialModel>
    </source>
    <source name="isnr39" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr39_spec.txt" type="FileFunction">
+       <spectrum file="isnr39_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -399,7 +403,7 @@
 	</spatialModel>
    </source>
    <source name="isnr40" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr40_spec.txt" type="FileFunction">
+       <spectrum file="isnr40_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -409,7 +413,7 @@
 	</spatialModel>
    </source>
    <source name="isnr41" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr41_spec.txt" type="FileFunction">
+       <spectrum file="isnr41_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -419,7 +423,7 @@
 	</spatialModel>
    </source>
    <source name="isnr42" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr42_spec.txt" type="FileFunction">
+       <spectrum file="isnr42_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -429,7 +433,7 @@
 	</spatialModel>
    </source>
    <source name="isnr43" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr43_spec.txt" type="FileFunction">
+       <spectrum file="isnr43_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -439,7 +443,7 @@
 	</spatialModel>
    </source>
    <source name="isnr44" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr44_spec.txt" type="FileFunction">
+       <spectrum file="isnr44_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -449,7 +453,7 @@
 	</spatialModel>
    </source>
    <source name="isnr45" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr45_spec.txt" type="FileFunction">
+       <spectrum file="isnr45_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -459,7 +463,7 @@
 	</spatialModel>
    </source>
    <source name="isnr46" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr46_spec.txt" type="FileFunction">
+       <spectrum file="isnr46_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -469,7 +473,7 @@
 	</spatialModel>
    </source>
    <source name="isnr47" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr47_spec.txt" type="FileFunction">
+       <spectrum file="isnr47_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -479,17 +483,17 @@
 	</spatialModel>
    </source>
    <source name="isnr48" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr48_spec.txt" type="FileFunction">
+       <spectrum file="isnr48_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="41.39763" min="-360" max="360" free="0"/>
  		 <parameter name="GLAT"   scale="1.0" value="0.12349" min="-90"  max="90"  free="0"/>
-  	 	 <parameter name="Radius" scale="1.0" value="0.006873454724209274"    min="0.01" max="10"  free="1"/>
+  	 	 <parameter name="Radius" scale="1.0" value="0.006873454724209274"    min="0.00001" max="10"  free="1"/>
 	</spatialModel>
    </source>
    <source name="isnr49" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr49_spec.txt" type="FileFunction">
+       <spectrum file="isnr49_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -499,7 +503,7 @@
 	</spatialModel>
    </source>
    <source name="isnr50" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr50_spec.txt" type="FileFunction">
+       <spectrum file="isnr50_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -509,7 +513,7 @@
 	</spatialModel>
    </source>
    <source name="isnr51" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr51_spec.txt" type="FileFunction">
+       <spectrum file="isnr51_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -519,7 +523,7 @@
 	</spatialModel>
    </source>
    <source name="isnr52" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr52_spec.txt" type="FileFunction">
+       <spectrum file="isnr52_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -529,7 +533,7 @@
 	</spatialModel>
    </source>
    <source name="isnr53" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr53_spec.txt" type="FileFunction">
+       <spectrum file="isnr53_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -539,7 +543,7 @@
 	</spatialModel>
    </source>
    <source name="isnr54" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr54_spec.txt" type="FileFunction">
+       <spectrum file="isnr54_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -549,7 +553,7 @@
 	</spatialModel>
    </source>
    <source name="isnr55" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr55_spec.txt" type="FileFunction">
+       <spectrum file="isnr55_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -559,7 +563,7 @@
 	</spatialModel>
    </source>
    <source name="isnr56" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr56_spec.txt" type="FileFunction">
+       <spectrum file="isnr56_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -569,7 +573,7 @@
 	</spatialModel>
    </source>
    <source name="isnr57" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr57_spec.txt" type="FileFunction">
+       <spectrum file="isnr57_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -579,7 +583,7 @@
 	</spatialModel>
    </source>
    <source name="isnr58" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr58_spec.txt" type="FileFunction">
+       <spectrum file="isnr58_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -589,7 +593,7 @@
 	</spatialModel>
    </source>
    <source name="isnr59" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr59_spec.txt" type="FileFunction">
+       <spectrum file="isnr59_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -599,7 +603,7 @@
 	</spatialModel>
    </source>
    <source name="isnr60" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr60_spec.txt" type="FileFunction">
+       <spectrum file="isnr60_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -609,7 +613,7 @@
 	</spatialModel>
    </source>
    <source name="isnr61" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr61_spec.txt" type="FileFunction">
+       <spectrum file="isnr61_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -619,7 +623,7 @@
 	</spatialModel>
    </source>
    <source name="isnr62" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr62_spec.txt" type="FileFunction">
+       <spectrum file="isnr62_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -629,7 +633,7 @@
 	</spatialModel>
    </source>
    <source name="isnr63" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr63_spec.txt" type="FileFunction">
+       <spectrum file="isnr63_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -639,7 +643,7 @@
 	</spatialModel>
    </source>
    <source name="isnr64" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr64_spec.txt" type="FileFunction">
+       <spectrum file="isnr64_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -649,7 +653,7 @@
 	</spatialModel>
    </source>
    <source name="isnr65" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr65_spec.txt" type="FileFunction">
+       <spectrum file="isnr65_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -659,7 +663,7 @@
 	</spatialModel>
    </source>
    <source name="isnr66" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr66_spec.txt" type="FileFunction">
+       <spectrum file="isnr66_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -669,7 +673,7 @@
 	</spatialModel>
    </source>
    <source name="isnr67" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr67_spec.txt" type="FileFunction">
+       <spectrum file="isnr67_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -679,7 +683,7 @@
 	</spatialModel>
    </source>
    <source name="isnr68" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr68_spec.txt" type="FileFunction">
+       <spectrum file="isnr68_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -689,7 +693,7 @@
 	</spatialModel>
    </source>
    <source name="isnr69" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr69_spec.txt" type="FileFunction">
+       <spectrum file="isnr69_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -699,7 +703,7 @@
 	</spatialModel>
    </source>
    <source name="isnr70" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr70_spec.txt" type="FileFunction">
+       <spectrum file="isnr70_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -709,7 +713,7 @@
 	</spatialModel>
    </source>
    <source name="isnr71" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr71_spec.txt" type="FileFunction">
+       <spectrum file="isnr71_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -719,7 +723,7 @@
 	</spatialModel>
    </source>
    <source name="isnr72" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr72_spec.txt" type="FileFunction">
+       <spectrum file="isnr72_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -729,7 +733,7 @@
 	</spatialModel>
    </source>
    <source name="isnr73" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr73_spec.txt" type="FileFunction">
+       <spectrum file="isnr73_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -739,7 +743,7 @@
 	</spatialModel>
    </source>
    <source name="isnr74" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr74_spec.txt" type="FileFunction">
+       <spectrum file="isnr74_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -749,7 +753,7 @@
 	</spatialModel>
    </source>
    <source name="isnr75" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr75_spec.txt" type="FileFunction">
+       <spectrum file="isnr75_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -759,7 +763,7 @@
 	</spatialModel>
    </source>
    <source name="isnr76" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr76_spec.txt" type="FileFunction">
+       <spectrum file="isnr76_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -769,7 +773,7 @@
 	</spatialModel>
    </source>
    <source name="isnr77" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr77_spec.txt" type="FileFunction">
+       <spectrum file="isnr77_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -779,7 +783,7 @@
 	</spatialModel>
    </source>
    <source name="isnr78" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr78_spec.txt" type="FileFunction">
+       <spectrum file="isnr78_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -789,7 +793,7 @@
 	</spatialModel>
    </source>
    <source name="isnr79" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr79_spec.txt" type="FileFunction">
+       <spectrum file="isnr79_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -799,7 +803,7 @@
 	</spatialModel>
    </source>
    <source name="isnr80" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr80_spec.txt" type="FileFunction">
+       <spectrum file="isnr80_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -809,7 +813,7 @@
 	</spatialModel>
    </source>
    <source name="isnr81" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr81_spec.txt" type="FileFunction">
+       <spectrum file="isnr81_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -819,7 +823,7 @@
 	</spatialModel>
    </source>
    <source name="isnr82" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr82_spec.txt" type="FileFunction">
+       <spectrum file="isnr82_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -829,7 +833,7 @@
 	</spatialModel>
    </source>
    <source name="isnr83" type="ExtendedSource""  tscalc="1">
-       <spectrum file="out/isnr83_spec.txt" type="FileFunction">
+       <spectrum file="isnr83_spec.txt" type="FileFunction">
            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />
        </spectrum>
       <spatialModel type="RadialDisk">
@@ -838,3 +842,4 @@
   	 	 <parameter name="Radius" scale="1.0" value="0.1210002049321496"    min="0.01" max="10"  free="1"/>
 	</spatialModel>
    </source>
+</source_library>
