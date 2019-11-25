@@ -62,7 +62,7 @@ def createXml_disk(srcname='source0',specfile='specfile.txt',lon=0.0,lat=0.0,rad
   '      <spatialModel type="RadialDisk">\n',
   ' 		 <parameter name="GLON"    scale="1.0" value="888" min="-360" max="360" free="0"/>\n',
   ' 		 <parameter name="GLAT"   scale="1.0" value="777" min="-90"  max="90"  free="0"/>\n',
-  '  	 	 <parameter name="Radius" scale="1.0" value="111"    min="0.01" max="10"  free="1"/>\n',
+  '  	 	 <parameter name="Radius" scale="1.0" value="111"    min="0.005" max="10"  free="1"/>\n',
   '	</spatialModel>\n',  
    '   </source>\n' ]
 
@@ -136,7 +136,15 @@ energy_b = logspace(8,14.4,101)*u.eV
 de = energy_b[1:]-energy_b[:-1]
 energy = sqrt(energy_b[1:]*energy_b[:-1])
 
-code=[]
+code=[
+'<?xml version="1.0" standalone="no"?>\n',
+'<source_library title="interacting supernova remnants">\n'
+]
+
+
+
+
+
 
 for i in arange(len(icloud)):
 #for i in arange(10):
@@ -215,8 +223,10 @@ for i in arange(len(icloud)):
     #code=code+createXml(srcname='isnr'+str(i),specfile=specfile, mapfile=mapfile)
 
     # Disk 
-    code=code+createXml_disk(srcname='isnr'+str(i),specfile=specfile, lon=lon.to_value('deg'), lat=lat.to_value('deg'),radius=radius.to_value('deg'))
+    code=code+createXml_disk(srcname='isnr'+str(i),specfile=specfile, lon=lon.to_value('deg'), lat=lat.to_value('deg'),radius=min(max(radius.to_value('deg'),0.005),10.)) 
 
+
+code=code+['</source_library>/n']
 
 outfile = path+'/isnr.xml'
 print ('Writing file : '+outfile)
