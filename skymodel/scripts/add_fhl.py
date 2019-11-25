@@ -8,14 +8,19 @@ from cutoffs import get_cutoff
 fhl = fits.getdata('../known-sources/external-input/gll_psch_v13.fit', 1)
 ext_fhl = fits.getdata('../known-sources/external-input/gll_psch_v13.fit', 2)
 
+# table of interacting SNRs
+snr_class = fits.getdata('../known-sources/external-input/iSNRin3FHL.fits',1)
+
 # filter sources wth known TeV association, they are included elsewhere
 # this avoids issues due to model building choices (i.e., numerical precision, source for position etc.)
 fhl = fhl[fhl['ASSOC_TEV'] == ' ']
 
 
 def append_fhl(models, bmax,
-               bin_models, bin_dict, bin_distx, bin_disty, bin_frlog,
-               dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
+                bin_models, bin_dict, bin_distx, bin_disty, bin_frlog,
+                snr_models, snr_dict, snr_distx, snr_disty, snr_frlog,
+                isnr_models, isnr_dict, isnr_distx, isnr_disty, isnr_frlog,
+                dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     """
     Append missing models from Fermi high-energy catalog to gammalib model container
     :param models: ~gammalib.GModels, gammalib model container
@@ -37,6 +42,8 @@ def append_fhl(models, bmax,
     newpt = 0
     newext = 0
     n_bin_del = 0
+    n_snr_del = 0
+    n_isnr_del = 0
     newmodels = gammalib.GModels()
     # keep track also of artificial cutoffs
     ecut_pwn = []
@@ -192,6 +199,34 @@ def append_fhl(models, bmax,
                 bin_distx.append(distx)
                 bin_disty.append(disty)
                 bin_frlog.append(frlog)
+            elif fsource['CLASS'] == 'PWN' or fsource['CLASS'] == 'pwn' or fsource['CLASS'] == 'spp':
+                # implement synthetic PWNe here
+                pass
+            elif fsource['CLASS'] == 'SNR' or fsource['CLASS'] == 'snr':
+                # determine if snr is interacting
+                assoc = snr_class[snr_class['ASSOC1'] == fsource['ASSOC1']]
+                if assoc[0]['is int'] == 'yes':
+                    # interacting
+                    rname, isnr_dict, distx, disty, frlog = find_source_to_delete(isnr_dict,
+                                                                                 fdir.l_deg(),
+                                                                                 fdir.b_deg(),
+                                                                                 flux_Crab(model, 1.,1000.))
+                    isnr_models.remove(rname)
+                    n_isnr_del += 1
+                    isnr_distx.append(distx)
+                    isnr_disty.append(disty)
+                    isnr_frlog.append(frlog)
+                else:
+                    # young
+                    rname, snr_dict, distx, disty, frlog = find_source_to_delete(snr_dict,
+                                                                                  fdir.l_deg(),
+                                                                                  fdir.b_deg(),
+                                                                                  flux_Crab(model,1.,1000.))
+                    snr_models.remove(rname)
+                    n_snr_del += 1
+                    snr_distx.append(distx)
+                    snr_disty.append(disty)
+                    snr_frlog.append(frlog)
             else:
                 pass
         else:
@@ -208,6 +243,11 @@ def append_fhl(models, bmax,
                'ecut_unid' : ecut_unid, 'n_ecut_pwn' : n_ecut_pwn, 'n_ecut_snr' : n_ecut_snr,
                'n_ecut_agn' : n_ecut_agn, 'n_ecut_unid' : n_ecut_unid, 'msg' : msg,
                'bin_models' : bin_models, 'bin_dict' : bin_dict, 'n_bin_del' : n_bin_del,
-               'bin_distx' : bin_distx, 'bin_disty' : bin_disty, 'bin_frlog' : bin_frlog}
+               'bin_distx' : bin_distx, 'bin_disty' : bin_disty, 'bin_frlog' : bin_frlog,
+               'snr_models': snr_models, 'snr_dict': snr_dict, 'n_snr_del': n_snr_del,
+               'snr_distx': snr_distx, 'snr_disty': snr_disty, 'snr_frlog': snr_frlog,
+               'isnr_models': isnr_models, 'isnr_dict': isnr_dict, 'n_isnr_del': n_isnr_del,
+               'isnr_distx': isnr_distx, 'isnr_disty': isnr_disty, 'isnr_frlog': isnr_frlog
+    }
 
     return result

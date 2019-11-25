@@ -78,6 +78,28 @@ bin_distx = []
 bin_disty = []
 bin_frlog = []
 
+# snr
+snr_models, snr_dict = get_syn_model('../snr/OUTPUT_FILES_1/ctadc_skymodel_gps_sources_pevatron_0.xml',
+                                     1.e-3*fmin,emin=0.1,emax=1000.)
+msg = 'Loaded {} synthetic young SNRs\n'.format(snr_models.size())
+print(msg)
+outfile.write(msg)
+# keep track of properties of binaries deleted
+snr_distx = []
+snr_disty = []
+snr_frlog = []
+
+# isnr
+isnr_models, isnr_dict = get_syn_model('../int-snr/out/isnr.xml',
+                                       1.e-3*fmin,0.1,1000.)
+msg = 'Loaded {} synthetic interacting SNRs\n'.format(isnr_models.size())
+print(msg)
+outfile.write(msg)
+# keep track of properties of binaries deleted
+isnr_distx = []
+isnr_disty = []
+isnr_frlog = []
+
 # create final model container
 models = gammalib.GModels()
 
@@ -98,6 +120,10 @@ n_ecut_snr = 0
 n_ecut_unid = 0
 # keep track of synthetic sources that are be deleted
 n_bin_del = 0
+n_snr_del = 0
+n_isnr_del = 0
+
+# read file
 gammacat = Table.read(gammacat_file)
 for source in gammacat:
     # retain only sources with known spectral model
@@ -280,16 +306,39 @@ for source in gammacat:
                 bin_distx.append(distx)
                 bin_disty.append(disty)
                 bin_frlog.append(frlog)
+            elif 'pwn' in source['classes'] or source['classes'] == 'unid':
+                # all sources possibly associated with PWNe or unidentified are supposed to be PWNe
+                pass
+            elif source['classes'] == 'snr':
+                rname, snr_dict, distx, disty, frlog = find_source_to_delete(snr_dict,src_dir.l_deg(),src_dir.b_deg(),1.e-2 * source['spec_flux_1TeV_crab'])
+                snr_models.remove(rname)
+                n_snr_del += 1
+                snr_distx.append(distx)
+                snr_disty.append(disty)
+                snr_frlog.append(frlog)
+            elif source['classes'] == 'snr,mc':
+                rname, isnr_dict, distx, disty, frlog = find_source_to_delete(isnr_dict,src_dir.l_deg(),src_dir.b_deg(),1.e-2 * source['spec_flux_1TeV_crab'])
+                isnr_models.remove(rname)
+                n_isnr_del += 1
+                isnr_distx.append(distx)
+                isnr_disty.append(disty)
+                isnr_frlog.append(frlog)
             else:
                 pass
 
-msg = 'Added {} gamma-cat sources'.format(len(gammacat_ids))
+msg = 'Added {} gamma-cat sources\n'.format(len(gammacat_ids))
 print(msg)
 outfile.write(msg)
-msg = 'Set estimated cutoffs for {} PWN, {} SNR, {} UNID'.format(n_ecut_pwn,n_ecut_snr,n_ecut_unid)
+msg = 'Set estimated cutoffs for {} PWN, {} SNR, {} UNID\n'.format(n_ecut_pwn,n_ecut_snr,n_ecut_unid)
 print(msg)
 outfile.write(msg)
 msg = 'Deleted {} synthetic binaries\n'.format(n_bin_del)
+print(msg)
+outfile.write(msg)
+msg = 'Deleted {} synthetic young SNRs\n'.format(n_snr_del)
+print(msg)
+outfile.write(msg)
+msg = 'Deleted {} synthetic interacting SNRs\n'.format(n_isnr_del)
 print(msg)
 outfile.write(msg)
 
@@ -456,7 +505,7 @@ for binary in binary_list:
             bin_frlog.append(frlog)
 
 
-msg = 'Replaced {} gamma-cat sources with binaries. Added {} sources as binaries'.format(
+msg = 'Replaced {} gamma-cat sources with binaries. Added {} sources as binaries\n'.format(
     replaced, added)
 print(msg)
 outfile.write(msg)
@@ -478,12 +527,12 @@ ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
          label='gamma-cat + templates + bin', alpha=0.5, linewidth=2, linestyle=':')
 
-# add SFR
-
 # add 3FHL
 
 result_fhl = append_fhl(models,bmax,
                         bin_models, bin_dict, bin_distx, bin_disty, bin_frlog,
+                        snr_models, snr_dict, snr_distx, snr_disty, snr_frlog,
+                        isnr_models, isnr_dict, isnr_distx, isnr_disty, isnr_frlog,
                         dist_sigma=3.)
 models = result_fhl['models']
 msg = 'Added {} FHL sources, of which {} as pointlike and {} as extended.'.format(
@@ -505,6 +554,24 @@ bin_distx = result_fhl['bin_distx']
 bin_disty = result_fhl['bin_disty']
 bin_frlog = result_fhl['bin_frlog']
 msg = 'Deleted {} synthetic binaries\n'.format(result_fhl['n_bin_del'])
+print(msg)
+outfile.write(msg)
+
+snr_models = result_fhl['snr_models']
+snr_dict = result_fhl['snr_dict']
+snr_distx = result_fhl['snr_distx']
+snr_disty = result_fhl['snr_disty']
+snr_frlog = result_fhl['snr_frlog']
+msg = 'Deleted {} synthetic young SNRs\n'.format(result_fhl['n_snr_del'])
+print(msg)
+outfile.write(msg)
+
+isnr_models = result_fhl['isnr_models']
+isnr_dict = result_fhl['isnr_dict']
+isnr_distx = result_fhl['isnr_distx']
+isnr_disty = result_fhl['isnr_disty']
+isnr_frlog = result_fhl['isnr_frlog']
+msg = 'Deleted {} synthetic interacting SNRs\n'.format(result_fhl['n_isnr_del'])
 print(msg)
 outfile.write(msg)
 
@@ -559,6 +626,8 @@ for model1 in models:
                 outfile.write(msg)
 
 # add synthetic binaries, PWNe and SNRs
+
+# binaries
 for model in bin_models:
     models.append(model)
 
@@ -577,6 +646,46 @@ ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
          label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
+
+# young SNRs
+for model in snr_models:
+    models.append(model)
+
+msg = 'Added {} synthetic young SNRs\n'.format(snr_models.size())
+print(msg)
+outfile.write(msg)
+
+# re-make distributions from gammalib model container
+lons, lats, fluxes, names = dist_from_gammalib(models)
+# change lon range from 0...360 to -180...180
+lons = np.array(lons)
+lons[lons > 180] = lons[lons > 180] - 360.
+ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
+ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
+ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
+
+# interacting SNRs
+for model in isnr_models:
+    models.append(model)
+
+msg = 'Added {} synthetic interacting SNRs\n'.format(isnr_models.size())
+print(msg)
+outfile.write(msg)
+
+# re-make distributions from gammalib model container
+lons, lats, fluxes, names = dist_from_gammalib(models)
+# change lon range from 0...360 to -180...180
+lons = np.array(lons)
+lons[lons > 180] = lons[lons > 180] - 360.
+ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
+ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
+ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 
 # add IEM
 
@@ -638,35 +747,7 @@ ax3.legend(fontsize=5)
 fig3.savefig('glat.png', dpi=300)
 
 # make more diagnostic plots with properties of synthetic sources deleted
-# binaries
-fig4 = plt.figure('Deleted binaries XY')
-ax4 = plt.subplot()
-ax4.set_xlabel("Longitude distance (deg)", fontsize=14)
-ax4.set_ylabel('Latitude distance (deg)', fontsize=14)
-format_ax(ax4)
-ax4.scatter(bin_distx,bin_disty)
-# add FOM contours
-xmin, xmax = ax4.get_xlim()
-ymin, ymax = ax4.get_ylim()
-xv,yv = np.meshgrid(np.linspace(xmin,xmax,50),
-                    np.linspace(ymin,ymax,50))
-fom = delete_source_fom(xv,yv,0.3)
-cs = ax4.contour(xv,yv,fom)
-ax4.clabel(cs, inline=1, fontsize=10)
-fig4.savefig('binXY.png', dpi=300)
+plot_del_sources(bin_distx,bin_disty,bin_frlog,'bin','binaries')
+plot_del_sources(snr_distx,snr_disty,snr_frlog,'snr','young SNRs')
+plot_del_sources(isnr_distx,isnr_disty,isnr_frlog,'isnr','interacting SNRs')
 
-fig5 = plt.figure('Deleted binaries Flux-X')
-ax5 = plt.subplot()
-ax5.set_xlabel("Longitude distance (deg)", fontsize=14)
-ax5.set_ylabel('Log10(flux ratio)', fontsize=14)
-format_ax(ax5)
-ax5.scatter(bin_distx,bin_frlog)
-# add FOM contours
-xmin, xmax = ax5.get_xlim()
-ymin, ymax = ax5.get_ylim()
-xv,yv = np.meshgrid(np.linspace(xmin,xmax,50),
-                    np.linspace(ymin,ymax,50))
-fom = delete_source_fom(xv,2,yv)
-cs = ax5.contour(xv,yv,fom)
-ax5.clabel(cs, inline=1, fontsize=10)
-fig5.savefig('binFlux-X.png', dpi=300)
