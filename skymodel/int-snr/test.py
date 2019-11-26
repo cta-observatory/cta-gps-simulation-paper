@@ -1,6 +1,8 @@
-import gammalib
+import sys
+import gammalib 
 
-xmlfile='out/isnr.xml'
+#xmlfile='out/isnr.xml'
+xmlfile=sys.argv[1]
 
 try:
   q=gammalib.GModels(xmlfile)
