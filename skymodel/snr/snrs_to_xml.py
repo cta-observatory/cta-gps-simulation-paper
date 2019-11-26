@@ -44,7 +44,7 @@ SPECTRUM_TEMPLATE = """\
 SPECTRUM_NODE_TEMPLATE_READABLE = """\
     <node>
     <parameter name="Energy" value="{energy:.5f}" scale="1e06" min="0.1"   max="1.0e20" free="0"/>
-    <parameter name="Intensity" value="{dnde:.5g}" scale="1e-10" min="1e-20" max="1000.0" free="1"/>
+    <parameter name="Intensity" value="{dnde:.5g}" scale="1e-10" min="1e-12" max="5e5" free="1"/>
     </node>
 """
 
@@ -144,7 +144,7 @@ def add_sed_columns(table):
     # Copy over fluxes into array column
     sed_dnde = np.empty_like(sed_energy)
     for col_idx in range(40):
-        # sed_dnde[:, col_idx] = table.columns[6 + col_idx]                            #  
+        #sed_dnde[:, col_idx] = table.columns[6 + col_idx]                            #  
         sed_dnde[:, col_idx] = table.columns[6 + col_idx] * sed_energy[0,col_idx]**2.  #  units set to "cm-2 s-1 TeV-1"  (AG)
 
     table['sed_energy'] = u.Quantity(sed_energy, 'TeV').to('MeV')
