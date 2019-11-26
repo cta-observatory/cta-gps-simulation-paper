@@ -5,6 +5,7 @@ outdir = '../output'
 os.system('rm {}/*.xml'.format(outdir))
 os.system('rm {}/*.fits'.format(outdir))
 os.system('rm {}/*.txt'.format(outdir))
+os.system('rm {}/*.png'.format(outdir))
 
 # run all preliminary scripts to generate model components
 #

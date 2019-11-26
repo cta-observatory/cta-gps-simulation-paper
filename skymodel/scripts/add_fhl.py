@@ -17,9 +17,9 @@ fhl = fhl[fhl['ASSOC_TEV'] == ' ']
 
 
 def append_fhl(models, bmax,
-                bin_models, bin_dict, bin_distx, bin_disty, bin_frlog,
-                snr_models, snr_dict, snr_distx, snr_disty, snr_frlog,
-                isnr_models, isnr_dict, isnr_distx, isnr_disty, isnr_frlog,
+                bin_models, bin_dict, bin_distx, bin_disty, bin_radr, bin_frlog,
+                snr_models, snr_dict, snr_distx, snr_disty, snr_radr, snr_frlog,
+                isnr_models, isnr_dict, isnr_distx, isnr_disty, isnr_radr, isnr_frlog,
                 dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     """
     Append missing models from Fermi high-energy catalog to gammalib model container
@@ -191,13 +191,14 @@ def append_fhl(models, bmax,
             newmodels.append(model)
             # delete synthetic sources as needed
             if fsource['CLASS'] == 'HMB' or fsource['CLASS'] == 'hmb' or fsource['CLASS'] == 'BIN' or fsource['CLASS'] == 'bin':
-                rname, bin_dict, distx, disty, frlog = find_source_to_delete(bin_dict, fdir.l_deg(),
-                                                        fdir.b_deg(),
+                rname, bin_dict, distx, disty, radr, frlog = find_source_to_delete(bin_dict, fdir.l_deg(),
+                                                        fdir.b_deg(), get_model_radius(model),
                                                         flux_Crab(model,1.,1000.))
                 bin_models.remove(rname)
                 n_bin_del += 1
                 bin_distx.append(distx)
                 bin_disty.append(disty)
+                bin_radr.append(radr)
                 bin_frlog.append(frlog)
             elif fsource['CLASS'] == 'PWN' or fsource['CLASS'] == 'pwn' or fsource['CLASS'] == 'spp':
                 # implement synthetic PWNe here
@@ -207,25 +208,27 @@ def append_fhl(models, bmax,
                 assoc = snr_class[snr_class['ASSOC1'] == fsource['ASSOC1']]
                 if assoc[0]['is int'] == 'yes':
                     # interacting
-                    rname, isnr_dict, distx, disty, frlog = find_source_to_delete(isnr_dict,
+                    rname, isnr_dict, distx, disty, radr, frlog = find_source_to_delete(isnr_dict,
                                                                                  fdir.l_deg(),
-                                                                                 fdir.b_deg(),
+                                                                                 fdir.b_deg(), get_model_radius(model),
                                                                                  flux_Crab(model, 1.,1000.))
                     isnr_models.remove(rname)
                     n_isnr_del += 1
                     isnr_distx.append(distx)
                     isnr_disty.append(disty)
+                    isnr_radr.append(radr)
                     isnr_frlog.append(frlog)
                 else:
                     # young
-                    rname, snr_dict, distx, disty, frlog = find_source_to_delete(snr_dict,
+                    rname, snr_dict, distx, disty, radr, frlog = find_source_to_delete(snr_dict,
                                                                                   fdir.l_deg(),
-                                                                                  fdir.b_deg(),
+                                                                                  fdir.b_deg(), get_model_radius(model),
                                                                                   flux_Crab(model,1.,1000.))
                     snr_models.remove(rname)
                     n_snr_del += 1
                     snr_distx.append(distx)
                     snr_disty.append(disty)
+                    snr_radr.append(radr)
                     snr_frlog.append(frlog)
             else:
                 pass
@@ -243,11 +246,11 @@ def append_fhl(models, bmax,
                'ecut_unid' : ecut_unid, 'n_ecut_pwn' : n_ecut_pwn, 'n_ecut_snr' : n_ecut_snr,
                'n_ecut_agn' : n_ecut_agn, 'n_ecut_unid' : n_ecut_unid, 'msg' : msg,
                'bin_models' : bin_models, 'bin_dict' : bin_dict, 'n_bin_del' : n_bin_del,
-               'bin_distx' : bin_distx, 'bin_disty' : bin_disty, 'bin_frlog' : bin_frlog,
+               'bin_distx' : bin_distx, 'bin_disty' : bin_disty, 'bin_radr' : bin_radr, 'bin_frlog' : bin_frlog,
                'snr_models': snr_models, 'snr_dict': snr_dict, 'n_snr_del': n_snr_del,
-               'snr_distx': snr_distx, 'snr_disty': snr_disty, 'snr_frlog': snr_frlog,
+               'snr_distx': snr_distx, 'snr_disty': snr_disty, 'snr_radr': snr_radr, 'snr_frlog': snr_frlog,
                'isnr_models': isnr_models, 'isnr_dict': isnr_dict, 'n_isnr_del': n_isnr_del,
-               'isnr_distx': isnr_distx, 'isnr_disty': isnr_disty, 'isnr_frlog': isnr_frlog
+               'isnr_distx': isnr_distx, 'isnr_disty': isnr_disty, 'isnr_radr': isnr_radr, 'isnr_frlog': isnr_frlog
     }
 
     return result

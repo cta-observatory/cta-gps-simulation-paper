@@ -53,6 +53,7 @@ fig2 = plt.figure('GLON')
 ax2 = plt.subplot()
 ax2.set_xlabel('Galactic longitude (deg)', fontsize=14)
 ax2.set_ylabel('Number of sources', fontsize=14)
+ax2.set_ylim(0,20)
 format_ax(ax2)
 
 fig3 = plt.figure('GLAT')
@@ -61,10 +62,18 @@ ax3.set_xlabel('Galactic latitude (deg)', fontsize=14)
 ax3.set_ylabel('Number of sources', fontsize=14)
 format_ax(ax3)
 
+fig0 = plt.figure('Radius')
+ax0 = plt.subplot()
+ax0.set_yscale('log')
+ax0.set_xlabel('Radius (deg)', fontsize=14)
+ax0.set_ylabel('Number of sources', fontsize=14)
+format_ax(ax0)
+
 # define binning to make distributions
 bins_lognlogs = np.logspace(np.log10(1.e-3 * fmin), 1., 40)
 bins_lon = np.linspace(-180, 180, 90)
 bins_lat = np.linspace(-bmax, bmax, 10 * bmax)
+bins_rad = np.linspace(0, 2, 30)
 
 # load synthetic populations, so that high flux members can be dropped as we add real sources
 
@@ -76,6 +85,7 @@ outfile.write(msg)
 # keep track of properties of binaries deleted
 bin_distx = []
 bin_disty = []
+bin_radr = []
 bin_frlog = []
 
 # snr
@@ -87,6 +97,7 @@ outfile.write(msg)
 # keep track of properties of binaries deleted
 snr_distx = []
 snr_disty = []
+snr_radr = []
 snr_frlog = []
 
 # isnr
@@ -98,6 +109,7 @@ outfile.write(msg)
 # keep track of properties of binaries deleted
 isnr_distx = []
 isnr_disty = []
+isnr_radr = []
 isnr_frlog = []
 
 # create final model container
@@ -109,6 +121,7 @@ print('\n')
 gammacat_ids = []
 gammacat_lons = []
 gammacat_lats = []
+gammacat_rads = []
 gammacat_flux = []
 # keep track also of artificial cutoffs
 ecut_pwn = []
@@ -149,9 +162,11 @@ for source in gammacat:
         if source['morph_type'] == 'point' or source['morph_type'] == 'none':
             # source with morphology none are treated as point sources
             spatial = gammalib.GModelSpatialPointSource(src_dir)
+            radius = 0.
         elif source['morph_type'] == 'gauss':
             # Gaussian morphology
             sigma = np.double(source['morph_sigma'])
+            radius = 2 * sigma
             if np.isnan(source['morph_sigma2']):
                 ##############################################
                 # temporary fix for missing sigma of Westerlund 1
@@ -159,6 +174,7 @@ for source in gammacat:
                 if source['common_name'] == 'Westerlund 1':
                     sigma = 1.1
                 # symmetric Gaussian
+                # rad = 2 * sigma
                 spatial = gammalib.GModelSpatialRadialGauss(src_dir, sigma)
             else:
                 # elliptical Gaussian
@@ -195,6 +211,7 @@ for source in gammacat:
                 r_outer = np.double(source['morph_sigma2'])
                 width = r_outer - r_inner
             spatial = gammalib.GModelSpatialRadialShell(src_dir, r_inner, width)
+            radius = r_inner + width
         else:
             msg = 'WARNING: source {} from gamma-cat has spatial model of type {} which is not implemented\n'.format(
                 source['common_name'], source['morph_type'])
@@ -297,31 +314,35 @@ for source in gammacat:
             gammacat_ids.append(source['source_id'])
             gammacat_lons.append(lon)
             gammacat_lats.append(lat)
+            gammacat_rads.append(radius)
             gammacat_flux.append(source['spec_flux_1TeV_crab'])
             # find which synthetic source need to be deleted to account for the source added
             if source['classes'] == 'bin':
-                rname, bin_dict, distx, disty, frlog = find_source_to_delete(bin_dict,src_dir.l_deg(),src_dir.b_deg(),1.e-2*source['spec_flux_1TeV_crab'])
+                rname, bin_dict, distx, disty, radr, frlog = find_source_to_delete(bin_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model), 1.e-2*source['spec_flux_1TeV_crab'])
                 bin_models.remove(rname)
                 n_bin_del +=1
                 bin_distx.append(distx)
                 bin_disty.append(disty)
+                bin_radr.append(radr)
                 bin_frlog.append(frlog)
             elif 'pwn' in source['classes'] or source['classes'] == 'unid':
                 # all sources possibly associated with PWNe or unidentified are supposed to be PWNe
                 pass
             elif source['classes'] == 'snr':
-                rname, snr_dict, distx, disty, frlog = find_source_to_delete(snr_dict,src_dir.l_deg(),src_dir.b_deg(),1.e-2 * source['spec_flux_1TeV_crab'])
+                rname, snr_dict, distx, disty, radr, frlog = find_source_to_delete(snr_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model),1.e-2 * source['spec_flux_1TeV_crab'])
                 snr_models.remove(rname)
                 n_snr_del += 1
                 snr_distx.append(distx)
                 snr_disty.append(disty)
+                snr_radr.append(radr)
                 snr_frlog.append(frlog)
             elif source['classes'] == 'snr,mc':
-                rname, isnr_dict, distx, disty, frlog = find_source_to_delete(isnr_dict,src_dir.l_deg(),src_dir.b_deg(),1.e-2 * source['spec_flux_1TeV_crab'])
+                rname, isnr_dict, distx, disty, radr, frlog = find_source_to_delete(isnr_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model),1.e-2 * source['spec_flux_1TeV_crab'])
                 isnr_models.remove(rname)
                 n_isnr_del += 1
                 isnr_distx.append(distx)
                 isnr_disty.append(disty)
+                isnr_radr.append(radr)
                 isnr_frlog.append(frlog)
             else:
                 pass
@@ -358,6 +379,8 @@ ax2.hist(gammacat_lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat', alpha=0.5, linewidth=2)
 ax3.hist(gammacat_lats, bins=bins_lat, density=False, histtype='step',
          label='gamma-cat', alpha=0.5, linewidth=2)
+ax0.hist(gammacat_rads, bins=bins_rad, density=False, histtype='step',
+         label='gamma-cat', alpha=0.5, linewidth=2)
 
 # make distributions from gammalib model container
 lons, lats, radii, fluxes, names = dist_from_gammalib(models)
@@ -370,6 +393,9 @@ ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
          label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
+ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
+         label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
+
 
 # add templates
 
@@ -438,6 +464,8 @@ ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
          label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
+ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
+         label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
 
 # add binaries
 
@@ -496,12 +524,13 @@ for binary in binary_list:
             flux = 0.
             for s in range(len(model_names)):
                 flux += flux_Crab(models[-1-s],1.,1000.)
-            rname, bin_dict, distx, disty, frlog = find_source_to_delete(bin_dict, src_dir.l_deg(), src_dir.b_deg(),
+            rname, bin_dict, distx, disty, radr, frlog = find_source_to_delete(bin_dict, src_dir.l_deg(), src_dir.b_deg(), get_model_radius(model),
                                                     flux)
             bin_models.remove(rname)
             n_bin_del += 1
             bin_distx.append(distx)
             bin_disty.append(disty)
+            bin_radr.append(radr)
             bin_frlog.append(frlog)
 
 
@@ -526,16 +555,18 @@ ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates + bin', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
          label='gamma-cat + templates + bin', alpha=0.5, linewidth=2, linestyle=':')
+ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
+         label='gamma-cat + templates + bin', alpha=0.5, linewidth=2, linestyle=':')
 
 # add 3FHL
 
 result_fhl = append_fhl(models,bmax,
-                        bin_models, bin_dict, bin_distx, bin_disty, bin_frlog,
-                        snr_models, snr_dict, snr_distx, snr_disty, snr_frlog,
-                        isnr_models, isnr_dict, isnr_distx, isnr_disty, isnr_frlog,
+                        bin_models, bin_dict, bin_distx, bin_disty, bin_radr, bin_frlog,
+                        snr_models, snr_dict, snr_distx, snr_disty, snr_radr, snr_frlog,
+                        isnr_models, isnr_dict, isnr_distx, isnr_disty, isnr_radr, isnr_frlog,
                         dist_sigma=3.)
 models = result_fhl['models']
-msg = 'Added {} FHL sources, of which {} as pointlike and {} as extended.'.format(
+msg = 'Added {} FHL sources, of which {} as pointlike and {} as extended.\n'.format(
     result_fhl['newpt']+result_fhl['newext'], result_fhl['newpt'],result_fhl['newext'])
 print(msg)
 outfile.write(msg)
@@ -544,7 +575,7 @@ ecut_pwn.extend(result_fhl['ecut_pwn'])
 ecut_snr.extend(result_fhl['ecut_snr'])
 ecut_agn.extend(result_fhl['ecut_agn'])
 ecut_unid.extend(result_fhl['ecut_unid'])
-msg = 'Set estimated cutoffs for {} PWN, {} SNR, {} AGN, {} UNID'.format(result_fhl['n_ecut_pwn'],result_fhl['n_ecut_snr'],result_fhl['n_ecut_agn'],result_fhl['n_ecut_unid'])
+msg = 'Set estimated cutoffs for {} PWN, {} SNR, {} AGN, {} UNID\n'.format(result_fhl['n_ecut_pwn'],result_fhl['n_ecut_snr'],result_fhl['n_ecut_agn'],result_fhl['n_ecut_unid'])
 print(msg)
 outfile.write(msg)
 
@@ -552,6 +583,7 @@ bin_models = result_fhl['bin_models']
 bin_dict = result_fhl['bin_dict']
 bin_distx = result_fhl['bin_distx']
 bin_disty = result_fhl['bin_disty']
+bin_radr = result_fhl['bin_radr']
 bin_frlog = result_fhl['bin_frlog']
 msg = 'Deleted {} synthetic binaries\n'.format(result_fhl['n_bin_del'])
 print(msg)
@@ -561,6 +593,7 @@ snr_models = result_fhl['snr_models']
 snr_dict = result_fhl['snr_dict']
 snr_distx = result_fhl['snr_distx']
 snr_disty = result_fhl['snr_disty']
+snr_radr = result_fhl['snr_radr']
 snr_frlog = result_fhl['snr_frlog']
 msg = 'Deleted {} synthetic young SNRs\n'.format(result_fhl['n_snr_del'])
 print(msg)
@@ -570,6 +603,7 @@ isnr_models = result_fhl['isnr_models']
 isnr_dict = result_fhl['isnr_dict']
 isnr_distx = result_fhl['isnr_distx']
 isnr_disty = result_fhl['isnr_disty']
+isnr_radr = result_fhl['isnr_radr']
 isnr_frlog = result_fhl['isnr_frlog']
 msg = 'Deleted {} synthetic interacting SNRs\n'.format(result_fhl['n_isnr_del'])
 print(msg)
@@ -609,6 +643,8 @@ ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates + bin + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
          label='gamma-cat + templates + bin + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
+ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
+         label='gamma-cat + templates + bin + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
 
 # CHECKS for duplicated sources
 for model1 in models:
@@ -645,6 +681,8 @@ ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
+ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
          label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
 
 # # young SNRs
@@ -693,6 +731,8 @@ ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
+         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
+ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
          label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 
 # add IEM
@@ -753,9 +793,11 @@ ax2.set_xlim(180, -180)
 fig2.savefig('glon.png', dpi=300)
 ax3.legend(fontsize=5)
 fig3.savefig('glat.png', dpi=300)
+ax0.legend(fontsize=5)
+fig0.savefig('radius.png', dpi=300)
 
 # make more diagnostic plots with properties of synthetic sources deleted
-plot_del_sources(bin_distx,bin_disty,bin_frlog,'bin','binaries')
-# plot_del_sources(snr_distx,snr_disty,snr_frlog,'snr','young SNRs')
-plot_del_sources(isnr_distx,isnr_disty,isnr_frlog,'isnr','interacting SNRs')
+plot_del_sources(bin_distx,bin_disty,bin_radr,bin_frlog,'bin','binaries')
+# plot_del_sources(snr_distx,snr_disty,snr_radr,snr_frlog,'snr','young SNRs')
+plot_del_sources(isnr_distx,isnr_disty,isnr_radr,isnr_frlog,'isnr','interacting SNRs')
 

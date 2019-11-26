@@ -86,11 +86,11 @@ def get_model_radius(model):
             model.name(), model.spatial().type()))
     return radius
 
-def delete_source_fom(distx,disty,frlog):
-    fom = np.sqrt((distx / 180) ** 2 + (disty / 10) ** 2 + (frlog / 0.3) ** 2)
+def delete_source_fom(distx,disty,radr, frlog):
+    fom = np.sqrt((distx / 180) ** 2 + (disty / 10) ** 2 + (radr / 0.3) ** 2 + (frlog / 0.3) ** 2)
     return fom
 
-def find_source_to_delete(d,lon,lat,flux):
+def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.1):
 
     # calculate distance
     # use flat approx, only valid for small distances
@@ -100,11 +100,17 @@ def find_source_to_delete(d,lon,lat,flux):
     disty = d['GLAT'] - lat
     #dist = np.sqrt(distx**2 + disty**2)
 
+    # calculate radius relative difference
+    # take into the fact that CTA will not resolve objects with radii <~ 0.1 deg
+    if rad < radmin:
+        rad = radmin
+    radr = 0.5 * (np.maximum(d['radius'],0.1) - rad) / (np.maximum(d['radius'],0.1) + rad)
+
     # calculate flux_ratio log
     frlog = np.log10(d['flux']/flux)
 
     # figure of merit to decide which source to eliminate
-    fom = delete_source_fom(distx,disty,frlog)
+    fom = delete_source_fom(distx,disty,radr,frlog)
 
     # eliminate closer source = minimum fom
     s = np.where(fom == np.min(fom))
@@ -119,9 +125,9 @@ def find_source_to_delete(d,lon,lat,flux):
     d['name'] = d['name'][d['name'] != name]
 
     # # prints for checking algorithm works correctly
-    # print('name {}, fom {}, distx {}, disty {}, frlog {}'.format(name, fom[s], distx[s], disty[s], frlog[s]))
+    # print('name {}, fom {}, distx {}, disty {}, radr {}, frlog {}'.format(name, fom[s], distx[s], disty[s], radr[s], frlog[s]))
 
-    return name, d, distx[s], disty[s], frlog[s]
+    return name, d, distx[s], disty[s], radr[s], frlog[s]
 
 def get_syn_model(filename,fmin,emin=1.,emax=1000.):
     """
@@ -159,7 +165,7 @@ def get_syn_model(filename,fmin,emin=1.,emax=1000.):
 
     return outmodels, d
 
-def plot_del_sources(distx,disty,frlog,namestr,namefull):
+def plot_del_sources(distx,disty,radr, frlog,namestr,namefull):
     fig4 = plt.figure('Deleted {} XY'.format(namefull))
     ax4 = plt.subplot()
     ax4.set_xlabel("Longitude distance (deg)", fontsize=14)
@@ -171,26 +177,26 @@ def plot_del_sources(distx,disty,frlog,namestr,namefull):
     ymin, ymax = ax4.get_ylim()
     xv, yv = np.meshgrid(np.linspace(xmin, xmax, 50),
                          np.linspace(ymin, ymax, 50))
-    fom = delete_source_fom(xv, yv, 0.3)
+    fom = delete_source_fom(xv, yv, 0.2, 0.3)
     cs = ax4.contour(xv, yv, fom)
     ax4.clabel(cs, inline=1, fontsize=10)
     fig4.savefig('{}XY.png'.format(namestr), dpi=300)
 
-    fig5 = plt.figure('Deleted {} Flux-X'.format(namefull))
+    fig5 = plt.figure('Deleted {} Flux-radius'.format(namefull))
     ax5 = plt.subplot()
-    ax5.set_xlabel("Longitude distance (deg)", fontsize=14)
+    ax5.set_xlabel("Relative radius difference", fontsize=14)
     ax5.set_ylabel('Log10(flux ratio)', fontsize=14)
     format_ax(ax5)
-    ax5.scatter(distx, frlog)
+    ax5.scatter(radr, frlog)
     # add FOM contours
     xmin, xmax = ax5.get_xlim()
     ymin, ymax = ax5.get_ylim()
     xv, yv = np.meshgrid(np.linspace(xmin, xmax, 50),
                          np.linspace(ymin, ymax, 50))
-    fom = delete_source_fom(xv, 2, yv)
+    fom = delete_source_fom(20, 2, xv, yv)
     cs = ax5.contour(xv, yv, fom)
     ax5.clabel(cs, inline=1, fontsize=10)
-    fig5.savefig('{}Flux-X.png'.format(namestr), dpi=300)
+    fig5.savefig('{}Flux-rad.png'.format(namestr), dpi=300)
 
     return
 
