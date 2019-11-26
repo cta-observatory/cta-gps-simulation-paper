@@ -669,6 +669,14 @@ ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
 
 # interacting SNRs
 for model in isnr_models:
+    if model.spectral().type() == 'FileFunction':
+        # find spectrum file name and path
+        filename = model.spectral().filename().file()
+        filepath = model.spectral().filename().path()
+        # copy file to output directory
+        shutil.copy(filepath + filename, './')
+        # replace file with the one in output directory
+        model.spectral(gammalib.GModelSpectralFunc(gammalib.GFilename(filename), model.spectral()['Normalization'].value()))
     models.append(model)
 
 msg = 'Added {} synthetic interacting SNRs\n'.format(isnr_models.size())
