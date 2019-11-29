@@ -1,0 +1,21 @@
+<source_library title="source library">
+	<source name="PSR_J1418.6-6058" type="PointSource">
+		<spectrum type="PowerLaw">
+			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="2.9086595978999874" />
+			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.961205" />
+			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="14.083179" />
+		</spectrum>
+		<spatialModel type="SkyDirFunction">
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="214.67058" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-60.971962" />
+		</spatialModel>
+        <temporal file="./PSR_J1418.6-6058_phasecurve.fits" type="PhaseCurve">
+            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
+            <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
+            <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
+            <parameter free="0" max="1000.0" min="0.0" name="F0" scale="1" value="9.043070429489045" />
+            <parameter free="0" max="1000.0" min="0.0" name="F1" scale="1e-11" value="-1.3829959470292077" />
+            <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="6.339995661557257" />
+        </temporal>
+	</source>
+</source_library>
