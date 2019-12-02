@@ -1,7 +1,7 @@
-Model built by ltibaldo at macp0077.irap.omp.eu on 2019-11-26 13:50:40
+Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-02 18:18:07
 Using ATNF catalog version 1.61
 Loaded 49 synthetic binaries
-Loaded 219 synthetic young SNRs
+Loaded 225 synthetic young SNRs
 Loaded 62 synthetic interacting SNRs
 Added 92 gamma-cat sources
 Set estimated cutoffs for 17 PWN, 2 SNR, 18 UNID
@@ -11,9 +11,12 @@ Deleted 6 synthetic interacting SNRs
 Replaced 8 gamma-cat sources with templates. Added 7 sources as templates
 Replaced 6 gamma-cat sources with binaries. Added 1 sources as binaries
 Deleted 1 synthetic binaries
-Added 75 FHL sources, of which 68 as pointlike and 7 as extended.Set estimated cutoffs for 0 PWN, 4 SNR, 21 AGN, 7 UNIDDeleted 1 synthetic binaries
+Added 75 FHL sources, of which 68 as pointlike and 7 as extended.
+Set estimated cutoffs for 1 PWN, 4 SNR, 21 AGN, 9 UNID
+Deleted 1 synthetic binaries
 Deleted 6 synthetic young SNRs
 Deleted 0 synthetic interacting SNRs
+FHL source 3FHL J1208.5-5243e of type spp has an unxepctedly hard spectrum with index 1.6900291442871094. We are setting a random artificial cutoff
 Added 18 HAWC sources, of which 18 as pointlike and 0 as extended.
 WARNING: sources TeV J2032+4130 and PSR J2032+4127 are at a distance of 0.14945409368478166 deg lower than 0.2 deg
 WARNING: sources Vela X and Vela Radio Ring are at a distance of 0.0 deg lower than 0.2 deg
@@ -34,4 +37,7 @@ WARNING: sources PSR J2032+4127 and TeV J2032+4130 are at a distance of 0.149454
 Added 42 synthetic binaries
 Added 56 synthetic interacting SNRs
 Added 1 interstellar emission components
+WARNING: source Crab nebula has a flux of 1.0933015240785813 Crab
+WARNING: source Vela Junior has a flux of 1.125434088244293 Crab
+WARNING: source Fermi bubbles has a flux of 11.914137462923737 Crab
 Added background model

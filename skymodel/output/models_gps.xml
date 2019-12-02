@@ -176,7 +176,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.30000003817354e-18" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.16000008583069" min="-4.62962944566468" max="4.62962944566468" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="58467918.3689055" min="1.71033966643119e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="55866831.1109339" min="1.7899708648488e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="EllipticalGaussian">
@@ -269,7 +269,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.70000000404916e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.09999990463257" min="-4.76190497815745" max="4.76190497815745" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="26139315.2822714" min="3.82565491559848e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="37353103.1397324" min="2.67715374612692e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1389999.98569489" free="0" />
     </spectrum>
     <spatialModel type="RadialGaussian">
@@ -308,7 +308,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="4.90000011052483e-18" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.1800000667572" min="-4.58715582283225" max="4.58715582283225" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="11727264.3285232" min="8.52713788984685e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="23532742.273699" min="4.24939851195172e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="EllipticalGaussian">
@@ -338,7 +338,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="2.00634326967642e-18" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.38000011444092" min="-4.20168047023354" max="4.20168047023354" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="51543639.2320017" min="1.94010359939648e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="19744630.6367947" min="5.06466805277417e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="RadialGaussian">
@@ -375,7 +375,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="9.1000002672148e-18" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.0699999332428" min="-4.83091803019255" max="4.83091803019255" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="19107955.6659935" min="5.23342223249819e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="23142938.2615108" min="4.32097250876353e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="EllipticalGaussian">
@@ -429,7 +429,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="8.69999981344821e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.29999995231628" min="-4.34782617709587" max="4.34782617709587" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="5394340.58333117" min="1.85379470308208e-08" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="5339439.00600616" min="1.87285592901264e-08" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="RadialGaussian">
@@ -468,7 +468,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="4.40000005831262e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.24000000953674" min="-4.46428569527913" max="4.46428569527913" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="14202625.2493177" min="7.04095181310258e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="11495156.5182805" min="8.6993160850809e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="861000.001430511" free="0" />
     </spectrum>
     <spatialModel type="RadialGaussian">
@@ -481,7 +481,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="4.67000006373897e-18" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.3199999332428" min="-4.3103449516149" max="4.3103449516149" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="6615444.11052299" min="1.51161431234727e-08" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="6113236.42054097" min="1.63579474309209e-08" free="1" />
       <parameter name="PivotEnergy" value="1" scale="782999.992370605" free="0" />
     </spectrum>
     <spatialModel type="RadialShell">
@@ -495,7 +495,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="2.09999999702982e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.29999995231628" min="-4.34782617709587" max="4.34782617709587" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="23525248.215191" min="4.250752174229e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="17644497.5485529" min="5.66748923990761e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -543,7 +543,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.80000003617564e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.20000004768372" min="-4.54545444693447" max="4.54545444693447" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="18536122.2411494" min="5.39487162951507e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="65393840.1417751" min="1.52919601881764e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -592,7 +592,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="2.90000011851643e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.29999995231628" min="-4.34782617709587" max="4.34782617709587" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="27890193.7242622" min="3.58548961648152e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="17077614.7537841" min="5.85561868221917e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="RadialGaussian">
@@ -605,7 +605,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="4.60000006835548e-18" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.20000004768372" min="-4.54545444693447" max="4.54545444693447" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="17887512.3221747" min="5.59049230540751e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="10230767.65601" min="9.77443759474448e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="EllipticalGaussian">
@@ -620,7 +620,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.13999995966611e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.99000000953674" min="-5.02512560405863" max="5.02512560405863" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="47165506.7486114" min="2.12019348234701e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="27351354.8572934" min="3.65612601356508e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="RadialGaussian">
@@ -646,7 +646,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="9.00000018087821e-20" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.29999995231628" min="-4.34782617709587" max="4.34782617709587" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="10581848.6608249" min="9.45014460187945e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="11638276.3574028" min="8.59233763910349e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1899999.97615814" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -684,7 +684,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="4.78000018039326e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.25" min="-4.44444444444444" max="4.44444444444444" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="64073822.1717699" min="1.56069977738988e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="60173150.6825155" min="1.66187076571108e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="RadialGaussian">
@@ -710,7 +710,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.76000002332505e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.38000011444092" min="-4.20168047023354" max="4.20168047023354" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="11390718.7529573" min="8.77907726183102e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="35928674.5576769" min="2.78329220966581e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1269999.98092651" free="0" />
     </spectrum>
     <spatialModel type="RadialGaussian">
@@ -811,7 +811,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="5.56999975656613e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.97000002861023" min="-5.07614205825909" max="5.07614205825909" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="17632237.8441875" min="5.67142984819508e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="85150098.9669314" min="1.17439675600184e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="RadialGaussian">
@@ -824,7 +824,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="6.09999984552134e-18" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.39000010490417" min="-4.1841002347575" max="4.1841002347575" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="51021494.5576506" min="1.95995826596195e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="15467416.2405287" min="6.46520391285351e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="EllipticalGaussian">
@@ -839,7 +839,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="5.99999975918475e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.17000007629395" min="-4.60829476885484" max="4.60829476885484" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="18715371.4166656" min="5.34320146652031e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="32488514.2235126" min="3.07801087215088e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="EllipticalGaussian">
@@ -854,7 +854,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="4.23000003080265e-18" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.20000004768372" min="-4.54545444693447" max="4.54545444693447" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="36565832.6414407" min="2.7347934608952e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="76174424.8998152" min="1.31277656682699e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="RadialGaussian">
@@ -926,7 +926,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="3.09999991171886e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.29999995231628" min="-4.34782617709587" max="4.34782617709587" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="14094953.3486498" min="7.09473791976612e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="23140574.3968743" min="4.32141390636819e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -938,7 +938,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="8.09999989173984e-20" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.75" min="-5.71428571428571" max="5.71428571428571" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="23231223.0130008" min="4.30455167788787e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="18080371.5922162" min="5.53085977740917e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="5000000" free="0" />
     </spectrum>
     <spatialModel type="EllipticalGaussian">
@@ -953,7 +953,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="9.499999528359e-19" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.09999990463257" min="-4.76190497815745" max="4.76190497815745" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="38818177.0661234" min="2.5761127275415e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="36945234.1549403" min="2.70670905970231e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="RadialGaussian">
@@ -1361,7 +1361,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="8.73088764914015e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.14591336250305" min="-4.66002037861199" max="4.66002037861199" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="129750.869308847" min="7.70707745795286e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="83573.2027031706" min="1.19655579498578e-06" free="1" />
       <parameter name="PivotEnergy" value="1" scale="25545.7744598389" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1373,7 +1373,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="5.50300961483369e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.88981103897095" min="-5.29153433532977" max="5.29153433532977" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="944973.716880712" min="1.05823049058013e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="117665.682436476" min="8.49865465693336e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="31178.0548095703" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1385,7 +1385,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.92148394092574e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.63304686546326" min="-6.12352297505145" max="6.12352297505145" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="118124.711874617" min="8.46562911460428e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="92939.4488975721" min="1.07596936700377e-06" free="1" />
       <parameter name="PivotEnergy" value="1" scale="46154.7164916992" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1419,7 +1419,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="4.16263724878352e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.9701601266861" min="-5.07572956357638" max="5.07572956357638" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.13837131857872" min="-72.2693120417939" max="72.2693120417939" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.13837131857872" min="-72.2693120417939" max="72.2693120417939" free="1" />
       <parameter name="PivotEnergy" value="1" scale="24509.8628997803" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1431,7 +1431,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="3.97774001237305e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.90697836875916" min="-5.24389797169376" max="5.24389797169376" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.152900785207748" min="-65.4018878085738" max="65.4018878085738" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.152900785207748" min="-65.4018878085738" max="65.4018878085738" free="1" />
       <parameter name="PivotEnergy" value="1" scale="25350.6011962891" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1443,7 +1443,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="3.21062555881657e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.2379789352417" min="-4.46831730295978" max="4.46831730295978" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="124401.977810182" min="8.03845740721133e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="944973.716880712" min="1.05823049058013e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="22905.4794311523" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1455,7 +1455,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.85197755568633e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.21308279037476" min="-4.51858377982625" max="4.51858377982625" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="195483.661953039" min="5.11551702075353e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="166974.627069395" min="5.98893387307521e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="23562.4675750732" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1479,7 +1479,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="2.10460270630257e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.34917604923248" min="-7.41193116027281" max="7.41193116027281" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.213479682803154" min="-46.8428651789821" max="46.8428651789821" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.213479682803154" min="-46.8428651789821" max="46.8428651789821" free="1" />
       <parameter name="PivotEnergy" value="1" scale="49738.9488220215" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1491,7 +1491,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.99690416112508e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.87760531902313" min="-5.32593293099677" max="5.32593293099677" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.456558048725128" min="-21.9030198414496" max="21.9030198414496" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.456558048725128" min="-21.9030198414496" max="21.9030198414496" free="1" />
       <parameter name="PivotEnergy" value="1" scale="22515.625" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1503,7 +1503,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.26386011031765e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.29388046264648" min="-4.35942507155009" max="4.35942507155009" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="144160.544706827" min="6.93671074865636e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="113147.180029774" min="8.83804616020349e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="22532.3181152344" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1515,7 +1515,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.24161488382346e-14" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.54860782623291" min="-6.45741280045423" max="6.45741280045423" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.658113658428192" min="-15.1949437182075" max="15.1949437182075" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.658113658428192" min="-15.1949437182075" max="15.1949437182075" free="1" />
       <parameter name="PivotEnergy" value="1" scale="16777.5630950928" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1527,7 +1527,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="5.64804496575033e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.92314207553864" min="-5.19982383371192" max="5.19982383371192" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="962871.729204646" min="1.03855993448475e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="902093.662168263" min="1.10853234197036e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="35320.3887939453" free="0" />
     </spectrum>
     <spatialModel type="RadialDisk">
@@ -1540,7 +1540,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.07313713037377e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.06454682350159" min="-4.84367798597052" max="4.84367798597052" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="150236.366028986" min="6.65617803752696e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="275368.263169142" min="3.63150055308211e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="26412.8150939941" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1552,7 +1552,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.63801426849436e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.03214168548584" min="-4.92091672122223" max="4.92091672122223" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="155553.27940624" min="6.42866549530223e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="944973.716880712" min="1.05823049058013e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="26459.0473175049" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1564,7 +1564,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.03157152958611e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.56511032581329" min="-6.38932593764826" max="6.38932593764826" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.648308515548706" min="-15.4247549741597" max="15.4247549741597" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.648308515548706" min="-15.4247549741597" max="15.4247549741597" free="1" />
       <parameter name="PivotEnergy" value="1" scale="26892.2863006592" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1576,7 +1576,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="4.97690105273618e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.81541967391968" min="-5.50836819918833" max="5.50836819918833" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="77042.7341544088" min="1.29798093353723e-06" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="275783.411099277" min="3.62603390832676e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="35676.815032959" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1588,7 +1588,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="4.12939821226033e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.14089179039001" min="-4.67095069675533" max="4.67095069675533" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.356926828622818" min="-28.0169468868015" max="28.0169468868015" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.356926828622818" min="-28.0169468868015" max="28.0169468868015" free="1" />
       <parameter name="PivotEnergy" value="1" scale="20306.734085083" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1600,7 +1600,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="4.82756846650889e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.62726712226868" min="-6.14527256352255" max="6.14527256352255" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="103332.650519286" min="9.67748330246651e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="85612.3352971386" min="1.16805597759862e-06" free="1" />
       <parameter name="PivotEnergy" value="1" scale="45945.5490112305" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1612,7 +1612,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.23650655686758e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.68785655498505" min="-5.9246740906182" max="5.9246740906182" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="50246927.6133278" min="1.99017143435204e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="45628549.2210781" min="2.19161033403633e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="43597.4502563477" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1624,7 +1624,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.17589792070216e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.00571727752686" min="-4.98574754879236" max="4.98574754879236" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="90568.7605927987" min="1.10413347102766e-06" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="90128.3175685035" min="1.1095291990111e-06" free="1" />
       <parameter name="PivotEnergy" value="1" scale="28090.0440216064" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1636,7 +1636,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="8.27215696657703e-17" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.18320453166962" min="-8.45162415486106" max="8.45162415486106" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.363773882389069" min="-27.4896040758216" max="27.4896040758216" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.363773882389069" min="-27.4896040758216" max="27.4896040758216" free="1" />
       <parameter name="PivotEnergy" value="1" scale="71053.5202026367" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1648,7 +1648,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="6.74948757908161e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.52900171279907" min="-6.54021504115484" max="6.54021504115484" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.382705956697464" min="-26.1297213304291" max="26.1297213304291" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.382705956697464" min="-26.1297213304291" max="26.1297213304291" free="1" />
       <parameter name="PivotEnergy" value="1" scale="32226.3336181641" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1660,7 +1660,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="7.13459185393978e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.57601416110992" min="-6.34512065104631" max="6.34512065104631" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.501661241054535" min="-19.9337704044649" max="19.9337704044649" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.501661241054535" min="-19.9337704044649" max="19.9337704044649" free="1" />
       <parameter name="PivotEnergy" value="1" scale="27942.5773620605" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1684,7 +1684,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="3.6687054219206e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.07008051872253" min="-4.8307299689826" max="4.8307299689826" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="128647.346351902" min="7.77318793086175e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="152138.638384012" min="6.57295221399251e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="29352.6077270508" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1696,7 +1696,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.65116401454335e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.68324363231659" min="-5.94091063706408" max="5.94091063706408" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="51756886.30386" min="1.93211004643728e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="54509676.7048782" min="1.83453665559992e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="42185.6880187988" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1708,7 +1708,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.20568425035494e-14" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.40928483009338" min="-4.15060929081283" max="4.15060929081283" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.233487516641617" min="-42.8288421746724" max="42.8288421746724" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.233487516641617" min="-42.8288421746724" max="42.8288421746724" free="1" />
       <parameter name="PivotEnergy" value="1" scale="18619.7452545166" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1720,7 +1720,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.04334279388794e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.64918696880341" min="-6.06359387332272" max="6.06359387332272" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="197783.219403297" min="5.05604066420272e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="182965.968991002" min="5.46549724801106e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="49564.0296936035" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1732,7 +1732,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="3.23934260491876e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.37636780738831" min="-4.20810278985822" max="4.20810278985822" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="75157.6840146192" min="1.33053594334478e-06" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="233473.039551781" min="4.28314978859997e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="21067.9817199707" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1766,7 +1766,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.5155427910904e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.13621389865875" min="-8.80115972160219" max="8.80115972160219" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.904002368450165" min="-11.061917920795" max="11.061917920795" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.904002368450165" min="-11.061917920795" max="11.061917920795" free="1" />
       <parameter name="PivotEnergy" value="1" scale="38283.6875915527" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1778,7 +1778,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="8.37414230840661e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.44525480270386" min="-6.91919513520487" max="6.91919513520487" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.994966208934784" min="-10.0505925831452" max="10.0505925831452" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.994966208934784" min="-10.0505925831452" max="10.0505925831452" free="1" />
       <parameter name="PivotEnergy" value="1" scale="31950.7083892822" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1787,10 +1787,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1124.4-5916" type="PointSource">
-    <spectrum type="LogParabola">
+    <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="6.56645256832261e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.40867352485657" min="-4.15166268770089" max="4.15166268770089" free="1" />
-      <parameter name="Curvature" value="1" error="-0" scale="-0.225665479898453" min="-44.3133792749334" max="44.3133792749334" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-2.01622200012207" min="-4.95977129472576" max="4.95977129472576" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="58762941.1486294" min="1.70175280619582e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="29396.2345123291" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1799,10 +1799,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1208.5-5243e" type="ExtendedSource">
-    <spectrum type="LogParabola">
+    <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="4.76445488964417e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-1.86745798587799" min="-5.35487281407216" max="5.35487281407216" free="1" />
-      <parameter name="Curvature" value="1" error="-0" scale="-0.174352750182152" min="-57.3549886052998" max="57.3549886052998" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.69002914428711" min="-5.91705772282301" max="5.91705772282301" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="18173671.7842679" min="5.50246538988151e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="54645.5993652344" free="0" />
     </spectrum>
     <spatialModel type="RadialDisk">
@@ -1827,7 +1827,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="9.16758422647712e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.18458676338196" min="-4.57752476011482" max="4.57752476011482" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="944973.716880712" min="1.05823049058013e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="100218.590577985" min="9.97818861982347e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="24295.2747344971" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1851,7 +1851,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="3.3100104688405e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.0914261341095" min="-9.16232412572664" max="9.16232412572664" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.738452434539795" min="-13.5418336134703" max="13.5418336134703" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.738452434539795" min="-13.5418336134703" max="13.5418336134703" free="1" />
       <parameter name="PivotEnergy" value="1" scale="22267.9977416992" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1863,7 +1863,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="3.39934261295305e-14" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.21189427375793" min="-4.52101174935922" max="4.52101174935922" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.120104394853115" min="-83.2608999215205" max="83.2608999215205" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.120104394853115" min="-83.2608999215205" max="83.2608999215205" free="1" />
       <parameter name="PivotEnergy" value="1" scale="22102.1404266357" free="0" />
     </spectrum>
     <spatialModel type="RadialDisk">
@@ -1876,7 +1876,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="8.17542485532369e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.94043743610382" min="-5.15347715620189" max="5.15347715620189" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="123848.967216939" min="8.0743507392222e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="330230.16718266" min="3.02819093885772e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="30121.3817596436" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1900,7 +1900,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="3.4278810259053e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.02981400489807" min="-4.92655976156897" max="4.92655976156897" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.195192262530327" min="-51.2315389471256" max="51.2315389471256" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.195192262530327" min="-51.2315389471256" max="51.2315389471256" free="1" />
       <parameter name="PivotEnergy" value="1" scale="22349.0161895752" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1912,7 +1912,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.93510381329975e-14" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.56467032432556" min="-6.39112268222408" max="6.39112268222408" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.488930761814117" min="-20.4527936898391" max="20.4527936898391" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.488930761814117" min="-20.4527936898391" max="20.4527936898391" free="1" />
       <parameter name="PivotEnergy" value="1" scale="18163.7363433838" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1924,7 +1924,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="3.96426381304993e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.10162377357483" min="-4.75822558049491" max="4.75822558049491" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="126262.252632878" min="7.92002343651838e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="944973.716880712" min="1.05823049058013e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="30592.9908752441" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1936,7 +1936,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="3.84180924919986e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.12733244895935" min="-4.70072273136801" max="4.70072273136801" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.196305945515633" min="-50.9408921555239" max="50.9408921555239" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.196305945515633" min="-50.9408921555239" max="50.9408921555239" free="1" />
       <parameter name="PivotEnergy" value="1" scale="21553.2493591309" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1945,10 +1945,10 @@
     </spatialModel>
   </source>
   <source name="3FHL J1729.9-4148" type="PointSource">
-    <spectrum type="LogParabola">
+    <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="2.73202115227619e-16" min="0" free="1" />
-      <parameter name="Index" value="1" error="-0" scale="-2.43206667900085" min="-4.11172937253029" max="4.11172937253029" free="1" />
-      <parameter name="Curvature" value="1" error="-0" scale="-0.314197242259979" min="-31.8271412189086" max="31.8271412189086" free="1" />
+      <parameter name="Index" value="1" error="-0" scale="-1.95915961265564" min="-5.1042293519133" max="5.1042293519133" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="29651273.7965474" min="3.37253639375331e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="35700.0961303711" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1960,7 +1960,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="8.03475612865673e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.88849377632141" min="-5.29522528767818" max="5.29522528767818" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="3865089.97867505" min="2.58726188915995e-08" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="4191816.82538196" min="2.38560042496342e-08" free="1" />
       <parameter name="PivotEnergy" value="1" scale="32558.3114624023" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1972,7 +1972,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.24994491753488e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.19586825370789" min="-4.55400727394017" max="4.55400727394017" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="944973.716880712" min="1.05823049058013e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="459541.721549879" min="2.17608098047624e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="25438.2953643799" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1984,7 +1984,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="2.11429159770182e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.69377315044403" min="-5.90397834407663" max="5.90397834407663" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.337649911642075" min="-29.6164745057019" max="29.6164745057019" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.337649911642075" min="-29.6164745057019" max="29.6164745057019" free="1" />
       <parameter name="PivotEnergy" value="1" scale="28273.8494873047" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -1996,7 +1996,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="3.59991685983455e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.39132344722748" min="-7.18740133354845" max="7.18740133354845" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.377092242240906" min="-26.5187104899694" max="26.5187104899694" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.377092242240906" min="-26.5187104899694" max="26.5187104899694" free="1" />
       <parameter name="PivotEnergy" value="1" scale="39678.8101196289" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2008,7 +2008,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="2.5176963378698e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.58260381221771" min="-6.31870081621182" max="6.31870081621182" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.403634369373322" min="-24.7748971811441" max="24.7748971811441" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.403634369373322" min="-24.7748971811441" max="24.7748971811441" free="1" />
       <parameter name="PivotEnergy" value="1" scale="29106.4968109131" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2020,7 +2020,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="4.86666804945524e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.57929885387421" min="-6.33192379989944" max="6.33192379989944" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.330486506223679" min="-30.2584214837257" max="30.2584214837257" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.330486506223679" min="-30.2584214837257" max="30.2584214837257" free="1" />
       <parameter name="PivotEnergy" value="1" scale="33435.3218078613" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2032,7 +2032,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="3.53451371903207e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.64084720611572" min="-6.09441266848507" max="6.09441266848507" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="58566362.4231577" min="1.70746476070126e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="56194929.393311" min="1.77951998658269e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="47475.9368896484" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2044,7 +2044,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="8.52188371952556e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.23232364654541" min="-4.47963717782379" max="4.47963717782379" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="116337.560629851" min="8.59567619078484e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="932126.535290288" min="1.072815719905e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="24309.5226287842" free="0" />
     </spectrum>
     <spatialModel type="RadialDisk">
@@ -2068,7 +2068,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="8.44543727486491e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.68155419826508" min="-5.94687938712733" max="5.94687938712733" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.270279407501221" min="-36.9987491553711" max="36.9987491553711" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.270279407501221" min="-36.9987491553711" max="36.9987491553711" free="1" />
       <parameter name="PivotEnergy" value="1" scale="29038.8965606689" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2080,7 +2080,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="3.1276210462651e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.78679621219635" min="-5.59660913300677" max="5.59660913300677" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="18955475.0065553" min="5.27552065909281e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="42606321.9636607" min="2.34706952844442e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="40872.3640441895" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2092,7 +2092,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="4.45085700066794e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.57869398593903" min="-6.33434984174712" max="6.33434984174712" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.30268868803978" min="-33.0372438585673" max="33.0372438585673" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.30268868803978" min="-33.0372438585673" max="33.0372438585673" free="1" />
       <parameter name="PivotEnergy" value="1" scale="33476.016998291" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2104,7 +2104,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.38441645300413e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.10829949378967" min="-4.74315913344217" max="4.74315913344217" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="30231609.531977" min="3.30779609647401e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="34540559.7029459" min="2.89514706362651e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="27910.3965759277" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2116,7 +2116,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="9.83734361331701e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.07401061058044" min="-4.82157610428104" max="4.82157610428104" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.247517853975296" min="-40.401125976949" max="40.401125976949" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.247517853975296" min="-40.401125976949" max="40.401125976949" free="1" />
       <parameter name="PivotEnergy" value="1" scale="21779.0966033936" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2128,7 +2128,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.65926701631985e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.01940751075745" min="-4.95194751268859" max="4.95194751268859" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="143803.904648628" min="6.95391409880982e-07" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="204757.601360347" min="4.8838235716589e-07" free="1" />
       <parameter name="PivotEnergy" value="1" scale="27827.7454376221" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2140,7 +2140,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="6.83965384329355e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.94985008239746" min="-5.12859941914323" max="5.12859941914323" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.135415390133858" min="-73.8468499785366" max="73.8468499785366" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.135415390133858" min="-73.8468499785366" max="73.8468499785366" free="1" />
       <parameter name="PivotEnergy" value="1" scale="25418.1423187256" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2163,7 +2163,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="5.78004115923958e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.4303994178772" min="-6.99105429925344" max="6.99105429925344" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.630583047866821" min="-15.8583394111667" max="15.8583394111667" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.630583047866821" min="-15.8583394111667" max="15.8583394111667" free="1" />
       <parameter name="PivotEnergy" value="1" scale="31474.2393493652" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2186,7 +2186,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="1.23346645397593e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.57093489170074" min="-6.36563619079953" max="6.36563619079953" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="31328074.183829" min="3.19202512778836e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="50605421.2363713" min="1.97607287039294e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="65285.4766845703" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2209,7 +2209,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.18004933082061e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.73732650279999" min="-5.75597044302459" max="5.75597044302459" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.376960694789886" min="-26.5279646876019" max="26.5279646876019" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.376960694789886" min="-26.5279646876019" max="26.5279646876019" free="1" />
       <parameter name="PivotEnergy" value="1" scale="25267.2786712646" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2221,7 +2221,7 @@
     <spectrum type="ExponentialCutoffPowerLaw">
       <parameter name="Prefactor" value="1" error="0" scale="2.80509475239846e-16" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-2.02698969841003" min="-4.93342418456491" max="4.93342418456491" free="1" />
-      <parameter name="CutoffEnergy" value="1" error="0" scale="82182709.4058016" min="1.21680096364577e-09" free="1" />
+      <parameter name="CutoffEnergy" value="1" error="0" scale="36010902.3183309" min="2.77693680419377e-09" free="1" />
       <parameter name="PivotEnergy" value="1" scale="27578.8230895996" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2233,7 +2233,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.61429355126363e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.82954156398773" min="-5.46585013253465" max="5.46585013253465" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.158222377300262" min="-63.2021852447758" max="63.2021852447758" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.158222377300262" min="-63.2021852447758" max="63.2021852447758" free="1" />
       <parameter name="PivotEnergy" value="1" scale="30178.9894104004" free="0" />
     </spectrum>
     <spatialModel type="RadialDisk">
@@ -2246,7 +2246,7 @@
     <spectrum type="LogParabola">
       <parameter name="Prefactor" value="1" error="0" scale="1.4071329821827e-15" min="0" free="1" />
       <parameter name="Index" value="1" error="-0" scale="-1.93288624286652" min="-5.17361020955365" max="5.17361020955365" free="1" />
-      <parameter name="Curvature" value="1" error="0" scale="0.329270839691162" min="-30.3701354464897" max="30.3701354464897" free="1" />
+      <parameter name="Curvature" value="1" error="-0" scale="-0.329270839691162" min="-30.3701354464897" max="30.3701354464897" free="1" />
       <parameter name="PivotEnergy" value="1" scale="22659.4562530518" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
@@ -2459,13 +2459,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="246.680457969614" scale="1" free="0" />
-      <parameter name="DEC" value="-49.3025519805687" scale="1" free="0" />
+      <parameter name="RA" value="246.346004833219" scale="1" free="0" />
+      <parameter name="DEC" value="-49.0899740923633" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin058.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.697559562719205" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.630209784484049" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="3.62630387382087e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2478,13 +2478,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="287.374058202414" scale="1" free="0" />
-      <parameter name="DEC" value="3.61344491358138" scale="1" free="0" />
+      <parameter name="RA" value="286.537809567076" scale="1" free="0" />
+      <parameter name="DEC" value="4.04506205269026" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin099.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.262659522404637" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.142874556003314" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="9.80189200040149e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2497,13 +2497,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="253.264797635106" scale="1" free="0" />
-      <parameter name="DEC" value="-45.1505930337413" scale="1" free="0" />
+      <parameter name="RA" value="253.074642598662" scale="1" free="0" />
+      <parameter name="DEC" value="-45.0404974094983" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin100.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.0167552042562553" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.655363230747812" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.36741500367124e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2516,13 +2516,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="264.717229993648" scale="1" free="0" />
-      <parameter name="DEC" value="-30.9947244080822" scale="1" free="0" />
+      <parameter name="RA" value="265.065361042433" scale="1" free="0" />
+      <parameter name="DEC" value="-31.1821627625741" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin138.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.749532334672073" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.581771621380916" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="8.44013411521655e-09" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2535,13 +2535,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="290.545599671878" scale="1" free="0" />
-      <parameter name="DEC" value="10.4944220543527" scale="1" free="0" />
+      <parameter name="RA" value="288.447810554765" scale="1" free="0" />
+      <parameter name="DEC" value="11.5825925356383" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin111.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.541649357250908" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.450903259691089" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="9.50252387033996e-06" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2554,13 +2554,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="224.96937269779" scale="1" free="0" />
-      <parameter name="DEC" value="-61.071654741044" scale="1" free="0" />
+      <parameter name="RA" value="222.865756906156" scale="1" free="0" />
+      <parameter name="DEC" value="-59.0404448467918" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin062.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.425152544663532" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.373330925516932" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.69427108662686e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2573,13 +2573,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="210.605345406738" scale="1" free="0" />
-      <parameter name="DEC" value="-61.7009075027487" scale="1" free="0" />
+      <parameter name="RA" value="210.308009840678" scale="1" free="0" />
+      <parameter name="DEC" value="-61.1921944777216" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin074.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.274967889425151" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.280479918174699" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.36409831180939e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2592,13 +2592,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="322.166415527653" scale="1" free="0" />
-      <parameter name="DEC" value="49.8646255060067" scale="1" free="0" />
+      <parameter name="RA" value="318.631402296562" scale="1" free="0" />
+      <parameter name="DEC" value="52.0986212627268" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin113.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.909427325277009" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.451613287642661" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="8.49161707562295e-06" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2611,13 +2611,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="250.557361765484" scale="1" free="0" />
-      <parameter name="DEC" value="-47.7776520107631" scale="1" free="0" />
+      <parameter name="RA" value="248.404512438695" scale="1" free="0" />
+      <parameter name="DEC" value="-46.4587545500189" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin049.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.473500327890615" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.217605513957872" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="2.65034899795605e-06" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2630,13 +2630,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="258.809469344852" scale="1" free="0" />
-      <parameter name="DEC" value="-38.9898054236448" scale="1" free="0" />
+      <parameter name="RA" value="258.46445513978" scale="1" free="0" />
+      <parameter name="DEC" value="-38.7965332137607" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin162.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.0785870923961154" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.11009439961457" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="8.29438951567932e-09" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2649,13 +2649,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="285.718829107303" scale="1" free="0" />
-      <parameter name="DEC" value="2.63322929510182" scale="1" free="0" />
+      <parameter name="RA" value="283.839911025323" scale="1" free="0" />
+      <parameter name="DEC" value="3.59693804580895" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin188.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.169686816348232" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.742806799699585" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="3.15189512106807e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2668,13 +2668,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="13.2672760025868" scale="1" free="0" />
-      <parameter name="DEC" value="60.9570461895409" scale="1" free="0" />
+      <parameter name="RA" value="13.3198497777373" scale="1" free="0" />
+      <parameter name="DEC" value="64.5269235414264" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin167.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.688152908441984" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.366366916438628" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="3.33016951244837e-09" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2687,13 +2687,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="279.499551506757" scale="1" free="0" />
-      <parameter name="DEC" value="-5.33869840080146" scale="1" free="0" />
+      <parameter name="RA" value="278.551835318004" scale="1" free="0" />
+      <parameter name="DEC" value="-4.85027714815836" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin173.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.96519072977492" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.622567051763779" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.13772476890535e-06" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2706,13 +2706,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="282.060486833983" scale="1" free="0" />
-      <parameter name="DEC" value="-2.85139579509061" scale="1" free="0" />
+      <parameter name="RA" value="280.636932192722" scale="1" free="0" />
+      <parameter name="DEC" value="-2.12156097656321" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin029.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.44121940609309" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.205898427377189" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="2.61603562027586e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2725,13 +2725,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="290.267588714833" scale="1" free="0" />
-      <parameter name="DEC" value="13.0637556536425" scale="1" free="0" />
+      <parameter name="RA" value="288.130586432639" scale="1" free="0" />
+      <parameter name="DEC" value="14.1585882879252" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin015.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.489599793651936" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.505834050831986" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.13198085347662e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2744,13 +2744,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="296.930644746446" scale="1" free="0" />
-      <parameter name="DEC" value="28.2130840141317" scale="1" free="0" />
+      <parameter name="RA" value="295.951092647856" scale="1" free="0" />
+      <parameter name="DEC" value="28.711266522467" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin158.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.330789836252696" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.428178303088867" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="4.77478303385894e-06" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2763,13 +2763,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="247.734815307305" scale="1" free="0" />
-      <parameter name="DEC" value="-46.6992717443959" scale="1" free="0" />
+      <parameter name="RA" value="251.291447024692" scale="1" free="0" />
+      <parameter name="DEC" value="-48.8491661808929" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin159.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.761880105101398" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.355348898857312" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="2.22964247237027e-06" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2782,13 +2782,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="268.031030750856" scale="1" free="0" />
-      <parameter name="DEC" value="-25.232506910607" scale="1" free="0" />
+      <parameter name="RA" value="269.474757470752" scale="1" free="0" />
+      <parameter name="DEC" value="-25.9940770773031" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin168.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.746064110807836" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.213221659367957" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.74203402680224e-06" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2801,13 +2801,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="227.142321940539" scale="1" free="0" />
-      <parameter name="DEC" value="-57.0008779283692" scale="1" free="0" />
+      <parameter name="RA" value="227.309170835872" scale="1" free="0" />
+      <parameter name="DEC" value="-57.156917740669" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin154.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.143584070814384" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.331614247159201" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="3.23605493319747e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2820,13 +2820,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="260.549405805811" scale="1" free="0" />
-      <parameter name="DEC" value="-34.5060059062354" scale="1" free="0" />
+      <parameter name="RA" value="263.112578986477" scale="1" free="0" />
+      <parameter name="DEC" value="-35.9093869082154" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin182.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.0744503325416161" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.977187504885209" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="5.40385003131639e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2839,13 +2839,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="278.901363977654" scale="1" free="0" />
-      <parameter name="DEC" value="-8.70196765024583" scale="1" free="0" />
+      <parameter name="RA" value="277.794144689125" scale="1" free="0" />
+      <parameter name="DEC" value="-8.13247732928414" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin156.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.548728605006042" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.303508530734639" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.88110682519732e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2858,13 +2858,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="267.366646569149" scale="1" free="0" />
-      <parameter name="DEC" value="-28.464703639518" scale="1" free="0" />
+      <parameter name="RA" value="268.886196824204" scale="1" free="0" />
+      <parameter name="DEC" value="-29.2510761528723" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin181.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.718539652187222" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.473849822388066" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="9.53147827890478e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2877,13 +2877,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="294.333584366657" scale="1" free="0" />
-      <parameter name="DEC" value="22.8148928571148" scale="1" free="0" />
+      <parameter name="RA" value="296.515257368329" scale="1" free="0" />
+      <parameter name="DEC" value="21.6634610206418" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin146.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.534886221386692" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.71244810868938" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="7.62958080031251e-06" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2896,13 +2896,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="285.910596092561" scale="1" free="0" />
-      <parameter name="DEC" value="1.88256153365435" scale="1" free="0" />
+      <parameter name="RA" value="284.461570843484" scale="1" free="0" />
+      <parameter name="DEC" value="2.62671376819993" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin186.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.689043130928108" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.27172709696381" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="3.02037423644939e-06" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2915,13 +2915,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="278.503543506119" scale="1" free="0" />
-      <parameter name="DEC" value="-5.17439513365055" scale="1" free="0" />
+      <parameter name="RA" value="279.279679299508" scale="1" free="0" />
+      <parameter name="DEC" value="-5.57452109473892" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin036.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.67341807426886" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.971846980923634" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="7.73564635347819e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2934,13 +2934,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="281.36534197276" scale="1" free="0" />
-      <parameter name="DEC" value="-3.10225271077212" scale="1" free="0" />
+      <parameter name="RA" value="280.535916434343" scale="1" free="0" />
+      <parameter name="DEC" value="-2.67675649206476" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin078.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.05793985230652" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.282395916893342" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="3.34674279462341e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2953,13 +2953,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="278.19060395945" scale="1" free="0" />
-      <parameter name="DEC" value="-9.14862620655096" scale="1" free="0" />
+      <parameter name="RA" value="278.464368532024" scale="1" free="0" />
+      <parameter name="DEC" value="-9.28914893080179" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin123.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.272449851912348" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.705363137395109" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="2.21924949314117e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2972,13 +2972,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="269.180816999757" scale="1" free="0" />
-      <parameter name="DEC" value="-20.8468543220266" scale="1" free="0" />
+      <parameter name="RA" value="271.92140259244" scale="1" free="0" />
+      <parameter name="DEC" value="-22.2940581330434" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin093.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.126022535011166" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.0355076961974916" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.65627848798999e-06" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -2991,13 +2991,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="300.141690887991" scale="1" free="0" />
-      <parameter name="DEC" value="28.990954437958" scale="1" free="0" />
+      <parameter name="RA" value="301.308540299227" scale="1" free="0" />
+      <parameter name="DEC" value="28.3490978566202" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin086.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.101527419835896" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.85746051383021" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="3.81749939033008e-09" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3010,13 +3010,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="244.933413091897" scale="1" free="0" />
-      <parameter name="DEC" value="-47.9898853817983" scale="1" free="0" />
+      <parameter name="RA" value="249.282626850843" scale="1" free="0" />
+      <parameter name="DEC" value="-50.7027904373693" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin045.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.810815576973695" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.861888178764801" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="3.62880516509612e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3029,13 +3029,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="205.352312818578" scale="1" free="0" />
-      <parameter name="DEC" value="-63.4579778677929" scale="1" free="0" />
+      <parameter name="RA" value="205.005406679248" scale="1" free="0" />
+      <parameter name="DEC" value="-62.6451934285696" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin084.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.137077058571693" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.868229099276514" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="2.91879528569262e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3048,13 +3048,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="271.502621577548" scale="1" free="0" />
-      <parameter name="DEC" value="-22.3641823452468" scale="1" free="0" />
+      <parameter name="RA" value="270.272294523327" scale="1" free="0" />
+      <parameter name="DEC" value="-21.7198269840592" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin135.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.532463817329157" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.0733856739434267" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.05619248186982e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3067,13 +3067,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="287.400031721034" scale="1" free="0" />
-      <parameter name="DEC" value="8.04925402520758" scale="1" free="0" />
+      <parameter name="RA" value="287.36620375082" scale="1" free="0" />
+      <parameter name="DEC" value="8.06666972297263" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin125.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.892447539640017" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.830552170774378" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="4.4328127438047e-06" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3086,13 +3086,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="287.995980815918" scale="1" free="0" />
-      <parameter name="DEC" value="10.2459983731626" scale="1" free="0" />
+      <parameter name="RA" value="289.403275705639" scale="1" free="0" />
+      <parameter name="DEC" value="9.51824809838916" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin095.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.000793542178175954" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.583484169348706" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="5.77935050087088e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3105,13 +3105,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="267.056917699102" scale="1" free="0" />
-      <parameter name="DEC" value="-28.5110539589176" scale="1" free="0" />
+      <parameter name="RA" value="266.652716537844" scale="1" free="0" />
+      <parameter name="DEC" value="-28.2958494320823" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin118.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.128496537486154" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.136197615794926" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.83006673740973e-07" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3124,13 +3124,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="279.721992124256" scale="1" free="0" />
-      <parameter name="DEC" value="-7.71477292847749" scale="1" free="0" />
+      <parameter name="RA" value="277.832389149371" scale="1" free="0" />
+      <parameter name="DEC" value="-6.74277377710599" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin130.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.861929868363118" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.253397590599594" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.81649843275422e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3143,13 +3143,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="277.024673464487" scale="1" free="0" />
-      <parameter name="DEC" value="-12.9397402375987" scale="1" free="0" />
+      <parameter name="RA" value="275.913190683513" scale="1" free="0" />
+      <parameter name="DEC" value="-12.367615795268" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin094.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.981733680290732" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.495708771511796" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="6.92535401357064e-09" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3162,13 +3162,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="190.303597222286" scale="1" free="0" />
-      <parameter name="DEC" value="-63.708589649636" scale="1" free="0" />
+      <parameter name="RA" value="190.277875869823" scale="1" free="0" />
+      <parameter name="DEC" value="-63.9925127428335" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin043.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.394352152103792" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.273966907601764" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="2.97443275639903e-09" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3181,13 +3181,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="258.0253238341" scale="1" free="0" />
-      <parameter name="DEC" value="-42.1743535415028" scale="1" free="0" />
+      <parameter name="RA" value="257.0380085251" scale="1" free="0" />
+      <parameter name="DEC" value="-41.632063629272" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin003.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.513943817229849" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.430202840953199" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="5.72613954299726e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3200,13 +3200,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="287.173244392276" scale="1" free="0" />
-      <parameter name="DEC" value="13.6277569914599" scale="1" free="0" />
+      <parameter name="RA" value="289.126485530002" scale="1" free="0" />
+      <parameter name="DEC" value="12.6346598815276" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin069.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.207338201717818" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.0500546141680863" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="4.84887642611274e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3219,13 +3219,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="299.151631583273" scale="1" free="0" />
-      <parameter name="DEC" value="28.6085165040192" scale="1" free="0" />
+      <parameter name="RA" value="299.528979754402" scale="1" free="0" />
+      <parameter name="DEC" value="28.4060038273415" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin082.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.990820026475886" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.85073546788255" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="1.56559580915302e-08" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
@@ -3238,13 +3238,13 @@
       <parameter name="PivotEnergy" value="1" scale="1000000" free="0" />
     </spectrum>
     <spatialModel type="PointSource">
-      <parameter name="RA" value="288.866586117482" scale="1" free="0" />
-      <parameter name="DEC" value="7.67395773954243" scale="1" free="0" />
+      <parameter name="RA" value="287.481656181579" scale="1" free="0" />
+      <parameter name="DEC" value="8.39047381519274" scale="1" free="0" />
     </spatialModel>
     <temporal type="PhaseCurve" file="./phasecurve_bin040.fits">
       <parameter name="Normalization" value="1" scale="1" min="0" max="1000" free="0" />
       <parameter name="MJD" value="51544.5" scale="1" min="1e-10" max="10000000000" free="0" />
-      <parameter name="Phase" value="0.262743871240966" error="0" scale="1" min="-1" max="1" free="1" />
+      <parameter name="Phase" value="0.564027517820245" error="0" scale="1" min="-1" max="1" free="1" />
       <parameter name="F0" value="3.46546491218994e-09" error="0" scale="1" min="0" max="1000" free="1" />
       <parameter name="F1" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />
       <parameter name="F2" value="0" error="0" scale="1" min="-1000" max="1000" free="1" />

@@ -767,6 +767,14 @@ msg = 'Added {} interstellar emission components\n'.format(ncomp)
 print(msg)
 outfile.write(msg)
 
+# CHECKS for problems with spectral models
+for model in models:
+    flux = flux_Crab(model,1.,1000.)
+    if flux > 1.:
+        msg = 'WARNING: source {} has a flux of {} Crab\n'.format(model.name(), flux)
+        print(msg)
+        outfile.write(msg)
+
 # add CTA background
 # power law spectral correction with pivot energy at 1 TeV
 spectral = gammalib.GModelSpectralPlaw(1, 0, gammalib.GEnergy(1, 'TeV'))

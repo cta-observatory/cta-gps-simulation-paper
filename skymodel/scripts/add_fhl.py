@@ -137,7 +137,8 @@ def append_fhl(models, bmax,
             norm *= 1.e-3  # ph GeV-1 -> ph MeV-1
             # use power law model only if signifcance of curvature < 1
             # this avoids extrapolating hard power laws not justified by the data
-            if fsource['Signif_Curve'] < 1:
+            # some source with low significant curvature have beta < 0, they will be modelled as power laws
+            if fsource['Signif_Curve'] < 1 or fsource['beta'] < 0.:
                 index = np.double(fsource['PowerLaw_Index'])
                 if index < 2.4:
                     # correction for fake pevatrons
@@ -184,7 +185,7 @@ def append_fhl(models, bmax,
             else:
                 index = np.double(fsource['Spectral_Index'])
                 curvature = np.double(fsource['beta'])
-                spectral = gammalib.GModelSpectralLogParabola(norm, -index, eref, curvature)
+                spectral = gammalib.GModelSpectralLogParabola(norm, -index, eref, -curvature)
             # assemble model and append to container
             model = gammalib.GModelSky(spatial, spectral)
             model.name(fsource['Source_Name'])
