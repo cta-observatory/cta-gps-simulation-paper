@@ -38,14 +38,17 @@ def dist_from_gammalib(models,emin=1.,emax=1000):
     radii = []
 
     for model in models:
-        src_dir = get_model_dir(model)
-        lons.append(src_dir.l_deg())
-        lats.append(src_dir.b_deg())
-        rad = get_model_radius(model)
-        radii.append(rad)
-        flux = flux_Crab(model,emin,emax)
-        fluxes.append(flux)
-        names.append(model.name())
+        if model.classname() == 'GModelSky':
+            src_dir = get_model_dir(model)
+            lons.append(src_dir.l_deg())
+            lats.append(src_dir.b_deg())
+            rad = get_model_radius(model)
+            radii.append(rad)
+            flux = flux_Crab(model,emin,emax)
+            fluxes.append(flux)
+            names.append(model.name())
+        else:
+            pass
 
     return lons, lats, radii, fluxes, names
 

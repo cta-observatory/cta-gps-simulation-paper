@@ -4,9 +4,19 @@ from utils import *
 import numpy as np
 import matplotlib.pyplot as plt
 
-bins_lognlogs = np.logspace(-4, 1., 40)
+# first input is XML file name
 models = gammalib.GModels(sys.argv[1])
-lons, lats, radii, fluxes, names = dist_from_gammalib(models)
+# second and third input are minimum and maximum energy in TeV
+emin = float(sys.argv[2])
+emax = float(sys.argv[3])
+
+lons, lats, radii, fluxes, names = dist_from_gammalib(models, emin=emin,emax=emax)
+
+# binning
+logs_min = int(np.floor(np.log10(np.min(fluxes))))
+logs_max = int(np.ceil(np.log10(np.max(fluxes))))
+nbins = 10 * (logs_max - logs_min)
+bins_lognlogs = np.logspace(logs_min, logs_max, nbins)
 
 fig1 = plt.figure('LogNLogS')
 ax1 = plt.subplot()
