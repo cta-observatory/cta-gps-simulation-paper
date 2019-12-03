@@ -1,4 +1,4 @@
-Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-03 17:21:12
+Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-03 17:59:16
 Using ATNF catalog version 1.61
 Loaded 49 synthetic binaries
 Loaded 225 synthetic young SNRs
@@ -36,7 +36,7 @@ WARNING: sources LS5039 SUPC and LS5039 INFC are at a distance of 8.537736462515
 WARNING: sources PSR J2032+4127 and TeV J2032+4130 are at a distance of 0.14945409368478166 deg lower than 0.2 deg
 Added 42 synthetic binaries
 Added 56 synthetic interacting SNRs
-Added 1 interstellar emission components
+Added 2 interstellar emission components
 WARNING: source Crab nebula has a flux of 1.0933015240785813 Crab
 WARNING: source Vela Junior has a flux of 1.125434088244293 Crab
 Added background model
