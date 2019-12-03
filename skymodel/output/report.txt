@@ -1,4 +1,4 @@
-Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-02 18:18:07
+Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-03 16:51:37
 Using ATNF catalog version 1.61
 Loaded 49 synthetic binaries
 Loaded 225 synthetic young SNRs
@@ -12,7 +12,7 @@ Replaced 8 gamma-cat sources with templates. Added 7 sources as templates
 Replaced 6 gamma-cat sources with binaries. Added 1 sources as binaries
 Deleted 1 synthetic binaries
 Added 75 FHL sources, of which 68 as pointlike and 7 as extended.
-Set estimated cutoffs for 1 PWN, 4 SNR, 21 AGN, 9 UNID
+Set estimated cutoffs for 1 PWN, 5 SNR, 36 AGN, 15 UNID
 Deleted 1 synthetic binaries
 Deleted 6 synthetic young SNRs
 Deleted 0 synthetic interacting SNRs

@@ -459,15 +459,11 @@ def get_cutoff_agn(z):
     return ecut
 
 
-def get_cutoff(ra,dec,classes,name=None, rad_search=4., hess=False, index = 2., z = None):
+def get_cutoff(ra,dec,classes,name=None, rad_search=4., hess=False, index = 2., z = np.nan):
     if classes == 'PSR':
         ecut = get_pwn_cutoff(ra,dec,rad_search=rad_search)
     elif classes == 'SNR':
         ecut = get_snr_cutoff(ra,dec,name=name, hess = hess, index = index)
-        ####### Formulas implemented so far are not valid for the type of old SNRs considered
-        ####### set very high cutoff at 10 PeV
-        ####### fix when new formulas available
-        # ecut = 10000.
     elif classes == 'AGN':
         # based on Fig 17 of 3FHL catalog paper
         ecut = get_cutoff_agn(z=z)

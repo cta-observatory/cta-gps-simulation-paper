@@ -135,10 +135,10 @@ def append_fhl(models, bmax,
             eref = gammalib.GEnergy(np.double(fsource['Pivot_Energy']), 'GeV')
             norm = np.double(fsource['Flux_Density'])
             norm *= 1.e-3  # ph GeV-1 -> ph MeV-1
-            # use power law model only if signifcance of curvature < 1
-            # this avoids extrapolating hard power laws not justified by the data
-            # some source with low significant curvature have beta < 0, they will be modelled as power laws
-            if fsource['Signif_Curve'] < 1 or fsource['beta'] < 0.:
+            # use power law model only if signifcance of curvature < 2
+            # this avoids extrapolating hard power laws when curvature is suggested by the data
+            # if significance < 2 typically the curvature parameter is not well estimated
+            if fsource['Signif_Curve'] < 2:
                 index = np.double(fsource['PowerLaw_Index'])
                 if index < 2.4:
                     # correction for fake pevatrons
@@ -175,7 +175,12 @@ def append_fhl(models, bmax,
                                   'with index {}. We are setting a random artificial cutoff\n'.format(
                                 fsource['Source_Name'], fsource['CLASS'], index)
                             print(msg)
-                        ecut = get_cutoff(ra, dec, 'UNID')
+                        if fsource['Source_Name'][-1] == 'e':
+                            # extended sources are treated as SNRs
+                            ecut = get_cutoff(ra, dec, 'SNR')
+                        else:
+                            #pointlike as AGNs
+                            ecut = get_cutoff(ra, dec, 'AGN')
                         ecut_unid.append(ecut)
                         n_ecut_unid += 1
                     ecut = gammalib.GEnergy(np.double(ecut), 'TeV')
