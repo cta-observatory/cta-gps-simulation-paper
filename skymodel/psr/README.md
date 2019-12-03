@@ -2,7 +2,7 @@ This directory contains xml models of pulsars for the GPS simulations.
 This is a preliminary version, which contains pulsars with a Crab-like spectra.
 The Vela-like components are still to be provided by Arache.
 
-Here are some additional comments:
+Here are some additional comments for v1:
 1. For the moment all pulsars has a power-law spectrum from 3FHL.
 2. Even for those pulsars which are better fitted with LogParabola, I used the power-law spectral indexes, reported in 3FHL catalog as well.
 3. Coordinates are taken from 3FHL.
