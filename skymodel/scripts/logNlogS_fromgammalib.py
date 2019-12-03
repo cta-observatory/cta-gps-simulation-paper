@@ -22,7 +22,7 @@ fig1 = plt.figure('LogNLogS')
 ax1 = plt.subplot()
 ax1.set_xscale('log')
 ax1.set_yscale('log')
-ax1.set_xlabel("Flux > 1 TeV (Crab units)", fontsize=14)
+ax1.set_xlabel("Flux > {} TeV (Crab units)".format(emin), fontsize=14)
 ax1.set_ylabel('Number of sources (> Flux)', fontsize=14)
 format_ax(ax1)
 
