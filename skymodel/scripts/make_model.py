@@ -544,19 +544,54 @@ outfile.write(msg)
 
 # add pulsars
 
+# read models
+psr_models = gammalib.GModels('../psr/psrs_gps_models.xml')
+# list of psr to delete from gamma-cat
+psr_del = np.genfromtxt('../psr/del_psr.txt',delimiter=',',dtype=None,names=True)
+
+replaced = 0
+added = 0
+for psr in psr_models:
+        # check if pulsar needs to replace an existing gamma-cat model
+        if psr.name() in psr_del['name'].astype('str'):
+            # remove gamma-cat model
+            id = psr_del['gammacatid'][psr_del['name'].astype('str') == psr.name()][0]
+            if id in gammacat_ids:
+                source = gammacat[gammacat['source_id'] == id][0]
+                models.remove(source['common_name'])
+                replaced += 1
+            else:
+                added += 1
+        else:
+            added += 1
+        # find phasecurve name and path
+        filename = psr.temporal().filename().file()
+        filepath = psr.temporal().filename().path()
+        # copy file to output directory
+        shutil.copy(filepath + filename, './')
+        # replace file with the one in output directory
+        psr.temporal().filename(filename)
+        models.append(psr)
+
+
+msg = 'Replaced {} gamma-cat sources with pulsars. Added {} sources as pulsars\n'.format(
+    replaced, added)
+print(msg)
+outfile.write(msg)
+
 # re-make distributions from gammalib model container
 lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 # change lon range from 0...360 to -180...180
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
-         label='gamma-cat + templates + bin', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
-         label='gamma-cat + templates + bin', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
-         label='gamma-cat + templates + bin', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
 ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
-         label='gamma-cat + templates + bin', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
 
 # add 3FHL
 
@@ -638,13 +673,13 @@ lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
-         label='gamma-cat + templates + bin + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
 ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
 
 # CHECKS for duplicated sources
 for model1 in models:
@@ -677,13 +712,13 @@ lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
 ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
 
 # # young SNRs
 # for model in snr_models:
@@ -699,11 +734,11 @@ ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
 # lons = np.array(lons)
 # lons[lons > 180] = lons[lons > 180] - 360.
 # ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
-#          label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
+#          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
 # ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
-#          label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
+#          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
 # ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
-#          label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
+#          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
 
 # interacting SNRs
 for model in isnr_models:
@@ -727,13 +762,13 @@ lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
-         label='gamma-cat + templates + bin + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 
 # add IEM
 

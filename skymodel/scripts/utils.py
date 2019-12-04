@@ -72,7 +72,7 @@ def get_model_radius(model):
     :param model: ~gammalib.GModelSky
     :return: radius: float
     """
-    if model.spatial().type() == 'PointSource':
+    if model.spatial().type() == 'PointSource' or model.spatial().type() == 'SkyDirFunction':
         radius = 0.
     elif model.spatial().type() == 'RadialGaussian':
         radius = 2 * model['Sigma'].value()

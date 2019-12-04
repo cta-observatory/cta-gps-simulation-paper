@@ -10,7 +10,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="1.7646807" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="73.05598" />
 		</spatialModel>
-        <temporal file="./PSR_J0007.0+7303_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0007.0+7303_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -29,7 +29,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="55.098843" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="41.49023" />
 		</spatialModel>
-        <temporal file="./PSR_J0340.3+4129_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0340.3+4129_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -48,7 +48,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="83.634834" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="22.019203" />
 		</spatialModel>
-        <temporal file="./PSR_J0534.5+2201_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0534.5+2201_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -67,7 +67,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="98.43802" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="6.5561805" />
 		</spatialModel>
-        <temporal file="./PSR_J0633.7+0633_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0633.7+0633_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -86,7 +86,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="98.47847" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="17.774305" />
 		</spatialModel>
-        <temporal file="./PSR_J0633.9+1746_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0633.9+1746_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -105,7 +105,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="113.67249" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-16.003048" />
 		</spatialModel>
-        <temporal file="./PSR_J0734.6-1600_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0734.6-1600_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -124,7 +124,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="128.837" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-45.1752" />
 		</spatialModel>
-        <temporal file="./PSR_J0835.3-4510_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0835.3-4510_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -143,7 +143,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="154.05742" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.956493" />
 		</spatialModel>
-        <temporal file="./PSR_J1016.2-5857_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1016.2-5857_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -162,7 +162,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="157.12938" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.31255" />
 		</spatialModel>
-        <temporal file="./PSR_J1028.5-5818_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1028.5-5818_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -181,7 +181,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="162.05826" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.547153" />
 		</spatialModel>
-        <temporal file="./PSR_J1048.2-5832_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1048.2-5832_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -200,7 +200,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="164.41527" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-52.441692" />
 		</spatialModel>
-        <temporal file="./PSR_J1057.6-5226_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1057.6-5226_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -219,7 +219,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="169.76308" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-61.464035" />
 		</spatialModel>
-        <temporal file="./PSR_J1119.0-6127_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1119.0-6127_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55000.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -238,7 +238,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="213.39949" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-62.08104" />
 		</spatialModel>
-        <temporal file="./PSR_J1413.5-6204_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1413.5-6204_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -257,7 +257,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="214.67058" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-60.971962" />
 		</spatialModel>
-        <temporal file="./PSR_J1418.6-6058_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1418.6-6058_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -276,7 +276,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="224.85501" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-60.881275" />
 		</spatialModel>
-        <temporal file="./PSR_J1459.4-6052_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1459.4-6052_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -295,7 +295,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="227.38176" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.858547" />
 		</spatialModel>
-        <temporal file="./PSR_J1509.5-5851_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1509.5-5851_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -314,7 +314,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="228.54631" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-49.779324" />
 		</spatialModel>
-        <temporal file="./PSR_J1514.1-4946_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1514.1-4946_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55520.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -333,7 +333,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="245.18327" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-49.468346" />
 		</spatialModel>
-        <temporal file="./PSR_J1620.7-4928_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1620.7-4928_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -352,7 +352,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="252.14583" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-46.179287" />
 		</spatialModel>
-        <temporal file="./PSR_J1648.5-4610_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1648.5-4610_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55000.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -371,7 +371,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="257.43515" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-44.48377" />
 		</spatialModel>
-        <temporal file="./PSR_J1709.7-4429_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1709.7-4429_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -390,7 +390,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="263.15613" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-31.518084" />
 		</spatialModel>
-        <temporal file="./PSR_J1732.6-3131_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1732.6-3131_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -409,7 +409,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="266.80194" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-29.995346" />
 		</spatialModel>
-        <temporal file="./PSR_J1747.2-2959_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1747.2-2959_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -428,7 +428,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="270.79083" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-21.812887" />
 		</spatialModel>
-        <temporal file="./PSR_J1803.1-2148_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1803.1-2148_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -447,7 +447,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="272.4594" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-23.539137" />
 		</spatialModel>
-        <temporal file="./PSR_J1809.8-2332_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1809.8-2332_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -466,7 +466,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="273.3621" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-12.762838" />
 		</spatialModel>
-        <temporal file="./PSR_J1813.4-1245_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1813.4-1245_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -485,7 +485,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="276.54187" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-12.942548" />
 		</spatialModel>
-        <temporal file="./PSR_J1826.1-1256_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1826.1-1256_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -504,7 +504,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="278.4148" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-10.572576" />
 		</spatialModel>
-        <temporal file="./PSR_J1833.6-1034_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1833.6-1034_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -523,7 +523,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="279.7381" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-5.617463" />
 		</spatialModel>
-        <temporal file="./PSR_J1838.9-0537_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1838.9-0537_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55100.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -542,7 +542,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="281.61142" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="9.327319" />
 		</spatialModel>
-        <temporal file="./PSR_J1846.4+0919_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1846.4+0919_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -561,7 +561,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="286.97925" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="6.036015" />
 		</spatialModel>
-        <temporal file="./PSR_J1907.9+0602_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1907.9+0602_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -580,7 +580,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="298.22104" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="32.88619" />
 		</spatialModel>
-        <temporal file="./PSR_J1952.8+3253_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1952.8+3253_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -599,7 +599,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="298.58597" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="28.595" />
 		</spatialModel>
-        <temporal file="./PSR_J1954.3+2835_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1954.3+2835_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -618,7 +618,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="299.66824" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="28.778221" />
 		</spatialModel>
-        <temporal file="./PSR_J1958.6+2846_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1958.6+2846_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -637,7 +637,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="305.28705" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="36.856335" />
 		</spatialModel>
-        <temporal file="./PSR_J2021.1+3651_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2021.1+3651_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -656,7 +656,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="305.3875" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="40.445564" />
 		</spatialModel>
-        <temporal file="./PSR_J2021.5+4026_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2021.5+4026_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -675,7 +675,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="308.0548" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="41.45482" />
 		</spatialModel>
-        <temporal file="./PSR_J2032.2+4127_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2032.2+4127_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -694,7 +694,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="317.85776" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="46.087738" />
 		</spatialModel>
-        <temporal file="./PSR_J2111.4+4605_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2111.4+4605_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -713,7 +713,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="333.91803" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="51.573154" />
 		</spatialModel>
-        <temporal file="./PSR_J2215.6+5134_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2215.6+5134_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55610.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -732,7 +732,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="337.27182" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="61.241795" />
 		</spatialModel>
-        <temporal file="./PSR_J2229.0+6114_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2229.0+6114_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -751,7 +751,7 @@
 			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="339.604" />
 			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="59.019077" />
 		</spatialModel>
-        <temporal file="./PSR_J2238.4+5901_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2238.4+5901_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />

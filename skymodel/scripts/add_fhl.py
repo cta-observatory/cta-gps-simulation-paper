@@ -142,7 +142,8 @@ def append_fhl(models, bmax,
                 index = np.double(fsource['PowerLaw_Index'])
                 if index < 2.4:
                     # correction for fake pevatrons
-                    if fsource['CLASS'] == 'PWN' or fsource['CLASS'] == 'pwn':
+                    # spp are treated as PWNe
+                    if fsource['CLASS'] == 'PWN' or fsource['CLASS'] == 'pwn' or fsource['CLASS'] == 'spp':
                         # dummy model to obtain search radius
                         mod = gammalib.GModelSky(spatial, gammalib.GModelSpectralPlaw())
                         # search radius
@@ -172,7 +173,8 @@ def append_fhl(models, bmax,
                         else:
                             # set warning if we have hard source of unexpected type
                             msg += 'FHL source {} of type {} has an unxepctedly hard spectrum ' \
-                                  'with index {}. We are setting a random artificial cutoff\n'.format(
+                                  'with index {}. We are setting a random artificial cutoff ' \
+                                  'assuming it is an SNR if extended or AGN if pointlike \n'.format(
                                 fsource['Source_Name'], fsource['CLASS'], index)
                             print(msg)
                         if fsource['Source_Name'][-1] == 'e':
