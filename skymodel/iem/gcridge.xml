@@ -5,7 +5,7 @@
       <parameter name="Prefactor" scale="1" value="1" min="0.001" max="1000.0" free="0"/>
     </spatialModel>
     <spectrum type="PowerLaw">
-  <parameter name="Prefactor" scale="1e-17" value="1.92"    min="1e-07" max="1000.0" free="1"/>
+  <parameter name="Prefactor" scale="1e-18" value="1.92"    min="1e-07" max="1000.0" free="1"/>
   <parameter name="Index"        scale="-1"    value="2.32" min="0.0"   max="+5.0"   free="1"/>
   <parameter name="PivotEnergy"    scale="1e6"   value="1.0"  min="0.01"  max="1000.0" free="0"/>
     </spectrum>
