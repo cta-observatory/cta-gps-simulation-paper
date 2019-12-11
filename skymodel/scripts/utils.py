@@ -2,6 +2,7 @@ import gammalib
 import numpy as np
 import pdb
 import matplotlib.pyplot as plt
+from astropy.io import fits
 
 def format_ax(ax):
     for tick in ax.xaxis.get_major_ticks():
@@ -13,10 +14,42 @@ def format_ax(ax):
     ax.grid()
     return
 
-def flux_Crab(model,emin,emax):
-    emin = gammalib.GEnergy(emin,'TeV')
-    emax = gammalib.GEnergy(emax,'TeV')
-    flux = model.spectral().flux(emin, emax)
+def cube_flux(model,emin,emax):
+    # get data
+    filename = model.spatial().filename().file()
+    hdulist = fits.open(filename)
+    cube = hdulist[0].data
+    energies = hdulist[1].data['Energy']
+    binsize1 = np.abs(hdulist[0].header['CDELT1'])
+    binsize2 = np.abs(hdulist[0].header['CDELT2'])
+    # multiply by solid angle (only works for tangential projection or for reference latitude ~0)
+    cube *= np.deg2rad(binsize1) * np.deg2rad(binsize2)
+    fluxes = np.sum(cube, axis=(1, 2))
+    # correct by spectral model
+    for s, energy in enumerate(energies):
+        fluxes[s] *= model.spectral().eval(gammalib.GEnergy(energy,'MeV'))
+    # select energy range
+    # emin, emax are in TeV and the energy vector in MeV
+    # just select on bins, may be inaccurate close to threshold
+    fluxes = fluxes[(energies >= 1.e6 * emin) & (energies <= 1.e6 * emax)]
+    energies = energies[(energies >= 1.e6 * emin) & (energies <= 1.e6 * emax)]
+    # integrate over energy in piece-wise power law approximation
+    gamma = - (np.log(fluxes[1:]) - np.log(fluxes[:-1])) / (np.log(energies[1:]) - np.log(energies[:-1]))
+    # integral flux in individual bins between two nodes
+    int = fluxes[:-1] * energies[:-1] / (-gamma + 1) * (np.power(energies[1:]/energies[:-1],-gamma+1) - 1)
+    # sum over bins
+    int = np.sum(int)
+    return int
+
+def flux_Crab(model,Emin,Emax):
+    emin = gammalib.GEnergy(Emin,'TeV')
+    emax = gammalib.GEnergy(Emax,'TeV')
+    # deal with special case of cubes
+    if model.spatial().type() == 'DiffuseMapCube':
+        # get cube flux
+        flux = cube_flux(model,Emin,Emax)
+    else:
+        flux = model.spectral().flux(emin, emax)
     # convert to Crab units
     # Set Crab TeV spectral model based on a power law
     crab = gammalib.GModelSpectralPlaw(5.7e-16, -2.48, gammalib.GEnergy(0.3, 'TeV'))
@@ -61,6 +94,14 @@ def get_model_dir(model):
     if model.spatial().type() == 'DiffuseMap':
         # retrieve direction from map
         src_dir = model.spatial().region().centre()
+    elif model.spatial().type() == 'DiffuseMapCube':
+        # region does not work, extract manually from the map
+        # call the energies method to load the cube
+        model.spatial().energies()
+        # assume it is center of the map
+        sl = model.spatial().cube().extract(0)
+        ctr_pix = gammalib.GSkyPixel((sl.nx() - 1) / 2, (sl.ny() - 1) / 2)
+        src_dir = sl.pix2dir(ctr_pix)
     else:
         # retrieve direction from analytical model
         src_dir = model.spatial().dir()
@@ -84,6 +125,17 @@ def get_model_radius(model):
         radius = model['Radius'].value()
     elif model.spatial().type() == 'DiffuseMap':
         radius = model.spatial().region().radius()
+    elif model.spatial().type() == 'DiffuseMapCube':
+        # region does not work, extract manually extent of the map
+        # call the energies method to load the cube
+        model.spatial().energies()
+        # half size along x direction
+        slice = model.spatial().cube().extract(0)
+        ctr_pix = gammalib.GSkyPixel((slice.nx() - 1) / 2, (slice.ny() - 1) / 2)
+        ctr_dir = slice.pix2dir(ctr_pix)
+        bor_pix = gammalib.GSkyPixel(0., (slice.ny() - 1) / 2)
+        bor_dir = slice.pix2dir(bor_pix)
+        radius = bor_dir.dist_deg(ctr_dir)
     else:
         print('model {} has spatial model type {} which is not implemented'.format(
             model.name(), model.spatial().type()))

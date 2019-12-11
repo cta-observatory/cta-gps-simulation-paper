@@ -1,4 +1,4 @@
-Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-04 18:04:33
+Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-11 14:46:51
 Using ATNF catalog version 1.61
 Loaded 49 synthetic binaries
 Loaded 225 synthetic young SNRs
@@ -41,13 +41,13 @@ WARNING: sources Vela Xray Inner and Vela Xray Ring are at a distance of 0.0 deg
 WARNING: sources Vela Xray Ring and Vela X are at a distance of 0.008584805847302833 deg lower than 0.2 deg
 WARNING: sources Vela Xray Ring and Vela Radio Ring are at a distance of 0.008584805847302833 deg lower than 0.2 deg
 WARNING: sources Vela Xray Ring and Vela Xray Inner are at a distance of 0.0 deg lower than 0.2 deg
-WARNING: sources gemingahalo and PSR_J0633.9+1746 are at a distance of 0.07697221586859365 deg lower than 0.2 deg
+WARNING: sources gemingahalo and PSR_J0633.9+1746 are at a distance of 0.00486793957102692 deg lower than 0.2 deg
 WARNING: sources LS5039 INFC and LS5039 SUPC are at a distance of 8.537736462515939e-07 deg lower than 0.2 deg
 WARNING: sources LS5039 SUPC and LS5039 INFC are at a distance of 8.537736462515939e-07 deg lower than 0.2 deg
 WARNING: sources PSR J2032+4127 and TeV J2032+4130 are at a distance of 0.14945409368478166 deg lower than 0.2 deg
 WARNING: sources PSR J2032+4127 and PSR_J2032.2+4127 are at a distance of 0.002185147042761082 deg lower than 0.2 deg
 WARNING: sources PSR_J0534.5+2201 and Crab nebula are at a distance of 0.0049766401408806605 deg lower than 0.2 deg
-WARNING: sources PSR_J0633.9+1746 and gemingahalo are at a distance of 0.07697221586859365 deg lower than 0.2 deg
+WARNING: sources PSR_J0633.9+1746 and gemingahalo are at a distance of 0.00486793957102692 deg lower than 0.2 deg
 WARNING: sources PSR_J1016.2-5857 and HESS J1018-589 B are at a distance of 0.0438236004931219 deg lower than 0.2 deg
 WARNING: sources PSR_J1119.0-6127 and HESS J1119-614 are at a distance of 0.011998772127673531 deg lower than 0.2 deg
 WARNING: sources PSR_J1418.6-6058 and HESS J1418-609 are at a distance of 0.07475612881422707 deg lower than 0.2 deg

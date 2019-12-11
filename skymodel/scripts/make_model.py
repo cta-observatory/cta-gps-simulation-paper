@@ -427,14 +427,18 @@ for template in template_list:
         models_template = gammalib.GModels('../known-sources/templates/{}.xml'.format(name))
         for model in models_template:
             # if model contains spatial map take care of it
-            if model.spatial().type() == 'DiffuseMap':
+            if model.spatial().type() == 'DiffuseMap' or model.spatial().type() == 'DiffuseMapCube':
                 # find model map name and path
                 filename = model.spatial().filename().file()
                 filepath = model.spatial().filename().path()
                 # copy file to output directory
                 shutil.copy(filepath + filename, './')
                 # replace file with the one in output directory
-                model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
+                if model.spatial().type() == 'DiffuseMap':
+                    model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
+                elif model.spatial().type() == 'DiffuseMapCube':
+                    model.spatial(gammalib.GModelSpatialDiffuseCube(gammalib.GFilename(filename),
+                                                                    model.spatial()['Normalization'].value()))
             # if model contains spatial map take care of it
             if model.spectral().type() == 'FileFunction':
                 # find spectrum file name and path
