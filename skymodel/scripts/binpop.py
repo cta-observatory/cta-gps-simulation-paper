@@ -66,8 +66,8 @@ def bin2gammalib(filename, flux_thresh, outdir):
 
         # orbital phase model
         # create phasogram file
-        fname = outdir + 'phasecurve_' + name + '.fits'
-        phasogram_file(phasogram, fname, outdir)
+        fname = 'phasecurve_' + name + '.fits'
+        phasogram_file(phasogram, outdir + fname, outdir)
         # period in days
         per = float(data[4].split(' ')[-1])
         # convert to frequency in s

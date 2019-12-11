@@ -1,4 +1,4 @@
-Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-11 14:46:51
+Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-11 15:47:24
 Using ATNF catalog version 1.61
 Loaded 49 synthetic binaries
 Loaded 225 synthetic young SNRs
