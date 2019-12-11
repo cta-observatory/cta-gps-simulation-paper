@@ -1,4 +1,4 @@
-Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-11 15:47:24
+Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-11 16:46:27
 Using ATNF catalog version 1.61
 Loaded 49 synthetic binaries
 Loaded 225 synthetic young SNRs
@@ -8,7 +8,7 @@ Set estimated cutoffs for 17 PWN, 2 SNR, 18 UNID
 Deleted 5 synthetic binaries
 Deleted 9 synthetic young SNRs
 Deleted 6 synthetic interacting SNRs
-Replaced 8 gamma-cat sources with templates. Added 7 sources as templates
+Replaced 9 gamma-cat sources with templates. Added 7 sources as templates
 Replaced 6 gamma-cat sources with binaries. Added 1 sources as binaries
 Deleted 1 synthetic binaries
 Replaced 0 gamma-cat sources with pulsars. Added 40 sources as pulsars
@@ -17,7 +17,7 @@ Set estimated cutoffs for 2 PWN, 5 SNR, 36 AGN, 14 UNID
 Deleted 1 synthetic binaries
 Deleted 6 synthetic young SNRs
 Deleted 0 synthetic interacting SNRs
-Added 17 HAWC sources, of which 17 as pointlike and 0 as extended.
+Added 16 HAWC sources, of which 16 as pointlike and 0 as extended.
 WARNING: sources Crab nebula and PSR_J0534.5+2201 are at a distance of 0.0049766401408806605 deg lower than 0.2 deg
 WARNING: sources HESS J1018-589 B and PSR_J1016.2-5857 are at a distance of 0.0438236004931219 deg lower than 0.2 deg
 WARNING: sources HESS J1119-614 and PSR_J1119.0-6127 are at a distance of 0.011998772127673531 deg lower than 0.2 deg

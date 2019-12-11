@@ -27,7 +27,7 @@ def cube_flux(model,emin,emax):
     fluxes = np.sum(cube, axis=(1, 2))
     # correct by spectral model
     for s, energy in enumerate(energies):
-        fluxes[s] *= model.spectral().eval(gammalib.GEnergy(energy,'MeV'))
+        fluxes[s] *= model.spectral().eval(gammalib.GEnergy(np.double(energy),'MeV'))
     # select energy range
     # emin, emax are in TeV and the energy vector in MeV
     # just select on bins, may be inaccurate close to threshold

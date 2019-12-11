@@ -17,6 +17,7 @@ os.system('rm {}/*.png'.format(outdir))
 # os.chdir('../known-sources/templates')
 # os.system('python make_ic443_model.py')
 # os.system('python make_halo_model.py')
+# os.system('python HESS_J1825_map_creator.py')
 #
 # # assemble final model
 # os.chdir('../../scripts')
