@@ -1,16 +1,11 @@
 <source_library title="source library">
 
-<source name="PSR_J0007.0+7303" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-13" value="1.7436407873105964" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.8314834" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.802638" />
-		</spectrum>
+<source name="PSR_J0007+7303" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="1.7646807" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="73.05598" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="1.7564999999999997" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="73.05225" />
 		</spatialModel>
-        <temporal file="PSR_J0007.0+7303_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0007+7303_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -18,37 +13,33 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-12" value="3.5765444266796247" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="1.208317245096242" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="LogParabola">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-13" value="1.7436407873105964" />
+                <parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.1750596" />
+                <parameter free="0" max="+10.0" min="-1.0" name="Curvature" scale="-1" value="0.90206647" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="12.802638" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="59.100002288818359" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.397000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="7.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J0340.3+4129" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="7.41688307992483" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.7765775" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.831917" />
-		</spectrum>
-		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="55.098843" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="41.49023" />
-		</spatialModel>
-        <temporal file="PSR_J0340.3+4129_phasecurve.fits" type="PhaseCurve">
-            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
-            <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
-            <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
-            <parameter free="0" max="1000.0" min="0.0" name="F0" scale="1" value="303.0909794739491" />
-            <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-16" value="6.466891051588348" />
-            <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-33" value="4.1607646010319765" />
-        </temporal>
-	</source>
-<source name="PSR_J0534.5+2201" type="PointSource">
+<source name="PSR_J0534+2200" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="1.04627607" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.321" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="50.0" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="50.0" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="83.634834" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="22.019203" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="83.63308333333332" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="22.01447222222222" />
 		</spatialModel>
-        <temporal file="PSR_J0534.5+2201_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0534+2200_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -57,17 +48,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-20" value="1.163367555122904" />
         </temporal>
 	</source>
-<source name="PSR_J0633.7+0633" type="PointSource">
+<source name="PSR_J0633+0632" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="1.010460985717554" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="5.065202" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.675925" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="12.675925" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="98.43802" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="6.5561805" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="98.43392499999999" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="6.541777777777778" />
 		</spatialModel>
-        <temporal file="PSR_J0633.7+0633_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0633+0632_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -76,17 +67,12 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-25" value="7.22402080961735" />
         </temporal>
 	</source>
-<source name="PSR_J0633.9+1746" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-13" value="4.512542006729348" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="5.2022405" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.629886" />
-		</spectrum>
+<source name="PSR_J0633+1746" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="98.47847" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="17.774305" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="98.47563749999998" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="17.770252499999998" />
 		</spatialModel>
-        <temporal file="PSR_J0633.9+1746_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0633+1746_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -94,37 +80,29 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-13" value="1.952079842504069" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-26" value="2.710533491413192" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-10" value="28.3" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="0.94" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="0.8" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="0.67" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="0.9279" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="6.038000106811523" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.231000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="3.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J0734.6-1600" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="1.0128797106601084" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="8.450853" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="11.337969" />
-		</spectrum>
+<source name="PSR_J0835-4510" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="113.67249" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-16.003048" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="128.83588120833335" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-45.17635419444444" />
 		</spatialModel>
-        <temporal file="PSR_J0734.6-1600_phasecurve.fits" type="PhaseCurve">
-            <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
-            <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
-            <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
-            <parameter free="0" max="1000.0" min="0.0" name="F0" scale="1" value="6.445716414763842" />
-            <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-13" value="5.197254593112909" />
-            <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-25" value="1.2571767894094372" />
-        </temporal>
-	</source>
-<source name="PSR_J0835.3-4510" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0000000000000002e-12" value="1.7170911359443153" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.393611" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.249526" />
-		</spectrum>
-		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="128.837" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-45.1752" />
-		</spatialModel>
-        <temporal file="PSR_J0835.3-4510_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J0835-4510_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -132,18 +110,34 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-11" value="1.550387186571744" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="6.455503411984992" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-9" value="17.64" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="0.913" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="0.143" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="0.439" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1.0e3" value="1.0" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="41.825000762939453" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.544000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="7.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J1016.2-5857" type="PointSource">
+<source name="PSR_J1016-5857" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="9.579611409682443" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.6529956" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.000491" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.000491" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="154.05742" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.956493" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="154.08816666666667" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.953361111111114" />
 		</spatialModel>
-        <temporal file="PSR_J1016.2-5857_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1016-5857_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -152,17 +146,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="1.5681796327967965" />
         </temporal>
 	</source>
-<source name="PSR_J1028.5-5818" type="PointSource">
+<source name="PSR_J1028-5819" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="3.4119179703751" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.9079628" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.831617" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.831617" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="157.12938" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.31255" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="157.11666666666665" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.318111111111115" />
 		</spatialModel>
-        <temporal file="PSR_J1028.5-5818_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1028-5819_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -171,17 +165,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-24" value="1.0184028866649675" />
         </temporal>
 	</source>
-<source name="PSR_J1048.2-5832" type="PointSource">
+<source name="PSR_J1048-5832" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="1.9569307979638852" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.9342396" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.959334" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.959334" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="162.05826" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.547153" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="162.05266666666665" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.534375" />
 		</spatialModel>
-        <temporal file="PSR_J1048.2-5832_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1048-5832_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -190,17 +184,12 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="1.4474661889999731" />
         </temporal>
 	</source>
-<source name="PSR_J1057.6-5226" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="6.394142160193184" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="6.3222566" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.08789" />
-		</spectrum>
+<source name="PSR_J1057-5226" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="164.41527" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-52.441692" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="164.49568749999997" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-52.44896111111111" />
 		</spatialModel>
-        <temporal file="PSR_J1057.6-5226_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1057-5226_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -208,18 +197,34 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-13" value="1.5022943096878436" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-26" value="1.3345779843201657" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-10" value="2.272" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.051" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="1.362" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="0.6526" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="22.720001220703125" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.051000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="3.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J1119.0-6127" type="PointSource">
+<source name="PSR_J1119-6127" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="6.224465821241809" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="2.834055" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="15.362532" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="15.362532" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="169.76308" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-61.464035" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="169.8095833333333" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-61.463750000000005" />
 		</spatialModel>
-        <temporal file="PSR_J1119.0-6127_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1119-6127_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55000.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -228,17 +233,12 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-21" value="1.3824916314254898" />
         </temporal>
 	</source>
-<source name="PSR_J1413.5-6204" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="4.0358924535688345" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.3676567" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.088436" />
-		</spectrum>
+<source name="PSR_J1413-6205" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="213.39949" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-62.08104" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="213.3756070458333" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-62.09361968527778" />
 		</spatialModel>
-        <temporal file="PSR_J1413.5-6204_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1413-6205_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -246,18 +246,29 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-12" value="2.2715205696834753" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-24" value="1.6986210189425184" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-11" value="1.946" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.514" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="4.074" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="1.429" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="9.729999542236328" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.514000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="10.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J1418.6-6058" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="2.9086595978999874" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.961205" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="14.083179" />
-		</spectrum>
+<source name="PSR_J1418-6058" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="214.67058" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-60.971962" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="214.67791666666665" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-60.96752777777778" />
 		</spatialModel>
-        <temporal file="PSR_J1418.6-6058_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1418-6058_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -265,18 +276,34 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-11" value="1.3829959470292077" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="6.339995661557257" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-12" value="8.294" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.765" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="5.489" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="2.978" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="8.293999671936035" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.765000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="5.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J1459.4-6052" type="PointSource">
+<source name="PSR_J1459-6053" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="5.1882994428487095" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.0035453" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.358295" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.358295" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="224.85501" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-60.881275" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="224.87593142916663" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-60.88883229555555" />
 		</spatialModel>
-        <temporal file="PSR_J1459.4-6052_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1459-6053_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -285,17 +312,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-24" value="1.7446919126767133" />
         </temporal>
 	</source>
-<source name="PSR_J1509.5-5851" type="PointSource">
+<source name="PSR_J1509-5850" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="8.508388438244197" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.6336591" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="14.588763" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="14.588763" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="227.38176" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.858547" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="227.36317916666664" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-58.84892222222223" />
 		</spatialModel>
-        <temporal file="PSR_J1509.5-5851_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1509-5850_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -304,17 +331,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-25" value="3.584508287208429" />
         </temporal>
 	</source>
-<source name="PSR_J1514.1-4946" type="PointSource">
+<source name="PSR_J1514-4946" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="1.0208295146696411" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.5805826" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.226186" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.226186" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="228.54631" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-49.779324" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="228.57964209670828" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-49.77097647902778" />
 		</spatialModel>
-        <temporal file="PSR_J1514.1-4946_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1514-4946_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55520.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -323,17 +350,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1.0" value="0.0" />
         </temporal>
 	</source>
-<source name="PSR_J1620.7-4928" type="PointSource">
+<source name="PSR_J1620-4927" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="3.920382074529272" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.4079967" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.181259" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.181259" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="245.18327" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-49.468346" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="245.17328429999995" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-49.45993828444445" />
 		</spatialModel>
-        <temporal file="PSR_J1620.7-4928_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1620-4927_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -342,17 +369,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-26" value="6.491998599711653" />
         </temporal>
 	</source>
-<source name="PSR_J1648.5-4610" type="PointSource">
+<source name="PSR_J1648-4611" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="1.8003728716187162" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="5.9520392" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="11.814287" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="11.814287" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="252.14583" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-46.179287" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="252.09175" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-46.187777777777775" />
 		</spatialModel>
-        <temporal file="PSR_J1648.5-4610_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1648-4611_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55000.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -361,17 +388,12 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-24" value="1.1389284399137996" />
         </temporal>
 	</source>
-<source name="PSR_J1709.7-4429" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-13" value="2.2647378417062214" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.0456104" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.7757635" />
-		</spectrum>
+<source name="PSR_J1709-4429" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="257.43515" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-44.48377" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="257.4281179166666" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-44.485658055555554" />
 		</spatialModel>
-        <temporal file="PSR_J1709.7-4429_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1709-4429_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -379,18 +401,29 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-12" value="8.809097918266021" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="2.3839182893253876" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-09" value="2.403" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.138" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="0.285" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="0.453" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="0.6076" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="6.482999801635742" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.640000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="15.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J1732.6-3131" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="2.776298461959481" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="5.1506834" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.215814" />
-		</spectrum>
+<source name="PSR_J1732-3131" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="263.15613" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-31.518084" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="263.1397958333333" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-31.52331111111111" />
 		</spatialModel>
-        <temporal file="PSR_J1732.6-3131_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1732-3131_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -398,18 +431,34 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-13" value="7.260324929835127" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-25" value="3.1080709650942673" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-11" value="5.22" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.017" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="1.879" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="1.303" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="5.220000743865967" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.017000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="2.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J1747.2-2959" type="PointSource">
+<source name="PSR_J1747-2958" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="6.586780166434325" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.7037323" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="14.624229" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="14.624229" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="266.80194" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-29.995346" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="266.81605833333333" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-29.967049999999997" />
 		</spatialModel>
-        <temporal file="PSR_J1747.2-2959_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1747-2958_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -418,17 +467,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="1.1673103118413668" />
         </temporal>
 	</source>
-<source name="PSR_J1803.1-2148" type="PointSource">
+<source name="PSR_J1803-2149" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="2.287852199356344" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.5164676" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.656873" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="12.656873" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="270.79083" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-21.812887" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="270.79013219999996" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-21.816646363333334" />
 		</spatialModel>
-        <temporal file="PSR_J1803.1-2148_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1803-2149_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -437,17 +486,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-25" value="9.497722397802862" />
         </temporal>
 	</source>
-<source name="PSR_J1809.8-2332" type="PointSource">
+<source name="PSR_J1809-2332" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="6.256374585067448" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.220156" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.445879" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.445879" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="272.4594" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-23.539137" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="272.45937499999997" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-23.539633333333335" />
 		</spatialModel>
-        <temporal file="PSR_J1809.8-2332_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1809-2332_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -456,17 +505,12 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-24" value="1.1232830921988997" />
         </temporal>
 	</source>
-<source name="PSR_J1813.4-1245" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="1.4343503815239522" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="6.5488715" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="11.637141" />
-		</spectrum>
+<source name="PSR_J1813-1246" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="273.3621" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-12.762838" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="273.34903584166665" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-12.766837571944444" />
 		</spatialModel>
-        <temporal file="PSR_J1813.4-1245_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1813-1246_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -474,18 +518,34 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-12" value="7.598561568251353" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-24" value="8.32738382583393" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-10" value="1.73" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.887" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="2.581" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="0.5827" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="8.650000572204590" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.887000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="20.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J1826.1-1256" type="PointSource">
+<source name="PSR_J1826-1256" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="2.700525740528814" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.330576" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.178302" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.178302" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="276.54187" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-12.942548" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="276.5355833333333" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-12.942944444444445" />
 		</spatialModel>
-        <temporal file="PSR_J1826.1-1256_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1826-1256_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -494,17 +554,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="3.293538232060802" />
         </temporal>
 	</source>
-<source name="PSR_J1833.6-1034" type="PointSource">
+<source name="PSR_J1833-1034" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="3.504929853292982" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="2.68889" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="19.077494" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="19.077494" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="278.4148" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-10.572576" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="278.38987499999996" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-10.56875" />
 		</spatialModel>
-        <temporal file="PSR_J1833.6-1034_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1833-1034_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -513,17 +573,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-22" value="5.161528699538556" />
         </temporal>
 	</source>
-<source name="PSR_J1838.9-0537" type="PointSource">
+<source name="PSR_J1838-0537" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="1.248011850113473" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.147831" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="15.273714" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="15.273714" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="279.7381" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-5.617463" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="279.7334038845833" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="-5.619299891666667" />
 		</spatialModel>
-        <temporal file="PSR_J1838.9-0537_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1838-0537_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55100.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -532,17 +592,12 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-22" value="5.037636933374363" />
         </temporal>
 	</source>
-<source name="PSR_J1846.4+0919" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="6.100132985548123" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="5.3302073" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.252707" />
-		</spectrum>
+<source name="PSR_J1846+0919" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="281.61142" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="9.327319" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="281.60784611124996" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="9.329361238888888" />
 		</spatialModel>
-        <temporal file="PSR_J1846.4+0919_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1846+0919_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -550,18 +605,34 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-13" value="1.9520005245826235" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-26" value="2.578260650968655" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-12" value="5.047" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="0.735" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="2.235" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="1.316" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="5.046999931335449" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="0.735000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="2.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J1907.9+0602" type="PointSource">
+<source name="PSR_J1907+0602" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="3.4521753511373987" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.346978" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.240273" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.240273" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="286.97925" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="6.036015" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="286.97816666666665" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="6.037388888888889" />
 		</spatialModel>
-        <temporal file="PSR_J1907.9+0602_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1907+0602_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -570,17 +641,12 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="1.8592381589570388" />
         </temporal>
 	</source>
-<source name="PSR_J1952.8+3253" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="1.7648460817754064" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.494041" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.162713" />
-		</spectrum>
+<source name="PSR_J1952+3252" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="298.22104" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="32.88619" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="298.24252499999994" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="32.877919444444444" />
 		</spatialModel>
-        <temporal file="PSR_J1952.8+3253_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1952+3252_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -588,18 +654,34 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-12" value="3.7186088411293103" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-24" value="1.6399059501446627" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-10" value="5.498" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="0.769" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="0.101" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="0.442" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="0.7244" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="57.968994140625000" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.510000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="1.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J1954.3+2835" type="PointSource">
+<source name="PSR_J1954+2836" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="1.2954471696746683" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.056295" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.621293" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.621293" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="298.58597" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="28.595" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="298.57977851249996" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="28.601341330555556" />
 		</spatialModel>
-        <temporal file="PSR_J1954.3+2835_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1954+2836_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -608,17 +690,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-24" value="1.6857579144970187" />
         </temporal>
 	</source>
-<source name="PSR_J1958.6+2846" type="PointSource">
+<source name="PSR_J1958+2846" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="1.4287258875977926" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.535313" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.090984" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.090984" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="299.66824" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="28.778221" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="299.6667208333333" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="28.76531111111111" />
 		</spatialModel>
-        <temporal file="PSR_J1958.6+2846_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J1958+2846_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -627,17 +709,12 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-24" value="5.502865199780095" />
         </temporal>
 	</source>
-<source name="PSR_J2021.1+3651" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="6.083424042291341" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.774934" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.814353" />
-		</spectrum>
+<source name="PSR_J2021+3651" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="305.28705" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="36.856335" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="305.272625" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="36.851286111111115" />
 		</spatialModel>
-        <temporal file="PSR_J2021.1+3651_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2021+3651_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -645,18 +722,29 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-12" value="8.861444243712137" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="2.4425888544897703" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-10" value="8.258" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.096" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="0.228" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="0.477" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="0.8577" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="11.318999290466309" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.663000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="13.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J2021.5+4026" type="PointSource">
-		<spectrum type="PowerLaw">
-			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="3.753905866710206" />
-			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="5.405572" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.103077" />
-		</spectrum>
+<source name="PSR_J2021+4026" type="PointSource">
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="305.3875" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="40.445564" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="305.37805416666663" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="40.44612222222222" />
 		</spatialModel>
-        <temporal file="PSR_J2021.5+4026_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2021+4026_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -664,18 +752,34 @@
             <parameter free="0" max="1000.0" min="0.0" name="F1" scale="-1e-13" value="7.9160079504901475" />
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-25" value="4.935113723339972" />
         </temporal>
+	<spectrum type="Composite">
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-9" value="3.985" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="0.969" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000.0" value="0.104" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="0.432" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="0.6387" />
+            </spectrum>
+            <spectrum type="SuperExponentialCutoffPowerLaw">
+                <parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1.0e-14" value="16.446001052856445" />
+                <parameter free="0" max="+5.0" min="0.0" name="Index1" scale="-1" value="1.652000" />
+                <parameter free="0" max="1000.0" min="0.01" name="CutoffEnergy" scale="1000000.0" value="30.0" />
+                <parameter free="0" max="5.0" min="0.1" name="Index2" scale="1.0" value="1.0000000" />
+                <parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000000.0" value="1.0" />
+            </spectrum>
+        </spectrum>
 	</source>
-<source name="PSR_J2032.2+4127" type="PointSource">
+<source name="PSR_J2032+4127" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="3.4979363155995813" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.8758824" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.790707" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.790707" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="308.0548" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="41.45482" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="308.0547625" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="41.45681666666667" />
 		</spatialModel>
-        <temporal file="PSR_J2032.2+4127_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2032+4127_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -684,17 +788,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-25" value="5.658064655140173" />
         </temporal>
 	</source>
-<source name="PSR_J2111.4+4605" type="PointSource">
+<source name="PSR_J2111+4606" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="1.1820515920246688" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.636974" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="12.67761" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="12.67761" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="317.85776" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="46.087738" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="317.85053873749996" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="46.10853808555556" />
 		</spatialModel>
-        <temporal file="PSR_J2111.4+4605_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2111+4606_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -703,17 +807,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-23" value="2.0248716358182737" />
         </temporal>
 	</source>
-<source name="PSR_J2215.6+5134" type="PointSource">
+<source name="PSR_J2215+5135" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="2.0196062704147533" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.5974705" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="14.833511" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="14.833511" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="333.91803" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="51.573154" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="333.88620166912494" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="51.59342771475" />
 		</spatialModel>
-        <temporal file="PSR_J2215.6+5134_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2215+5135_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55610.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -722,17 +826,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1.0" value="0.0" />
         </temporal>
 	</source>
-<source name="PSR_J2229.0+6114" type="PointSource">
+<source name="PSR_J2229+6114" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-14" value="2.5917356802351854" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="3.9184895" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.902311" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.902311" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="337.27182" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="61.241795" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="337.27199999999993" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="61.23591666666667" />
 		</spatialModel>
-        <temporal file="PSR_J2229.0+6114_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2229+6114_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
@@ -741,17 +845,17 @@
             <parameter free="0" max="1000.0" min="0.0" name="F2" scale="1e-22" value="1.3026032358267594" />
         </temporal>
 	</source>
-<source name="PSR_J2238.4+5901" type="PointSource">
+<source name="PSR_J2238+5903" type="PointSource">
 		<spectrum type="PowerLaw">
 			<parameter free="0" max="1000.0" min="1e-07" name="Prefactor" scale="1e-15" value="6.3101576915081115" />
 			<parameter free="0" max="+10.0" min="0.0" name="Index" scale="-1" value="4.4224644" />
-			<parameter free="0" max="1000.0" min="0.01" name="Scale" scale="1000.0" value="13.051381" />
+			<parameter free="0" max="1000.0" min="0.01" name="PivotEnergy" scale="1000.0" value="13.051381" />
 		</spectrum>
 		<spatialModel type="SkyDirFunction">
-			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="339.604" />
-			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="59.019077" />
+			<parameter free="0" max="360" min="-360" name="RA" scale="1" value="339.6171022416666" />
+			<parameter free="0" max="90" min="-90" name="DEC" scale="1" value="59.06193389083333" />
 		</spatialModel>
-        <temporal file="PSR_J2238.4+5901_phasecurve.fits" type="PhaseCurve">
+        <temporal file="PSR_J2238+5903_phasecurve.fits" type="PhaseCurve">
             <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1" value="1.0" />
             <parameter free="0" max="100000.0" min="0.0" name="MJD" scale="1" value="55555.0" />
             <parameter free="0" max="1.0" min="0.0" name="Phase" scale="1" value="0.0" />
