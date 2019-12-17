@@ -1,0 +1,5 @@
+alpha= 2.25
+Kep= 0.01
+D= 1. 
+Efficiency= 0.005
+KNEE= 300.

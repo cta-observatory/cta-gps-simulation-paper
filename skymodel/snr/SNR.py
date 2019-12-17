@@ -20,7 +20,8 @@ from naima.models import (ExponentialCutoffBrokenPowerLaw, Synchrotron,
                           InverseCompton,PionDecay, TableModel)
 
 
-
+import random
+random.seed(1)
 
 # CONSTANTS
 definition_pevatron=500.  #TeV 
