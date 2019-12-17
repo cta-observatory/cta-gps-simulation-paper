@@ -1,4 +1,4 @@
-Model built by ltibaldo at macp0077.irap.omp.eu on 2019-12-13 11:00:22
+Model built by ltibaldo at Luigis-MacBook-Pro.local on 2019-12-17 23:04:03
 Using ATNF catalog version 1.61
 Loaded 49 synthetic binaries
 Loaded 225 synthetic young SNRs
@@ -11,24 +11,24 @@ Deleted 6 synthetic interacting SNRs
 Replaced 9 gamma-cat sources with templates. Added 7 sources as templates
 Replaced 6 gamma-cat sources with binaries. Added 1 sources as binaries
 Deleted 1 synthetic binaries
-Replaced 0 gamma-cat sources with pulsars. Added 40 sources as pulsars
+Replaced 0 gamma-cat sources with pulsars. Added 38 sources as pulsars
 Added 75 FHL sources, of which 68 as pointlike and 7 as extended.
 Set estimated cutoffs for 2 PWN, 5 SNR, 36 AGN, 14 UNID
 Deleted 1 synthetic binaries
 Deleted 6 synthetic young SNRs
 Deleted 0 synthetic interacting SNRs
 Added 16 HAWC sources, of which 16 as pointlike and 0 as extended.
-WARNING: sources Crab nebula and PSR_J0534.5+2201 are at a distance of 0.0049766401408806605 deg lower than 0.2 deg
-WARNING: sources HESS J1018-589 B and PSR_J1016.2-5857 are at a distance of 0.0438236004931219 deg lower than 0.2 deg
-WARNING: sources HESS J1119-614 and PSR_J1119.0-6127 are at a distance of 0.011998772127673531 deg lower than 0.2 deg
-WARNING: sources HESS J1418-609 and PSR_J1418.6-6058 are at a distance of 0.07475612881422707 deg lower than 0.2 deg
-WARNING: sources HESS J1458-608 and PSR_J1459.4-6052 are at a distance of 0.15335681733210782 deg lower than 0.2 deg
-WARNING: sources HESS J1813-126 and PSR_J1813.4-1245 are at a distance of 0.07802236124524214 deg lower than 0.2 deg
-WARNING: sources HESS J1826-130 and PSR_J1826.1-1256 are at a distance of 0.09920551422542666 deg lower than 0.2 deg
-WARNING: sources HESS J1833-105 and PSR_J1833.6-1034 are at a distance of 0.015296625398635712 deg lower than 0.2 deg
+WARNING: sources Crab nebula and PSR_J0534+2200 are at a distance of 2.766542808245417e-05 deg lower than 0.2 deg
+WARNING: sources HESS J1018-589 B and PSR_J1016-5857 are at a distance of 0.03400523947553454 deg lower than 0.2 deg
+WARNING: sources HESS J1119-614 and PSR_J1119-6127 are at a distance of 0.02350170144690874 deg lower than 0.2 deg
+WARNING: sources HESS J1418-609 and PSR_J1418-6058 are at a distance of 0.0786306659028576 deg lower than 0.2 deg
+WARNING: sources HESS J1458-608 and PSR_J1459-6053 are at a distance of 0.16387702316808964 deg lower than 0.2 deg
+WARNING: sources HESS J1813-126 and PSR_J1813-1246 are at a distance of 0.07940142153613164 deg lower than 0.2 deg
+WARNING: sources HESS J1826-130 and PSR_J1826-1256 are at a distance of 0.09652675718282104 deg lower than 0.2 deg
+WARNING: sources HESS J1833-105 and PSR_J1833-1034 are at a distance of 0.009705193326661974 deg lower than 0.2 deg
 WARNING: sources TeV J2032+4130 and PSR J2032+4127 are at a distance of 0.14945409368478166 deg lower than 0.2 deg
-WARNING: sources TeV J2032+4130 and PSR_J2032.2+4127 are at a distance of 0.15093146513328795 deg lower than 0.2 deg
-WARNING: sources GammaCygni and PSR_J2021.5+4026 are at a distance of 0.16983088153565817 deg lower than 0.2 deg
+WARNING: sources TeV J2032+4130 and PSR_J2032+4127 are at a distance of 0.1494632798572676 deg lower than 0.2 deg
+WARNING: sources GammaCygni and PSR_J2021+4026 are at a distance of 0.16269379322419084 deg lower than 0.2 deg
 WARNING: sources Vela X and Vela Radio Ring are at a distance of 0.0 deg lower than 0.2 deg
 WARNING: sources Vela X and Vela Xray Inner are at a distance of 0.008584805847302833 deg lower than 0.2 deg
 WARNING: sources Vela X and Vela Xray Ring are at a distance of 0.008584805847302833 deg lower than 0.2 deg
@@ -41,23 +41,23 @@ WARNING: sources Vela Xray Inner and Vela Xray Ring are at a distance of 0.0 deg
 WARNING: sources Vela Xray Ring and Vela X are at a distance of 0.008584805847302833 deg lower than 0.2 deg
 WARNING: sources Vela Xray Ring and Vela Radio Ring are at a distance of 0.008584805847302833 deg lower than 0.2 deg
 WARNING: sources Vela Xray Ring and Vela Xray Inner are at a distance of 0.0 deg lower than 0.2 deg
-WARNING: sources gemingahalo and PSR_J0633.9+1746 are at a distance of 0.00486793957102692 deg lower than 0.2 deg
+WARNING: sources gemingahalo and PSR_J0633+1746 are at a distance of 8.537736462515939e-07 deg lower than 0.2 deg
 WARNING: sources LS5039 INFC and LS5039 SUPC are at a distance of 8.537736462515939e-07 deg lower than 0.2 deg
 WARNING: sources LS5039 SUPC and LS5039 INFC are at a distance of 8.537736462515939e-07 deg lower than 0.2 deg
 WARNING: sources PSR J2032+4127 and TeV J2032+4130 are at a distance of 0.14945409368478166 deg lower than 0.2 deg
-WARNING: sources PSR J2032+4127 and PSR_J2032.2+4127 are at a distance of 0.002185147042761082 deg lower than 0.2 deg
-WARNING: sources PSR_J0534.5+2201 and Crab nebula are at a distance of 0.0049766401408806605 deg lower than 0.2 deg
-WARNING: sources PSR_J0633.9+1746 and gemingahalo are at a distance of 0.00486793957102692 deg lower than 0.2 deg
-WARNING: sources PSR_J1016.2-5857 and HESS J1018-589 B are at a distance of 0.0438236004931219 deg lower than 0.2 deg
-WARNING: sources PSR_J1119.0-6127 and HESS J1119-614 are at a distance of 0.011998772127673531 deg lower than 0.2 deg
-WARNING: sources PSR_J1418.6-6058 and HESS J1418-609 are at a distance of 0.07475612881422707 deg lower than 0.2 deg
-WARNING: sources PSR_J1459.4-6052 and HESS J1458-608 are at a distance of 0.15335681733210782 deg lower than 0.2 deg
-WARNING: sources PSR_J1813.4-1245 and HESS J1813-126 are at a distance of 0.07802236124524214 deg lower than 0.2 deg
-WARNING: sources PSR_J1826.1-1256 and HESS J1826-130 are at a distance of 0.09920551422542666 deg lower than 0.2 deg
-WARNING: sources PSR_J1833.6-1034 and HESS J1833-105 are at a distance of 0.015296625398635712 deg lower than 0.2 deg
-WARNING: sources PSR_J2021.5+4026 and GammaCygni are at a distance of 0.16983088161291593 deg lower than 0.2 deg
-WARNING: sources PSR_J2032.2+4127 and TeV J2032+4130 are at a distance of 0.15093146513328795 deg lower than 0.2 deg
-WARNING: sources PSR_J2032.2+4127 and PSR J2032+4127 are at a distance of 0.002185147042761082 deg lower than 0.2 deg
+WARNING: sources PSR J2032+4127 and PSR_J2032+4127 are at a distance of 0.0002555266219037767 deg lower than 0.2 deg
+WARNING: sources PSR_J0534+2200 and Crab nebula are at a distance of 2.766542808245417e-05 deg lower than 0.2 deg
+WARNING: sources PSR_J0633+1746 and gemingahalo are at a distance of 8.537736462515939e-07 deg lower than 0.2 deg
+WARNING: sources PSR_J1016-5857 and HESS J1018-589 B are at a distance of 0.03400523947553454 deg lower than 0.2 deg
+WARNING: sources PSR_J1119-6127 and HESS J1119-614 are at a distance of 0.02350170144690874 deg lower than 0.2 deg
+WARNING: sources PSR_J1418-6058 and HESS J1418-609 are at a distance of 0.0786306659028576 deg lower than 0.2 deg
+WARNING: sources PSR_J1459-6053 and HESS J1458-608 are at a distance of 0.16387702316808964 deg lower than 0.2 deg
+WARNING: sources PSR_J1813-1246 and HESS J1813-126 are at a distance of 0.07940142153613164 deg lower than 0.2 deg
+WARNING: sources PSR_J1826-1256 and HESS J1826-130 are at a distance of 0.09652675718282104 deg lower than 0.2 deg
+WARNING: sources PSR_J1833-1034 and HESS J1833-105 are at a distance of 0.009705193326661974 deg lower than 0.2 deg
+WARNING: sources PSR_J2021+4026 and GammaCygni are at a distance of 0.16269379330035733 deg lower than 0.2 deg
+WARNING: sources PSR_J2032+4127 and TeV J2032+4130 are at a distance of 0.1494632798572676 deg lower than 0.2 deg
+WARNING: sources PSR_J2032+4127 and PSR J2032+4127 are at a distance of 0.0002555266219037767 deg lower than 0.2 deg
 Added 42 synthetic binaries
 Added 56 synthetic interacting SNRs
 Added 2 interstellar emission components
