@@ -22,10 +22,19 @@ fig1 = plt.figure('LogNLogS')
 ax1 = plt.subplot()
 ax1.set_xscale('log')
 ax1.set_yscale('log')
-ax1.set_xlabel("Flux > {} TeV (Crab units)".format(emin), fontsize=14)
+ax1.set_xlabel("Flux {}-{} TeV (Crab units)".format(emin,emax), fontsize=14)
 ax1.set_ylabel('Number of sources (> Flux)', fontsize=14)
 format_ax(ax1)
 
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1)
+
+try:
+    if sys.argv[4] == 'check_flux':
+        for s, flux in enumerate(fluxes):
+            if flux > 1.:
+                msg = "Source {} has flux of {} Crab".format(names[s],flux)
+                print(msg)
+except:
+    pass
 
 plt.show()
