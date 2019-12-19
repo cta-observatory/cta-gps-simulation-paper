@@ -12,8 +12,8 @@ from itertools import zip_longest
 import os
 import csv
 from random import choices
+import random
 from matplotlib import rc
-
 import sys
 import os
 from SNR import *  # SNR.py is where all functions are
@@ -23,6 +23,15 @@ from SNR import *  # SNR.py is where all functions are
 #           takes one file (.txt), one number (int), and returns one file (.txt)
 #           Takes parameters.txt  - > creates output.txt
 #--------------------------------------------------------------------------#
+
+#fixing seed of random generator:
+# change
+number_seed=1
+random.seed(number_seed)
+
+
+
+
 
 #input
 file_parameters=sys.argv[1]

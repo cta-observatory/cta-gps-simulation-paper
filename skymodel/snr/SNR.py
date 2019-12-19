@@ -20,8 +20,7 @@ from naima.models import (ExponentialCutoffBrokenPowerLaw, Synchrotron,
                           InverseCompton,PionDecay, TableModel)
 
 
-import random
-random.seed(1)
+
 
 # CONSTANTS
 definition_pevatron=500.  #TeV 
@@ -42,7 +41,10 @@ beta=6*(gamma_ad-1)/(gamma_ad+1)
 sigma=4.
 r00=8.5  # en kiloparsec
 distance_SS_GC=8.5 # distance to galactic center in kiloparsec
-age_sample=10. # kyear 20-40 enough to study Pevatrons
+erg_to_TeV=0.624151
+TeV_to_erg=1./erg_to_TeV
+
+age_sample=20. # kyear 20-40 enough to study Pevatrons
 
 
 #--------------------------------------------------------
@@ -476,11 +478,11 @@ def calculate_final_evolution (self):
         self.Ushock=self.Ushock_2(self.age)
 
 
-def set_factor_Emax(self,KNEE):
+def set_factor_Emax(self,KNEE): # modified 03.12.19
     if (self.type==1) :
-        self.Emax_factor= KNEE/(self.Emax_t(self.Transitiontime1()))
+        self.Emax_factor= 1. # KNEE/(self.Emax_t(self.Transitiontime1()))
     else :
-        self.Emax_factor= KNEE/(self.Emax_t(self.Transitiontime2()))
+        self.Emax_factor= 1. # KNEE/(self.Emax_t(self.Transitiontime2()))
 
 
 
@@ -593,8 +595,9 @@ def Estar_electron_time ( self, t): # // E in TeV, B in MicroGauss
 # ---------------------------------------------------------------------------#
 #  NORMALIZATION FOR THE GAMMA RAYS FROM SNR
 
-def A( self, r,t):
+def A( self, r,t): # return in units of p**-3 cm**-3 with p in TeV/c
     a=2.-self.alpha
+    E0=1.
     if (self.type==1):
         RR=self.Rshock_t(t)
         return ( 3.*self.eta*a*self.rho0*0.624*pow(self.Ushock1_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (1-self.sigma)*(-4+a) ) )/((pow(r/RR,-a*self.delta_Emax*self.sigma)*pow(self.Emax_t(t),a)-pow(masseproton_TeV,a)))
@@ -620,8 +623,9 @@ def Norm_hadronic (self, t):
     norm=0.
     for i in range (0,len(R)-1):
         norm=norm+ pow(((R[i]+R[i+1])/2.)*parsec,2.)*self.density_inside(((R[i]+R[i+1])/2.), self.age)*self.A(((R[i]+R[i+1])/2.),t)*(R[i+1]-R[i])*parsec/masseproton
-    self.Norm_hadronic_mem =4*np.pi*norm
+    self.Norm_hadronic_mem =4*np.pi*norm/(4*np.pi*TeV_to_erg)
 
+    #4*np.pi/c for conversion from f(p) to f(E)
     return self.Norm_hadronic_mem
 
 
@@ -645,7 +649,7 @@ def spectrum_electron(self,time):
 def diff_spectrum_hadronic(self,time):
     self.dist=self.distance()
     PROTONS=self.spectrum_proton(time)
-    PIONS_FROM_SHELL=PionDecay(PROTONS, nh=self.n0 * u.cm** -3)
+    PIONS_FROM_SHELL=PionDecay(PROTONS, nh=1.* u.cm** -3,Epmax=100* u.PeV)
     GAMMAS=PIONS_FROM_SHELL.sed(self.ENERGY,self.dist * u.kpc)
         #  GAMMAS.to(u.eV/(u.cm **2 * u.s))
     GAMMAS=GAMMAS.to(u.TeV/(u.cm**2 *u.s))
@@ -655,13 +659,13 @@ def diff_spectrum_hadronic(self,time):
 def diff_spectrum_leptonic(self,time):
     self.dist=self.distance()
     ELECTRONS=self.spectrum_electron(time)
-    IC = InverseCompton(ELECTRONS, seed_photon_fields=['CMB'])
+    IC = InverseCompton(ELECTRONS, seed_photon_fields=['CMB','NIR', 'FIR'])
     GAMMAS=IC.sed(self.ENERGY,self.dist * u.kpc)
     GAMMAS_TeV=GAMMAS.to(u.TeV/(u.cm**2 *u.s))
     return GAMMAS_TeV
     
 def diff_spectrum_total (self,time):
-    GAMMA_TOT=self.diff_spectrum_hadronic(time)# +self.diff_spectrum_leptonic(time)
+    GAMMA_TOT=self.diff_spectrum_hadronic(time)+self.diff_spectrum_leptonic(time)
     return GAMMA_TOT
     
     
@@ -735,7 +739,7 @@ class SNR:
     chi=0.1  # fraction of diffusion length before escape
     eta=0.1 #efficiency of particle acceleration at the shock
     Emax=1.
-    delta_Emax=2.
+    delta_Emax=1.
     Emax_factor=1.  # to match the knee
     Emax_mem=1.
     Estar_electron_time_mem=1.
