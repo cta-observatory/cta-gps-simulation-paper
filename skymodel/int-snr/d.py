@@ -94,7 +94,6 @@ alpha=0 ; p0=0.015
 
 #path=str(int(random.random(1)*1e5))
 
-            
 path='out/'
 os.system('rm -r '+path)
 os.system('mkdir '+path)
