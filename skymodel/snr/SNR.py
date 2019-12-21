@@ -44,7 +44,7 @@ distance_SS_GC=8.5 # distance to galactic center in kiloparsec
 erg_to_TeV=0.624151
 TeV_to_erg=1./erg_to_TeV
 
-age_sample=20. # kyear 20-40 enough to study Pevatrons
+age_sample=50. # kyear 20-40 enough to study Pevatrons
 
 
 #--------------------------------------------------------
