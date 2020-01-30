@@ -20,3 +20,10 @@ Python Main_local.py parameters_0.txt 5
 
 
 
+
+#----------------------
+Pierre (23.01.2019)
+#----------------------
+V3. -> age_sample can be taken very large, but calculations will only be carried for SNRs until age_max_ST_pase=20 kyr. (Can be modified) 
+
+

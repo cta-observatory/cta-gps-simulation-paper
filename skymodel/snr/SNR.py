@@ -44,8 +44,8 @@ distance_SS_GC=8.5 # distance to galactic center in kiloparsec
 erg_to_TeV=0.624151
 TeV_to_erg=1./erg_to_TeV
 
-age_sample=50. # kyear 20-40 enough to study Pevatrons
-
+age_sample=100. # kyear 20-40 enough to study Pevatrons
+age_max_ST_pase=20. #kyears, typical end of ST phase
 
 #--------------------------------------------------------
 # GAS  Distribution functions (Shibata et al. 2010)
@@ -409,18 +409,23 @@ def place_supernova(self):
 def typical_associated_parameters(self):
     if (self.type==1) :
         self.Mej=1.4
+        self.Mdot=1.
         self.E_SN=1.
     else:
         if (self.type==2):
             self.Mej=8.
+            self.Mdot=1.
             self.E_SN=1.
         else:
             if(self.type==3):
                 self.Mej=2.
+                self.Mdot=1.
+
                 self.E_SN=1.
             else:
                 if(self.type==4):
                     self.Mej=1.
+                    self.Mdot=10.
                     self.E_SN=3.
 
 
@@ -691,6 +696,8 @@ def calculate_diff_spectrum_TIME (self):
         for i in range (0,len(self.ENERGY)):
             self.LGAMMA_DIFF_T[t][i]=SPEC[i]
 
+def calculate_diff_spectrum_PWNE_TIME (self):
+    self.LGAMMA_DIFF_T=np.zeros((len(self.TIME), len(self.ENERGY)))
 
 
 #--------------------------------------------------------#
@@ -838,6 +845,8 @@ class SNR:
     diff_spectrum_total=diff_spectrum_total
     calculate_alpha_gamma=calculate_alpha_gamma
     calculate_diff_spectrum_TIME=calculate_diff_spectrum_TIME
+    calculate_diff_spectrum_PWNE_TIME=calculate_diff_spectrum_PWNE_TIME
+
 #  calculate_integrated_spectrum_SGSO=calculate_integrated_spectrum_SGSO
 
 
@@ -858,19 +867,22 @@ def one_realization_only_pevatrons (a, Kep, D,eta, KNEE):
         SNR_temp.assign_age(age_sample)
         SNR_temp.typical_associated_parameters()
         SNR_temp.density_around()
-        SNR_temp.calculate_final_evolution()
-        SNR_temp.set_factor_Emax(KNEE)
-        SNR_temp.alpha=a
-        SNR_temp.Kep=Kep
-        SNR_temp.distance()
-        SNR_temp.size=2*SNR_temp.Rshock/(SNR_temp.dist*pow(10., 3.))*3437.75
-
-#### Calculating the gammas from the SNR :
-        SNR_temp.eta=eta
-            # if (SNR_temp.Emax_t(SNR_temp.age)> definition_pevatron):
-#        print( ' ------------------------')
-#        print (' New pevatron ' )
-        SNR_temp.calculate_diff_spectrum_TIME()
+        
+        if (SNR_temp.age < age_max_ST_pase):
+            SNR_temp.calculate_final_evolution()
+            SNR_temp.set_factor_Emax(KNEE)
+            SNR_temp.alpha=a
+            SNR_temp.Kep=Kep
+            SNR_temp.distance()
+            SNR_temp.size=2*SNR_temp.Rshock/(SNR_temp.dist*pow(10., 3.))*3437.75
+            #### Calculating the gammas from the SNR :
+            SNR_temp.eta=eta
+            SNR_temp.calculate_diff_spectrum_TIME()
+            
+        else:
+            SNR_temp.calculate_diff_spectrum_PWNE_TIME()
+            
+            
         LIST_SNR.append(SNR_temp)
     return LIST_SNR
 
