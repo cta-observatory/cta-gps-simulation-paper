@@ -1,4 +1,4 @@
-
+	
 import os
 from numpy import *
 from astropy.table import Table
@@ -80,6 +80,7 @@ def createXml_disk(srcname='source0',specfile='specfile.txt',lon=0.0,lat=0.0,rad
 ####### Input
 
 database_snr='../snr/OUTPUT_FILES_1/ctadc_skymodel_gps_sources_pevatron_0.ecsv'
+#database_snr='../snr/ALL_FILES_0/results_0.txt'
 
 database_nubi='Clouds.fits'
 
@@ -99,6 +100,21 @@ os.system('rm -r '+path)
 os.system('mkdir '+path)
 
 
+
+#### Energy channels
+
+energy_b = logspace(8,14.4,101)*u.eV
+de = energy_b[1:]-energy_b[:-1]
+energy = sqrt(energy_b[1:]*energy_b[:-1])
+
+### XML init
+
+code=[
+'<?xml version="1.0" standalone="no"?>\n',
+'<source_library title="interacting supernova remnants">\n'
+]
+
+
 ######  Mol. Clouds
 
 cloud=Table.read(database_nubi)
@@ -108,41 +124,60 @@ rand=random.random(len(cloud))
 is_int = (rand < pp)*(cloud['Mass'].data > 3e3)
 true_index=is_int.nonzero()
 w=true_index[0]                     # Indeces of iSNR random select from synthetic catalog
-
+n_isnr = len(w) 
 
 #### SNRs
 
-snr=Table.read(database_snr,format='ascii.ecsv')
+try : 
 
+ snr=Table.read(database_snr,format='ascii.ecsv')
+ 
+except:
+
+  q = Table.read(database_snr, format='ascii')
+  step = 40
+  n_snr = len(q)/step
+  snr=q[arange(n_snr).astype(int)*step]
+
+  gpos = SkyCoord( snr['POS_X'].data*u.kpc, snr['POS_Y'].data*u.kpc, snr['POS_Z'].data*u.kpc, frame='galactocentric',galcen_distance=8.5*u.kpc)  
+
+  snr['glon'] = gpos.galactic.l
+  snr['glat'] = gpos.galactic.b 
+  snr['distance'] = gpos.galactic.distance
+  
+  snr['sigma'] = snr['size'] * u.arcmin
+  snr['agekyr'] = snr['age[kyr]'] * u.kyr
+  
 
 #snr['id']=arange(len(snr))
 
-w_cc =  where(snr['type'] != 1)
+w_cc =  where((snr['agekyr'] < 40 ) & (snr['type'] != 1))   
 ncc = len(w_cc[0])
           
 
 # List of iSNRs
 
+
 icloud=cloud[w]
 icloud['Flux_int_100GeV']=icloud['Flux_int_100MeV']*0.
 icloud['Flux_int_1TeV']=icloud['Flux_int_100MeV']*0.
 icloud['Flux_int_10TeV']=icloud['Flux_int_100MeV']*0.
+icloud['Cloud_id'] = w
 
+isnr = w_cc[0][(random.random(n_isnr)*ncc).astype(int)] # indices of snr which corrspoonds to iSNRs
+icloud['SNR_id'] = isnr
 
-#### Energy channels
+icloud['Distance'] = snr['distance'][isnr]
 
-energy_b = logspace(8,14.4,101)*u.eV
-de = energy_b[1:]-energy_b[:-1]
-energy = sqrt(energy_b[1:]*energy_b[:-1])
+#rho = 10*u.pc / icloud['Distance'].quantity.to('pc') * u.rad
+rho = snr['sigma'][isnr].quantity 
+costheta = random.random(n_isnr) 
+phi      = random.random(n_isnr) *2*pi
+xsep = rho*arccos(costheta)*cos(phi)
+ysep = rho*arccos(costheta)*sin(phi) 
 
-code=[
-'<?xml version="1.0" standalone="no"?>\n',
-'<source_library title="interacting supernova remnants">\n'
-]
-
-
-
-
+icloud['Glat'] = snr['glat'][isnr] + ysep
+icloud['Glon'] = snr['glon'][isnr] + xsep
 
 
 for i in arange(len(icloud)):
@@ -162,9 +197,9 @@ for i in arange(len(icloud)):
   
   isnr = w_cc[0][int(random.random(1)*ncc)]
 
-  lat = snr['glat'][isnr]  *u.deg
-  lon = snr['glon'][isnr]  *u.deg
-  dist = snr['distance'][isnr] *u.kpc
+  lat = icloud['Glat'][i]  *u.deg
+  lon = icloud['Glon'][i]  *u.deg
+  dist = icloud['Distance'][i] *u.kpc
   gpos = SkyCoord(l=lon, b=lat, frame='galactic')
   #radi = snr['sigma'][isnr]/2. *u.arcmin 
 
