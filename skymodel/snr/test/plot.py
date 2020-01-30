@@ -8,8 +8,8 @@ from crab import *
 
 
 files=[]
-files=files+ [ [ '../ALL_FILES_0/results_0.txt', 'current test'    ] ]
-#files=files+ [ [ '../ALL_FILES_0/results_1.txt', 'current test'    ] ]
+files=files+ [ [ '../ALL_FILES_0/results_0.txt', 'current distribution'    ] ]
+files=files+ [ [ '../ALL_FILES_0/results_old.txt', 'old distribution'    ] ]
 #files=files+ [ [ 'results_2.txt', 'current test'    ] ]
 #files=files+ [ [ 'results_3.txt', 'current test'    ] ]
 
@@ -32,7 +32,8 @@ for fil in files:
     fl=sed / en**2.                         #  cm-2 s-1 TeV-1 ??
     #plot(en,fl,'y')
     
-    intf=intf+[ integ(en,fl, emin=1.,emax=10.)[0] ]   #   cm-2 s-1
+    if sum(sed) != 0 :
+      intf=intf+[ integ(en,fl, emin=1.,emax=10.)[0] ]   #   cm-2 s-1
     
   intf=array(intf)
   logNlogS(intf,label=fil[1])
