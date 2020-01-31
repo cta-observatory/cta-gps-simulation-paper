@@ -113,31 +113,23 @@ def get_model_radius(model):
     :param model: ~gammalib.GModelSky
     :return: radius: float
     """
-    if model.spatial().type() == 'PointSource' or model.spatial().type() == 'SkyDirFunction':
-        radius = 0.
-    elif model.spatial().type() == 'RadialGaussian':
-        radius = 2 * model['Sigma'].value()
-    elif model.spatial().type() == 'EllipticalGaussian':
-        radius = 2 * model['MajorRadius'].value()
-    elif model.spatial().type() == 'RadialShell':
-        radius = model['Radius'].value() + model['Width'].value()
-    elif model.spatial().type() == 'RadialDisk':
-        radius = model['Radius'].value()
-    elif model.spatial().type() == 'DiffuseMap':
-        radius = model.spatial().region().radius()
-    elif model.spatial().type() == 'DiffuseMapCube':
-        # region does not work, extract manually extent of the map
-        # call the energies method to load the cube
-        model.spatial().energies()
-        # half size along x direction
-        slice = model.spatial().cube().extract(0)
-        ctr_pix = gammalib.GSkyPixel((slice.nx() - 1) / 2, (slice.ny() - 1) / 2)
-        ctr_dir = slice.pix2dir(ctr_pix)
-        bor_pix = gammalib.GSkyPixel(0., (slice.ny() - 1) / 2)
-        bor_dir = slice.pix2dir(bor_pix)
-        radius = bor_dir.dist_deg(ctr_dir)
-    else:
-        print('model {} has spatial model type {} which is not implemented'.format(
+    try:
+        if model.spatial().type() == 'DiffuseMapCube':
+            # region not implemented in gammalib, extract manually extent of the map
+            # call the energies method to load the cube
+            model.spatial().energies()
+            # half size along x direction
+            slice = model.spatial().cube().extract(0)
+            ctr_pix = gammalib.GSkyPixel((slice.nx() - 1) / 2, (slice.ny() - 1) / 2)
+            ctr_dir = slice.pix2dir(ctr_pix)
+            bor_pix = gammalib.GSkyPixel(0., (slice.ny() - 1) / 2)
+            bor_dir = slice.pix2dir(bor_pix)
+            radius = bor_dir.dist_deg(ctr_dir)
+        else:
+            circle = gammalib.GSkyRegionCircle(model.spatial().region())
+            radius = circle.radius()
+    except:
+        print('Cannot extract radius for model {} with spatial model type {}'.format(
             model.name(), model.spatial().type()))
     return radius
 
