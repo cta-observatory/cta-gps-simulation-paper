@@ -50,10 +50,10 @@ age_max_ST_pase=20. #kyears, typical end of ST phase
 #--------------------------------------------------------
 # GAS  Distribution functions (Shibata et al. 2010)
 def rho_H1  ( r): # / r in kiloparsec , rho_H1 in 10^20 H atoms.cm^-3
-   return np.exp(- ( 3.862+7.903*pow(10,-1.)*r -9.426*pow(10,-2.)*np.log10(r) - 4.261*pow(r,1./2.)    ))
+   return np.exp(- ( 3.862+7.903*pow(10,-1.)*r -9.426*pow(10,-2.)*np.log(r) - 4.261*pow(r,1./2.)    ))
 
 def rho_H2  ( r): #// r in kiloparsec , rho_H1 in 10^20 H atoms.cm^-3
-    return np.exp(- (1.848+8.339*pow(10,-1.)*r -5.560*np.log10(r) + 2.405*pow(10,-2.)*pow(r,2.)))
+    return np.exp(- (1.848+8.339*pow(10,-1.)*r -5.560*np.log(r) + 2.405*pow(10,-2.)*pow(r,2.)))
 
 
 def XI_H1 ( r,  z ):
