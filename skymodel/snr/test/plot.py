@@ -2,65 +2,86 @@
 from numpy import *
 from matplotlib.pyplot import *
 from astropy.table import Table
-from astropy import units as u
+#from astropy import units as u
 #from astropy.io import fits
 from crab import *
 
-
-files=[]
-files=files+ [ [ '../ALL_FILES_0/results_0.txt', 'current distribution'    ] ]
-files=files+ [ [ '../ALL_FILES_0/results_old.txt', 'old distribution'    ] ]
-#files=files+ [ [ 'results_2.txt', 'current test'    ] ]
-#files=files+ [ [ 'results_3.txt', 'current test'    ] ]
-
-#files=files+ [ [ '191211_b/results_0.txt', 'Efficiency= 0.005, alpha=2.25' ] ]
-#files=files+ [ [ '191211_c/results_0.txt', 'Efficiency= 0.005, KNEE= 300.'  ] ]
-#files=files+ [ [ '191211_d/results_0.txt', 'Efficiency= 0.005, alpha=2.3'  ] ]
+outfile= '../ALL_FILES_0/results_0.txt'   ;  label= 'Synt. population'
 
 
-for fil in files:
+#outfile = sys.argv[1]
+#label   = sys.argv[2]
 
-  q = Table.read(fil[0], format='ascii')
-  en=q['E[TeV]'][0:40].data               # TeV
+q = Table.read(outfile, format='ascii')
+en=q['E[TeV]'][0:40].data               # TeV
 
-  emin=1. ;  emax=200.
-  intf=[]
+emin=1. ;  emax=200.
+intf=[]
+intf100=[]
+aalp=[]
 
-  for i in arange(int(len(q)/40)):
+for i in arange(int(len(q)/40)):
 
-    sed=q['diff_spectrum'][i*40:(i+1)*40]   #  TeV cm-2 s-1  ??
-    fl=sed / en**2.                         #  cm-2 s-1 TeV-1 ??
-    #plot(en,fl,'y')
+    sed=q['diff_spectrum'][i*40:(i+1)*40]   #  TeV cm-2 s-1  ?
+    fl=sed / en**2.                         #  cm-2 s-1 TeV-1 ?
+     
+    age = q['age[kyr]'][i*40]
+     
+    if (sum(fl) != 0)*(age < 10.):
+
+      alp = log(fl[8]/fl[0])/log(en[8]/en[0])
+      aalp=aalp+[alp]
+  
+      plot(en,sed)
     
-    if sum(sed) != 0 :
-      intf=intf+[ integ(en,fl, emin=1.,emax=10.)[0] ]   #   cm-2 s-1
+      intf    = intf    +[ integ(en,fl, emin=1.,emax=100.)[0] ]                  #   cm-2 s-1
+      intf100 = intf100 +[ integ(en,fl, emin=.1,emax=100.)[0] ]                  #   cm-2 s-1
     
-  intf=array(intf)
-  logNlogS(intf,label=fil[1])
+intf=array(intf)
+intf=intf[~isnan(intf)]
+  
+intf100 = array(intf100)
+intf100 = intf100[~isnan(intf100)]
+  
+#logNlogS(intf100,label=fil[1])
 
-  print('N. of objects with flux larger than Crab : ',len(where(intf > 2e-11 )[0]))
+print('N. of objects brighter than 1 Crab (E >.1 and 1 TeV) : ', len(where(intf100 > 5.6e-10 )[0]), len(where(intf > 2e-11 )[0]) )
 
+# Plot spectra
 
-### from Pierre (2018)
- 
-#p=Table.read('old/ctadc_skymodel_gps_sources_snr_3.ecsv',format='ascii.ecsv')
-#logNlogS(p['flux_1_10'],label='P3')
-
+ylabel('Flux [TeV cm-2 s-1]')  ;  xlabel('Energy [TeV]')
+xlim([0.1,2e2]) ; ylim([1e-24,1e-8])
+loglog()  
+savefig('Spectra.png')
+show()
 
 ### Real SNRs
 
-re=Table.read('real.txt',format='ascii')
-rflux=re['Flux_above_1TeV']
-errorbar(rflux/1.6,re['n'],yerr=sqrt(re['n']),fmt='-o',label='Real SNR')
+re=Table.read('real.txt',format='ascii.fixed_width')
+rflux1=re['Flux1TeV']
+rflux100=re['Flux100GeV']
 
-#icu = intf / crab( energy=[emin,emax])[0].to_value('cm-2 s-1')
-#hist(intf)
-
-#plot(en,crab(energy=en,giveme='sed').to('TeV cm-2 s-1')  )
-#plot(en,crab(energy=en,giveme='flux') )
-
+logNlogS(rflux1,label='Real SNR')
+logNlogS(intf,label=label)
 xlabel('Flux above 1 TeV [ph cm-2 s-1]')  ; ylabel('Number of objects')
-legend()
-loglog()
-savefig('test_SNRs_vs_real.pdf')
+legend() ; loglog()
+savefig('logNlogS_1TeV.png')
+show()
+
+logNlogS(rflux100,label='Real SNR')
+logNlogS(intf100,label=label)
+xlabel('Flux above 100 GeV [ph cm-2 s-1]')  ; ylabel('Number of objects')
+legend() ; loglog()
+savefig('logNlogS_100GeV.png')
+show()
+
+#sp Indices
+ 
+snr = Table.read('snr_gc.ecsv')
+hist(aalp,bins=arange(-4,-1,.1))
+hist(-snr['spec_pl_index'][~isnan(snr['spec_pl_index'])],bins=arange(-4,-1,.2) )
+xlabel('Index 100 GeV - 1 TeV')
+savefig('splopes.png')
+show()
+
 

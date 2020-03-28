@@ -1,0 +1,44 @@
+# %ECSV 0.9
+# ---
+# datatype:
+# - name: common_name
+#   datatype: string
+#   description: Common source name (unique in gamma-cat, like source_id)
+# - name: spec_flux_1TeV
+#   unit: 1 / (cm2 s)
+#   datatype: float32
+#   description: Integrated flux above 1 TeV
+# - name: spec_pl_index
+#   datatype: float32
+#   description: Spectral model (pl) parameter "index"
+# - name: classes
+#   datatype: string
+#   description: Source classes (comma-separated list)
+# schema: astropy-2.0
+common_name spec_flux_1TeV spec_pl_index classes
+"CTA 1" 8.502113e-13 2.2 pwn,snr
+"Tycho SNR" 1.1458334e-13 2.92 snr
+"LMC N132D" 9.2857146e-14 2.4 snr,mc
+"IC 443" 4.2110553e-13 2.99 snr
+"Vela Junior" 2.3394972e-11 nan snr
+"RCW 86" 2.4430453e-12 nan snr
+"HESS J1457-593" nan nan snr,mc
+"SN 1006" 1.5500005e-13 nan snr
+"SNR G323.7-01.0" 1.9878981e-12 2.51 snr
+"RX J1713.7-3946" 1.6879192e-11 nan snr
+"CTB 37B" 3.9393938e-13 2.65 snr
+"CTB 37A" 6.692308e-13 2.3 snr,mc
+"SNR G349.7+0.2" 1.2491694e-13 nan snr,mc
+"HESS J1731-347" 2.0057196e-12 2.32 snr
+"HESS J1745-303" 1.6608187e-12 2.71 unid,snr,mc
+"HESS J1800-240B" 5.0533335e-13 2.5 snr,mc
+W28 4.5180724e-13 2.66 snr,mc
+"HESS J1800-240A" nan nan snr,mc
+"SNR G15.4+0.1" 3.0299287e-13 2.3 pwn,snr
+"W 49B" 1.4719626e-13 3.14 snr,mc
+"W 51C" 6.1392406e-13 2.58 snr,mc
+"SNR G054.1+00.3" 5.3956834e-13 2.39 pwn,snr
+"VER J2016+371" 2.3846154e-13 2.3 pwn,snr
+"SNR G106.3+02.7" 1.1033563e-12 2.29 pwn,snr
+"Boomerang PWN" 1.1033563e-12 2.29 pwn,snr
+"Cassiopeia A" 7.826087e-13 2.61 snr

@@ -9,12 +9,13 @@ from astropy import units as u
 
 
 
-def logNlogS(fluxes,point='-',label=''):
+def logNlogS(fluxes,point='--.',label=''):
 
   f2=sort(fluxes)
   nn= arange(len(f2),0,-1)
-  errorbar(f2,nn,yerr=sqrt(nn),fmt=point,label=label)
-  #plot(f2,nn)
+  #errorbar(f2,nn,yerr=sqrt(nn),fmt=point,label=label)
+  fill_between(f2,nn-sqrt(nn),nn+sqrt(nn),alpha=.3)
+  plot(f2,nn,point,label=label)
   return f2,nn
 
 
