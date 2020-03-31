@@ -16,39 +16,19 @@ Summary of test runs
      <th>Efficiency</th>
      <th>KNEE</th>
      <th>Directory</th>
-     <th>Max. Age</th>
-     <th>Gas density</th>
+     <th>Max Age (yrs)</th>
+     <th>Gas density (cm-3)</th>
     </tr>
    </thead>
    <tr>
     <td>2.25</td>
-    <td>0.001</td>
+    <td>0.01</td>
     <td>1.0</td>
     <td>0.05</td>
     <td>3000</td>
-    <td>200330/3/</td>
-    <td>10000yrs, noHad</td>
-    <td>10000yrs, noHad</td>
-   </tr>
-   <tr>
-    <td>2.25</td>
-    <td>0.0001</td>
+    <td>current/</td>
+    <td>100000</td>
     <td>1.0</td>
-    <td>0.05</td>
-    <td>3000</td>
-    <td>200330/4/</td>
-    <td>10000yrs, noHad</td>
-    <td>10000yrs, noHad</td>
-   </tr>
-   <tr>
-    <td>1.8</td>
-    <td>0.001</td>
-    <td>1.0</td>
-    <td>0.05</td>
-    <td>3000</td>
-    <td>200330/2/</td>
-    <td>10000yrs, noHad</td>
-    <td>10000yrs, noHad</td>
    </tr>
    <tr>
     <td>1.8</td>
@@ -57,8 +37,38 @@ Summary of test runs
     <td>0.05</td>
     <td>3000</td>
     <td>200330/1/</td>
-    <td>2000yrs, noHad</td>
-    <td>2000yrs, noHad</td>
+    <td>2000</td>
+    <td>0.0</td>
+   </tr>
+   <tr>
+    <td>1.8</td>
+    <td>0.001</td>
+    <td>1.0</td>
+    <td>0.05</td>
+    <td>3000</td>
+    <td>200330/2/</td>
+    <td>10000</td>
+    <td>0.0</td>
+   </tr>
+   <tr>
+    <td>2.25</td>
+    <td>0.001</td>
+    <td>1.0</td>
+    <td>0.05</td>
+    <td>3000</td>
+    <td>200330/3/</td>
+    <td>10000</td>
+    <td>0.0</td>
+   </tr>
+   <tr>
+    <td>2.25</td>
+    <td>0.0001</td>
+    <td>1.0</td>
+    <td>0.05</td>
+    <td>3000</td>
+    <td>200330/4/</td>
+    <td>10000</td>
+    <td>0.0</td>
    </tr>
    <tr>
     <td>2.25</td>
@@ -67,8 +77,8 @@ Summary of test runs
     <td>0.05</td>
     <td>3000</td>
     <td>200331/1/</td>
-    <td>100000yrs, noHad</td>
-    <td>100000yrs, noHad</td>
+    <td>100000</td>
+    <td>0.0</td>
    </tr>
    <tr>
     <td>2.25</td>
@@ -77,8 +87,8 @@ Summary of test runs
     <td>0.05</td>
     <td>3000</td>
     <td>200331/2/</td>
-    <td>100000yrs, Lep+Had</td>
-    <td>100000yrs, Lep+Had</td>
+    <td>100000</td>
+    <td>1.0</td>
    </tr>
    <tr>
     <td>2.25</td>
@@ -87,8 +97,8 @@ Summary of test runs
     <td>0.05</td>
     <td>3000</td>
     <td>200331/3/</td>
-    <td>100000yrs, Lep+Had, gas=0.1</td>
-    <td>100000yrs, Lep+Had, gas=0.1</td>
+    <td>100000</td>
+    <td>0.1</td>
    </tr>
    <tr>
     <td>2.25</td>
@@ -97,8 +107,18 @@ Summary of test runs
     <td>0.05</td>
     <td>3000</td>
     <td>200331/4/</td>
-    <td>100000yrs, Lep+Had, gas=0.01</td>
-    <td>100000yrs, Lep+Had, gas=0.01</td>
+    <td>100000</td>
+    <td>0.01</td>
+   </tr>
+   <tr>
+    <td>2.25</td>
+    <td>0.0007</td>
+    <td>1.0</td>
+    <td>0.05</td>
+    <td>3000</td>
+    <td>200331/5/</td>
+    <td>100000</td>
+    <td>0.01</td>
    </tr>
   </table>
   
