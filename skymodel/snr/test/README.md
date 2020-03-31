@@ -5,7 +5,7 @@
  </head>
  <body>
 
-Summary of test runs
+<h2 align="center">Summary of test runs
 
   <table>
    <thead>
