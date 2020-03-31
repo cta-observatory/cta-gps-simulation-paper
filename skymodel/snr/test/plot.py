@@ -8,9 +8,7 @@ from crab import *
 
 outfile= '../ALL_FILES_0/results_0.txt'   ;  label= 'Synt. population'
 
-
-#outfile = sys.argv[1]
-#label   = sys.argv[2]
+#outfile = sys.argv[1]  ;  label = sys.argv[2]
 
 q = Table.read(outfile, format='ascii')
 en=q['E[TeV]'][0:40].data               # TeV
@@ -26,13 +24,17 @@ for i in arange(int(len(q)/40)):
     fl=sed / en**2.                         #  cm-2 s-1 TeV-1 ?
      
     age = q['age[kyr]'][i*40]
+    typ = q['type'][i*40]
+    print(typ)
      
-    if (sum(fl) != 0)*(age < 10.):
+    if (sum(fl) != 0)*(age < 100.):
 
       alp = log(fl[8]/fl[0])/log(en[8]/en[0])
       aalp=aalp+[alp]
   
-      plot(en,sed)
+      colo = ['pp','r','g','b','y']
+  
+      plot(en,sed,colo[typ])
     
       intf    = intf    +[ integ(en,fl, emin=1.,emax=100.)[0] ]                  #   cm-2 s-1
       intf100 = intf100 +[ integ(en,fl, emin=.1,emax=100.)[0] ]                  #   cm-2 s-1
