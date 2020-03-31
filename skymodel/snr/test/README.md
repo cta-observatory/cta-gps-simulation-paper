@@ -127,8 +127,8 @@
   <ul>
   <li> <b>logNlogS_100GeV.png</b> : LogN-LogS (for E greater than 1 TeV) of the syntetic population and LogN-LogS of known (non-interacting) SNRs )
   <li> <b>logNlogS_1TeV.png</b>  :  LogN-LogS (for E greater than 1 TeV) of the syntetic population and LogN-LogS of known (non-interacting) SNRs )
-  <li> <b>Slopes.png</b> : HRs between 100 GeV / 1 TeV  
-  <li> <b>Spectra.png</b> : All gamma-rays spectra from the synt, population (divided by SN type) 
+  <li> <b>Slopes.png</b> : Spectral slopes between 100 GeV / 1 TeV  
+  <li> <b>Spectra.png</b> : All gamma-rays spectra from the synt, population (colors change with the SN type) 
   </ul>
   
   
