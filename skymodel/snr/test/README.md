@@ -101,6 +101,20 @@ Summary of test runs
     <td>100000yrs, Lep+Had, gas=0.01</td>
    </tr>
   </table>
+  
+  
+  The plots in each directory show : 
+  <ul>
+  <li> <b>logNlogS_100GeV.png</b> : LogN-LogS (for E greater than 1 TeV) of the syntetic population and LogN-LogS of known (non-interacting) SNRs )
+  <li> <b>logNlogS_1TeV.png</b>  :  LogN-LogS (for E greater than 1 TeV) of the syntetic population and LogN-LogS of known (non-interacting) SNRs )
+  <li> <b>Slopes.png</b> : HRs between 100 GeV / 1 TeV  
+  <li> <b>Spectra.png</b> : All gamma-rays spectra from the synt, population (divided by SN type) 
+  </ul>
+  
+  
+  
+  
+  
  </body>
 </html>
 
