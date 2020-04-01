@@ -1,5 +1,5 @@
-alpha= 2.25
-Kep= 0.01
+alpha= 2.3
+Kep= 0.0001
 D= 1. 
-Efficiency= 0.05
+Efficiency= 0.04
 KNEE= 3000
