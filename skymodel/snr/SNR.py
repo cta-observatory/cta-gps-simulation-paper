@@ -27,7 +27,7 @@ definition_pevatron=500.  #TeV
 parsec=3.09*pow(10.,18.)
 Msol=1.9*pow(10,33.)
 E51=pow(10,51.)
-masseproton=1.4*1.67*pow(10,-24.)
+masseproton=1.67*pow(10,-24.)
 c=3.*pow(10,10) #  // cm/s
 mc2_electron_TeV=511.*pow(10, -9.)
 mc2_electron_erg=511.*1.602*pow(10, -9.)
@@ -35,6 +35,8 @@ k_boltzmann_erg=1.38*pow(10., -16)  #; // erg.
 masseproton_TeV= 0.938*pow(10.,-3.)  # TeV
 sigma_thomson=6.6524*pow(10., -25.) #; // en cm2
 kyear_sec=np.pi*pow(10, 10.)
+year=np.pi*10**7.
+
 mu= 1.36
 gamma_ad=4./3.
 beta=6*(gamma_ad-1)/(gamma_ad+1)
@@ -44,7 +46,7 @@ distance_SS_GC=8.5 # distance to galactic center in kiloparsec
 erg_to_TeV=0.624151
 TeV_to_erg=1./erg_to_TeV
 
-age_sample=100. # kyear 20-40 enough to study Pevatrons
+age_sample=20. # kyear 20-40 enough to study Pevatrons
 age_max_ST_pase=20. #kyears, typical end of ST phase
 
 #--------------------------------------------------------
@@ -147,8 +149,8 @@ def Rshock_type2 (self,  t ):
     step_integration1=200 # 200 ok value
     RB=np.logspace(-2.,2.,step_integration1)  #maximum distance 100 pc
     temp=0.
-    p=0
-    while(temp < t*3.*pow(10, 10.)and p<step_integration1 ):
+    p=1
+    while(temp < t*3.*pow(10, 10.)and p<step_integration1-1 ):
         temp=temp+(1./self.Ushock2_r( RB[p]))*(RB[p]-RB[p-1])*parsec
         p=p+1
     return (RB[p-1]+RB[p])/2.
@@ -448,7 +450,26 @@ def draw_number_SNRs_in_Galaxy(age_sample):
     mean=SN_rate*age_sample*10. #mean number of SN we want
     return GG(mean,np.random.uniform(0.,1.))
 
+#end of Sedov Taylor phase:
+def Time_cooling (self,t):# t in kyear , returns kyr
 
+    if (self.type==1):
+        temp=10**3.*(self.rho0/masseproton)**(-1.)*(self.Ushock_1(t)*10**-8.)**3.
+    else:
+        temp=10**3.*(self.rho_r(self.Rshock_2(t))/masseproton)**(-1.)*(self.Ushock_2(t)*10**-8.)**3.
+    return temp
+
+
+def find_t_end(self):
+    t=10**(-3.)
+  #  print('type =', self.type, '      Time_cooling(t)= ', self.Time_cooling(t), 'Ushock = ', self.Ushock_2(t), ' Rshock = ', self.Rshock_2(t)  )
+    while(t<self.Time_cooling(t) and t< age_sample):
+        t=t*10**0.05
+    return t
+    
+    
+    
+    
 
 
 def  density_around(self):
@@ -470,8 +491,38 @@ def  density_around(self):
         
         self.Tb=1.6*pow(10., 6.)*pow(self.n0, 2/35.)*pow(self.V_2000*self.Mdot/10, 8/35.)*pow(self.t6,-6/35.)
         
-        self.r1=(self.alpha1*pow(self.uw6*pow(10, 6),2.))/(4*np.pi*self.n2*self.Tb*k_boltzmann_erg*pow(parsec, 2.))
+       # self.r1=(self.alpha1*pow(self.uw6*pow(10, 6),2.))/(4*np.pi*self.n2*self.Tb*k_boltzmann_erg*pow(parsec, 2.))
+        self.r1=(self.Mdot*10**(-5)*Msol/(year)*self.uw6*10**6./(4*np.pi*self.n2*k_boltzmann_erg*self.Tb))**0.5/parsec
+
         self.r2 = 28.*pow(self.L36/(mu*self.n0) ,1./5.)*pow(self.t6,3./5.) # 35 ?
+        
+    self.t_end= self.find_t_end()
+        
+        
+        
+        
+
+def  set_density(self):
+
+    if (self.type==1):
+        self.rho0=self.n0*(1.67*pow(10,-24.))
+
+    else :
+        self.alpha1=alpha1_def(self.Mdot,self.uw6)
+
+        self.rho0=self.n0*(1.67*pow(10,-24.))
+
+        self.n2=0.01*pow(pow(self.n0,19.)*pow(self.t6,-22.),1/35.)
+        self.rho2= self.n2*(1.67*pow(10,-24.))
+
+        Mwolfrayet=1.
+        V_2000=1.
+        self.Tb=1.6*pow(10., 6.)*pow(self.n0, 2/35.)*pow(self.V_2000**2.*Mwolfrayet, 8/35.)*pow(self.t6,-6/35.)
+
+        self.r1=(self.Mdot*10**(-5)*Msol/(year)*self.uw6*10**6./(4*np.pi*self.n2*k_boltzmann_erg*self.Tb))**0.5/parsec
+        self.r2 = 28.*pow(self.L36/(mu*self.n0) ,1./5.)*pow(self.t6,3./5.) # 35 ?
+
+
 
 
 def calculate_final_evolution (self):
@@ -600,17 +651,60 @@ def Estar_electron_time ( self, t): # // E in TeV, B in MicroGauss
 # ---------------------------------------------------------------------------#
 #  NORMALIZATION FOR THE GAMMA RAYS FROM SNR
 
+#def A( self, r,t): # return in units of p**-3 cm**-3 with p in TeV/c
+#    a=2.-self.alpha
+#    E0=1.
+#    if (self.type==1):
+#        RR=self.Rshock_t(t)
+#        return ( 3.*self.eta*a*self.rho0*0.624*pow(self.Ushock1_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (1-self.sigma)*(-4+a) ) )/((pow(r/RR,-a*self.delta_Emax*self.sigma)*pow(self.Emax_t(t),a)-pow(masseproton_TeV,a)))
+#
+#    else :
+#
+#        RR=self.Rshock_t(t)
+#        return ( 3.*self.eta*a*self.rho_r(pow(r/RR,self.sigma-1.)*r)*0.624*pow(self.Ushock2_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (1-self.sigma)*(-4+a)))/((pow(r/RR,-a*self.delta_Emax*self.sigma)*pow(self.Emax_t(t),a)-pow(masseproton_TeV,a )))
+
+
+def v_E(E): # input E in TeV, output in cgs
+    return c
+
 def A( self, r,t): # return in units of p**-3 cm**-3 with p in TeV/c
-    a=2.-self.alpha
-    E0=1.
+    a=self.alpha+2.
+    E0=1. #TeV
     if (self.type==1):
+        inte=0.
+        Emin=10**-3.# TeV
+        E_GRID_LOCAL=np.logspace(np.log10(Emin),np.log10(self.Emax_t(t)),20.)
+        for i in range (1,len(E_GRID_LOCAL)):
+            inte=inte+(v_E(E_GRID_LOCAL[i])*(E_GRID_LOCAL[i]/E0)**(3-a) + v_E(E_GRID_LOCAL[i-1])*(E_GRID_LOCAL[i-1]/E0)**(3-a))*(E_GRID_LOCAL[i]-E_GRID_LOCAL[i-1])/2.
+        inte=inte*TeV_to_erg/c
         RR=self.Rshock_t(t)
-        return ( 3.*self.eta*a*self.rho0*0.624*pow(self.Ushock1_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (1-self.sigma)*(-4+a) ) )/((pow(r/RR,-a*self.delta_Emax*self.sigma)*pow(self.Emax_t(t),a)-pow(masseproton_TeV,a)))
+        calc=3.*self.eta*a*self.rho0*pow(self.Ushock1_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (self.sigma-1)*(a/3.) )
+        calc=calc/(E0*TeV_to_erg*inte)
+        calc=calc/(self.sigma*4.*np.pi) #accounting for velocity downstream of the shock + heavier nuclei
+        return calc
+    
 
     else :
 
+        inte=0.
+        Emin=10**-3.# TeV
+        E_GRID_LOCAL=np.logspace(np.log10(Emin),np.log10(self.Emax_t(t)),20.)
+        for i in range (1,len(E_GRID_LOCAL)):
+            inte=inte+(v_E(E_GRID_LOCAL[i])*(E_GRID_LOCAL[i]/E0)**(3-a) + v_E(E_GRID_LOCAL[i-1])*(E_GRID_LOCAL[i-1]/E0)**(3-a))*(E_GRID_LOCAL[i]-E_GRID_LOCAL[i-1])/2.
+        inte=inte*TeV_to_erg/c
+
         RR=self.Rshock_t(t)
-        return ( 3.*self.eta*a*self.rho_r(pow(r/RR,self.sigma-1.)*r)*0.624*pow(self.Ushock2_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (1-self.sigma)*(-4+a)))/((pow(r/RR,-a*self.delta_Emax*self.sigma)*pow(self.Emax_t(t),a)-pow(masseproton_TeV,a )))
+        
+        calc=3.*self.eta*a*self.rho_r(pow(r/RR,self.sigma-1.)*r)*pow(self.Ushock2_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (self.sigma-1)*(a/3.) )
+        calc=calc/(E0*TeV_to_erg*inte)
+        calc=calc/(self.sigma*4.*np.pi) #accounting for velocity downstream of the shock + heavier nuclei
+        return calc
+
+
+
+
+
+
 
 
 def density_inside ( self, r,t): #// r en parsec, t en kyear
@@ -622,20 +716,37 @@ def density_inside ( self, r,t): #// r en parsec, t en kyear
 
 
 def Norm_hadronic (self, t):
-    N=100
-    Rsh=self.Rshock_t(t)
-    R=np.linspace(0.,Rsh,N)
-    norm=0.
-    for i in range (0,len(R)-1):
-        norm=norm+ pow(((R[i]+R[i+1])/2.)*parsec,2.)*self.density_inside(((R[i]+R[i+1])/2.), self.age)*self.A(((R[i]+R[i+1])/2.),t)*(R[i+1]-R[i])*parsec/masseproton
-    self.Norm_hadronic_mem =4*np.pi*norm/(4*np.pi*TeV_to_erg)
+    N=50
+    
+    if (t>=self.t_end):
+        self.Norm_hadronic_mem=0.
+    else :
+        Rsh=self.Rshock_t(t)
+        R=np.linspace(0.,Rsh,N)
+        norm=0.
+        for i in range (0,len(R)-1):
+            norm=norm+ pow(((R[i]+R[i+1])/2.)*parsec,2.)*self.density_inside(((R[i]+R[i+1])/2.), t)*self.A(((R[i]+R[i+1])/2.),t)*(R[i+1]-R[i])*parsec/masseproton
+        self.Norm_hadronic_mem =4*np.pi*norm#/(4*np.pi*TeV_to_erg)
 
     #4*np.pi/c for conversion from f(p) to f(E)
     return self.Norm_hadronic_mem
 
+# Norm leptonic, does not include denisty of target photons inside SNR:
+def Norm_leptonic (self, t):
+    N=50
+    
+    if (t>=self.t_end):
+        self.Norm_leptonic_mem=0.
+    else :
+        Rsh=self.Rshock_t(t)
+        R=np.linspace(0.,Rsh,N)
+        norm=0.
+        for i in range (0,len(R)-1):
+            norm=norm+ pow(((R[i]+R[i+1])/2.)*parsec,2.)*self.A(((R[i]+R[i+1])/2.),t)*(R[i+1]-R[i])*parsec
+        self.Norm_leptonic_mem =4*np.pi*norm*self.Kep#/(4*np.pi*TeV_to_erg)
 
-
-
+    #4*np.pi/c for conversion from f(p) to f(E)
+    return self.Norm_leptonic_mem
 
 
 #--------------------------------------------------------
@@ -649,7 +760,8 @@ def spectrum_proton_old_school (self, E,time): # this is needed for the secondar
     
     
 def spectrum_electron(self,time):
-    return naima.models.ExponentialCutoffBrokenPowerLaw(self.Kep*self.Norm_hadronic(time)/u.erg,1*u.TeV,self.Estar_electron_time(time) *u.TeV,self.alpha,-1,self.Emax_electron_vannoni_time(time)*u.TeV,beta=1)
+    return naima.models.ExponentialCutoffBrokenPowerLaw(self.Norm_leptonic(time)/u.erg,1*u.TeV,self.Estar_electron_time(time) *u.TeV,self.alpha,self.alpha+1.,self.Emax_electron_vannoni_time(time) *u.TeV,beta=1)
+
     
 def diff_spectrum_hadronic(self,time):
     self.dist=self.distance()
@@ -705,6 +817,7 @@ def calculate_diff_spectrum_PWNE_TIME (self):
 
 class SNR:
     #    SN=Supernova()
+    t_end=10.
     age=1.
     pos_r=1.
     pos_z=1.
@@ -752,6 +865,8 @@ class SNR:
     Estar_electron_time_mem=1.
     Emax_electron_vannoni_time_mem=1.
     Norm_hadronic_mem=1.
+    Norm_leptonic_mem=1.
+
     distance=distance
     distance_plan=distance_plan
     b_calculated=b_calculated
@@ -775,6 +890,9 @@ class SNR:
     rho0=rho0
     rho_r=rho_r
     rho1_r=rho1_r
+    
+    find_t_end=find_t_end
+    Time_cooling=Time_cooling
 
     M=M
     M0=M0
@@ -807,7 +925,7 @@ class SNR:
     place_SN_z_typeII=place_SN_z_typeII
     calculate_final_evolution=calculate_final_evolution
     density_around=density_around
-    
+    set_density=set_density
     
     # Arrays for spectra
     ENERGY=np.logspace(-1,4,40)* u.TeV
@@ -835,7 +953,8 @@ class SNR:
     A=A
     density_inside=density_inside
     Norm_hadronic=Norm_hadronic
-    
+    Norm_leptonic=Norm_leptonic
+
     spectrum_proton=spectrum_proton
     spectrum_proton_old_school=spectrum_proton_old_school
     spectrum_electron=spectrum_electron
@@ -853,7 +972,7 @@ class SNR:
 
 
 
-def one_realization_only_pevatrons (a, Kep, D,eta, KNEE):
+def one_realization_only_pevatrons (slope, Kep, D,eta, KNEE):
     N=draw_number_SNRs_in_Galaxy(age_sample)
     print('Number of simulated objects= ', N )
 
@@ -871,14 +990,15 @@ def one_realization_only_pevatrons (a, Kep, D,eta, KNEE):
         if (SNR_temp.age < age_max_ST_pase):
             SNR_temp.calculate_final_evolution()
             SNR_temp.set_factor_Emax(KNEE)
-            SNR_temp.alpha=a
+            SNR_temp.alpha=slope
             SNR_temp.Kep=Kep
             SNR_temp.distance()
             SNR_temp.size=2*SNR_temp.Rshock/(SNR_temp.dist*pow(10., 3.))*3437.75
             #### Calculating the gammas from the SNR :
             SNR_temp.eta=eta
             SNR_temp.calculate_diff_spectrum_TIME()
-            
+            print(' KEP= ', SNR_temp.Kep)
+       #     print(' SNR_temp.Norm_leptonic_mem= ', SNR_temp.Norm_leptonic_mem, ' SNR_temp.Norm_hadronic_mem  =', SNR_temp.Norm_hadronic_mem, ' Emax = ', SNR_temp.Emax_mem, 'time_end = ', SNR_temp.t_end)
         else:
             SNR_temp.calculate_diff_spectrum_PWNE_TIME()
             
@@ -888,10 +1008,10 @@ def one_realization_only_pevatrons (a, Kep, D,eta, KNEE):
 
 
 
-def many_realizations (a,Kep, D, eta, KNEE, M):
+def many_realizations (slope,Kep, D, eta, KNEE, M):
     BIG_LIST=[]
     for i in range (0, M):
-        LIST_SNR=one_realization(a, Kep, D,eta, KNEE)
+        LIST_SNR=one_realization(slope, Kep, D,eta, KNEE)
         BIG_LIST.append(LIST_SNR)
 
     return BIG_LIST
