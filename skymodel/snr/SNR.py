@@ -462,7 +462,7 @@ def Time_cooling (self,t):# t in kyear , returns kyr
 
 def find_t_end(self):
     t=10**(-3.)
-  #  print('type =', self.type, '      Time_cooling(t)= ', self.Time_cooling(t), 'Ushock = ', self.Ushock_2(t), ' Rshock = ', self.Rshock_2(t)  )
+    print('type =', self.type, '      Time_cooling(t)= ', self.Time_cooling(t), 'Ushock = ', self.Ushock_2(t), ' Rshock = ', self.Rshock_2(t)  )
     while(t<self.Time_cooling(t) and t< age_sample):
         t=t*10**0.05
     return t
@@ -495,7 +495,8 @@ def  density_around(self):
         self.r1=(self.Mdot*10**(-5)*Msol/(year)*self.uw6*10**6./(4*np.pi*self.n2*k_boltzmann_erg*self.Tb))**0.5/parsec
 
         self.r2 = 28.*pow(self.L36/(mu*self.n0) ,1./5.)*pow(self.t6,3./5.) # 35 ?
-        
+        self.r2 = min(30.,self.r2) # 35 ?
+
     self.t_end= self.find_t_end()
         
         
@@ -567,7 +568,7 @@ def distance (self):
 #  EMAX FUNCTIONS to match the knee and corresponding amplified field
 
 def Emax_t (self, t):
-    self.Emax_mem=self.Emax_factor*self.Emax_OK2015(t)
+    self.Emax_mem=self.Emax_factor*self.Emax_simple(t)
     return  self.Emax_mem
 
 def B_amplified_OK2015 (self, t):
@@ -587,19 +588,39 @@ def B_amplified_knee ( self, t):
     
 
 
-def Emax_OK2015 (self, t): # // in TeV
-    if (self.type==1):
-        self.delta_Emax=-np.log10(self.EMAX_B_dependant_t_OK2015(t+2.)/self.EMAX_B_dependant_t_OK2015(t))/np.log10(self.Rshock_t(t+2.)/self.Rshock_t(t))
-        A_test=self.EMAX_B_dependant_t_OK2015(t)/pow(self.Rshock_t(t),-self.delta_Emax)
-        return A_test*pow(self.Rshock_t(t),-self.delta_Emax)
+#def Emax_OK2015 (self, t): # // in TeV
+#    if (self.type==1):
+#        self.delta_Emax=-np.log10(self.EMAX_B_dependant_t_OK2015(t+2.)/self.EMAX_B_dependant_t_OK2015(t))/np.log10(self.Rshock_t(t+2.)/self.Rshock_t(t))
+#        A_test=self.EMAX_B_dependant_t_OK2015(t)/pow(self.Rshock_t(t),-self.delta_Emax)
+#        return A_test*pow(self.Rshock_t(t),-self.delta_Emax)
+#
+#    else :
+#        self.delta_Emax=2.;
+#        return self.EMAX_B_dependant_t_OK2015(t)
+#
 
-    else :
-        self.delta_Emax=2.;
-        return self.EMAX_B_dependant_t_OK2015(t)
+#
+#def EMAX_B_dependant_t_OK2015 ( self, t):
+#    xi_B_correction_factor=1.
+#
+#    if(self.type==1):
+#        VA0=xi_B_correction_factor*self.B0/(4*np.pi*self.rho0)**(0.5)
+#        U1=self.Ushock_t(t)
+#        R1=self.Rshock_t(t)
+#
+#        return pow(10, -12.)*3*pow(10, -6.)*pow(10, -8.)*self.chi*R1*parsec*U1*(self.B_amplified_OK2015(t)/self.sigma)*1./(pow(pow((VA0*self.M_A*pow(10, -6.))/U1, 2.)+1, 1.5))
+#
+#    else :
+#        R2=self.Rshock_t(t)
+#        VA0=xi_B_correction_factor*self.B0/(4*np.pi*self.rho_r(R2))**(0.5)
+##     print ('JOJOOJJJO' )
+##       print('self.rho_r(R2)=', self.rho_r(R2), 'self.rho0', self.rho0, '   R2 =', R2, '  t = ', t, '   r2 = ', self.r2)
+#        U2=self.Ushock_t(t)
+#        return pow(10, -12.)*3*pow(10, -6.)*pow(10, -8.)*self.chi*R2*parsec*U2*(self.B_amplified_OK2015(t)/self.sigma)*1./(pow(pow((VA0*self.M_A*pow(10, -6.))/U2, 2.)+1, 1.5))
 
 
 
-def EMAX_B_dependant_t_OK2015 ( self, t):
+def Emax_simple ( self, t):
     xi_B_correction_factor=1.
     
     if(self.type==1):
@@ -612,10 +633,12 @@ def EMAX_B_dependant_t_OK2015 ( self, t):
     else :
         R2=self.Rshock_t(t)
         VA0=xi_B_correction_factor*self.B0/(4*np.pi*self.rho_r(R2))**(0.5)
-#     print ('JOJOOJJJO' )
-#       print('self.rho_r(R2)=', self.rho_r(R2), 'self.rho0', self.rho0, '   R2 =', R2, '  t = ', t, '   r2 = ', self.r2)
         U2=self.Ushock_t(t)
         return pow(10, -12.)*3*pow(10, -6.)*pow(10, -8.)*self.chi*R2*parsec*U2*(self.B_amplified_OK2015(t)/self.sigma)*1./(pow(pow((VA0*self.M_A*pow(10, -6.))/U2, 2.)+1, 1.5))
+
+
+
+
 
 # ---------------------------------------------------------------------------#
 #  EMAX electrons
@@ -667,38 +690,88 @@ def Estar_electron_time ( self, t): # // E in TeV, B in MicroGauss
 def v_E(E): # input E in TeV, output in cgs
     return c
 
+def v_p (p): #p in mc units, out in cm.s**-1
+    temp= (p*masseproton*c)*c**2./((p*masseproton*c)**2*c**2.+ masseproton**2.*c**4.)**0.5
+    return temp
+
+
+#def A( self, r,t): # return in units of p**-3 cm**-3 with p in TeV/c
+#    a=self.alpha+2.
+#    E0=1. #TeV
+#    if (self.type==1):
+#        inte=0.
+#        Emin=10**-3.# TeV
+#        E_GRID_LOCAL=np.logspace(np.log10(Emin),np.log10(self.Emax_t(t)),40.)
+#        for i in range (1,len(E_GRID_LOCAL)):
+#            inte=inte+(v_E(E_GRID_LOCAL[i])*(E_GRID_LOCAL[i]/E0)**(3-a) + v_E(E_GRID_LOCAL[i-1])*(E_GRID_LOCAL[i-1]/E0)**(3-a))*(E_GRID_LOCAL[i]-E_GRID_LOCAL[i-1])/2.
+#        inte=inte*TeV_to_erg/c
+#        RR=self.Rshock_t(t)
+#        calc=3.*self.eta*a*self.rho0*pow(self.Ushock1_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (self.sigma-1)*(a/3.) )
+#        calc=calc/(E0*TeV_to_erg*inte)
+#        calc=calc/(self.sigma) #accounting for velocity downstream of the shock + heavier nuclei
+#        return calc
+#
+#
+#    else :
+#
+#        inte=0.
+#        Emin=10**-3.# TeV
+#        E_GRID_LOCAL=np.logspace(np.log10(Emin),np.log10(self.Emax_t(t)),20.)
+#        for i in range (1,len(E_GRID_LOCAL)):
+#            inte=inte+(v_E(E_GRID_LOCAL[i])*(E_GRID_LOCAL[i]/E0)**(3-a) + v_E(E_GRID_LOCAL[i-1])*(E_GRID_LOCAL[i-1]/E0)**(3-a))*(E_GRID_LOCAL[i]-E_GRID_LOCAL[i-1])/2.
+#        inte=inte*TeV_to_erg/c
+#
+#        RR=self.Rshock_t(t)
+#
+#        calc=3.*self.eta*a*self.rho_r(pow(r/RR,self.sigma-1.)*r)*pow(self.Ushock2_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (self.sigma-1)*(a/3.) )
+#        calc=calc/(E0*TeV_to_erg*inte)
+#        calc=calc/(self.sigma) #accounting for velocity downstream of the shock + heavier nuclei
+#        return calc
+
+
 def A( self, r,t): # return in units of p**-3 cm**-3 with p in TeV/c
     a=self.alpha+2.
     E0=1. #TeV
     if (self.type==1):
         inte=0.
-        Emin=10**-3.# TeV
-        E_GRID_LOCAL=np.logspace(np.log10(Emin),np.log10(self.Emax_t(t)),20.)
-        for i in range (1,len(E_GRID_LOCAL)):
-            inte=inte+(v_E(E_GRID_LOCAL[i])*(E_GRID_LOCAL[i]/E0)**(3-a) + v_E(E_GRID_LOCAL[i-1])*(E_GRID_LOCAL[i-1]/E0)**(3-a))*(E_GRID_LOCAL[i]-E_GRID_LOCAL[i-1])/2.
-        inte=inte*TeV_to_erg/c
+        pmin=10**-3.# mc units
+        pmax=self.Emax_t(t)*10**3. # GeV/c
+      #  print(' pmax = ', pmax)
+        P_GRID_LOCAL=np.logspace(np.log10(pmin),np.log10(pmax),30)
+     #   print('P_GRID_LOCAL = ', P_GRID_LOCAL)
+     #   print('v_p(P_GRID_LOCAL)= ', v_p(P_GRID_LOCAL))
+        P0=E0*10**3. # GeV/c
+        for i in range (1,len(P_GRID_LOCAL)):
+            inte=inte+(v_p(P_GRID_LOCAL[i])*(P_GRID_LOCAL[i]/P0)**(3-a) + v_p(P_GRID_LOCAL[i-1])*(P_GRID_LOCAL[i-1]/P0)**(3-a))*(P_GRID_LOCAL[i]-P_GRID_LOCAL[i-1])/2.
+        inte=inte*10**-3.*TeV_to_erg/c
         RR=self.Rshock_t(t)
-        calc=3.*self.eta*a*self.rho0*pow(self.Ushock1_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (self.sigma-1)*(a/3.) )
+        calc=3.*self.eta*self.rho0*pow(self.Ushock1_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (self.sigma-1)*(a/3.) )
         calc=calc/(E0*TeV_to_erg*inte)
-        calc=calc/(self.sigma*4.*np.pi) #accounting for velocity downstream of the shock + heavier nuclei
+        calc=calc/(self.sigma) #accounting for velocity downstream of the shock + heavier nuclei
         return calc
     
 
     else :
 
         inte=0.
-        Emin=10**-3.# TeV
-        E_GRID_LOCAL=np.logspace(np.log10(Emin),np.log10(self.Emax_t(t)),20.)
-        for i in range (1,len(E_GRID_LOCAL)):
-            inte=inte+(v_E(E_GRID_LOCAL[i])*(E_GRID_LOCAL[i]/E0)**(3-a) + v_E(E_GRID_LOCAL[i-1])*(E_GRID_LOCAL[i-1]/E0)**(3-a))*(E_GRID_LOCAL[i]-E_GRID_LOCAL[i-1])/2.
-        inte=inte*TeV_to_erg/c
+        pmin=10**-3.# mc units
+        pmax=self.Emax_t(t)*10**3. # GeV/c
+     #  print(' pmax = ', pmax)
+        P_GRID_LOCAL=np.logspace(np.log10(pmin),np.log10(pmax),40.)
+    #   print('P_GRID_LOCAL = ', P_GRID_LOCAL)
+    #   print('v_p(P_GRID_LOCAL)= ', v_p(P_GRID_LOCAL))
+        P0=E0*10**3. # GeV/c
+        for i in range (1,len(P_GRID_LOCAL)):
+            inte=inte+(v_p(P_GRID_LOCAL[i])*(P_GRID_LOCAL[i]/P0)**(3-a) + v_p(P_GRID_LOCAL[i-1])*(P_GRID_LOCAL[i-1]/P0)**(3-a))*(P_GRID_LOCAL[i]-P_GRID_LOCAL[i-1])/2.
+        inte=inte*10**-3.*TeV_to_erg/c
 
         RR=self.Rshock_t(t)
         
-        calc=3.*self.eta*a*self.rho_r(pow(r/RR,self.sigma-1.)*r)*pow(self.Ushock2_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (self.sigma-1)*(a/3.) )
+        calc=3.*self.eta*self.rho_r(pow(r/RR,self.sigma-1.)*r)*pow(self.Ushock2_r(RR*pow(r/RR, self.sigma)),2.)*pow(r/RR , (self.sigma-1)*(a/3.) )
         calc=calc/(E0*TeV_to_erg*inte)
-        calc=calc/(self.sigma*4.*np.pi) #accounting for velocity downstream of the shock + heavier nuclei
+        calc=calc/(self.sigma) #accounting for velocity downstream of the shock + heavier nuclei
         return calc
+
 
 
 
@@ -718,7 +791,7 @@ def density_inside ( self, r,t): #// r en parsec, t en kyear
 def Norm_hadronic (self, t):
     N=50
     
-    if (t>=self.t_end):
+    if (t>=self.t_end or self.Rshock_t(t)>=self.r2):
         self.Norm_hadronic_mem=0.
     else :
         Rsh=self.Rshock_t(t)
@@ -735,7 +808,7 @@ def Norm_hadronic (self, t):
 def Norm_leptonic (self, t):
     N=50
     
-    if (t>=self.t_end):
+    if (t>=self.t_end or self.Rshock_t(t)>=self.r2):
         self.Norm_leptonic_mem=0.
     else :
         Rsh=self.Rshock_t(t)
@@ -776,7 +849,7 @@ def diff_spectrum_hadronic(self,time):
 def diff_spectrum_leptonic(self,time):
     self.dist=self.distance()
     ELECTRONS=self.spectrum_electron(time)
-    IC = InverseCompton(ELECTRONS, seed_photon_fields=['CMB','NIR', 'FIR'])
+    IC = InverseCompton(ELECTRONS, seed_photon_fields=['CMB'])
     GAMMAS=IC.sed(self.ENERGY,self.dist * u.kpc)
     GAMMAS_TeV=GAMMAS.to(u.TeV/(u.cm**2 *u.s))
     return GAMMAS_TeV
@@ -902,10 +975,11 @@ class SNR:
     Transitiontime1=Transitiontime1
     Transitiontime2=Transitiontime2
     Emax_t=Emax_t
-    Emax_OK2015=Emax_OK2015
+   # Emax_OK2015=Emax_OK2015
+    Emax_simple=Emax_simple
     B_amplified_OK2015=B_amplified_OK2015
     B_amplified_knee=B_amplified_knee
-    EMAX_B_dependant_t_OK2015=EMAX_B_dependant_t_OK2015
+  #  EMAX_B_dependant_t_OK2015=EMAX_B_dependant_t_OK2015
     INT=INT
     INT0=INT0
     INT1=INT1
@@ -997,8 +1071,8 @@ def one_realization_only_pevatrons (slope, Kep, D,eta, KNEE):
             #### Calculating the gammas from the SNR :
             SNR_temp.eta=eta
             SNR_temp.calculate_diff_spectrum_TIME()
-            print(' KEP= ', SNR_temp.Kep)
-       #     print(' SNR_temp.Norm_leptonic_mem= ', SNR_temp.Norm_leptonic_mem, ' SNR_temp.Norm_hadronic_mem  =', SNR_temp.Norm_hadronic_mem, ' Emax = ', SNR_temp.Emax_mem, 'time_end = ', SNR_temp.t_end)
+          #  print(' KEP= ', SNR_temp.Kep)
+          #  print(' SNR_temp.Norm_leptonic_mem= ', SNR_temp.Norm_leptonic_mem, ' SNR_temp.Norm_hadronic_mem  =', SNR_temp.Norm_hadronic_mem, ' Emax = ', SNR_temp.Emax_mem, 'time_end = ', SNR_temp.t_end)
         else:
             SNR_temp.calculate_diff_spectrum_PWNE_TIME()
             
