@@ -415,20 +415,24 @@ def typical_associated_parameters(self):
         self.E_SN=1.
     else:
         if (self.type==2):
-            self.Mej=8.
+            #self.Mej=np.andom.normal(8, 2)
+            self.Mej=np.random.normal(8, 2)
             self.Mdot=1.
             self.E_SN=1.
         else:
             if(self.type==3):
                 self.Mej=2.
-                self.Mdot=1.
-
+                self.Mej=np.random.normal(2.,0.5)
+                self.Mdot=1
                 self.E_SN=1.
             else:
                 if(self.type==4):
                     self.Mej=1.
                     self.Mdot=10.
                     self.E_SN=3.
+                    
+    self.Mej=min(20,self.Mej)
+    self.Mej=max(0.5,self.Mej)
 
 
 
@@ -839,9 +843,9 @@ def spectrum_electron(self,time):
 def diff_spectrum_hadronic(self,time):
     self.dist=self.distance()
     PROTONS=self.spectrum_proton(time)
+    # Here the target density HAS TO BE 1. -> the real density profile is taken into account in density_inside and Norm_hadronic/Norm_leptonic
     PIONS_FROM_SHELL=PionDecay(PROTONS, nh=1.* u.cm** -3,Epmax=100* u.PeV)
     GAMMAS=PIONS_FROM_SHELL.sed(self.ENERGY,self.dist * u.kpc)
-        #  GAMMAS.to(u.eV/(u.cm **2 * u.s))
     GAMMAS=GAMMAS.to(u.TeV/(u.cm**2 *u.s))
     return GAMMAS
     
@@ -875,14 +879,24 @@ def calculate_alpha_gamma (self,E):
 
 def calculate_diff_spectrum_TIME (self):
     self.LGAMMA_DIFF_T=np.zeros((len(self.TIME), len(self.ENERGY)))
-    for t in range (0,len(self.TIME)):
-        SPEC=np.array(self.diff_spectrum_total(self.TIME[t]))
+    self.LGAMMA_HADRONIC_T=np.zeros((len(self.TIME), len(self.ENERGY)))
+    self.LGAMMA_LEPTONIC_T=np.zeros((len(self.TIME), len(self.ENERGY)))
 
+    for t in range (0,len(self.TIME)):
+     #   SPEC=np.array(self.diff_spectrum_total(self.TIME[t]))
+        SPEC_LEPTONIC=np.array(self.diff_spectrum_leptonic(self.TIME[t]))
+        SPEC_HADRONIC=np.array(self.diff_spectrum_hadronic(self.TIME[t]))
+        SPEC=SPEC_HADRONIC+SPEC_LEPTONIC
         for i in range (0,len(self.ENERGY)):
             self.LGAMMA_DIFF_T[t][i]=SPEC[i]
+            self.LGAMMA_HADRONIC_T[t][i]=SPEC_HADRONIC[i]
+            self.LGAMMA_LEPTONIC_T[t][i]=SPEC_LEPTONIC[i]
+
 
 def calculate_diff_spectrum_PWNE_TIME (self):
     self.LGAMMA_DIFF_T=np.zeros((len(self.TIME), len(self.ENERGY)))
+    self.LGAMMA_HADRONIC_T=np.zeros((len(self.TIME), len(self.ENERGY)))
+    self.LGAMMA_LEPTONIC_T=np.zeros((len(self.TIME), len(self.ENERGY)))
 
 
 #--------------------------------------------------------#
@@ -1143,10 +1157,10 @@ def save_one_LIST_to_file_cyril (LIST,file):
     with open(file, 'w') as text_file:
         writer = csv.writer(text_file, delimiter='\t')
         writer.writerow(["Num_SNR","POS_X", \
-                         "POS_Y","POS_Z","n0", \
+                         "POS_Y","POS_Z","n0_ISM","n0_shock", \
                          "type", "age[kyr]" ,"size", \
                          "SNR_radius[pc]","E[TeV]", \
-                         "diff_spectrum"])
+                         "diff_spectrum","diff_hadronic", "diff_leptonic"])
             
             
         for i in range (0,len(LIST)):
@@ -1154,10 +1168,10 @@ def save_one_LIST_to_file_cyril (LIST,file):
             for j in range (0,len(LIST[i].ENERGY)):
                                  
                 writer.writerow((i,LIST[i].pos_r*np.cos(LIST[i].pos_theta), \
-                                      LIST[i].pos_r*np.sin(LIST[i].pos_theta), LIST[i].pos_z,LIST[i].n0, \
+                                      LIST[i].pos_r*np.sin(LIST[i].pos_theta), LIST[i].pos_z,LIST[i].n0, LIST[i].rho_r(LIST[i].Rshock)/masseproton, \
                                       LIST[i].type, LIST[i].age, LIST[i].size, \
                                       LIST[i].Rshock, ENERGY[j], \
-                                      LIST[i].LGAMMA_DIFF_T[len(LIST[i].TIME)-1][j]))
+                                      LIST[i].LGAMMA_DIFF_T[len(LIST[i].TIME)-1][j], LIST[i].LGAMMA_HADRONIC_T[len(LIST[i].TIME)-1][j], LIST[i].LGAMMA_LEPTONIC_T[len(LIST[i].TIME)-1][j]  ))
 
 def get_first_nbr_from_str(input_str):
     if not input_str and not isinstance(input_str, str):
