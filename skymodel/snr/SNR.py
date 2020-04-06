@@ -416,7 +416,7 @@ def typical_associated_parameters(self):
     else:
         if (self.type==2):
             #self.Mej=np.andom.normal(8, 2)
-            self.Mej=np.random.normal(8, 2)
+            self.Mej=np.random.normal(14, 4)
             self.Mdot=1.
             self.E_SN=1.
         else:
@@ -1158,7 +1158,7 @@ def save_one_LIST_to_file_cyril (LIST,file):
         writer = csv.writer(text_file, delimiter='\t')
         writer.writerow(["Num_SNR","POS_X", \
                          "POS_Y","POS_Z","n0_ISM","n0_shock", \
-                         "type", "age[kyr]" ,"size", \
+                         "type","Mej", "age[kyr]" ,"size", \
                          "SNR_radius[pc]","E[TeV]", \
                          "diff_spectrum","diff_hadronic", "diff_leptonic"])
             
@@ -1169,7 +1169,7 @@ def save_one_LIST_to_file_cyril (LIST,file):
                                  
                 writer.writerow((i,LIST[i].pos_r*np.cos(LIST[i].pos_theta), \
                                       LIST[i].pos_r*np.sin(LIST[i].pos_theta), LIST[i].pos_z,LIST[i].n0, LIST[i].rho_r(LIST[i].Rshock)/masseproton, \
-                                      LIST[i].type, LIST[i].age, LIST[i].size, \
+                                      LIST[i].type,LIST[i].Mej ,LIST[i].age, LIST[i].size, \
                                       LIST[i].Rshock, ENERGY[j], \
                                       LIST[i].LGAMMA_DIFF_T[len(LIST[i].TIME)-1][j], LIST[i].LGAMMA_HADRONIC_T[len(LIST[i].TIME)-1][j], LIST[i].LGAMMA_LEPTONIC_T[len(LIST[i].TIME)-1][j]  ))
 
