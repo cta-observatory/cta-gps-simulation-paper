@@ -54,5 +54,5 @@ logNlogS(rflux100,label='Real SNR')
 #logNlogS(intf100,label=fil[1])
 xlabel('Flux above 100 GeV [ph cm-2 s-1]')  ; ylabel('Number of objects')
 legend() ; loglog()
-savefig('test_2.pdf')
+savefig('test100GeV.pdf')
 
