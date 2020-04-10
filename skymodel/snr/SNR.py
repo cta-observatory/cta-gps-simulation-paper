@@ -46,7 +46,7 @@ distance_SS_GC=8.5 # distance to galactic center in kiloparsec
 erg_to_TeV=0.624151
 TeV_to_erg=1./erg_to_TeV
 
-age_sample=20. # kyear 20-40 enough to study Pevatrons
+age_sample=100. # kyear 20-40 enough to study Pevatrons
 age_max_ST_pase=20. #kyears, typical end of ST phase
 
 #--------------------------------------------------------
