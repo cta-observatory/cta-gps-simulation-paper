@@ -7,6 +7,13 @@ from astropy import units as u
 
 
 
+def smooth(y, box_pts, filter='box'):
+
+    ff = {'box': ones(box_pts)/box_pts, 'piramid':array([0.1,0.25,0.3,0.25,0.1]) }
+    f = ff[filter]
+    y_smooth = convolve(y, f, mode='same')
+
+    return y_smooth
 
 
 def logNlogS(fluxes,point='--.',label=''):
@@ -17,10 +24,6 @@ def logNlogS(fluxes,point='--.',label=''):
   fill_between(f2,nn-sqrt(nn),nn+sqrt(nn),alpha=.3)
   plot(f2,nn,point,label=label)
   return f2,nn
-
-
-
-
 
 
 def integ(enref,flref,emin=1.,emax=10., prec=1e4):
@@ -45,12 +48,10 @@ def integ(enref,flref,emin=1.,emax=10., prec=1e4):
   return [intFlux,intFluxE]
 
 
-
 def pl(en,k=1.,index=2,e_piv=1.):
   
   flux = k * (en / e_piv)**(index)
   return flux
-
 
 
 def crab(energy=[.1,10],model='hegra', giveme='intFlux'):
