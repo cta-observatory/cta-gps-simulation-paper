@@ -145,7 +145,7 @@ def add_sed_columns(table):
     sed_dnde = np.empty_like(sed_energy)
     for col_idx in range(40):
         #sed_dnde[:, col_idx] = table.columns[6 + col_idx]                            #  
-        sed_dnde[:, col_idx] = table.columns[6 + col_idx] / sed_energy[0,col_idx]**2.  #  units set to "cm-2 s-1 TeV-1"  (AG)
+        sed_dnde[:, col_idx] = table.columns[8 + col_idx] / sed_energy[0,col_idx]**2.  #  units set to "cm-2 s-1 TeV-1"  (AG)    #Ag index 6-->8
 
     table['sed_energy'] = u.Quantity(sed_energy, 'TeV').to('MeV')
     table['sed_dnde'] = u.Quantity(sed_dnde, 'cm-2 s-1 TeV-1').to('cm-2 s-1 MeV-1')

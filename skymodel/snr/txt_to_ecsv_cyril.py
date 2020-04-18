@@ -36,7 +36,7 @@ def read_txt_files(version):
 #        print( ' EMPTTY ')
 #        exit()
 
-    EGRID = data2[:,9]
+    EGRID = data2[:,11]     #Ag
     p=0
 #    while(data2[p][0]==0 ):
 #        p=p+1
@@ -55,7 +55,7 @@ def read_txt_files(version):
     test = [None] * number_of_SNRs
     for j in range(0, number_of_SNRs):
         test[j] = [data[j*len(EGRID_SMALL)][0]]
-        for i in range(1, size-2):   # -2 to not take the E and diff spectrum column
+        for i in range(1, size-4):   # -2 to not take the E and diff spectrum column    #Ag
             test[j] = np.append(test[j], data[j*len(EGRID_SMALL)][i])
         
         
@@ -71,12 +71,12 @@ def read_txt_files(version):
         temp = np.vstack([temp, test[j]])
     
         NAMES = data.dtype.names[0]
-        for x in range(1, size-2):
+        for x in range(1, size-4):       #Ag
             NAMES = np.append(NAMES, data.dtype.names[x])
         for x in range(0, len(EGRID_SMALL)):
             NAMES = np.append(NAMES, EGRID_SMALL[x])
 
-#    print( ' NAMES ==', NAMES)
+    print( ' NAMES ==', NAMES)
 #    exit()
 
     EGRID_SMALL=np.array(EGRID_SMALL)
@@ -109,26 +109,34 @@ def read_txt_files(version):
 
     t[NAMES[4]].unit = u.Unit('cm-3')
     t[NAMES[4]].format = '%0.4f'
-    t[NAMES[4]].description = 'density'
+    t[NAMES[4]].description = 'ISM density'
 
-    t[NAMES[5]].unit = ''
-    t[NAMES[5]].format = '%i'
-    t[NAMES[5]].description = 'type of progenitor'
+    t[NAMES[5]].unit = u.Unit('cm-3')                  #Ag adding this field
+    t[NAMES[5]].format = '%0.4f'
+    t[NAMES[5]].description = 'Shock density'
 
-    t[NAMES[6]].unit = 'kyear'
-    t[NAMES[6]].format = '%0.4f'
-    t[NAMES[6]].description = 'age of the SNR'
+    t[NAMES[6]].unit = ''
+    t[NAMES[6]].format = '%i'
+    t[NAMES[6]].description = 'type of progenitor'
 
-    t[NAMES[7]].unit = 'arcmin'
+    t[NAMES[7]].unit = u.Unit('solMass')                  #Ag adding this field
     t[NAMES[7]].format = '%0.4f'
-    t[NAMES[7]].description = 'apparent size of the SNR'
+    t[NAMES[7]].description = 'Mass of Ejecta'
 
-    t[NAMES[8]].unit = 'pc'
+    t[NAMES[8]].unit = 'kyear'
     t[NAMES[8]].format = '%0.4f'
-    t[NAMES[8]].description = 'SNR Radius'
+    t[NAMES[8]].description = 'age of the SNR'
+
+    t[NAMES[9]].unit = 'arcmin'
+    t[NAMES[9]].format = '%0.4f'
+    t[NAMES[9]].description = 'apparent size of the SNR'
+
+    t[NAMES[10]].unit = 'pc'
+    t[NAMES[10]].format = '%0.4f'
+    t[NAMES[10]].description = 'SNR Radius'
 
 
-    for x in range(9, size):
+    for x in range(11, 11+p):       #Ag
         t[NAMES[x]].unit = 'cm-2 s-1 TeV'
         t[NAMES[x]].description = 'Differential spectrum'
 
