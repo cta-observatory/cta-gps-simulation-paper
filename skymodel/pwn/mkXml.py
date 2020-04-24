@@ -51,13 +51,13 @@ for pwn in pwne:
   srcname='pwn'+str(pwn['N'])
   print('  --> Adding ',srcname)
    
-  xml_source = createXml_disk(srcname=srcname, specfile=pwn['filename'],
+  xml_source = createXml_disk(srcname=srcname, specfile=pwn['filename'][10:],
                 lon=pwn['GLON'], lat=pwn['GLAT'], radius=pwn['R_pwn_deg'])
   xml += xml_source 
 
 xml += ['</source_library>\n']
 
-outfile='pwn.xml'
+outfile='xml/pwn.xml'
 mod = open(outfile, 'w')
 mod.writelines(xml)
 mod.close()
