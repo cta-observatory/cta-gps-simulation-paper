@@ -19,12 +19,12 @@ def createXml_disk(srcname='source0',specfile='specfile.txt',lon=0.0,lat=0.0,rad
   code=[
   '   <source name="source0" type="ExtendedSource""  tscalc="1">\n',
   '       <spectrum file="model0.txt" type="FileFunction">\n',
-  '           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" >\n',
+  '           <parameter free="0" max="1000.0" min="0.0" name="Normalization" scale="1.0" value="1.0" />\n',
   '       </spectrum>\n',
   '      <spatialModel type="RadialDisk">\n',
-  ' 		 <parameter name="GLON"    scale="1.0" value="888" min="-360" max="360" free="0" >\n',
-  ' 		 <parameter name="GLAT"   scale="1.0" value="777" min="-90"  max="90"  free="0" >\n',
-  '  	 	 <parameter name="Radius" scale="1.0" value="111"    min="0.005" max="10"  free="1" >\n',
+  ' 		 <parameter name="GLON"    scale="1.0" value="888" min="-360" max="360" free="0" />\n',
+  ' 		 <parameter name="GLAT"   scale="1.0" value="777" min="-90"  max="90"  free="0" />\n',
+  '  	 	 <parameter name="Radius" scale="1.0" value="111"    min="0.005" max="10"  free="1" />\n',
   '	</spatialModel>\n',  
    '   </source>\n' ]
 
@@ -49,7 +49,8 @@ xml=[
 for pwn in pwne:
   
   srcname='pwn'+str(pwn['N'])
-  print('  --> Adding ',srcname)   
+  print('  --> Adding ',srcname)
+   
   xml_source = createXml_disk(srcname=srcname, specfile=pwn['filename'],
                 lon=pwn['GLON'], lat=pwn['GLAT'], radius=pwn['R_pwn_deg'])
   xml += xml_source 
