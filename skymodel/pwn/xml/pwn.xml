@@ -37,7 +37,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-71.12301067834514" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.22363571928912815" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002884207322912227"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn15" type="ExtendedSource""  tscalc="1">
@@ -47,7 +47,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="38.50300159210315" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-4.43407525007648" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0007051439999482958"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn18" type="ExtendedSource""  tscalc="1">
@@ -147,7 +147,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="48.85500227139321" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.07139201692488303" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0025741356371647727"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn39" type="ExtendedSource""  tscalc="1">
@@ -397,7 +397,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="0.3645953185559242" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.03464645142208434" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002623388205368954"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn151" type="ExtendedSource""  tscalc="1">
@@ -447,7 +447,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-81.60786427466076" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.3040746165064564" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002156190903542434"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn163" type="ExtendedSource""  tscalc="1">
@@ -617,7 +617,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="4.667487998475793" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.02331809998179009" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0022914302407645577"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn205" type="ExtendedSource""  tscalc="1">
@@ -727,7 +727,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-17.18325393408876" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.0763714521825117" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004277555696535687"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn224" type="ExtendedSource""  tscalc="1">
@@ -777,7 +777,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-30.507496248981703" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.027656110582023354" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0010771601055231967"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn237" type="ExtendedSource""  tscalc="1">
@@ -887,7 +887,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="9.819653065054787" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.013815015430076202" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004592694099143731"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn264" type="ExtendedSource""  tscalc="1">
@@ -947,7 +947,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="26.064981298277157" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.03269388075561599" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004520038189944878"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn280" type="ExtendedSource""  tscalc="1">
@@ -977,7 +977,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-30.290274890872183" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.6396382574628362" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0016592450787920505"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn286" type="ExtendedSource""  tscalc="1">
@@ -1007,7 +1007,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-41.68867150087312" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.1780009295176379" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0014862024822055702"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn297" type="ExtendedSource""  tscalc="1">
@@ -1147,7 +1147,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-63.513372005544284" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.6836625402085784" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.001029616453886756"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn339" type="ExtendedSource""  tscalc="1">
@@ -1207,7 +1207,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="25.480858698761057" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-1.5268091664449925" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004603561041237183"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn358" type="ExtendedSource""  tscalc="1">
@@ -1457,7 +1457,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="22.802173737818453" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.015926839265775376" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002620625411282406"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn440" type="ExtendedSource""  tscalc="1">
@@ -1507,7 +1507,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="21.704329233474684" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.11857035476367503" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.003865968306054746"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn462" type="ExtendedSource""  tscalc="1">
@@ -1547,7 +1547,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="2.08549966845391" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.1723373032561209" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.001588949217444044"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn469" type="ExtendedSource""  tscalc="1">
@@ -1597,7 +1597,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-19.076665548821673" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.400155691285931" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0033045848319483194"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn485" type="ExtendedSource""  tscalc="1">
@@ -1607,7 +1607,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="20.318828831930976" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="4.444831774017465" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.003667606576431908"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn486" type="ExtendedSource""  tscalc="1">
@@ -1667,7 +1667,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="1.7922762223104702" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.045647341168300375" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.00046074138138831516"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn501" type="ExtendedSource""  tscalc="1">
@@ -1677,7 +1677,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="55.90728966428042" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.07414050931784544" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0018804340185747139"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn504" type="ExtendedSource""  tscalc="1">
@@ -1777,7 +1777,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-0.5703704744582654" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.05229494418251295" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0024786776891515434"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn538" type="ExtendedSource""  tscalc="1">
@@ -1787,7 +1787,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-13.64136570326574" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="3.0529920334399754" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002607441957285971"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn540" type="ExtendedSource""  tscalc="1">
@@ -1837,7 +1837,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-23.437251082174622" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.07783166471154557" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0043885833577223645"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn551" type="ExtendedSource""  tscalc="1">
@@ -1987,7 +1987,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-0.4807789869682805" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.03402823653233463" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0008176529499009683"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn581" type="ExtendedSource""  tscalc="1">
@@ -2087,7 +2087,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="16.947655463311907" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="3.3866991470438306" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.003939133753209486"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn601" type="ExtendedSource""  tscalc="1">
@@ -2137,7 +2137,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-28.134963126282194" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.1351446508310625" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0007759213702843624"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn610" type="ExtendedSource""  tscalc="1">
@@ -2157,7 +2157,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="18.586324384438505" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.1569423928235063" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0007902038421839721"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn613" type="ExtendedSource""  tscalc="1">
@@ -2237,7 +2237,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-17.113594980541837" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.0126258461735197" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0033537031137973435"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn629" type="ExtendedSource""  tscalc="1">
@@ -2337,7 +2337,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="62.55046019334209" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.08206026150177184" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0032495574886393795"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn645" type="ExtendedSource""  tscalc="1">
@@ -2377,7 +2377,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-47.75273659854703" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.20738102090423935" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0028314708535629434"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn659" type="ExtendedSource""  tscalc="1">
@@ -2427,7 +2427,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="9.793699557616293" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-4.569013207113925" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0033098320825373276"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn671" type="ExtendedSource""  tscalc="1">
@@ -2497,7 +2497,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-30.0478117960047" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.1343777925138272" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0019865468491466758"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn682" type="ExtendedSource""  tscalc="1">
@@ -2517,7 +2517,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-16.99235404710831" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.06701870888587311" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004900786054223205"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn690" type="ExtendedSource""  tscalc="1">
@@ -2967,7 +2967,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-6.867029589732433" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.01128347850704488" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004206314941001577"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn799" type="ExtendedSource""  tscalc="1">
@@ -2987,7 +2987,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-77.16018912173674" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.017245302803894372" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.003720777339071911"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn803" type="ExtendedSource""  tscalc="1">
@@ -3047,7 +3047,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-39.062268749133516" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.29134896232422625" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0032300231515449565"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn817" type="ExtendedSource""  tscalc="1">
@@ -3057,7 +3057,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-0.13153509190664522" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-1.748924183825556" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004553382155712148"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn818" type="ExtendedSource""  tscalc="1">
@@ -3067,7 +3067,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="11.526711104739165" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="2.790877367781653" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.003748537779368022"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn820" type="ExtendedSource""  tscalc="1">
@@ -3107,7 +3107,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-34.356851971654194" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.03346561461399542" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0019430608869173737"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn835" type="ExtendedSource""  tscalc="1">
@@ -3137,7 +3137,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="6.3211958227082095" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-1.0319853228419027" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0049442136076214135"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn860" type="ExtendedSource""  tscalc="1">
@@ -3167,7 +3167,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="16.853812460952867" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.09044262217211439" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.00231214528060274"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn873" type="ExtendedSource""  tscalc="1">
@@ -3357,7 +3357,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-55.78838340716419" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.02625326174985394" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0008535499231655114"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn936" type="ExtendedSource""  tscalc="1">
@@ -3367,7 +3367,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="0.9895575893181354" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.0453993406036158" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0018642885351317017"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn937" type="ExtendedSource""  tscalc="1">
@@ -3437,7 +3437,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-27.380193674429023" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.05029019793226892" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004299763175050619"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn961" type="ExtendedSource""  tscalc="1">
@@ -3517,7 +3517,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-43.574926943051715" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.42789222869671834" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004056459681387106"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn981" type="ExtendedSource""  tscalc="1">
@@ -3557,7 +3557,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-13.922754056553714" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="1.6275827312570916" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0037077204744567823"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn992" type="ExtendedSource""  tscalc="1">
@@ -3587,7 +3587,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-67.84275272090953" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.1481114224371097" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004585162010293338"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1000" type="ExtendedSource""  tscalc="1">
@@ -3667,7 +3667,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="2.1297328852581026" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.11608080454174105" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0030903319084729423"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1023" type="ExtendedSource""  tscalc="1">
@@ -3707,7 +3707,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-8.663586000937157" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.022050013986287996" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0019838454673465323"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1035" type="ExtendedSource""  tscalc="1">
@@ -3737,7 +3737,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-46.16299427202026" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.01281079217378244" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004543653391501529"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1044" type="ExtendedSource""  tscalc="1">
@@ -3757,7 +3757,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="25.328219133773402" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.015268758909531069" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0015972619528473318"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1050" type="ExtendedSource""  tscalc="1">
@@ -3817,7 +3817,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-9.892054248190787" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.12154893269509981" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004263166634801002"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1066" type="ExtendedSource""  tscalc="1">
@@ -3867,7 +3867,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-12.701140071757228" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.010386519371898937" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0034691225700178747"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1078" type="ExtendedSource""  tscalc="1">
@@ -3887,7 +3887,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="53.331616695631325" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.513281504365887" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004578240762428411"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1080" type="ExtendedSource""  tscalc="1">
@@ -3987,7 +3987,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-34.91408875576068" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.033544001717855786" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0036526612854922754"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1098" type="ExtendedSource""  tscalc="1">
@@ -4077,7 +4077,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="20.686813232279963" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.03062198042546838" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.003137523895043409"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1133" type="ExtendedSource""  tscalc="1">
@@ -4137,7 +4137,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-28.044945495044956" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.08561730654092864" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002065961162667125"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1145" type="ExtendedSource""  tscalc="1">
@@ -4147,7 +4147,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="9.936432611008188" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.36549566704499525" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0035925208069015474"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1147" type="ExtendedSource""  tscalc="1">
@@ -4187,7 +4187,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="59.27976030611076" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="1.364549736501661" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0016515578741244205"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1156" type="ExtendedSource""  tscalc="1">
@@ -4367,7 +4367,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-140.76388936052854" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.5625839186173404" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004077314496078626"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1209" type="ExtendedSource""  tscalc="1">
@@ -4377,7 +4377,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-57.95541971083235" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.4222219273311607" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004781968342905857"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1210" type="ExtendedSource""  tscalc="1">
@@ -4447,7 +4447,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="0.8763690068654738" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="2.041492811478888" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0005600770008417108"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1221" type="ExtendedSource""  tscalc="1">
@@ -4497,7 +4497,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-85.20589595622903" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.0" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004249926114742597"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1240" type="ExtendedSource""  tscalc="1">
@@ -4537,7 +4537,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-5.238607440559854" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.22568652955357676" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.003527085335860658"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1249" type="ExtendedSource""  tscalc="1">
@@ -4547,7 +4547,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-30.89239893458646" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.022762412352688537" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0017621713642927113"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1252" type="ExtendedSource""  tscalc="1">
@@ -4597,7 +4597,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-10.236483928283205" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.0517336414062737" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004997373080268486"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1264" type="ExtendedSource""  tscalc="1">
@@ -4747,7 +4747,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-13.75984609871713" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-5.741386025156865" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002655805096080502"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1307" type="ExtendedSource""  tscalc="1">
@@ -5137,7 +5137,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="14.951610709694332" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.11542381842490083" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.00405726576495065"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1396" type="ExtendedSource""  tscalc="1">
@@ -5247,7 +5247,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="7.728484886397544" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.10507916621725547" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002906504172349615"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1411" type="ExtendedSource""  tscalc="1">
@@ -5437,7 +5437,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-71.70709038729734" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.09447799880432413" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0041377802874723564"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1474" type="ExtendedSource""  tscalc="1">
@@ -5497,7 +5497,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="59.21838871357704" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.10780578576331425" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004084575120796266"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1499" type="ExtendedSource""  tscalc="1">
@@ -5607,7 +5607,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-26.67557839217863" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.14644302782297486" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002218060578600021"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1523" type="ExtendedSource""  tscalc="1">
@@ -5817,7 +5817,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-13.873122978932946" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.19082077072423767" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0015697371112750067"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1582" type="ExtendedSource""  tscalc="1">
@@ -6057,7 +6057,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-22.457139254376614" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.9832260567263438" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004979539399682797"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1647" type="ExtendedSource""  tscalc="1">
@@ -6077,7 +6077,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-43.59635766862965" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.4964934440945079" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0049172436504011634"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1653" type="ExtendedSource""  tscalc="1">
@@ -6127,7 +6127,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-31.895267658389443" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.285523862211103" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002165295157992358"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1664" type="ExtendedSource""  tscalc="1">
@@ -6417,7 +6417,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-46.77191322535599" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.29494877959963767" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.00190922360784828"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1752" type="ExtendedSource""  tscalc="1">
@@ -6427,7 +6427,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-12.614222458927403" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.6161226177666308" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0034330824579723823"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1757" type="ExtendedSource""  tscalc="1">
@@ -6537,7 +6537,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-34.56875270518521" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="1.0141691915032893" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004278930079742042"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1779" type="ExtendedSource""  tscalc="1">
@@ -6567,7 +6567,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-13.906556555117891" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.10479157758886831" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004959815350244001"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1790" type="ExtendedSource""  tscalc="1">
@@ -6657,7 +6657,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-21.283803167532163" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.07900590968840827" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.001763883061585463"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1819" type="ExtendedSource""  tscalc="1">
@@ -6697,7 +6697,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="48.307669123168196" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.15849742762009178" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.00111175582611129"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1825" type="ExtendedSource""  tscalc="1">
@@ -6727,7 +6727,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-4.591018873238932" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.03906515705241493" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0028182616184872136"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1830" type="ExtendedSource""  tscalc="1">
@@ -6777,7 +6777,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="1.2865672338989296" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="1.565230667735796" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0013965726762900743"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1851" type="ExtendedSource""  tscalc="1">
@@ -7057,7 +7057,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-11.932764601378345" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-1.8195198074012653" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0033257884436557247"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1909" type="ExtendedSource""  tscalc="1">
@@ -7237,7 +7237,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-12.406570674871867" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.03590048049943603" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0017779993533309074"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn1967" type="ExtendedSource""  tscalc="1">
@@ -7387,7 +7387,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-36.77589623758791" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.24213492429640476" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004013246867027662"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2002" type="ExtendedSource""  tscalc="1">
@@ -7467,7 +7467,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-8.635162348910654" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.060052572768604255" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0018380913739486607"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2027" type="ExtendedSource""  tscalc="1">
@@ -7517,7 +7517,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="46.49863343933382" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.1227388330382244" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0015412730955192352"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2039" type="ExtendedSource""  tscalc="1">
@@ -7537,7 +7537,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="22.925680478659928" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-1.8717305577224346" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0035782180058326536"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2041" type="ExtendedSource""  tscalc="1">
@@ -7567,7 +7567,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-31.944509808401587" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.21319869330858815" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0011484179921047843"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2045" type="ExtendedSource""  tscalc="1">
@@ -7727,7 +7727,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-58.1354016083434" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="1.1532666561927523" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0034265203353815257"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2084" type="ExtendedSource""  tscalc="1">
@@ -7757,7 +7757,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-5.577467032217342" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.17028935257743233" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004117749688953397"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2093" type="ExtendedSource""  tscalc="1">
@@ -7807,7 +7807,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="15.782713643049854" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.04808581928779927" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.003071579574748231"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2106" type="ExtendedSource""  tscalc="1">
@@ -7857,7 +7857,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="51.435138659432624" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.018689330612881767" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0030054568432856727"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2118" type="ExtendedSource""  tscalc="1">
@@ -7937,7 +7937,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-28.86594873539529" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-1.1444566179268527" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0017900093053958128"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2142" type="ExtendedSource""  tscalc="1">
@@ -8287,7 +8287,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="11.913612177368348" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.18068257052325007" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0006447049378129967"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2243" type="ExtendedSource""  tscalc="1">
@@ -8437,7 +8437,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-76.04541869271847" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="11.964542322109681" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0008639857510244715"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2283" type="ExtendedSource""  tscalc="1">
@@ -8477,7 +8477,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-1.6141016195952584" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.011653634222823516" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002221533176719089"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2290" type="ExtendedSource""  tscalc="1">
@@ -8567,7 +8567,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-31.092412202455183" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.4492140786691056" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0006997172247011648"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2315" type="ExtendedSource""  tscalc="1">
@@ -8577,7 +8577,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-5.89555736042164" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.23681236945933" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0036780244660470397"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2320" type="ExtendedSource""  tscalc="1">
@@ -8637,7 +8637,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-17.65628026814673" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.012860551203434743" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002048579104424148"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2332" type="ExtendedSource""  tscalc="1">
@@ -8657,7 +8657,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-19.918963419901722" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="4.864760508836646" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002701324288436197"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2336" type="ExtendedSource""  tscalc="1">
@@ -8737,7 +8737,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-34.541911986358606" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.8524092098127412" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0028009918213890306"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2360" type="ExtendedSource""  tscalc="1">
@@ -8847,7 +8847,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-12.829945652575564" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.10137249892208851" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0018614594006836121"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2387" type="ExtendedSource""  tscalc="1">
@@ -8897,7 +8897,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-67.13334430807951" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.18741249263419038" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004700308948651759"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2400" type="ExtendedSource""  tscalc="1">
@@ -9157,7 +9157,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-26.003065733970296" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="1.59898507349573" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0036983176904906183"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2483" type="ExtendedSource""  tscalc="1">
@@ -9187,7 +9187,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-29.36803072642113" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.01350710777384604" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.003609756251351568"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2486" type="ExtendedSource""  tscalc="1">
@@ -9337,7 +9337,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-56.59992557403068" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.13279351296123174" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004146070964772854"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2515" type="ExtendedSource""  tscalc="1">
@@ -9407,7 +9407,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="24.312704118660747" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.034377600065613335" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0018269176520287077"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2542" type="ExtendedSource""  tscalc="1">
@@ -9487,7 +9487,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="12.695836595003362" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-1.045225748224786" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0006254150405685418"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2559" type="ExtendedSource""  tscalc="1">
@@ -9567,7 +9567,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="6.97807037127448" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.3355954948641542" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.004567203063610404"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2586" type="ExtendedSource""  tscalc="1">
@@ -9577,7 +9577,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="3.2345761313338715" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-20.803715964559938" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0017116405072576677"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2591" type="ExtendedSource""  tscalc="1">
@@ -9827,7 +9827,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="0.0765003252217808" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-1.7666830830733187" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.00419246662907149"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2652" type="ExtendedSource""  tscalc="1">
@@ -9947,7 +9947,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="63.02691669933915" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.06238228383007435" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.001177604432187877"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2685" type="ExtendedSource""  tscalc="1">
@@ -10067,7 +10067,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="24.40273882221582" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.8363607486176208" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.003245988122004985"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2728" type="ExtendedSource""  tscalc="1">
@@ -10457,7 +10457,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="6.23415376114333" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.16015070144099208" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0049804268687961865"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2816" type="ExtendedSource""  tscalc="1">
@@ -10477,7 +10477,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-60.2827378836347" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.5360286066241678" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0033786845593017163"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2823" type="ExtendedSource""  tscalc="1">
@@ -10487,7 +10487,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-13.779985092408108" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.11062666640607198" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.00329695133290783"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2825" type="ExtendedSource""  tscalc="1">
@@ -10707,7 +10707,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-44.67839187103113" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.3385006717219695" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002453103307443766"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2878" type="ExtendedSource""  tscalc="1">
@@ -10877,7 +10877,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-37.980287627340935" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="-0.33682873740095226" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.002133235970991605"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2930" type="ExtendedSource""  tscalc="1">
@@ -10917,7 +10917,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-42.55952688268535" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="0.0" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.0012406892692529265"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2945" type="ExtendedSource""  tscalc="1">
@@ -11067,7 +11067,7 @@
       <spatialModel type="RadialDisk">
  		 <parameter name="GLON"    scale="1.0" value="-24.416681361881555" min="-360" max="360" free="0" />
  		 <parameter name="GLAT"   scale="1.0" value="1.1739866301416517" min="-90"  max="90"  free="0" />
-  	 	 <parameter name="Radius" scale="1.0" value="0.00245190004825262"    min="0.005" max="10"  free="1" />
+  	 	 <parameter name="Radius" scale="1.0" value="0.005"    min="0.005" max="10"  free="1" />
 	</spatialModel>
    </source>
    <source name="pwn2992" type="ExtendedSource""  tscalc="1">

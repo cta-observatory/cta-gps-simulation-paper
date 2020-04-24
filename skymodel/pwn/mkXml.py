@@ -52,7 +52,7 @@ for pwn in pwne:
   print('  --> Adding ',srcname)
    
   xml_source = createXml_disk(srcname=srcname, specfile=pwn['filename'][10:],
-                lon=pwn['GLON'], lat=pwn['GLAT'], radius=pwn['R_pwn_deg'])
+                lon=pwn['GLON'], lat=pwn['GLAT'], radius=min(max(pwn['R_pwn_deg'],0.005),10.))
   xml += xml_source 
 
 xml += ['</source_library>\n']
