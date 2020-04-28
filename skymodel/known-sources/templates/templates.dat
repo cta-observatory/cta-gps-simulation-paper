@@ -1,18 +1,18 @@
 # name, gamma-cat id
-ic443, 29
-gammacygni, 144
-velax, 37
-w28, 112
-puppisa, NONE
-velajr, 39
-hess_j1800-240a, 111
-hess_j1800-240b, 156
-hess_j1800-240c, NONE
-rx_j1713.7-3946, 96
-ss433lobes, NONE
-# sn1006, 74
-gemingahalo, NONE
-psrb0656+14halo, NONE
-cygnuscocoon, NONE
-westerlund1, 90
-hessj1825, 118
+ic443, 29, isnr
+gammacygni, 144, snr
+velax, 37, pwn
+w28, 112, isnr
+puppisa, NONE, snr
+velajr, 39, snr
+hess_j1800-240a, 111, isnr
+hess_j1800-240b, 156, -
+hess_j1800-240c, NONE, -
+rx_j1713.7-3946, 96, snr
+ss433lobes, NONE, -
+# sn1006, 74, snr
+gemingahalo, NONE, halo
+psrb0656+14halo, NONE, halo
+cygnuscocoon, NONE, sfr
+westerlund1, 90, sfr
+hessj1825, 118, pwn

@@ -20,6 +20,8 @@ def append_fhl(models, bmax,
                 bin_models, bin_dict, bin_distx, bin_disty, bin_radr, bin_frlog,
                 snr_models, snr_dict, snr_distx, snr_disty, snr_radr, snr_frlog,
                 isnr_models, isnr_dict, isnr_distx, isnr_disty, isnr_radr, isnr_frlog,
+                pwn_models, pwn_dict, pwn_distx, pwn_disty, pwn_radr, pwn_frlog,
+                comp_dict, comp_distx, comp_disty, comp_radr, comp_frlog,
                 dist_sigma=3., sig50_thresh=3., eph_thresh=100.):
     """
     Append missing models from Fermi high-energy catalog to gammalib model container
@@ -44,6 +46,8 @@ def append_fhl(models, bmax,
     n_bin_del = 0
     n_snr_del = 0
     n_isnr_del = 0
+    n_pwn_del = 0
+    n_comp_del = 0
     newmodels = gammalib.GModels()
     # keep track also of artificial cutoffs
     ecut_pwn = []
@@ -208,9 +212,25 @@ def append_fhl(models, bmax,
                 bin_disty.append(disty)
                 bin_radr.append(radr)
                 bin_frlog.append(frlog)
-            elif fsource['CLASS'] == 'PWN' or fsource['CLASS'] == 'pwn' or fsource['CLASS'] == 'spp':
-                # implement synthetic PWNe here
-                pass
+            elif fsource['CLASS'] == 'PWN' or fsource['CLASS'] == 'pwn':
+                rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,fdir.l_deg(),fdir.b_deg(),
+                                                                                   get_model_radius(model),flux_Crab(model,1.,1000.))
+                pwn_models.remove(rname)
+                n_pwn_del += 1
+                pwn_distx.append(distx)
+                pwn_disty.append(disty)
+                pwn_radr.append(radr)
+                pwn_frlog.append(frlog)
+            elif fsource['CLASS'] == 'spp':
+                rname, comp_dict, distx, disty, radr, frlog = find_source_to_delete(comp_dict,fdir.l_deg(),fdir.b_deg(),
+                                                                                   get_model_radius(model),flux_Crab(model,1.,1000.))
+                pwn_models.remove(rname[0])
+                snr_models.remove(rname[1])
+                n_comp_del += 1
+                comp_distx.append(distx)
+                comp_disty.append(disty)
+                comp_radr.append(radr)
+                comp_frlog.append(frlog)
             elif fsource['CLASS'] == 'SNR' or fsource['CLASS'] == 'snr':
                 # determine if snr is interacting
                 assoc = snr_class[snr_class['ASSOC1'] == fsource['ASSOC1']]
@@ -258,7 +278,11 @@ def append_fhl(models, bmax,
                'snr_models': snr_models, 'snr_dict': snr_dict, 'n_snr_del': n_snr_del,
                'snr_distx': snr_distx, 'snr_disty': snr_disty, 'snr_radr': snr_radr, 'snr_frlog': snr_frlog,
                'isnr_models': isnr_models, 'isnr_dict': isnr_dict, 'n_isnr_del': n_isnr_del,
-               'isnr_distx': isnr_distx, 'isnr_disty': isnr_disty, 'isnr_radr': isnr_radr, 'isnr_frlog': isnr_frlog
+               'isnr_distx': isnr_distx, 'isnr_disty': isnr_disty, 'isnr_radr': isnr_radr, 'isnr_frlog': isnr_frlog,
+               'pwn_models': pwn_models, 'pwn_dict': pwn_dict, 'n_pwn_del': n_pwn_del,
+               'pwn_distx': pwn_distx, 'pwn_disty': pwn_disty, 'pwn_radr': pwn_radr,'pwn_frlog': pwn_frlog,
+               'comp_dict': comp_dict, 'n_comp_del': n_comp_del,
+               'comp_distx': comp_distx, 'comp_disty': comp_disty, 'comp_radr': comp_radr, 'comp_frlog': comp_frlog,
     }
 
     return result

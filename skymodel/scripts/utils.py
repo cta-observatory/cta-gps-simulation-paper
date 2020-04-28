@@ -1,8 +1,8 @@
 import gammalib
 import numpy as np
-import pdb
 import matplotlib.pyplot as plt
 from astropy.io import fits
+import pdb
 
 def format_ax(ax):
     for tick in ax.xaxis.get_major_ticks():
@@ -137,11 +137,25 @@ def delete_source_fom(distx,disty,radr, frlog):
     fom = np.sqrt((distx / 180) ** 2 + (disty / 10) ** 2 + (radr / 0.3) ** 2 + (frlog / 0.3) ** 2)
     return fom
 
+def pop_source(d,name):
+    # remove source from dictionary by name
+    # boolean mask to identify sources to keep in final dictionary
+    m = (d['name'] != name)
+    # handle composites for which name is an array
+    if len(np.shape(m)) > 1:
+        m = np.product(m, axis=1) # both names must coincide to be the same composite
+        m = m.astype('bool')
+    for key in d.keys():
+        if key == 'name':
+            pass
+        else:
+            d[key] = d[key][m]
+    d['name'] = d['name'][m]
+    return d
+
 def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.1):
 
-    # calculate distance
-    # use flat approx, only valid for small distances
-    # but it does not matter here
+    # calculate distance in lon and lat
     distx = np.abs(d['GLON'] - lon)
     distx[distx > 180] = 360 - distx[distx > 180]
     disty = d['GLAT'] - lat
@@ -162,14 +176,7 @@ def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.1):
     # eliminate closer source = minimum fom
     s = np.where(fom == np.min(fom))
     name = d['name'][s][0]
-
-    # create new source dictionary without source to be removed
-    for key in d.keys():
-        if key == 'name':
-            pass
-        else:
-            d[key] = d[key][d['name'] != name]
-    d['name'] = d['name'][d['name'] != name]
+    d = pop_source(d,name)
 
     # # prints for checking algorithm works correctly
     # print('name {}, fom {}, distx {}, disty {}, radr {}, frlog {}'.format(name, fom[s], distx[s], disty[s], radr[s], frlog[s]))
@@ -246,6 +253,86 @@ def plot_del_sources(distx,disty,radr, frlog,namestr,namefull):
     fig5.savefig('{}Flux-rad.png'.format(namestr), dpi=300)
 
     return
+
+def set_composites(pwn_dict,snr_dict):
+
+    # create arrays to store output quantities
+    names = []
+    lons = np.array([])
+    lats = np.array([])
+    radii = np.array([])
+    fluxes = np.array([])
+
+    # loop over SNRs
+    for s, snrname in enumerate(snr_dict['name']):
+        #calculate distance along x and y for all pwne
+        distx = snr_dict['GLON'][s] - pwn_dict['GLON']
+        disty = snr_dict['GLAT'][s] - pwn_dict['GLAT']
+        # total distance (flat approx)
+        dist = np.sqrt(distx**2 + disty**2)
+        # calculate radius sum
+        sumrad = snr_dict['radius'][s] + pwn_dict['radius']
+        # if there is an overlapping source
+        if np.any(dist < sumrad):
+            distance = np.min(dist)
+            pwnname = pwn_dict['name'][dist==distance][0]
+            names.append([pwnname,snrname])
+            # for GLON and GLAT take flux-weighted average of individual objects
+            pwn_lon = pwn_dict['GLON'][dist==distance]
+            pwn_lat = pwn_dict['GLAT'][dist==distance]
+            pwn_flux = pwn_dict['flux'][dist == distance]
+            lon = snr_dict['GLON'][s] * snr_dict['flux'][s] + pwn_lon * pwn_flux
+            lon /= (snr_dict['flux'][s] + pwn_flux)
+            lons = np.append(lons,lon)
+            lat = snr_dict['GLAT'][s] * snr_dict['flux'][s] + pwn_lat * pwn_flux
+            lat /= (snr_dict['flux'][s] + pwn_flux)
+            lats = np.append(lats,lat)
+            # radius is max encompassing two objects
+            rad_pwn = pwn_dict['radius'][dist==distance][0]
+            if distance < np.abs(snr_dict['radius'][s] - rad_pwn):
+                # one of the objects is contained
+                rad = np.maximum(snr_dict['radius'][s], rad_pwn)
+            else:
+                # partially overlapping
+                rad = (distance + rad_pwn + snr_dict['radius'][s]) / 2
+            radii = np.append(radii,rad)
+            # flux is sum of two fluxes
+            flux = pwn_dict['flux'][dist==distance] + snr_dict['flux'][s]
+            fluxes = np.append(fluxes,flux)
+            # # test print
+            # msg = '{}/{} distance: {} deg, radii: {}/{} deg'.format(pwnname,snrname, distance,rad_pwn[0],snr_dict['radius'][s])
+            # print(msg)
+
+    # convert name to numpy array
+    names = np.array(names)
+
+    # check that the same pwn is not used twice
+    m = np.zeros(len(names), dtype=bool)
+    m[np.unique(names[:,0], return_index=True)[1]] = True
+    if len(names[:,0][~m]) > 0:
+        print('WARNING: the same PWN appears as part of two composites')
+        print(names[:,0][~m])
+    else:
+        pass
+
+    # create composite dictionary with source parameters
+    d = {'name'   : np.array(names),
+         'GLON'   : np.array(lons),
+         'GLAT'   : np.array(lats),
+         'radius' : np.array(radii),
+         'flux'   : np.array(fluxes)}
+
+    # remove composite members for snr and pwn dictionaries
+    for name in d['name']:
+        pwn_dict = pop_source(pwn_dict,name[0])
+        snr_dict = pop_source(snr_dict,name[1])
+
+    # return results
+    return d, pwn_dict, snr_dict
+
+
+
+
 
 
 

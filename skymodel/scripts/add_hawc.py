@@ -32,7 +32,7 @@ hawc_spectra = np.genfromtxt(hawc_table3,
 # The HAWC Catalog gives spectra as power laws with reference energy at 7 TeV
 eref = gammalib.GEnergy(7., 'TeV')
 
-def append_hawc(models, bmax, dist_sigma=3.):
+def append_hawc(models, bmax, pwn_models, pwn_dict, pwn_distx, pwn_disty, pwn_radr, pwn_frlog, dist_sigma=3.):
     """
     Append missing models from HAWC catalog to gammalib model container
     :param models: input gammalib model container
@@ -49,6 +49,7 @@ def append_hawc(models, bmax, dist_sigma=3.):
     newext = 0
     newmodels = gammalib.GModels()
     warning = ''
+    n_pwn_del = 0
 
     # loop over sources and compare with input models
     for hsource in sources:
@@ -114,6 +115,15 @@ def append_hawc(models, bmax, dist_sigma=3.):
             model = gammalib.GModelSky(spatial, spectral)
             model.name(hsource['name'])
             newmodels.append(model)
+            # delete synthetic PWN
+            rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,hdir.l_deg(),hdir.b_deg(),
+                                                                               get_model_radius(model),flux_Crab(model,1.,1000.))
+            pwn_models.remove(rname)
+            n_pwn_del += 1
+            pwn_distx.append(distx)
+            pwn_disty.append(disty)
+            pwn_radr.append(radr)
+            pwn_frlog.append(frlog)
         else:
             # source already present, skip
             pass
@@ -122,5 +132,5 @@ def append_hawc(models, bmax, dist_sigma=3.):
     for model in newmodels:
         models.append(model)
 
-    return models, newpt, newext, warning
+    return models, newpt, newext, warning, pwn_models, n_pwn_del, pwn_distx, pwn_disty, pwn_radr, pwn_frlog
 
