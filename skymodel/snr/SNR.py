@@ -367,7 +367,7 @@ def place_SN_typeII (self):
 
 
 def place_SN_theta_typeII (self):
-    p=np.random.randint(0, 3)
+    p=np.random.randint(0, 4)
     theta_correction=np.random.uniform(0, 2*np.pi)
         
     theta=(K_galaxy[p]*np.log(self.pos_r/r0_galaxy[p])+theta0_galaxy[p]+theta_correction*np.exp(-0.35*self.pos_r))
