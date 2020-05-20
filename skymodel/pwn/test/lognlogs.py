@@ -27,31 +27,37 @@ samples = [ {'name' : 'PWNe', 'classes' : ['pwn']},
 # energy thresholds (TeV)
 thresholds = [0.1,1.]
 
+# binning for logN-logS
 bins_lognlogs = np.logspace(-5, 1., 60)
 
+# default maximum energy for spectral integration (TeV)
 eup = 1000.
-
 
 ############################################################
 
 def make_lognlogs(flux,bins = None, color = 'k',label=None):
+    # histogram
     n, bins, patches = plt.hist(flux, bins=bins, color = color,
                                 alpha=0.8, density=False, histtype='step', cumulative=-1)
+    # geometric average of flux in bin
     f = np.sqrt(bins[1:] * bins[:-1])
+    # shaded band with Poisson uncertainties
     plt.fill_between(f, n - np.sqrt(n), n + np.sqrt(n), color=color, label=label,
                      alpha=0.3)
 
 def flux_from_gammacat(cat,emin,emax=eup):
+    # calculate integral flux in desired energy range from spectral model
     fluxes = np.array([])
     for source in cat:
         try:
             flux = source.spectral_model().integral(emin*u.TeV,emax*u.TeV)
             fluxes = np.append(fluxes,flux.value)
         except:
+            # sources without spectral model
             fluxes = np.append(fluxes, np.nan)
 
     # convert to Crab units
-    # consistent conversion from what is done in utils for gammalib model containers
+    # conversion consistent with utils for gammalib model containers
     # simple Crab TeV power law model
     crab = gammalib.GModelSpectralPlaw(5.7e-16, -2.48, gammalib.GEnergy(0.3, 'TeV'))
     # calculate crab flux over the desired energy range
@@ -67,14 +73,11 @@ def flux_from_gammacat(cat,emin,emax=eup):
 # color cycle
 color_cycle = plt.rcParams['axes.prop_cycle'].by_key()['color']
 
-# open gammacat as astropy table
+# open gammacat using gammapy
 gammacat = SourceCatalogGammaCat(gammacat_file)
 
 # read PWN population as gammalib model container
 pwnpop = gammalib.GModels(pwnpop_file)
-
-#logN-logS comparison to gamma-cat using flux > 1 TeV
-# (given in gamma-cat)
 
 # loop over thresholds
 for thresh in thresholds:
@@ -90,6 +93,7 @@ for thresh in thresholds:
     # synthetic population
     # extract population fluxes
     lons, lats, radii, fluxes, names = utils.dist_from_gammalib(pwnpop,emin=thresh,emax=eup)
+    # plots
     make_lognlogs(fluxes,bins=bins_lognlogs, color = 'k', label = 'synthetic population')
 
     # compare to gamma-cat samples
@@ -101,12 +105,13 @@ for thresh in thresholds:
         mask = np.zeros(len(gammacat.table),dtype=bool)
         for c in sample['classes']:
             mask = np.logical_or(mask,gammacat.table['classes'] == c)
-        # extract flux from gammacat
+        # select sample
         flux_sample = fluxes[mask==True]
-        # convert to Crab units
+        # plots
         make_lognlogs(flux_sample, bins=bins_lognlogs, color=color_cycle[s],
                       label='gamma-cat ' + sample['name'])
 
+    # add legend and save figure
     ax1.legend(loc='lower left')
     fig1.savefig('lognlogs-{}TeV.png'.format(thresh))
 
