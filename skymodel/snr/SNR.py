@@ -323,7 +323,7 @@ def place_SN_z_typeIa (self):
         I[i]=I[i-1]+nH1(self.pos_r, (Z[i-1]+Z[i])/2.)*(Z[i]-Z[i-1])
     p=0
     a=np.random.uniform(0.,I[size-1])
-    while (I[p]<a and p<len(I)-1):
+    while (I[p]<a and p<len(I)-2):
         p=p+1
     self.pos_z=(Z[p]+Z[p+1])/2.
 
