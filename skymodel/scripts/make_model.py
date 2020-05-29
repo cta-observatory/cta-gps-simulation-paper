@@ -137,6 +137,8 @@ comp_frlog = []
 
 # create final model container
 models = gammalib.GModels()
+# create container for synthetic sources only
+models_syn = gammalib.GModels()
 
 print('\n')
 
@@ -375,7 +377,7 @@ for source in gammacat:
                 snr_disty.append(disty)
                 snr_radr.append(radr)
                 snr_frlog.append(frlog)
-            elif 'pwn' in source['classes'] or source['classes'] == 'unid':
+            elif 'pwn' in source['classes']: ## or source['classes'] == 'unid': FIXME: UNID are ignored
                 # all sources possibly associated with PWNe or unidentified are supposed to be PWNe
                 rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),1.e-2 *source['spec_flux_1TeV_crab'])
                 pwn_models.remove(rname)
@@ -849,6 +851,7 @@ for model1 in models:
 # binaries
 for model in bin_models:
     models.append(model)
+    models_syn.append(model)
 
 msg = 'Added {} synthetic binaries\n'.format(bin_models.size())
 print(msg)
@@ -871,6 +874,7 @@ ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
 # young SNRs
 for model in snr_models:
     models.append(model)
+    models_syn.append(model)
 
 msg = 'Added {} synthetic young SNRs, of which {} in composite systems\n'.format(snr_models.size(),len(comp_dict['name']))
 print(msg)
@@ -893,6 +897,7 @@ ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
 # PWNe
 for model in pwn_models:
     models.append(model)
+    models_syn.append(model)
 
 msg = 'Added {} synthetic PWNe, of which {} in composite systems\n'.format(pwn_models.size(),len(comp_dict['name']))
 print(msg)
@@ -924,6 +929,7 @@ for model in isnr_models:
         # replace file with the one in output directory
         model.spectral(gammalib.GModelSpectralFunc(gammalib.GFilename(filename), model.spectral()['Normalization'].value()))
     models.append(model)
+    models_syn.append(model)
 
 msg = 'Added {} synthetic interacting SNRs\n'.format(isnr_models.size())
 print(msg)
@@ -997,6 +1003,7 @@ outfile.write('Added background model\n')
 
 # save models
 models.save('models_gps.xml')
+models_syn.save('models_gps_synthetic.xml')
 
 # close report file
 outfile.close()

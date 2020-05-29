@@ -116,14 +116,15 @@ def append_hawc(models, bmax, pwn_models, pwn_dict, pwn_distx, pwn_disty, pwn_ra
             model.name(hsource['name'])
             newmodels.append(model)
             # delete synthetic PWN
-            rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,hdir.l_deg(),hdir.b_deg(),
-                                                                               get_model_radius(model),flux_Crab(model,1.,1000.))
-            pwn_models.remove(rname)
-            n_pwn_del += 1
-            pwn_distx.append(distx)
-            pwn_disty.append(disty)
-            pwn_radr.append(radr)
-            pwn_frlog.append(frlog)
+            # FIXME : HAWC sources not compensanted for in synthetic populations
+            # rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,hdir.l_deg(),hdir.b_deg(),
+            #                                                                    get_model_radius(model),flux_Crab(model,1.,1000.))
+            # pwn_models.remove(rname)
+            # n_pwn_del += 1
+            # pwn_distx.append(distx)
+            # pwn_disty.append(disty)
+            # pwn_radr.append(radr)
+            # pwn_frlog.append(frlog)
         else:
             # source already present, skip
             pass

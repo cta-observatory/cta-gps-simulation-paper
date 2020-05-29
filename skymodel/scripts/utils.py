@@ -300,8 +300,8 @@ def set_composites(pwn_dict,snr_dict):
             flux = pwn_dict['flux'][dist==distance] + snr_dict['flux'][s]
             fluxes = np.append(fluxes,flux)
             # # test print
-            # msg = '{}/{} distance: {} deg, radii: {}/{} deg'.format(pwnname,snrname, distance,rad_pwn[0],snr_dict['radius'][s])
-            # print(msg)
+            msg = '{}/{} distance: {} deg, radii: {}/{} deg'.format(pwnname,snrname, distance,rad_pwn,snr_dict['radius'][s])
+            print(msg)
 
     # convert name to numpy array
     names = np.array(names)
