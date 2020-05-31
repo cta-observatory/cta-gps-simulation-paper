@@ -1,16 +1,16 @@
-Model built by ltibaldo at Luigis-MacBook-Pro.local on 2020-04-28 10:49:27
+Model built by ltibaldo at Luigis-MacBook-Pro.local on 2020-05-31 19:31:38
 Using ATNF catalog version 1.61
 Loaded 49 synthetic binaries
-Loaded 668 synthetic PWNe
-Loaded 150 synthetic young SNRs
-Loaded 71 synthetic interacting SNRs
-88 pairs PWN/SNR constitute composite systems
+Loaded 288 synthetic PWNe
+Loaded 171 synthetic young SNRs
+Loaded 73 synthetic interacting SNRs
+64 pairs PWN/SNR constitute composite systems
 Added 92 gamma-cat sources
 Set estimated cutoffs for 17 PWN, 2 SNR, 18 UNID
 Deleted 5 synthetic binaries
 Deleted 9 synthetic young SNRs
 Deleted 6 synthetic interacting SNRs
-Deleted 57 synthetic PWNe
+Deleted 23 synthetic PWNe
 Deleted 7 synthetic composite PWNe/SNRs
 Replaced 9 gamma-cat sources with templates. Added 7 sources as templates
 Deleted 0 synthetic binaries
@@ -29,7 +29,7 @@ Deleted 0 synthetic interacting SNRs
 Deleted 1 synthetic PWNe
 Deleted 2 synthetic composite PWNe/SNRs
 Added 16 HAWC sources, of which 16 as pointlike and 0 as extended.
-Deleted 16 synthetic PWNe
+Deleted 0 synthetic PWNe
 WARNING: sources Crab nebula and PSR_J0534+2200 are at a distance of 2.766542808245417e-05 deg lower than 0.2 deg
 WARNING: sources HESS J1018-589 B and PSR_J1016-5857 are at a distance of 0.03400523947553454 deg lower than 0.2 deg
 WARNING: sources HESS J1119-614 and PSR_J1119-6127 are at a distance of 0.02350170144690874 deg lower than 0.2 deg
@@ -71,14 +71,12 @@ WARNING: sources PSR_J2021+4026 and GammaCygni are at a distance of 0.1626937933
 WARNING: sources PSR_J2032+4127 and TeV J2032+4130 are at a distance of 0.1494632798572676 deg lower than 0.2 deg
 WARNING: sources PSR_J2032+4127 and PSR J2032+4127 are at a distance of 0.0002555266219037767 deg lower than 0.2 deg
 Added 42 synthetic binaries
-Added 125 synthetic young SNRs, of which 79 in composite systems
-Added 585 synthetic PWNe, of which 79 in composite systems
-Added 65 synthetic interacting SNRs
+Added 146 synthetic young SNRs, of which 54 in composite systems
+Added 255 synthetic PWNe, of which 54 in composite systems
+Added 67 synthetic interacting SNRs
 Added 2 interstellar emission components
 WARNING: source Crab nebula has a flux of 1.0933015240785813 Crab
 WARNING: source Vela Junior has a flux of 1.125434088244293 Crab
-WARNING: source pwn780 has a flux of 1.4628194325094688 Crab
-WARNING: source pwn916 has a flux of 2.6283615229794113 Crab
-WARNING: source pwn2066 has a flux of 2.375022576783144 Crab
-WARNING: source pwn2127 has a flux of 1.219887437208007 Crab
+WARNING: source snr_515 has a flux of 9.636828811634546 Crab
+WARNING: source snr_1491 has a flux of 1.473981981025563 Crab
 Added background model
