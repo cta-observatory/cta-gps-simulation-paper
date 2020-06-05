@@ -18,7 +18,7 @@ gammacat_file = '../known-sources/external-input/gammacat.fits.gz'
 bmax = 10.
 
 # minimum flux for synthetic source (mCrab)
-fmin = 0.1
+fmin = 0.01
 
 # go to output directory as working directory
 # this simplifies file path handling
@@ -70,7 +70,7 @@ ax0.set_ylabel('Number of sources', fontsize=14)
 format_ax(ax0)
 
 # define binning to make distributions
-bins_lognlogs = np.logspace(np.log10(1.e-3 * fmin), 1., 40)
+bins_lognlogs = np.logspace(np.log10(1.e-3 * fmin), 1., 50)
 bins_lon = np.linspace(-180, 180, 90)
 bins_lat = np.linspace(-bmax, bmax, 10 * bmax)
 bins_rad = np.linspace(0, 2, 30)
@@ -1009,7 +1009,7 @@ models_syn.save('models_gps_synthetic.xml')
 outfile.close()
 
 # save diagnostic plots
-ax1.legend(fontsize=5)
+ax1.legend(fontsize=5,loc='lower left')
 fig1.savefig('logNlogS.png', dpi=300)
 ax2.legend(fontsize=5)
 ax2.set_xlim(180, -180)
