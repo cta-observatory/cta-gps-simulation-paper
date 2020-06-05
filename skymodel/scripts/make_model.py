@@ -18,7 +18,7 @@ gammacat_file = '../known-sources/external-input/gammacat.fits.gz'
 bmax = 10.
 
 # minimum flux for synthetic source (mCrab)
-fmin = 0.01
+fmin = 0.001
 
 # go to output directory as working directory
 # this simplifies file path handling
