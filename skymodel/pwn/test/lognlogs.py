@@ -33,6 +33,9 @@ bins_lognlogs = np.logspace(-5, 1., 60)
 # default maximum energy for spectral integration (TeV)
 eup = 1000.
 
+# latitude cut
+bmax = 2.
+
 ############################################################
 
 def make_lognlogs(flux,bins = None, color = 'k',label=None):
@@ -93,8 +96,10 @@ for thresh in thresholds:
     # synthetic population
     # extract population fluxes
     lons, lats, radii, fluxes, names = utils.dist_from_gammalib(pwnpop,emin=thresh,emax=eup)
+    lats = np.array(lats)
+    fluxes = np.array(fluxes)
     # plots
-    make_lognlogs(fluxes,bins=bins_lognlogs, color = 'k', label = 'synthetic population')
+    make_lognlogs(fluxes[np.abs(lats)<2],bins=bins_lognlogs, color = 'k', label = 'synthetic population (|b| < {} deg)'.format(bmax))
 
     # compare to gamma-cat samples
     # extract fluxes from gammacat
@@ -105,11 +110,13 @@ for thresh in thresholds:
         mask = np.zeros(len(gammacat.table),dtype=bool)
         for c in sample['classes']:
             mask = np.logical_or(mask,gammacat.table['classes'] == c)
+        # add latitude cut
+        mask = np.logical_and(mask,np.abs(gammacat.table['glat']) < 2)
         # select sample
         flux_sample = fluxes[mask==True]
         # plots
         make_lognlogs(flux_sample, bins=bins_lognlogs, color=color_cycle[s],
-                      label='gamma-cat ' + sample['name'])
+                      label='gamma-cat ' + sample['name'] + ' (|b| < {} deg)'.format(bmax))
 
     # add legend and save figure
     ax1.legend(loc='lower left')
