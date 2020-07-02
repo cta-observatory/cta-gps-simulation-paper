@@ -183,7 +183,7 @@ def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.1):
 
     return name, d, distx[s], disty[s], radr[s], frlog[s]
 
-def get_syn_model(filename,fmin,emin=1.,emax=1000.):
+def get_syn_model(filename,fmin,bmax,emin=1.,emax=1000.):
     """
     Load synthetic population already given in gammalib format
     :param filename: str, name of XML file
@@ -202,7 +202,7 @@ def get_syn_model(filename,fmin,emin=1.,emax=1000.):
     # output models
     outmodels = gammalib.GModels()
     for s, model in enumerate(models):
-        if fluxes[s] > fmin:
+        if fluxes[s] > fmin and np.abs(lats[s]) < bmax:
             outmodels.append(model)
         else:
             pass

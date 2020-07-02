@@ -78,7 +78,7 @@ bins_rad = np.linspace(0, 2, 30)
 # load synthetic populations, so that high flux members can be dropped as we add real sources
 
 # binaries
-bin_models, bin_dict = get_binpop_models('../binpop',fmin,'./')
+bin_models, bin_dict = get_binpop_models('../binpop',fmin,'./',bmax)
 msg = 'Loaded {} synthetic binaries\n'.format(bin_models.size())
 print(msg)
 outfile.write(msg)
@@ -90,7 +90,7 @@ bin_frlog = []
 
 # pwn
 pwn_models, pwn_dict = get_syn_model('../pwn/xml/pwn.xml',
-                                       1.e-3*fmin,0.1,1000.)
+                                       1.e-3*fmin,bmax,0.1,1000.)
 msg = 'Loaded {} synthetic PWNe\n'.format(pwn_models.size())
 print(msg)
 outfile.write(msg)
@@ -102,7 +102,7 @@ pwn_frlog = []
 
 # snr
 snr_models, snr_dict = get_syn_model('../snr/OUTPUT_FILES_1/ctadc_skymodel_gps_sources_pevatron_0.xml',
-                                     1.e-3*fmin,emin=0.1,emax=1000.)
+                                     1.e-3*fmin,bmax,emin=0.1,emax=1000.)
 msg = 'Loaded {} synthetic young SNRs\n'.format(snr_models.size())
 print(msg)
 outfile.write(msg)
@@ -114,7 +114,7 @@ snr_frlog = []
 
 # isnr
 isnr_models, isnr_dict = get_syn_model('../int-snr/out/isnr.xml',
-                                       1.e-3*fmin,0.1,1000.)
+                                       1.e-3*fmin,bmax,0.1,1000.)
 msg = 'Loaded {} synthetic interacting SNRs\n'.format(isnr_models.size())
 print(msg)
 outfile.write(msg)
@@ -377,7 +377,7 @@ for source in gammacat:
                 snr_disty.append(disty)
                 snr_radr.append(radr)
                 snr_frlog.append(frlog)
-            elif 'pwn' in source['classes']: ## or source['classes'] == 'unid': FIXME: UNID are ignored
+            elif 'pwn' in source['classes'] or source['classes'] == 'unid':
                 # all sources possibly associated with PWNe or unidentified are supposed to be PWNe
                 rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),1.e-2 *source['spec_flux_1TeV_crab'])
                 pwn_models.remove(rname)

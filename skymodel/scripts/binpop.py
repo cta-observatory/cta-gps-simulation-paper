@@ -84,11 +84,12 @@ def bin2gammalib(filename, flux_thresh, outdir):
 
     else:
         # empty model
+        lat = 0.
         model = gammalib.GModelSky()
 
-    return model
+    return model, lat
 
-def get_binpop_models(datadir,flux_thresh,outdir):
+def get_binpop_models(datadir,flux_thresh,outdir,bmax):
 
     models = gammalib.GModels()
 
@@ -102,8 +103,8 @@ def get_binpop_models(datadir,flux_thresh,outdir):
 
     # load models
     for file in files:
-        model = bin2gammalib(file,flux_thresh,outdir)
-        if model.size() > 0:
+        model, lat = bin2gammalib(file,flux_thresh,outdir)
+        if model.size() > 0 and np.abs(lat) < bmax:
             models.append(model)
         else:
             pass
