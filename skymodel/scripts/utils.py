@@ -134,7 +134,7 @@ def get_model_radius(model):
     return radius
 
 def delete_source_fom(distx,disty,radr, frlog):
-    fom = np.sqrt((distx / 180) ** 2 + (disty / 10) ** 2 + (radr / 0.3) ** 2 + (frlog / 0.3) ** 2)
+    fom = np.sqrt((distx / 180) ** 2 + (disty / 10) ** 2 + (radr / 0.5) ** 2 + (frlog / 0.3) ** 2)
     return fom
 
 def pop_source(d,name):
