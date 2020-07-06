@@ -1,10 +1,10 @@
-Model built by ltibaldo at macp0077.irap.omp.eu on 2020-07-06 11:39:44
+Model built by ltibaldo at macp0077.irap.omp.eu on 2020-07-06 15:05:23
 Using ATNF catalog version 1.61
 Loaded 156 synthetic binaries
 Loaded 1089 synthetic PWNe
 Loaded 179 synthetic young SNRs
 Loaded 98 synthetic interacting SNRs
-143 pairs PWN/SNR constitute composite systems
+131 pairs PWN/SNR constitute composite systems
 Added 92 gamma-cat sources
 Set estimated cutoffs for 17 PWN, 2 SNR, 18 UNID
 Deleted 5 synthetic binaries
@@ -71,12 +71,11 @@ WARNING: sources PSR_J2021+4026 and GammaCygni are at a distance of 0.1626937933
 WARNING: sources PSR_J2032+4127 and TeV J2032+4130 are at a distance of 0.1494632798572676 deg lower than 0.2 deg
 WARNING: sources PSR_J2032+4127 and PSR J2032+4127 are at a distance of 0.0002555266219037767 deg lower than 0.2 deg
 Added 149 synthetic binaries
-Added 154 synthetic young SNRs, of which 134 in composite systems
-Added 1007 synthetic PWNe, of which 134 in composite systems
+Added 154 synthetic young SNRs, of which 122 in composite systems
+Added 1007 synthetic PWNe, of which 122 in composite systems
 Added 92 synthetic interacting SNRs
 Added 2 interstellar emission components
 WARNING: source Crab nebula has a flux of 1.0933015240785813 Crab
 WARNING: source Vela Junior has a flux of 1.125434088244293 Crab
 WARNING: source snr_1491 has a flux of 1.473981981025563 Crab
-WARNING: source pwn637 has a flux of 1.09083534233645 Crab
 Added background model

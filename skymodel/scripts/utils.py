@@ -134,7 +134,7 @@ def get_model_radius(model):
     return radius
 
 def delete_source_fom(distx,disty,radr, frlog):
-    fom = np.sqrt((distx / 180) ** 2 + (disty / 10) ** 2 + (radr / 1.) ** 2 + (frlog / 0.3) ** 2)
+    fom = np.sqrt((distx / 180) ** 2 + (disty / 10) ** 2 + (radr / 1.) ** 2 + (frlog / 0.5) ** 2)
     return fom
 
 def pop_source(d,name):
@@ -153,7 +153,7 @@ def pop_source(d,name):
     d['name'] = d['name'][m]
     return d
 
-def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.05):
+def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.05, hiflux=1.0):
 
 
     # calculate distance in lon and lat
@@ -175,13 +175,25 @@ def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.05):
     # figure of merit to decide which source to eliminate
     fom = delete_source_fom(distx,disty,radr,frlog)
 
+    # # make sure vey bright sources are eliminated
+    # # by setting fom of sources below high threshold to artificially large value
+    # if flux > hiflux:
+    #     fom[d['flux'] < hiflux] = 1.e8
+
     # eliminate closer source = minimum fom
     s = np.where(fom == np.min(fom))
     name = d['name'][s][0]
     d = pop_source(d,name)
 
-    # # prints for checking algorithm works correctly
-    # print('name {}, fom {}, distx {}, disty {}, radr {}, frlog {}'.format(name, fom[s], distx[s], disty[s], radr[s], frlog[s]))
+    # prints for checking algorithm works correctly
+    if flux > 0.5:
+        print('deleted source: name {}, fom {}, distx {}, disty {}, radr {}, frlog {}'.format(name, fom[s], distx[s], disty[s], radr[s], frlog[s]))
+        i = np.where(d['name'] == 'pwn637')
+        print('pwn637: fom {}, distx {}, disty {}, radr {}, frlog {}'.format(fom[i],
+                                                                                     distx[i],
+                                                                                     disty[i],
+                                                                                     radr[i],
+                                                                                     frlog[i]))
 
     return name, d, distx[s], disty[s], radr[s], frlog[s]
 
@@ -277,33 +289,35 @@ def set_composites(pwn_dict,snr_dict):
         # if there is an overlapping source
         if np.any(dist < sumrad):
             distance = np.min(dist)
-            pwnname = pwn_dict['name'][dist==distance][0]
-            names.append([pwnname,snrname])
-            # for GLON and GLAT take flux-weighted average of individual objects
-            pwn_lon = pwn_dict['GLON'][dist==distance]
-            pwn_lat = pwn_dict['GLAT'][dist==distance]
-            pwn_flux = pwn_dict['flux'][dist == distance]
-            lon = snr_dict['GLON'][s] * snr_dict['flux'][s] + pwn_lon * pwn_flux
-            lon /= (snr_dict['flux'][s] + pwn_flux)
-            lons = np.append(lons,lon)
-            lat = snr_dict['GLAT'][s] * snr_dict['flux'][s] + pwn_lat * pwn_flux
-            lat /= (snr_dict['flux'][s] + pwn_flux)
-            lats = np.append(lats,lat)
-            # radius is max encompassing two objects
-            rad_pwn = pwn_dict['radius'][dist==distance][0]
-            if distance < np.abs(snr_dict['radius'][s] - rad_pwn):
-                # one of the objects is contained
-                rad = np.maximum(snr_dict['radius'][s], rad_pwn)
-            else:
-                # partially overlapping
-                rad = (distance + rad_pwn + snr_dict['radius'][s]) / 2
-            radii = np.append(radii,rad)
-            # flux is sum of two fluxes
-            flux = pwn_dict['flux'][dist==distance] + snr_dict['flux'][s]
-            fluxes = np.append(fluxes,flux)
-            # # test print
-            msg = '{}/{} distance: {} deg, radii: {}/{} deg'.format(pwnname,snrname, distance,rad_pwn,snr_dict['radius'][s])
-            print(msg)
+            flux_ratio = pwn_dict['flux'][dist==distance]/snr_dict['flux'][s]
+            if flux_ratio > 1.e-2 and flux_ratio < 1.e2:
+                pwnname = pwn_dict['name'][dist==distance][0]
+                names.append([pwnname,snrname])
+                # for GLON and GLAT take flux-weighted average of individual objects
+                pwn_lon = pwn_dict['GLON'][dist==distance]
+                pwn_lat = pwn_dict['GLAT'][dist==distance]
+                pwn_flux = pwn_dict['flux'][dist == distance]
+                lon = snr_dict['GLON'][s] * snr_dict['flux'][s] + pwn_lon * pwn_flux
+                lon /= (snr_dict['flux'][s] + pwn_flux)
+                lons = np.append(lons,lon)
+                lat = snr_dict['GLAT'][s] * snr_dict['flux'][s] + pwn_lat * pwn_flux
+                lat /= (snr_dict['flux'][s] + pwn_flux)
+                lats = np.append(lats,lat)
+                # radius is max encompassing two objects
+                rad_pwn = pwn_dict['radius'][dist==distance][0]
+                if distance < np.abs(snr_dict['radius'][s] - rad_pwn):
+                    # one of the objects is contained
+                    rad = np.maximum(snr_dict['radius'][s], rad_pwn)
+                else:
+                    # partially overlapping
+                    rad = (distance + rad_pwn + snr_dict['radius'][s]) / 2
+                radii = np.append(radii,rad)
+                # flux is sum of two fluxes
+                flux = pwn_dict['flux'][dist==distance] + snr_dict['flux'][s]
+                fluxes = np.append(fluxes,flux)
+                # # # test print
+                # msg = '{}/{} distance: {} deg, radii: {}/{} deg, flux ratio {}'.format(pwnname,snrname, distance,rad_pwn,snr_dict['radius'][s],flux_ratio)
+                # print(msg)
 
     # convert name to numpy array
     names = np.array(names)

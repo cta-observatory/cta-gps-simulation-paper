@@ -10,6 +10,7 @@ from add_hawc import *
 from utils import *
 from cutoffs import get_cutoff, get_atnf_version
 from binpop import get_binpop_models
+import pdb
 
 # inputs from external sources
 gammacat_file = '../known-sources/external-input/gammacat.fits.gz'
@@ -390,6 +391,7 @@ for source in gammacat:
                 snr_radr.append(radr)
                 snr_frlog.append(frlog)
             elif 'pwn' in source['classes'] or source['classes'] == 'unid':
+                print('PWN')
                 # all sources possibly associated with PWNe or unidentified are supposed to be PWNe
                 rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),1.e-2 *source['spec_flux_1TeV_crab'],radmin=radmin)
                 pwn_models.remove(rname)
@@ -398,6 +400,7 @@ for source in gammacat:
                 pwn_disty.append(disty)
                 pwn_radr.append(radr)
                 pwn_frlog.append(frlog)
+                print('-----')
             else:
                 pass
 
@@ -564,6 +567,7 @@ for template in template_list:
                     snr_radr.append(radr)
                     snr_frlog.append(frlog)
                 elif cl == 'pwn' or cl == 'unid':
+                    print('PWN')
                     # all sources possibly associated with PWNe or unidentified are supposed to be PWNe
                     rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),src_flux,radmin=radmin)
                     pwn_models.remove(rname)
@@ -572,6 +576,7 @@ for template in template_list:
                     pwn_disty.append(disty)
                     pwn_radr.append(radr)
                     pwn_frlog.append(frlog)
+                    print('-----')
 
 msg = 'Replaced {} gamma-cat sources with templates. Added {} sources as templates\n'.format(
     replaced, added)
