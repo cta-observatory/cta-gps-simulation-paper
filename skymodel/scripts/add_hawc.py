@@ -116,7 +116,6 @@ def append_hawc(models, bmax, pwn_models, pwn_dict, pwn_distx, pwn_disty, pwn_ra
             model.name(hsource['name'])
             newmodels.append(model)
             # delete synthetic PWN
-            print('PWN')
             rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,hdir.l_deg(),hdir.b_deg(),
                                                                                get_model_radius(model),flux_Crab(model,1.,1000.),radmin=radmin)
             pwn_models.remove(rname)
@@ -125,7 +124,6 @@ def append_hawc(models, bmax, pwn_models, pwn_dict, pwn_distx, pwn_disty, pwn_ra
             pwn_disty.append(disty)
             pwn_radr.append(radr)
             pwn_frlog.append(frlog)
-            print('-----')
         else:
             # source already present, skip
             pass

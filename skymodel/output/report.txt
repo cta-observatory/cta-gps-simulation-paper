@@ -1,4 +1,4 @@
-Model built by ltibaldo at macp0077.irap.omp.eu on 2020-07-06 15:05:23
+Model built by ltibaldo at macp0077.irap.omp.eu on 2020-07-06 16:05:09
 Using ATNF catalog version 1.61
 Loaded 156 synthetic binaries
 Loaded 1089 synthetic PWNe
@@ -77,5 +77,4 @@ Added 92 synthetic interacting SNRs
 Added 2 interstellar emission components
 WARNING: source Crab nebula has a flux of 1.0933015240785813 Crab
 WARNING: source Vela Junior has a flux of 1.125434088244293 Crab
-WARNING: source snr_1491 has a flux of 1.473981981025563 Crab
 Added background model

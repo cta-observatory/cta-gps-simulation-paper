@@ -134,7 +134,7 @@ def get_model_radius(model):
     return radius
 
 def delete_source_fom(distx,disty,radr, frlog):
-    fom = np.sqrt((distx / 180) ** 2 + (disty / 10) ** 2 + (radr / 1.) ** 2 + (frlog / 0.5) ** 2)
+    fom = np.sqrt((distx / 180) ** 2 + (disty / 10) ** 2 + (radr / 1.) ** 2 + (frlog >= 0) * (frlog / 0.6) ** 2 + (frlog < 0) * (frlog / 0.3) ** 2)
     return fom
 
 def pop_source(d,name):
@@ -153,7 +153,7 @@ def pop_source(d,name):
     d['name'] = d['name'][m]
     return d
 
-def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.05, hiflux=1.0):
+def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.05):
 
 
     # calculate distance in lon and lat
@@ -175,25 +175,10 @@ def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.05, hiflux=1.0):
     # figure of merit to decide which source to eliminate
     fom = delete_source_fom(distx,disty,radr,frlog)
 
-    # # make sure vey bright sources are eliminated
-    # # by setting fom of sources below high threshold to artificially large value
-    # if flux > hiflux:
-    #     fom[d['flux'] < hiflux] = 1.e8
-
     # eliminate closer source = minimum fom
     s = np.where(fom == np.min(fom))
     name = d['name'][s][0]
     d = pop_source(d,name)
-
-    # prints for checking algorithm works correctly
-    if flux > 0.5:
-        print('deleted source: name {}, fom {}, distx {}, disty {}, radr {}, frlog {}'.format(name, fom[s], distx[s], disty[s], radr[s], frlog[s]))
-        i = np.where(d['name'] == 'pwn637')
-        print('pwn637: fom {}, distx {}, disty {}, radr {}, frlog {}'.format(fom[i],
-                                                                                     distx[i],
-                                                                                     disty[i],
-                                                                                     radr[i],
-                                                                                     frlog[i]))
 
     return name, d, distx[s], disty[s], radr[s], frlog[s]
 
