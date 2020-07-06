@@ -435,7 +435,7 @@ gammacat_lons[gammacat_lons > 180] = gammacat_lons[gammacat_lons > 180] - 360.
 # make first distributions
 ax1.hist(gammacat_flux, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat', alpha=0.5, linewidth=2)
-ax5.hist((1 - np.cos(np.deg2rad(radmin))) * gammacat_flux / (1 - np.deg2rad(np.cos(np.maximum(gammacat_rads,radmin)))),
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * gammacat_flux / (1 - np.cos(np.deg2rad(np.maximum(gammacat_rads,radmin)))),
          bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat', alpha=0.5, linewidth=2)
 ax2.hist(gammacat_lons, bins=bins_lon, density=False, histtype='step',
@@ -461,7 +461,6 @@ ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
          label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
 ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
          label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
-
 
 # add templates
 
@@ -601,7 +600,7 @@ lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
-ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.cos(np.deg2rad(np.maximum(radii,radmin)))),
          bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
@@ -730,7 +729,7 @@ lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
-ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.cos(np.deg2rad(np.maximum(radii,radmin)))),
          bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
@@ -848,7 +847,7 @@ lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
-ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.cos(np.deg2rad(np.maximum(radii,radmin)))),
          bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
@@ -891,7 +890,7 @@ lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
-ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.cos(np.deg2rad(np.maximum(radii,radmin)))),
          bins=bins_lognlogs, density=False, histtype='step', cumulative=-1, linestyle=':',
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin', alpha=0.5, linewidth=2)
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
@@ -917,7 +916,7 @@ lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
-ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.cos(np.deg2rad(np.maximum(radii,radmin)))),
          bins=bins_lognlogs, density=False, histtype='step', cumulative=-1, linestyle=':',
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2)
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
@@ -943,7 +942,7 @@ lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR + synth PWNe', alpha=0.5, linewidth=2, linestyle=':')
-ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.cos(np.deg2rad(np.maximum(radii,radmin)))),
          bins=bins_lognlogs, density=False, histtype='step', cumulative=-1, linestyle=':',
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR + synth PWNe', alpha=0.5, linewidth=2)
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
@@ -978,7 +977,7 @@ lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR + synth PWNe + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
-ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.cos(np.deg2rad(np.maximum(radii,radmin)))),
          bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR + synth PWNe + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
