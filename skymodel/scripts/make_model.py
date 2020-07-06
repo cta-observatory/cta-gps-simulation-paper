@@ -20,6 +20,10 @@ bmax = 10.
 # minimum flux for synthetic source (mCrab)
 fmin = 0.001
 
+# minimum radius (deg) below which sources are treated as pointlike
+# for association and plotting
+radmin = 0.05
+
 # go to output directory as working directory
 # this simplifies file path handling
 os.chdir('../output')
@@ -48,6 +52,14 @@ ax1.set_yscale('log')
 ax1.set_xlabel("Flux > 1 TeV (Crab units)", fontsize=14)
 ax1.set_ylabel('Number of sources (> Flux)', fontsize=14)
 format_ax(ax1)
+
+fig5 = plt.figure('LogNLogS-solidang')
+ax5 = plt.subplot()
+ax5.set_xscale('log')
+ax5.set_yscale('log')
+ax5.set_xlabel("Flux per solid angle > 1 TeV (Crab units)", fontsize=14)
+ax5.set_ylabel('Number of sources (> Flux)', fontsize=14)
+format_ax(ax5)
 
 fig2 = plt.figure('GLON')
 ax2 = plt.subplot()
@@ -345,7 +357,7 @@ for source in gammacat:
             gammacat_flux.append(source['spec_flux_1TeV_crab'])
             # find which synthetic source need to be deleted to account for the source added
             if source['classes'] == 'bin':
-                rname, bin_dict, distx, disty, radr, frlog = find_source_to_delete(bin_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model), 1.e-2*source['spec_flux_1TeV_crab'])
+                rname, bin_dict, distx, disty, radr, frlog = find_source_to_delete(bin_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model), 1.e-2*source['spec_flux_1TeV_crab'],radmin=radmin)
                 bin_models.remove(rname)
                 n_bin_del +=1
                 bin_distx.append(distx)
@@ -353,7 +365,7 @@ for source in gammacat:
                 bin_radr.append(radr)
                 bin_frlog.append(frlog)
             elif source['classes'] == 'pwn,snr':
-                rname, comp_dict, distx, disty, radr, frlog = find_source_to_delete(comp_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),1.e-2 *source['spec_flux_1TeV_crab'])
+                rname, comp_dict, distx, disty, radr, frlog = find_source_to_delete(comp_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),1.e-2 *source['spec_flux_1TeV_crab'],radmin=radmin)
                 pwn_models.remove(rname[0])
                 snr_models.remove(rname[1])
                 n_comp_del += 1
@@ -362,7 +374,7 @@ for source in gammacat:
                 comp_radr.append(radr)
                 comp_frlog.append(frlog)
             elif source['classes'] == 'snr,mc':
-                rname, isnr_dict, distx, disty, radr, frlog = find_source_to_delete(isnr_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model),1.e-2 * source['spec_flux_1TeV_crab'])
+                rname, isnr_dict, distx, disty, radr, frlog = find_source_to_delete(isnr_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model),1.e-2 * source['spec_flux_1TeV_crab'],radmin=radmin)
                 isnr_models.remove(rname)
                 n_isnr_del += 1
                 isnr_distx.append(distx)
@@ -370,7 +382,7 @@ for source in gammacat:
                 isnr_radr.append(radr)
                 isnr_frlog.append(frlog)
             elif source['classes'] == 'snr':
-                rname, snr_dict, distx, disty, radr, frlog = find_source_to_delete(snr_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model),1.e-2 * source['spec_flux_1TeV_crab'])
+                rname, snr_dict, distx, disty, radr, frlog = find_source_to_delete(snr_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model),1.e-2 * source['spec_flux_1TeV_crab'],radmin=radmin)
                 snr_models.remove(rname)
                 n_snr_del += 1
                 snr_distx.append(distx)
@@ -379,7 +391,7 @@ for source in gammacat:
                 snr_frlog.append(frlog)
             elif 'pwn' in source['classes'] or source['classes'] == 'unid':
                 # all sources possibly associated with PWNe or unidentified are supposed to be PWNe
-                rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),1.e-2 *source['spec_flux_1TeV_crab'])
+                rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),1.e-2 *source['spec_flux_1TeV_crab'],radmin=radmin)
                 pwn_models.remove(rname)
                 n_pwn_del += 1
                 pwn_distx.append(distx)
@@ -423,6 +435,9 @@ gammacat_lons[gammacat_lons > 180] = gammacat_lons[gammacat_lons > 180] - 360.
 # make first distributions
 ax1.hist(gammacat_flux, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat', alpha=0.5, linewidth=2)
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * gammacat_flux / (1 - np.deg2rad(np.cos(np.maximum(gammacat_rads,radmin)))),
+         bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='gamma-cat', alpha=0.5, linewidth=2)
 ax2.hist(gammacat_lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat', alpha=0.5, linewidth=2)
 ax3.hist(gammacat_lats, bins=bins_lat, density=False, histtype='step',
@@ -436,6 +451,9 @@ lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.cos(np.deg2rad(np.maximum(radii,radmin)))),
+         bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='converted gamma-cat', alpha=0.5, linewidth=2, linestyle=':')
@@ -514,7 +532,7 @@ for template in template_list:
                 src_dir = get_model_dir(model)
                 src_flux = flux_Crab(model,1.,1000.)
                 if cl == 'bin':
-                    rname, bin_dict, distx, disty, radr, frlog = find_source_to_delete(bin_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model), src_flux)
+                    rname, bin_dict, distx, disty, radr, frlog = find_source_to_delete(bin_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model), src_flux,radmin=radmin)
                     bin_models.remove(rname)
                     n_bin_del +=1
                     bin_distx.append(distx)
@@ -522,7 +540,7 @@ for template in template_list:
                     bin_radr.append(radr)
                     bin_frlog.append(frlog)
                 elif cl == 'comp':
-                    rname, comp_dict, distx, disty, radr, frlog = find_source_to_delete(comp_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),src_flux)
+                    rname, comp_dict, distx, disty, radr, frlog = find_source_to_delete(comp_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),src_flux,radmin=radmin)
                     pwn_models.remove(rname[0])
                     snr_models.remove(rname[1])
                     n_comp_del += 1
@@ -531,7 +549,7 @@ for template in template_list:
                     comp_radr.append(radr)
                     comp_frlog.append(frlog)
                 elif cl == 'isnr':
-                    rname, isnr_dict, distx, disty, radr, frlog = find_source_to_delete(isnr_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model),src_flux)
+                    rname, isnr_dict, distx, disty, radr, frlog = find_source_to_delete(isnr_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model),src_flux,radmin=radmin)
                     isnr_models.remove(rname)
                     n_isnr_del += 1
                     isnr_distx.append(distx)
@@ -539,7 +557,7 @@ for template in template_list:
                     isnr_radr.append(radr)
                     isnr_frlog.append(frlog)
                 elif cl == 'snr':
-                    rname, snr_dict, distx, disty, radr, frlog = find_source_to_delete(snr_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model),src_flux)
+                    rname, snr_dict, distx, disty, radr, frlog = find_source_to_delete(snr_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model),src_flux,radmin=radmin)
                     snr_models.remove(rname)
                     n_snr_del += 1
                     snr_distx.append(distx)
@@ -548,7 +566,7 @@ for template in template_list:
                     snr_frlog.append(frlog)
                 elif cl == 'pwn' or cl == 'unid':
                     # all sources possibly associated with PWNe or unidentified are supposed to be PWNe
-                    rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),src_flux)
+                    rname, pwn_dict, distx, disty, radr, frlog = find_source_to_delete(pwn_dict,src_dir.l_deg(),src_dir.b_deg(),get_model_radius(model),src_flux,radmin=radmin)
                     pwn_models.remove(rname)
                     n_pwn_del += 1
                     pwn_distx.append(distx)
@@ -582,6 +600,9 @@ lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+         bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates', alpha=0.5, linewidth=2, linestyle=':')
@@ -648,7 +669,7 @@ for binary in binary_list:
             for s in range(len(model_names)):
                 flux += flux_Crab(models[-1-s],1.,1000.)
             rname, bin_dict, distx, disty, radr, frlog = find_source_to_delete(bin_dict, src_dir.l_deg(), src_dir.b_deg(), get_model_radius(model),
-                                                    flux)
+                                                    flux,radmin=radmin)
             bin_models.remove(rname)
             n_bin_del += 1
             bin_distx.append(distx)
@@ -708,6 +729,9 @@ lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+         bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates + bin + psr', alpha=0.5, linewidth=2, linestyle=':')
@@ -796,7 +820,7 @@ if len(result_fhl['msg']) > 0:
 
 models, newpt, newext, warning, pwn_models, n_pwn_del, pwn_distx, pwn_disty, pwn_radr, pwn_frlog = append_hawc(models,bmax,
                                                                                                                pwn_models, pwn_dict, pwn_distx, pwn_disty, pwn_radr, pwn_frlog,
-                                                                                                               dist_sigma=3.)
+                                                                                                               dist_sigma=3,radmin=radmin)
 
 msg = 'Added {} HAWC sources, of which {} as pointlike and {} as extended.\n'.format(
     newpt+newext, newpt,newext)
@@ -823,6 +847,9 @@ lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='gamma-cat + templates + bin + psr + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+         bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates + bin + psr + FHL + HAWC', alpha=0.5, linewidth=2, linestyle=':')
@@ -864,6 +891,9 @@ lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+         bins=bins_lognlogs, density=False, histtype='step', cumulative=-1, linestyle=':',
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin', alpha=0.5, linewidth=2)
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
@@ -887,6 +917,9 @@ lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+         bins=bins_lognlogs, density=False, histtype='step', cumulative=-1, linestyle=':',
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2)
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
@@ -910,6 +943,9 @@ lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR + synth PWNe', alpha=0.5, linewidth=2, linestyle=':')
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+         bins=bins_lognlogs, density=False, histtype='step', cumulative=-1, linestyle=':',
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR + synth PWNe', alpha=0.5, linewidth=2)
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR + synth PWNe', alpha=0.5, linewidth=2, linestyle=':')
 ax3.hist(lats, bins=bins_lat, density=False, histtype='step',
@@ -941,6 +977,9 @@ lons, lats, radii, fluxes, names = dist_from_gammalib(models)
 lons = np.array(lons)
 lons[lons > 180] = lons[lons > 180] - 360.
 ax1.hist(fluxes, bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
+         label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR + synth PWNe + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
+ax5.hist((1 - np.cos(np.deg2rad(radmin))) * np.array(fluxes) / (1 - np.deg2rad(np.cos(np.maximum(radii,radmin)))),
+         bins=bins_lognlogs, density=False, histtype='step', cumulative=-1,
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR + synth PWNe + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
 ax2.hist(lons, bins=bins_lon, density=False, histtype='step',
          label='gamma-cat + templates + bin + psr + FHL + HAWC + synth bin + synth SNR + synth PWNe + synth iSNR', alpha=0.5, linewidth=2, linestyle=':')
@@ -1018,6 +1057,8 @@ ax3.legend(fontsize=5)
 fig3.savefig('glat.png', dpi=300)
 ax0.legend(fontsize=5)
 fig0.savefig('radius.png', dpi=300)
+ax5.legend(fontsize=5)
+fig5.savefig('logNlogS-solidang.png', dpi=300)
 
 # make more diagnostic plots with properties of synthetic sources deleted
 plot_del_sources(bin_distx,bin_disty,bin_radr,bin_frlog,'bin','binaries')

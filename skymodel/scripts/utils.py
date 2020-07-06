@@ -153,7 +153,8 @@ def pop_source(d,name):
     d['name'] = d['name'][m]
     return d
 
-def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.1):
+def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.05):
+
 
     # calculate distance in lon and lat
     distx = np.abs(d['GLON'] - lon)
@@ -162,10 +163,11 @@ def find_source_to_delete(d,lon,lat,rad,flux, radmin =0.1):
     #dist = np.sqrt(distx**2 + disty**2)
 
     # calculate radius relative difference
-    # take into the fact that CTA will not resolve objects with radii <~ 0.1 deg
+    # take into the fact that current instruments cannot resolve objects with radii < 0.05 deg
+    # based on minimum measured size in HGPS
     if rad < radmin:
         rad = radmin
-    radr = 0.5 * (np.maximum(d['radius'],0.1) - rad) / (np.maximum(d['radius'],0.1) + rad)
+    radr = 0.5 * (np.maximum(d['radius'],radmin) - rad) / (np.maximum(d['radius'],radmin) + rad)
 
     # calculate flux_ratio log
     frlog = np.log10(d['flux']/flux)
