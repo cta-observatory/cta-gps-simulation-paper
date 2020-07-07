@@ -929,6 +929,14 @@ ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
 
 # PWNe
 for model in pwn_models:
+    if model.spectral().type() == 'FileFunction':
+        # find spectrum file name and path
+        filename = model.spectral().filename().file()
+        filepath = model.spectral().filename().path()
+        # copy file to output directory
+        shutil.copy(filepath + filename, './')
+        # replace file with the one in output directory
+        model.spectral(gammalib.GModelSpectralFunc(gammalib.GFilename(filename), model.spectral()['Normalization'].value()))
     models.append(model)
     models_syn.append(model)
 
