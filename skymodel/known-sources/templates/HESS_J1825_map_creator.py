@@ -138,6 +138,7 @@ skymap.write('hessj1825_cube.fits', hdu='Primary', overwrite='True')
 hdul = fits.open('hessj1825_cube.fits')
 hdul[0].header.set('BUNIT', 'photon/cm2/s/MeV/sr', 'Photon flux')
 hdul[0].verify('fix')
+del hdul[0].header['BANDSHDU']
 hdul[1].name='ENERGIES'
 hdul[1].header['TTYPE2']='Energy'
 hdul[1].verify('fix')
