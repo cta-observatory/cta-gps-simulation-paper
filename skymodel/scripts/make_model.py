@@ -12,6 +12,7 @@ from cutoffs import get_cutoff, get_atnf_version
 from binpop import get_binpop_models
 import pdb
 
+
 # inputs from external sources
 gammacat_file = '../known-sources/external-input/gammacat.fits.gz'
 
@@ -138,7 +139,7 @@ isnr_radr = []
 isnr_frlog = []
 
 # set composite SNR/PWN systems
-comp_dict, pwn_dict, snr_dict = set_composites(pwn_dict,snr_dict)
+comp_dict, pwn_dict, snr_dict = set_composites(pwn_dict,snr_dict,outfilename='composites.csv')
 msg = '{} pairs PWN/SNR constitute composite systems\n'.format(len(comp_dict['name']))
 print(msg)
 outfile.write(msg)

@@ -253,7 +253,7 @@ def plot_del_sources(distx,disty,radr, frlog,namestr,namefull):
 
     return
 
-def set_composites(pwn_dict,snr_dict):
+def set_composites(pwn_dict,snr_dict, outfilename = None):
 
     # create arrays to store output quantities
     names = []
@@ -261,6 +261,13 @@ def set_composites(pwn_dict,snr_dict):
     lats = np.array([])
     radii = np.array([])
     fluxes = np.array([])
+
+    # if required save results in file
+    savef = False
+    if not outfilename == None:
+        savef = True
+        outfile = open(outfilename,'w')
+        outfile.write('# pwn name, snr name, distance (deg),rad pwn (deg), rad snr (deg), flux ratio (pwn/snr)\n')
 
     # loop over SNRs
     for s, snrname in enumerate(snr_dict['name']):
@@ -300,9 +307,9 @@ def set_composites(pwn_dict,snr_dict):
                 # flux is sum of two fluxes
                 flux = pwn_dict['flux'][dist==distance] + snr_dict['flux'][s]
                 fluxes = np.append(fluxes,flux)
-                # # # test print
-                # msg = '{}/{} distance: {} deg, radii: {}/{} deg, flux ratio {}'.format(pwnname,snrname, distance,rad_pwn,snr_dict['radius'][s],flux_ratio)
-                # print(msg)
+                if savef:
+                    msg = '{}, {}, {}, {} , {}, {}\n'.format(pwnname,snrname, distance,rad_pwn,snr_dict['radius'][s],flux_ratio[0])
+                    outfile.write(msg)
 
     # convert name to numpy array
     names = np.array(names)
@@ -315,6 +322,9 @@ def set_composites(pwn_dict,snr_dict):
         print(names[:,0][~m])
     else:
         pass
+
+    if savef:
+        outfile.close()
 
     # create composite dictionary with source parameters
     d = {'name'   : np.array(names),
