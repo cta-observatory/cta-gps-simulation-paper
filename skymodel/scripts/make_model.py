@@ -153,6 +153,8 @@ comp_frlog = []
 models = gammalib.GModels()
 # create container for synthetic sources only
 models_syn = gammalib.GModels()
+# create  dictionary to store additional info on sources not present in model container
+model_info = {}
 
 print('\n')
 
@@ -357,6 +359,8 @@ for source in gammacat:
             gammacat_lats.append(lat)
             gammacat_rads.append(radius)
             gammacat_flux.append(source['spec_flux_1TeV_crab'])
+            source_dict = {'provenance' : 'gamma-cat', 'class' : source['classes']}
+            model_info[source['common_name']] = source_dict
             # find which synthetic source need to be deleted to account for the source added
             if source['classes'] == 'bin':
                 rname, bin_dict, distx, disty, radr, frlog = find_source_to_delete(bin_dict,src_dir.l_deg(),src_dir.b_deg(), get_model_radius(model), 1.e-2*source['spec_flux_1TeV_crab'],radmin=radmin)
@@ -497,6 +501,7 @@ for template in template_list:
             if id in gammacat_ids:
                 source = gammacat[gammacat['source_id'] == id][0]
                 models.remove(source['common_name'])
+                dump = model_info.pop(source['common_name'])
                 replaced += 1
             else:
                 added += 1
@@ -528,6 +533,8 @@ for template in template_list:
                                model.spectral()['Normalization'].value()))
             # append model to container
             models.append(model)
+            source_dict = {'provenance': 'templates', 'class': cl}
+            model_info[model.name()] = source_dict
             # if new remove synthetic source
             if new:
                 src_dir = get_model_dir(model)
@@ -641,6 +648,7 @@ for binary in binary_list:
             if id in gammacat_ids:
                 source = gammacat[gammacat['source_id'] == id][0]
                 models.remove(source['common_name'])
+                dump = model_info.pop(source['common_name'])
                 replaced += 1
             else:
                 added += 1
@@ -663,6 +671,8 @@ for binary in binary_list:
             # replace file with the one in output directory
             model.temporal().filename(filename)
             models.append(model)
+            source_dict = {'provenance' : 'binaries list', 'class' : 'bin'}
+            model_info[model.name()] = source_dict
         # get rid of a synthetic binary for each newly added one
         if newsrc:
             src_dir = get_model_dir(model)
@@ -704,6 +714,7 @@ for psr in psr_models:
             if id in gammacat_ids:
                 source = gammacat[gammacat['source_id'] == id][0]
                 models.remove(source['common_name'])
+                dump = model_info.pop(source['common_name'])
                 replaced += 1
             else:
                 added += 1
@@ -717,6 +728,8 @@ for psr in psr_models:
         # replace file with the one in output directory
         psr.temporal().filename(filename)
         models.append(psr)
+        source_dict = {'provenance': 'pulsars list', 'class': 'psr'}
+        model_info[psr.name()] = source_dict
 
 
 msg = 'Replaced {} gamma-cat sources with pulsars. Added {} sources as pulsars\n'.format(
@@ -743,7 +756,7 @@ ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
 
 # add 3FHL
 
-result_fhl = append_fhl(models,bmax,
+result_fhl = append_fhl(models,model_info,bmax,
                         bin_models, bin_dict, bin_distx, bin_disty, bin_radr, bin_frlog,
                         snr_models, snr_dict, snr_distx, snr_disty, snr_radr, snr_frlog,
                         isnr_models, isnr_dict, isnr_distx, isnr_disty, isnr_radr, isnr_frlog,
@@ -751,6 +764,7 @@ result_fhl = append_fhl(models,bmax,
                         comp_dict, comp_distx, comp_disty, comp_radr, comp_frlog,
                         dist_sigma=3.)
 models = result_fhl['models']
+model_info = result_fhl['model_info']
 msg = 'Added {} FHL sources, of which {} as pointlike and {} as extended.\n'.format(
     result_fhl['newpt']+result_fhl['newext'], result_fhl['newpt'],result_fhl['newext'])
 print(msg)
@@ -819,7 +833,7 @@ if len(result_fhl['msg']) > 0:
 
 # add HAWC
 
-models, newpt, newext, warning, pwn_models, n_pwn_del, pwn_distx, pwn_disty, pwn_radr, pwn_frlog = append_hawc(models,bmax,
+models, model_info, newpt, newext, warning, pwn_models, n_pwn_del, pwn_distx, pwn_disty, pwn_radr, pwn_frlog = append_hawc(models,model_info,bmax,
                                                                                                                pwn_models, pwn_dict, pwn_distx, pwn_disty, pwn_radr, pwn_frlog,
                                                                                                                dist_sigma=3,radmin=radmin)
 
@@ -880,6 +894,8 @@ for model1 in models:
 for model in bin_models:
     models.append(model)
     models_syn.append(model)
+    source_dict = {'provenance' : 'synthetic binaries', 'class' : 'bin'}
+    model_info[model.name()] = source_dict
 
 msg = 'Added {} synthetic binaries\n'.format(bin_models.size())
 print(msg)
@@ -906,6 +922,8 @@ ax0.hist(radii, bins=bins_rad, density=False, histtype='step',
 for model in snr_models:
     models.append(model)
     models_syn.append(model)
+    source_dict = {'provenance' : 'synthetic SNRs', 'class' : 'snr'}
+    model_info[model.name()] = source_dict
 
 msg = 'Added {} synthetic young SNRs, of which {} in composite systems\n'.format(snr_models.size(),len(comp_dict['name']))
 print(msg)
@@ -940,6 +958,8 @@ for model in pwn_models:
         model.spectral(gammalib.GModelSpectralFunc(gammalib.GFilename(filename), model.spectral()['Normalization'].value()))
     models.append(model)
     models_syn.append(model)
+    source_dict = {'provenance' : 'synthetic PWNe', 'class' : 'pwn'}
+    model_info[model.name()] = source_dict
 
 msg = 'Added {} synthetic PWNe, of which {} in composite systems\n'.format(pwn_models.size(),len(comp_dict['name']))
 print(msg)
@@ -975,6 +995,8 @@ for model in isnr_models:
         model.spectral(gammalib.GModelSpectralFunc(gammalib.GFilename(filename), model.spectral()['Normalization'].value()))
     models.append(model)
     models_syn.append(model)
+    source_dict = {'provenance' : 'synthetic iSNRs', 'class' : 'isnr'}
+    model_info[model.name()] = source_dict
 
 msg = 'Added {} synthetic interacting SNRs\n'.format(isnr_models.size())
 print(msg)
@@ -1023,6 +1045,8 @@ for name in component_list:
                 model.spatial(gammalib.GModelSpatialDiffuseMap(filename))
             # append model to container
             models.append(model)
+            source_dict = {'provenance': 'IEM', 'class': 'iem'}
+            model_info[model.name()] = source_dict
             ncomp +=1
 
 msg = 'Added {} interstellar emission components\n'.format(ncomp)
@@ -1046,12 +1070,15 @@ bkgmodel.name('Background')
 bkgmodel.instruments('CTA')
 # append to models
 models.append(bkgmodel)
+source_dict = {'provenance': 'BKG', 'class': 'bkg'}
+model_info[bkgmodel.name()] = source_dict
 print('Added background model')
 outfile.write('Added background model\n')
 
 # save models
 models.save('models_gps.xml')
 models_syn.save('models_gps_synthetic.xml')
+np.save('model_info.npy',model_info)
 
 # close report file
 outfile.close()
