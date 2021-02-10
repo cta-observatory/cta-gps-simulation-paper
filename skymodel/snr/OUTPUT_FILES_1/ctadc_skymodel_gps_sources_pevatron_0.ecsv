@@ -1,300 +1,75 @@
 # %ECSV 0.9
 # ---
 # datatype:
-# - name: Num_SNR
-#   unit: ''
-#   datatype: float64
-#   format: '%i'
-#   description: Simulation number
-# - name: n0_ISM
-#   unit: 1 / cm3
-#   datatype: float64
-#   format: '%0.4f'
-#   description: ISM density
-# - name: n0_shock
-#   unit: 1 / cm3
-#   datatype: float64
-#   format: '%0.4f'
-#   description: Shock density
-# - name: type
-#   unit: ''
-#   datatype: float64
-#   format: '%i'
-#   description: type of progenitor
-# - name: Mej
-#   unit: solMass
-#   datatype: float64
-#   format: '%0.4f'
-#   description: Mass of Ejecta
-# - name: agekyr
-#   unit: kyear
-#   datatype: float64
-#   format: '%0.4f'
-#   description: age of the SNR
-# - name: sigma
-#   unit: arcmin
-#   datatype: float64
-#   format: '%0.4f'
-#   description: apparent size of the SNR
-# - name: SNR_radiuspc
-#   unit: pc
-#   datatype: float64
-#   format: '%0.4f'
-#   description: SNR Radius
-# - name: '0.1'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '0.13433993325989002'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '0.18047217668271703'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '0.24244620170823283'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '0.3257020655659783'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '0.43754793750741844'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '0.5878016072274912'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '0.7896522868499725'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '1.0608183551394483'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '1.4251026703029979'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '1.9144819761699576'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '2.5719138090593443'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '3.455107294592218'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '4.6415888336127775'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '6.235507341273912'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '8.376776400682916'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '11.253355826007645'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '15.117750706156615'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '20.309176209047347'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '27.283333764867667'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '36.65241237079626'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '49.238826317067364'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '66.14740641230146'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '88.86238162743399'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '119.37766417144357'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '160.37187437513293'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '215.44346900318823'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '289.4266124716749'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '388.81551803080856'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '522.3345074266838'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '701.7038286703822'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '942.6684551178845'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '1266.380173467402'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '1701.2542798525858'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '2285.4638641349884'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '3070.2906297578497'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '4124.626382901348'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '5541.020330009481'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '7443.803013251681'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: '10000.0'
-#   unit: TeV / (cm2 s)
-#   datatype: float64
-#   description: Differential spectrum
-# - name: galactocentric_x
-#   unit: kpc
-#   datatype: float64
-#   format: '%0.5f'
-#   description: Galactocentric X
-# - name: galactocentric_y
-#   unit: kpc
-#   datatype: float64
-#   format: '%0.5f'
-#   description: Galactocentric Y
-# - name: galactocentric_z
-#   unit: kpc
-#   datatype: float64
-#   format: '%0.5f'
-#   description: Galactocentric Y
-# - name: galactocentric_r
-#   unit: kpc
-#   datatype: float64
-#   format: '%0.5f'
-#   description: Galactocentric radius in the xy plan
-# - name: distance
-#   unit: kpc
-#   datatype: float64
-#   format: '%.5f'
-#   description: Distance from Earth
-# - name: glon
-#   unit: deg
-#   datatype: float64
-#   format: '%.5f'
-#   description: Galactic longitude
-# - name: glat
-#   unit: deg
-#   datatype: float64
-#   format: '%.5f'
-#   description: Galactic latitude
-# - name: skip
-#   datatype: float64
-#   format: '%.d'
-#   description: Skip boolean, 1 skip 0 keep
+# - {name: Num_SNR, unit: '', datatype: float64, format: '%i', description: Simulation number}
+# - {name: n0_ISM, unit: 1 / cm3, datatype: float64, format: '%0.4f', description: ISM density}
+# - {name: n0_shock, unit: 1 / cm3, datatype: float64, format: '%0.4f', description: Shock density}
+# - {name: type, unit: '', datatype: float64, format: '%i', description: type of progenitor}
+# - {name: Mej, unit: solMass, datatype: float64, format: '%0.4f', description: Mass of Ejecta}
+# - {name: agekyr, unit: kyear, datatype: float64, format: '%0.4f', description: age of the SNR}
+# - {name: sigma, unit: arcmin, datatype: float64, format: '%0.4f', description: apparent size of the SNR}
+# - {name: SNR_radiuspc, unit: pc, datatype: float64, format: '%0.4f', description: SNR Radius}
+# - {name: '0.1', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '0.13433993325989002', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '0.18047217668271703', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '0.24244620170823283', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '0.3257020655659783', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '0.43754793750741844', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '0.5878016072274912', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '0.7896522868499725', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '1.0608183551394483', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '1.4251026703029979', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '1.9144819761699576', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '2.5719138090593443', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '3.455107294592218', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '4.6415888336127775', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '6.235507341273912', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '8.376776400682916', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '11.253355826007645', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '15.117750706156615', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '20.309176209047347', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '27.283333764867667', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '36.65241237079626', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '49.238826317067364', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '66.14740641230146', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '88.86238162743399', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '119.37766417144357', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '160.37187437513293', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '215.44346900318823', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '289.4266124716749', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '388.81551803080856', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '522.3345074266838', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '701.7038286703822', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '942.6684551178845', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '1266.380173467402', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '1701.2542798525858', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '2285.4638641349884', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '3070.2906297578497', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '4124.626382901348', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '5541.020330009481', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '7443.803013251681', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: '10000.0', unit: TeV / (cm2 s), datatype: float64, description: Differential spectrum}
+# - {name: galactocentric_x, unit: kpc, datatype: float64, format: '%0.5f', description: Galactocentric X}
+# - {name: galactocentric_y, unit: kpc, datatype: float64, format: '%0.5f', description: Galactocentric Y}
+# - {name: galactocentric_z, unit: kpc, datatype: float64, format: '%0.5f', description: Galactocentric Y}
+# - {name: galactocentric_r, unit: kpc, datatype: float64, format: '%0.5f', description: Galactocentric radius in the xy plan}
+# - {name: distance, unit: kpc, datatype: float64, format: '%.5f', description: Distance from Earth}
+# - {name: glon, unit: deg, datatype: float64, format: '%.5f', description: Galactic longitude}
+# - {name: glat, unit: deg, datatype: float64, format: '%.5f', description: Galactic latitude}
+# - {name: skip, datatype: float64, format: '%.d', description: 'Skip boolean, 1 skip 0 keep'}
 # meta: !!omap
 # - simulation_parameters:
-#   - description: Spectral index
-#     name: alpha
-#     value: 4.1
-#   - description: Electron to proton ratio
-#     name: Kep
-#     value: 0.01
-#   - description: CR efficiency
-#     name: xi
-#     value: 0.1
-# - energy_array:
-#   - 0.1
-#   - 0.13433993325989002
-#   - 0.18047217668271703
-#   - 0.24244620170823283
-#   - 0.3257020655659783
-#   - 0.43754793750741844
-#   - 0.5878016072274912
-#   - 0.7896522868499725
-#   - 1.0608183551394483
-#   - 1.4251026703029979
-#   - 1.9144819761699576
-#   - 2.5719138090593443
-#   - 3.455107294592218
-#   - 4.6415888336127775
-#   - 6.235507341273912
-#   - 8.376776400682916
-#   - 11.253355826007645
-#   - 15.117750706156615
-#   - 20.309176209047347
-#   - 27.283333764867667
-#   - 36.65241237079626
-#   - 49.238826317067364
-#   - 66.14740641230146
-#   - 88.86238162743399
-#   - 119.37766417144357
-#   - 160.37187437513293
-#   - 215.44346900318823
-#   - 289.4266124716749
-#   - 388.81551803080856
-#   - 522.3345074266838
-#   - 701.7038286703822
-#   - 942.6684551178845
-#   - 1266.380173467402
-#   - 1701.2542798525858
-#   - 2285.4638641349884
-#   - 3070.2906297578497
-#   - 4124.626382901348
-#   - 5541.020330009481
-#   - 7443.803013251681
-#   - 10000.0
+#   - {description: Spectral index, name: alpha, value: 4.1}
+#   - {description: Electron to proton ratio, name: Kep, value: 0.01}
+#   - {description: CR efficiency, name: xi, value: 0.1}
+# - energy_array: [0.1, 0.13433993325989002, 0.18047217668271703, 0.24244620170823283, 0.3257020655659783, 0.43754793750741844, 0.5878016072274912,
+#     0.7896522868499725, 1.0608183551394483, 1.4251026703029979, 1.9144819761699576, 2.5719138090593443, 3.455107294592218, 4.6415888336127775,
+#     6.235507341273912, 8.376776400682916, 11.253355826007645, 15.117750706156615, 20.309176209047347, 27.283333764867667, 36.65241237079626,
+#     49.238826317067364, 66.14740641230146, 88.86238162743399, 119.37766417144357, 160.37187437513293, 215.44346900318823, 289.4266124716749,
+#     388.81551803080856, 522.3345074266838, 701.7038286703822, 942.6684551178845, 1266.380173467402, 1701.2542798525858, 2285.4638641349884,
+#     3070.2906297578497, 4124.626382901348, 5541.020330009481, 7443.803013251681, 10000.0]
 # schema: astropy-2.0
 Num_SNR n0_ISM n0_shock type Mej agekyr sigma SNR_radiuspc 0.1 0.13433993325989002 0.18047217668271703 0.24244620170823283 0.3257020655659783 0.43754793750741844 0.5878016072274912 0.7896522868499725 1.0608183551394483 1.4251026703029979 1.9144819761699576 2.5719138090593443 3.455107294592218 4.6415888336127775 6.235507341273912 8.376776400682916 11.253355826007645 15.117750706156615 20.309176209047347 27.283333764867667 36.65241237079626 49.238826317067364 66.14740641230146 88.86238162743399 119.37766417144357 160.37187437513293 215.44346900318823 289.4266124716749 388.81551803080856 522.3345074266838 701.7038286703822 942.6684551178845 1266.380173467402 1701.2542798525858 2285.4638641349884 3070.2906297578497 4124.626382901348 5541.020330009481 7443.803013251681 10000.0 galactocentric_x galactocentric_y galactocentric_z galactocentric_r distance glon glat skip
-0 0.1524 0.1524 1 1.4000 8.7475 46.1690 14.8135 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 -0.90403 -6.72231 -0.94294 6.78283 2.20603 -26.95525 -25.30510 0
 0 0.1524 0.1524 1 1.4000 8.7475 46.1690 14.8135 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 -0.90403 -6.72231 -0.94294 6.78283 2.20603 -26.95525 -25.30510 0
 1 0.0248 0.0248 1 1.4000 6.9309 13.2653 19.2316 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 -0.06474 1.45816 -0.43544 1.45960 9.96789 -0.37251 -2.50370 0
 2 0.1128 -0.0000 1 1.4000 34.5867 1.0000 1.0000 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.92312 -2.12646 0.22823 2.31818 6.44409 8.24119 2.02965 0

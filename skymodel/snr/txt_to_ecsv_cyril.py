@@ -67,7 +67,7 @@ def read_txt_files(version):
 
     NAMES = data.dtype.names[1]
     temp = test[0]
-    for j in range(0, number_of_SNRs):
+    for j in range(1, number_of_SNRs):
         temp = np.vstack([temp, test[j]])
     
         NAMES = data.dtype.names[0]
